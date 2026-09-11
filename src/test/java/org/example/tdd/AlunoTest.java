@@ -62,4 +62,11 @@ class AlunoTest {
 
         assertEquals(0, aluno.getCursosLiberados());
     }
+
+    @Test
+    void deveRetornarNomeDoAluno() {
+        var aluno = new Aluno("Maria Julia");
+
+        assertEquals("Maria Julia", aluno.getNome());
+    }
 }

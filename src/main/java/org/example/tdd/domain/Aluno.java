@@ -4,6 +4,7 @@ public class Aluno {
 
     private static final double MEDIA_MINIMA = 7.0;
     private static final int CURSOS_LIBERADOS_POR_DESEMPENHO = 3;
+    private static final int CURSOS_LIBERADOS_POR_FORUM = 1;
 
     private final String nome;
     private int cursosLiberados;
@@ -31,9 +32,21 @@ public class Aluno {
             int maiorQuantidadeTopicosDosOutros,
             int comentariosDeAjuda
     ) {
-        if (topicosCriados > maiorQuantidadeTopicosDosOutros
-                && comentariosDeAjuda > 0) {
-            cursosLiberados += 1;
+        if (participacaoForumElegivel(
+                topicosCriados,
+                maiorQuantidadeTopicosDosOutros,
+                comentariosDeAjuda)) {
+
+            cursosLiberados += CURSOS_LIBERADOS_POR_FORUM;
         }
+    }
+
+    private boolean participacaoForumElegivel(
+            int topicosCriados,
+            int maiorQuantidadeTopicosDosOutros,
+            int comentariosDeAjuda
+    ) {
+        return topicosCriados > maiorQuantidadeTopicosDosOutros
+                && comentariosDeAjuda > 0;
     }
 }
