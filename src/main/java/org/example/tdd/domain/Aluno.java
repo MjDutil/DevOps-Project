@@ -59,7 +59,11 @@ public class Aluno {
     }
 
     public void verificarPlanoPremium() {
-        // RED - regra ainda não implementada
+        if (cursosLiberados >= 12) {
+            plano = "Premium";
+            voucherProjetosReais = true;
+            moedas = 3;
+        }
     }
 
     public String getPlano() {
