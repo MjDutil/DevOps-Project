@@ -31,6 +31,9 @@ public class Aluno {
             int maiorQuantidadeTopicosDosOutros,
             int comentariosDeAjuda
     ) {
-        //RED - ainda não realizada
+        if (topicosCriados > maiorQuantidadeTopicosDosOutros
+                && comentariosDeAjuda > 0) {
+            cursosLiberados += 1;
+        }
     }
 }
