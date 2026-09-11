@@ -1,0 +1,17 @@
+### Criar aluno
+POST http://localhost:8080/alunos
+Content-Type: application/json
+
+{
+  "media": 8.0
+}
+
+### Recompensar participação no fórum - US02
+POST http://localhost:8080/alunos/1/recompensar-forum
+Content-Type: application/json
+
+{
+  "topicosCriados": 10,
+  "maiorQuantidadeTopicosDosOutros": 8,
+  "comentariosDeAjuda": 3
+}
