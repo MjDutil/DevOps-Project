@@ -33,4 +33,33 @@ class AlunoTest {
 
         assertEquals(0, aluno.getCursosLiberados());
     }
+
+    //maju
+
+    @Test
+    void deveLiberarUmCursoParaQuemMaisCriouTopicosEAjudouComComentarios() {
+        var aluno = new Aluno("Maria Julia");
+
+        aluno.recompensarParticipacaoForum(10, 8, 3);
+
+        assertEquals(1, aluno.getCursosLiberados());
+    }
+
+    @Test
+    void naoDeveLiberarCursoSeAlunoNaoForQuemMaisCriouTopicos() {
+        var aluno = new Aluno("Maria Julia");
+
+        aluno.recompensarParticipacaoForum(8, 10, 3);
+
+        assertEquals(0, aluno.getCursosLiberados());
+    }
+
+    @Test
+    void naoDeveLiberarCursoSeAlunoNaoAjudouComComentarios() {
+        var aluno = new Aluno("Maria Julia");
+
+        aluno.recompensarParticipacaoForum(10, 8, 0);
+
+        assertEquals(0, aluno.getCursosLiberados());
+    }
 }

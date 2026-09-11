@@ -25,4 +25,12 @@ public class Aluno {
     public String getNome() {
         return nome;
     }
+
+    public void recompensarParticipacaoForum(
+            int topicosCriados,
+            int maiorQuantidadeTopicosDosOutros,
+            int comentariosDeAjuda
+    ) {
+        //RED - ainda não realizada
+    }
 }
