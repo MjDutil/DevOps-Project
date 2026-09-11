@@ -15,3 +15,17 @@ Content-Type: application/json
   "maiorQuantidadeTopicosDosOutros": 8,
   "comentariosDeAjuda": 3
 }
+
+### Criar aluno para testar US03
+POST http://localhost:8080/alunos
+Content-Type: application/json
+
+{
+  "media": 8.0
+}
+
+### Concluir curso 1
+POST http://localhost:8080/alunos/1/concluir-curso
+
+### Verificar plano Premium - US03
+POST http://localhost:8080/alunos/1/verificar-premium

@@ -7,6 +7,8 @@ import org.example.tdd.repository.AlunoRepository;
 import org.springframework.stereotype.Service;
 import org.example.tdd.domain.Aluno;
 import org.example.tdd.dto.ParticipacaoForumRequestDto;
+import org.example.tdd.domain.Aluno;
+import org.example.tdd.dto.PlanoPremiumResponseDto;
 
 @Service
 public class AlunoService {
@@ -80,6 +82,31 @@ public class AlunoService {
                 salvo.getId(),
                 salvo.getMedia(),
                 salvo.getCursosLiberados()
+        );
+    }
+
+    public PlanoPremiumResponseDto verificarPlanoPremium(Long id) {
+
+        AlunoEntity alunoEntity = alunoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+
+        Aluno aluno = new Aluno("Aluno " + id);
+
+        aluno.adicionarCursos(alunoEntity.getCursosLiberados());
+        aluno.verificarPlanoPremium();
+
+        alunoEntity.setPlano(aluno.getPlano());
+        alunoEntity.setVoucherProjetosReais(aluno.isVoucherProjetosReais());
+        alunoEntity.setMoedas(aluno.getMoedas());
+
+        AlunoEntity salvo = alunoRepository.save(alunoEntity);
+
+        return new PlanoPremiumResponseDto(
+                salvo.getId(),
+                salvo.getCursosLiberados(),
+                salvo.getPlano(),
+                salvo.getVoucherProjetosReais(),
+                salvo.getMoedas()
         );
     }
 }

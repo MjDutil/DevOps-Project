@@ -11,10 +11,13 @@ public class AlunoEntity {
     private Long id;
 
     private Double media;
-
     private Integer cursosLiberados;
 
-    public AlunoEntity() {
+    private String plano = "Basico";
+    private Boolean voucherProjetosReais = false;
+    private Integer moedas = 0;
+
+    protected AlunoEntity() {
     }
 
     public AlunoEntity(Double media, Integer cursosLiberados) {
@@ -41,4 +44,18 @@ public class AlunoEntity {
     public void setCursosLiberados(Integer cursosLiberados) {
         this.cursosLiberados = cursosLiberados;
     }
+
+
+    public String getPlano() { return plano; }
+
+    public void setPlano(String plano) { this.plano = plano; }
+
+    public Boolean getVoucherProjetosReais() { return voucherProjetosReais; }
+
+    public void setVoucherProjetosReais(Boolean voucherProjetosReais) { this.voucherProjetosReais = voucherProjetosReais; }
+
+    public Integer getMoedas() { return moedas; }
+
+    public void setMoedas(Integer moedas) { this.moedas = moedas; }
+
 }
