@@ -5,6 +5,7 @@ import org.example.tdd.dto.AlunoResponseDto;
 import org.example.tdd.service.AlunoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.example.tdd.dto.ParticipacaoForumRequestDto;
 
 @RestController
 @RequestMapping("/alunos")
@@ -31,6 +32,16 @@ public class AlunoController {
     ) {
         return ResponseEntity.ok(
                 alunoService.concluirCurso(id)
+        );
+    }
+
+    @PostMapping("/{id}/recompensar-forum")
+    public ResponseEntity<AlunoResponseDto> recompensarParticipacaoForum(
+            @PathVariable Long id,
+            @RequestBody ParticipacaoForumRequestDto request
+    ) {
+        return ResponseEntity.ok(
+                alunoService.recompensarParticipacaoForum(id, request)
         );
     }
 }
