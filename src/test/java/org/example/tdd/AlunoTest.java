@@ -8,31 +8,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AlunoTest {
 
     @Test
-    void deveLiberarTresCursosQuandoMediaForSuperiorASete() {
+    void deveLiberarTresCursosParaMediaSuperiorASete() {
+        var aluno = new Aluno("Isadora");
 
-        Aluno aluno = new Aluno(8.0);
-
-        aluno.concluirCurso();
+        aluno.concluirCurso(8.0);
 
         assertEquals(3, aluno.getCursosLiberados());
     }
 
     @Test
-    void naoDeveLiberarCursosQuandoMediaForIgualASete() {
+    void naoDeveLiberarCursosParaMediaIgualASete() {
+        var aluno = new Aluno("Isadora");
 
-        Aluno aluno = new Aluno(7.0);
-
-        aluno.concluirCurso();
+        aluno.concluirCurso(7.0);
 
         assertEquals(0, aluno.getCursosLiberados());
     }
 
     @Test
-    void naoDeveLiberarCursosQuandoMediaForInferiorASete() {
+    void naoDeveLiberarCursosParaMediaInferiorASete() {
+        var aluno = new Aluno("Isadora");
 
-        Aluno aluno = new Aluno(6.5);
-
-        aluno.concluirCurso();
+        aluno.concluirCurso(6.5);
 
         assertEquals(0, aluno.getCursosLiberados());
     }
