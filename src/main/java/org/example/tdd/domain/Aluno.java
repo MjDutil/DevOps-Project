@@ -5,6 +5,10 @@ public class Aluno {
     private static final double MEDIA_MINIMA = 7.0;
     private static final int CURSOS_LIBERADOS_POR_DESEMPENHO = 3;
     private static final int CURSOS_LIBERADOS_POR_FORUM = 1;
+    private static final int CURSOS_PARA_PREMIUM = 12;
+    private static final int MOEDAS_PREMIUM = 3;
+    private static final String PLANO_PREMIUM = "Premium";
+    private static final String PLANO_BASICO = "Basico";
 
     private final String nome;
     private int cursosLiberados;
@@ -50,7 +54,7 @@ public class Aluno {
                 && comentariosDeAjuda > 0;
     }
 
-    private String plano = "Basico";
+    private String plano = PLANO_BASICO;
     private boolean voucherProjetosReais = false;
     private int moedas = 0;
 
@@ -59,10 +63,10 @@ public class Aluno {
     }
 
     public void verificarPlanoPremium() {
-        if (cursosLiberados >= 12) {
-            plano = "Premium";
+        if (cursosLiberados >= CURSOS_PARA_PREMIUM) {
+            plano = PLANO_PREMIUM;
             voucherProjetosReais = true;
-            moedas = 3;
+            moedas = MOEDAS_PREMIUM;
         }
     }
 
