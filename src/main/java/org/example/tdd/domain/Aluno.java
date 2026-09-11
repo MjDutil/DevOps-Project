@@ -49,4 +49,28 @@ public class Aluno {
         return topicosCriados > maiorQuantidadeTopicosDosOutros
                 && comentariosDeAjuda > 0;
     }
+
+    private String plano = "Basico";
+    private boolean voucherProjetosReais = false;
+    private int moedas = 0;
+
+    public void adicionarCursos(int quantidade) {
+        cursosLiberados += quantidade;
+    }
+
+    public void verificarPlanoPremium() {
+        // RED - regra ainda não implementada
+    }
+
+    public String getPlano() {
+        return plano;
+    }
+
+    public boolean isVoucherProjetosReais() {
+        return voucherProjetosReais;
+    }
+
+    public int getMoedas() {
+        return moedas;
+    }
 }
