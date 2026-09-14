@@ -7,6 +7,7 @@
 
 ## Link do Repositório no GitHub
 - Preencher aqui: `https://github.com/<usuario>/<repositorio>`
+- Link para postar no Canvas: `https://github.com/<usuario>/<repositorio>`
 
 ## Contexto da Entrega
 Projeto da disciplina com foco em **Educação Continuada Gamificada**, aplicando:
@@ -136,7 +137,11 @@ Content-Type: application/json
 
 ### PostgreSQL + PgAdmin
 - Dependência PostgreSQL configurada no projeto.
-- Evidência de execução com container: **adicionar print aqui** (PostgreSQL/PgAdmin em execução).
+- Executar com Docker Compose para gerar evidência:
+  - `docker compose up --build -d`
+  - PgAdmin: `http://localhost:5050` (`admin@tdd.com` / `admin123`)
+  - PostgreSQL: `localhost:5432` (`database=tdd`, `user=tdd`, `password=tdd123`)
+- Evidência solicitada: adicionar print do PgAdmin conectado ao banco `tdd`.
 
 ## Execução do Projeto
 
@@ -159,23 +164,44 @@ No Windows (PowerShell):
 ```
 
 ## Docker
-Para atender ao requisito de execução containerizada, incluir no repositório:
+Arquivos criados:
 - `Dockerfile` da aplicação Spring Boot
 - `docker-compose.yml` com:
   - app Spring Boot
   - PostgreSQL
-  - PgAdmin (opcional, mas recomendado)
+  - PgAdmin
 
-Status atual neste repositório:
-- `Dockerfile`: pendente
-- `docker-compose.yml`: pendente
+Comandos:
+```bash
+docker compose up --build -d
+docker compose ps
+docker compose logs -f app
+```
+
+Parar containers:
+```bash
+docker compose down
+```
 
 ## Front-end VueJS
 Requisito da atividade:
 - Implementar front-end em VueJS consumindo os endpoints da API.
 
-Status atual neste repositório:
-- Projeto VueJS: pendente
+Implementação realizada em `frontend/` com:
+- criação de aluno
+- conclusão de curso
+- recompensa por fórum
+- verificação de plano Premium
+
+Rodar front-end:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+URL local:
+- `http://localhost:5173`
 
 ## Planilha
 - Se utilizada, anexar no repositório e referenciar aqui:
@@ -189,7 +215,7 @@ Status atual neste repositório:
 - [x] Swagger com endpoints
 - [x] Evidência H2
 - [ ] Evidência PostgreSQL/PgAdmin via container
-- [ ] Dockerfile e docker-compose
-- [ ] Front-end VueJS
+- [x] Dockerfile e docker-compose
+- [x] Front-end VueJS
 - [ ] Planilha (se houver)
 

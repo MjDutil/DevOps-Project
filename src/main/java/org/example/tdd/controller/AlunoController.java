@@ -10,6 +10,7 @@ import org.example.tdd.dto.PlanoPremiumResponseDto;
 
 @RestController
 @RequestMapping("/alunos")
+@CrossOrigin(origins = "*")
 public class AlunoController {
 
     private final AlunoService alunoService;
