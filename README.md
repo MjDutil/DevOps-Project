@@ -6,8 +6,7 @@
 - Maria Julia
 
 ## Link do Repositório no GitHub
-- Preencher aqui: `https://github.com/<usuario>/<repositorio>`
-- Link para postar no Canvas: `https://github.com/<usuario>/<repositorio>`
+- `https://github.com/<usuario>/<repositorio>`
 
 ## Contexto da Entrega
 Projeto da disciplina com foco em **Educação Continuada Gamificada**, aplicando:
