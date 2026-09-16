@@ -2,57 +2,210 @@
   <main class="page">
     <header class="hero">
       <p class="kicker">Painel ATDD</p>
-      <h1>Educacao Continuada Gamificada</h1>
-      <p class="subtitle">Execute os cenarios de teste e valide o comportamento esperado de cada US.</p>
+      <h1>Educação Continuada Gamificada</h1>
+      <p class="subtitle">
+        Execute os cenários de teste e valide o comportamento esperado de cada User Story.
+      </p>
     </header>
 
+    <!-- US1 -->
     <section class="card">
-      <h2>US1 - Desempenho Academico</h2>
-      <p class="desc">Teste: aluno com media acima de 7 deve ganhar 3 cursos ao concluir disciplina.</p>
-      <div class="row">
-        <input v-model.number="mediaUs1" type="number" step="0.1" placeholder="Media para testar" />
-        <button @click="executarUs1">Executar cenario US1</button>
+      <div class="us-header">
+        <span class="us-badge">US1</span>
+        <div>
+          <h2>Desempenho Acadêmico</h2>
+          <p class="desc">
+            Valida a recompensa concedida ao aluno após a conclusão de um curso.
+          </p>
+        </div>
       </div>
-      <p class="expected">Esperado: media > 7 = 3 cursos, media <= 7 = 0 cursos.</p>
-      <p v-if="statusUs1" :class="statusClass(statusUs1.ok)">{{ statusUs1.texto }}</p>
-    </section>
 
-    <section class="card">
-      <h2>US2 - Recompensa por Forum</h2>
-      <p class="desc">
-        Teste: ganha 1 curso quando cria mais topicos que os demais e faz pelo menos 1 comentario de ajuda.
+      <div class="rule-box">
+        <span class="section-label">Regra testada</span>
+        <p>
+          Se o aluno concluir um curso com <strong>média acima de 7</strong>,
+          deve receber <strong>+3 cursos</strong>.
+        </p>
+      </div>
+
+      <div class="form-section">
+        <span class="section-label">Dados do teste</span>
+
+        <div class="field single-field">
+          <label for="media-us1">Média final do aluno</label>
+          <input
+              id="media-us1"
+              v-model.number="mediaUs1"
+              type="number"
+              step="0.1"
+              placeholder="Ex.: 8.0"
+          />
+          <small>Teste valores como 8.0, 7.0 ou 6.5.</small>
+        </div>
+      </div>
+
+      <button class="primary-action" @click="executarUs1">
+        Executar cenário US1
+      </button>
+
+      <div class="expected-box">
+        <strong>Resultado esperado</strong>
+        <span>Média &gt; 7 → 3 cursos | Média ≤ 7 → 0 cursos</span>
+      </div>
+
+      <p v-if="statusUs1" :class="statusClass(statusUs1.ok)">
+        {{ statusUs1.texto }}
       </p>
-      <div class="grid">
-        <input v-model.number="forum.topicosCriados" type="number" placeholder="Topicos criados" />
-        <input
-          v-model.number="forum.maiorQuantidadeTopicosDosOutros"
-          type="number"
-          placeholder="Maior qtd dos outros"
-        />
-        <input v-model.number="forum.comentariosDeAjuda" type="number" placeholder="Comentarios de ajuda" />
-      </div>
-      <div class="row">
-        <button @click="aplicarCenarioUs2(10, 8, 3)">Cenario valido</button>
-        <button class="ghost" @click="aplicarCenarioUs2(8, 10, 3)">Nao lidera topicos</button>
-        <button class="ghost" @click="aplicarCenarioUs2(10, 8, 0)">Sem comentarios</button>
-        <button @click="executarUs2">Executar cenario US2</button>
-      </div>
-      <p class="expected">Esperado: apenas o cenario valido libera 1 curso.</p>
-      <p v-if="statusUs2" :class="statusClass(statusUs2.ok)">{{ statusUs2.texto }}</p>
     </section>
 
+    <!-- US2 -->
     <section class="card">
-      <h2>US3 - Plano Premium</h2>
-      <p class="desc">Teste: ao atingir 12 cursos liberados, aluno vira Premium, recebe voucher e 3 moedas.</p>
-      <div class="row">
-        <button @click="executarUs3">Executar cenario US3 completo</button>
+      <div class="us-header">
+        <span class="us-badge">US2</span>
+        <div>
+          <h2>Recompensa por Fórum</h2>
+          <p class="desc">
+            Valida a recompensa do aluno por participação e ajuda no fórum.
+          </p>
+        </div>
       </div>
-      <p class="expected">Fluxo automatico: cria aluno, conclui 4 cursos (4 x 3 = 12) e verifica Premium.</p>
-      <p v-if="statusUs3" :class="statusClass(statusUs3.ok)">{{ statusUs3.texto }}</p>
+
+      <div class="rule-box">
+        <span class="section-label">Regra testada</span>
+        <p>
+          O aluno recebe <strong>+1 curso</strong> quando cria mais tópicos
+          que os demais <strong>e</strong> realiza pelo menos um comentário de ajuda.
+        </p>
+      </div>
+
+      <div class="form-section">
+        <span class="section-label">Dados do teste</span>
+
+        <div class="grid">
+          <div class="field">
+            <label>Tópicos criados pelo aluno</label>
+            <input
+                v-model.number="forum.topicosCriados"
+                type="number"
+                placeholder="Ex.: 10"
+            />
+          </div>
+
+          <div class="field">
+            <label>Maior quantidade de tópicos dos outros</label>
+            <input
+                v-model.number="forum.maiorQuantidadeTopicosDosOutros"
+                type="number"
+                placeholder="Ex.: 8"
+            />
+          </div>
+
+          <div class="field">
+            <label>Comentários de ajuda realizados</label>
+            <input
+                v-model.number="forum.comentariosDeAjuda"
+                type="number"
+                placeholder="Ex.: 3"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario-section">
+        <span class="section-label">Preencher cenário de exemplo</span>
+
+        <div class="scenario-buttons">
+          <button @click="aplicarCenarioUs2(10, 8, 3)">
+            Cenário válido
+          </button>
+
+          <button
+              class="ghost"
+              @click="aplicarCenarioUs2(8, 10, 3)"
+          >
+            Não lidera tópicos
+          </button>
+
+          <button
+              class="ghost"
+              @click="aplicarCenarioUs2(10, 8, 0)"
+          >
+            Sem comentários
+          </button>
+        </div>
+      </div>
+
+      <button class="primary-action" @click="executarUs2">
+        Executar cenário US2
+      </button>
+
+      <div class="expected-box">
+        <strong>Resultado esperado</strong>
+        <span>Somente o cenário válido deve liberar +1 curso.</span>
+      </div>
+
+      <p v-if="statusUs2" :class="statusClass(statusUs2.ok)">
+        {{ statusUs2.texto }}
+      </p>
     </section>
 
+    <!-- US3 -->
     <section class="card">
+      <div class="us-header">
+        <span class="us-badge">US3</span>
+        <div>
+          <h2>Plano Premium</h2>
+          <p class="desc">
+            Valida a mudança automática do plano quando o aluno alcança 12 cursos.
+          </p>
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <span class="section-label">Regra testada</span>
+        <p>
+          Ao conquistar <strong>12 cursos</strong>, o aluno deve se tornar
+          <strong>Premium</strong>, receber um <strong>voucher</strong>
+          e ganhar <strong>3 moedas</strong>.
+        </p>
+      </div>
+
+      <div class="flow-box">
+        <span class="section-label">Fluxo executado automaticamente</span>
+
+        <div class="flow">
+          <span>Aluno com média 8</span>
+          <span class="arrow">→</span>
+          <span>4 conclusões</span>
+          <span class="arrow">→</span>
+          <span>12 cursos</span>
+          <span class="arrow">→</span>
+          <span>Premium</span>
+        </div>
+      </div>
+
+      <button class="primary-action" @click="executarUs3">
+        Executar cenário US3 completo
+      </button>
+
+      <div class="expected-box">
+        <strong>Resultado esperado</strong>
+        <span>Premium + voucher liberado + 3 moedas + 12 cursos.</span>
+      </div>
+
+      <p v-if="statusUs3" :class="statusClass(statusUs3.ok)">
+        {{ statusUs3.texto }}
+      </p>
+    </section>
+
+    <!-- API -->
+    <section class="card api-card">
+      <span class="section-label">Retorno técnico</span>
       <h2>Resposta da API</h2>
+      <p class="desc">
+        JSON retornado pelo backend após a última execução realizada.
+      </p>
+
       <pre>{{ resultado }}</pre>
     </section>
   </main>
@@ -119,8 +272,8 @@ async function executarUs1() {
     statusUs1.value = {
       ok,
       texto: ok
-        ? `US1 aprovado: cursosLiberados=${resposta.cursosLiberados}`
-        : `US1 falhou: esperado ${esperado}, retornou ${resposta.cursosLiberados}`
+          ? `✓ Teste aprovado — esperado: ${esperado} curso(s) | obtido: ${resposta.cursosLiberados} curso(s)`
+          : `✕ Teste falhou — esperado: ${esperado} | obtido: ${resposta.cursosLiberados}`
     };
     resultado.value = formatar(resposta);
   } catch (error) {
@@ -141,8 +294,8 @@ async function executarUs2() {
     statusUs2.value = {
       ok,
       texto: ok
-        ? `US2 aprovado: cursosLiberados=${resposta.cursosLiberados}`
-        : `US2 falhou: esperado ${esperado}, retornou ${resposta.cursosLiberados}`
+          ? `✓ Teste aprovado — esperado: ${esperado} curso(s) | obtido: ${resposta.cursosLiberados} curso(s)`
+          : `✕ Teste falhou — esperado: ${esperado} | obtido: ${resposta.cursosLiberados}`
     };
     resultado.value = formatar(resposta);
   } catch (error) {
@@ -166,8 +319,8 @@ async function executarUs3() {
     statusUs3.value = {
       ok,
       texto: ok
-        ? "US3 aprovado: aluno Premium com voucher e moedas."
-        : "US3 falhou: retorno nao condiz com os criterios de Premium."
+          ? "✓ Teste aprovado — aluno tornou-se Premium, recebeu voucher e 3 moedas."
+          : "✕ Teste falhou — o retorno não corresponde aos critérios do plano Premium."
     };
     resultado.value = formatar(resposta);
   } catch (error) {
@@ -303,4 +456,181 @@ pre {
   overflow: auto;
   margin-bottom: 0;
 }
+
+.us-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.us-header h2 {
+  margin: 0 0 4px;
+}
+
+.us-header .desc {
+  margin: 0;
+}
+
+.us-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #e5f0fd;
+  color: var(--brand);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.section-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--brand);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.rule-box {
+  margin: 16px 0 22px;
+  padding: 14px 16px;
+  background: #f6f9fe;
+  border-left: 4px solid var(--brand);
+  border-radius: 8px;
+}
+
+.rule-box p {
+  margin: 0;
+  color: var(--sub);
+  line-height: 1.55;
+}
+
+.form-section {
+  margin-top: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field label {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.field small {
+  color: #71809a;
+  font-size: 0.78rem;
+}
+
+.single-field {
+  max-width: 300px;
+}
+
+.grid {
+  gap: 14px;
+}
+
+.grid input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.scenario-section {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid #e3e9f2;
+}
+
+.scenario-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.primary-action {
+  display: block;
+  width: fit-content;
+  min-width: 220px;
+  margin-top: 24px;
+  padding: 12px 18px;
+}
+
+.expected-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 20px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f5f7fb;
+  color: var(--sub);
+}
+
+.expected-box strong {
+  color: var(--ink);
+  font-size: 0.85rem;
+}
+
+.flow-box {
+  margin-top: 20px;
+}
+
+.flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.flow span:not(.arrow) {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eef4fd;
+  color: #234e83;
+  font-weight: 600;
+  font-size: 0.86rem;
+}
+
+.arrow {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.status {
+  margin-top: 16px;
+  padding: 13px 15px;
+}
+
+.api-card {
+  margin-top: 26px;
+}
+
+@media (max-width: 650px) {
+  .us-header {
+    flex-direction: column;
+  }
+
+  .primary-action {
+    width: 100%;
+  }
+
+  .scenario-buttons button {
+    flex: 1 1 100%;
+  }
+
+  .flow .arrow {
+    display: none;
+  }
+}
+
 </style>
