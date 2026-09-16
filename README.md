@@ -24,15 +24,27 @@ Projeto da disciplina com foco em **Educação Continuada Gamificada**, aplicand
 - Objetivo: implementar regras de engajamento de alunos com bônus de cursos, recompensas por participação em fórum e progressão para plano Premium.
 
 ## Tecnologias Utilizadas
+### Backend
 - Java 17
-- IntelliJ IDEA Ultimate
 - Spring Boot
 - Spring Web
 - Spring Data JPA
+- Maven
+- Swagger / OpenAPI
+
+### Banco de Dados
 - H2 Database
 - PostgreSQL
-- Swagger/OpenAPI
-- Maven
+- PgAdmin
+
+### Frontend
+- Vue.js
+- Vite
+- Nginx
+
+### Infraestrutura
+- Docker
+- Docker Compose
 
 ## Estrutura da Aplicação
 Camadas implementadas:
@@ -162,25 +174,27 @@ No Windows (PowerShell):
 .\mvnw.cmd test
 ```
 
-## Docker
-Arquivos criados:
-- `Dockerfile` da aplicação Spring Boot
-- `docker-compose.yml` com:
-  - app Spring Boot
-  - PostgreSQL
-  - PgAdmin
+## Execução com Docker
 
-Comandos:
+A aplicação completa foi containerizada utilizando Docker Compose.
+
+O ambiente possui quatro serviços:
+
+- `tdd-app`: backend Spring Boot
+- `tdd-frontend`: frontend Vue.js servido pelo Nginx
+- `tdd-postgres`: banco PostgreSQL
+- `tdd-pgadmin`: administração do PostgreSQL via PgAdmin
+
+### Pré-requisito
+
+Ter o Docker Desktop instalado e em execução.
+
+### Subir a aplicação completa
+
+Na raiz do projeto:
+
 ```bash
 docker compose up --build -d
-docker compose ps
-docker compose logs -f app
-```
-
-Parar containers:
-```bash
-docker compose down
-```
 
 ## Front-end VueJS
 Requisito da atividade:
