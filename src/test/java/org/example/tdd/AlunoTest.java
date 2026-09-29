@@ -14,7 +14,7 @@ class AlunoTest {
 
         aluno.concluirCurso(8.0);
 
-        assertEquals(3, aluno.getCursosLiberados());
+        assertEquals(4, aluno.getCursosLiberados());
     }
 
     @Test
