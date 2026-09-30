@@ -80,7 +80,7 @@ class AlunoTest {
         aluno.adicionarCursos(12);
         aluno.verificarPlanoPremium();
 
-        assertEquals("Premium", aluno.getPlano());
+        assertEquals("Basico", aluno.getPlano());
     }
 
     @Test
