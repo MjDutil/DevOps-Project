@@ -1,0 +1,257 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.example:TDD >---------------------------
+[INFO] Building TDD 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ TDD ---
+[INFO] Deleting /Users/majuudutil/Downloads/DevOps-Project-B1/target
+[INFO] 
+[INFO] --- jacoco:0.8.15:prepare-agent (default) @ TDD ---
+[INFO] argLine set to -javaagent:/Users/majuudutil/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/Users/majuudutil/Downloads/DevOps-Project-B1/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ TDD ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ TDD ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 19 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ TDD ---
+[INFO] skip non existing resourceDirectory /Users/majuudutil/Downloads/DevOps-Project-B1/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ TDD ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 12 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ TDD ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.example.tdd.ia.IaClientTest
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.371 s -- in org.example.tdd.ia.IaClientTest
+[INFO] Running org.example.tdd.ia.IaControllerTest
+20:21:23.587 [main] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 9.1.3.Final
+20:21:24.275 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+20:21:24.279 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+20:21:24.285 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 5 ms
+20:21:24.743 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+20:21:24.744 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+20:21:24.744 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+20:21:24.763 [main] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'pergunta' for method parameter type String is not present]
+20:21:24.776 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+20:21:24.776 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+20:21:24.777 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+20:21:24.797 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+20:21:24.797 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+20:21:24.797 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+20:21:24.820 [main] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'alunoId': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "invalido"]
+20:21:24.831 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+20:21:24.831 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+20:21:24.831 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+20:21:24.852 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+20:21:24.852 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+20:21:24.852 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.673 s -- in org.example.tdd.ia.IaControllerTest
+[INFO] Running org.example.tdd.AlunoTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in org.example.tdd.AlunoTest
+[INFO] Running org.example.tdd.AlunoHttpJpaIntegrationTest
+20:21:24.975 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.AlunoHttpJpaIntegrationTest]: AlunoHttpJpaIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:21:25.158 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.AlunoHttpJpaIntegrationTest
+20:21:25.254 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.AlunoHttpJpaIntegrationTest]: AlunoHttpJpaIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:21:25.256 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.AlunoHttpJpaIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-27T20:21:25.891-03:00  INFO 35188 --- [TDD] [           main] o.e.tdd.AlunoHttpJpaIntegrationTest      : Starting AlunoHttpJpaIntegrationTest using Java 17.0.20.1 with PID 35188 (started by majuudutil in /Users/majuudutil/Downloads/DevOps-Project-B1)
+2026-10-27T20:21:25.893-03:00  INFO 35188 --- [TDD] [           main] o.e.tdd.AlunoHttpJpaIntegrationTest      : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T20:21:27.198-03:00  INFO 35188 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-27T20:21:27.282-03:00  INFO 35188 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 1 JPA repository interface.
+2026-10-27T20:21:28.018-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-27T20:21:28.152-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-27T20:21:28.749-03:00  INFO 35188 --- [TDD] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-27T20:21:28.822-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-27T20:21:29.465-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desafio1 user=SA
+2026-10-27T20:21:29.469-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-27T20:21:29.635-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:desafio1]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: DESAFIO1/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-27T20:21:31.178-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-27T20:21:31.260-03:00  INFO 35188 --- [TDD] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T20:21:31.388-03:00  INFO 35188 --- [TDD] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-27T20:21:32.785-03:00  WARN 35188 --- [TDD] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-27T20:21:33.333-03:00  INFO 35188 --- [TDD] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desafio1'
+2026-10-27T20:21:33.529-03:00  INFO 35188 --- [TDD] [           main] o.e.tdd.AlunoHttpJpaIntegrationTest      : Started AlunoHttpJpaIntegrationTest in 8.135 seconds (process running for 15.442)
+2026-10-27T20:21:33.534-03:00  WARN 35188 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-27T20:21:33.534-03:00  WARN 35188 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-10-27T20:21:33.557-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:33.558-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:33.561-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-27T20:21:34.215-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:34.215-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:34.217-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-27T20:21:34.240-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:34.240-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:34.243-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-27T20:21:34.266-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:34.266-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:34.268-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-27T20:21:34.287-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:34.287-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:34.289-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-27T20:21:34.308-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:34.308-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:34.309-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-27T20:21:34.329-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:34.329-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:34.330-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-27T20:21:34.388-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:34.388-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:34.390-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-27T20:21:34.420-03:00  INFO 35188 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:21:34.421-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:21:34.422-03:00  INFO 35188 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.550 s -- in org.example.tdd.AlunoHttpJpaIntegrationTest
+[INFO] Running org.example.tdd.TddApplicationTests
+2026-10-27T20:21:34.450-03:00  INFO 35188 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.TddApplicationTests]: TddApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T20:21:34.452-03:00  INFO 35188 --- [TDD] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.TddApplicationTests
+2026-10-27T20:21:34.453-03:00  INFO 35188 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.TddApplicationTests]: TddApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T20:21:34.455-03:00  INFO 35188 --- [TDD] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.TddApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-27T20:21:34.491-03:00  INFO 35188 --- [TDD] [           main] org.example.tdd.TddApplicationTests      : Starting TddApplicationTests using Java 17.0.20.1 with PID 35188 (started by majuudutil in /Users/majuudutil/Downloads/DevOps-Project-B1)
+2026-10-27T20:21:34.491-03:00  INFO 35188 --- [TDD] [           main] org.example.tdd.TddApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T20:21:34.710-03:00  INFO 35188 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-27T20:21:34.722-03:00  INFO 35188 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
+2026-10-27T20:21:34.825-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-27T20:21:34.849-03:00  INFO 35188 --- [TDD] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-27T20:21:34.849-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-27T20:21:34.852-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:tdd user=SA
+2026-10-27T20:21:34.852-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-27T20:21:34.853-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:tdd]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TDD/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-27T20:21:34.888-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table alunos (id bigint generated by default as identity, cursos_liberados integer, media float(53), moedas integer, plano varchar(255), voucher_projetos_reais boolean, primary key (id))
+2026-10-27T20:21:34.910-03:00  INFO 35188 --- [TDD] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T20:21:35.020-03:00  WARN 35188 --- [TDD] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-27T20:21:35.180-03:00  INFO 35188 --- [TDD] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tdd'
+2026-10-27T20:21:35.215-03:00  INFO 35188 --- [TDD] [           main] org.example.tdd.TddApplicationTests      : Started TddApplicationTests in 0.75 seconds (process running for 17.128)
+2026-10-27T20:21:35.216-03:00  WARN 35188 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-27T20:21:35.216-03:00  WARN 35188 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.776 s -- in org.example.tdd.TddApplicationTests
+[INFO] Running org.example.tdd.service.AlunoServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.180 s -- in org.example.tdd.service.AlunoServiceTest
+[INFO] Running org.example.tdd.gamificacao.JpaAlunoStoreContractTest
+2026-10-27T20:21:35.410-03:00  INFO 35188 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.gamificacao.JpaAlunoStoreContractTest]: JpaAlunoStoreContractTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T20:21:35.419-03:00  INFO 35188 --- [TDD] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.gamificacao.JpaAlunoStoreContractTest
+2026-10-27T20:21:35.421-03:00  INFO 35188 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.gamificacao.JpaAlunoStoreContractTest]: JpaAlunoStoreContractTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T20:21:35.421-03:00  INFO 35188 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.gamificacao.AlunoStoreContract]: AlunoStoreContract does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T20:21:35.422-03:00  INFO 35188 --- [TDD] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.gamificacao.JpaAlunoStoreContractTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-27T20:21:35.452-03:00  INFO 35188 --- [TDD] [           main] o.e.t.g.JpaAlunoStoreContractTest        : Starting JpaAlunoStoreContractTest using Java 17.0.20.1 with PID 35188 (started by majuudutil in /Users/majuudutil/Downloads/DevOps-Project-B1)
+2026-10-27T20:21:35.452-03:00  INFO 35188 --- [TDD] [           main] o.e.t.g.JpaAlunoStoreContractTest        : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T20:21:35.640-03:00  INFO 35188 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-27T20:21:35.650-03:00  INFO 35188 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
+2026-10-27T20:21:35.737-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-27T20:21:35.755-03:00  INFO 35188 --- [TDD] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-27T20:21:35.756-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-10-27T20:21:35.759-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:desafio2 user=SA
+2026-10-27T20:21:35.759-03:00  INFO 35188 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-10-27T20:21:35.760-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:desafio2]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: DESAFIO2/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-27T20:21:35.792-03:00  INFO 35188 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-27T20:21:35.796-03:00  INFO 35188 --- [TDD] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T20:21:35.877-03:00  WARN 35188 --- [TDD] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-27T20:21:36.031-03:00  INFO 35188 --- [TDD] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desafio2'
+2026-10-27T20:21:36.059-03:00  INFO 35188 --- [TDD] [           main] o.e.t.g.JpaAlunoStoreContractTest        : Started JpaAlunoStoreContractTest in 0.631 seconds (process running for 17.972)
+2026-10-27T20:21:36.059-03:00  WARN 35188 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-27T20:21:36.060-03:00  WARN 35188 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+D2 JPA: conclusão com 1 entidade carregada e 2 statements (SELECT + UPDATE).
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.843 s -- in org.example.tdd.gamificacao.JpaAlunoStoreContractTest
+[INFO] Running org.example.tdd.gamificacao.DominioIsoladoTest
+PASSOU: domínio, 3 cenários com fake e conflito; somente JDK, sem Spring/JPA/banco.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.144 s -- in org.example.tdd.gamificacao.DominioIsoladoTest
+[INFO] Running org.example.tdd.gamificacao.FakeAlunoStoreContractTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in org.example.tdd.gamificacao.FakeAlunoStoreContractTest
+[INFO] Running org.example.tdd.gamificacao.ConcluirCursoUseCaseTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in org.example.tdd.gamificacao.ConcluirCursoUseCaseTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 75, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ TDD ---
+[INFO] Building jar: /Users/majuudutil/Downloads/DevOps-Project-B1/target/TDD-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ TDD ---
+[INFO] Replacing main artifact /Users/majuudutil/Downloads/DevOps-Project-B1/target/TDD-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /Users/majuudutil/Downloads/DevOps-Project-B1/target/TDD-0.0.1-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- jacoco:0.8.15:report (report) @ TDD ---
+[INFO] Loading execution data file /Users/majuudutil/Downloads/DevOps-Project-B1/target/jacoco.exec
+[INFO] Analyzed bundle 'TDD' with 17 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.588 s
+[INFO] Finished at: 2026-10-27T20:21:39-03:00
+[INFO] ------------------------------------------------------------------------

@@ -20,6 +20,8 @@ Evolução incremental do MVP da AC1 em Java/Spring Boot, Vue.js e banco relacio
   - [C4 Component](#d2-c4)
   - [Testes, evidências e rastreabilidade](#d2-evidencias)
 - [Execução e validação](#execucao)
+- [Cobertura global — validação adicional](#cobertura)
+- [Auditoria final e checklist da entrega](#auditoria-final)
 - [Histórico AC1 e funcionalidades preservadas](#historico-ac1)
 - [Pendências e publicação](#pendencias)
 
@@ -29,7 +31,7 @@ Evolução incremental do MVP da AC1 em Java/Spring Boot, Vue.js e banco relacio
 | Desafio | Decisão implementada | Evidência principal |
 |---|---|---|
 | 1 — Evolução do Core | Monólito modular incremental na conclusão de curso | Fronteira pública, dependências antes/depois e 25 testes na entrega D1 |
-| 2 — Organização interna | Ports & Adapters na mesma funcionalidade | Contrato comum fake/JPA, núcleo executado somente com JDK e suíte final de 51 testes |
+| 2 — Organização interna | Ports & Adapters na mesma funcionalidade | Contrato comum fake/JPA, núcleo executado somente com JDK e suíte de 51 testes na entrega D2 |
 
 **Escopo comprovado:** conclusão de curso, recompensa por fórum e evolução para Premium. O protótipo FastAPI já estava no pacote inicial; sua integração não foi validada nestes desafios. Desafios 3–6 continuam pendentes.
 
@@ -266,7 +268,7 @@ O diagrama recorta a capacidade selecionada. `ConclusaoCurso` e sua implementaç
 <a name="d2-evidencias"></a>
 ### Resultados reais, evidências e rastreabilidade
 
-| Classe / grupo | Testes | O que comprova |
+| Classe / grupo na entrega D2 | Testes | O que comprova |
 |---|---|---|
 | `AlunoTest` | 11 | Regras de domínio existentes |
 | `ConcluirCursoUseCaseTest` | 5 | Caso de uso com fake sem contexto Spring |
@@ -275,11 +277,11 @@ O diagrama recorta a capacidade selecionada. `ConclusaoCurso` e sua implementaç
 | `FakeAlunoStoreContractTest` | 11 | Contrato da porta com adapter em memória |
 | `JpaAlunoStoreContractTest` | 14 | Os mesmos 11 cenários + commit, rollback e exigência de transação |
 | `DominioIsoladoTest` | 1 | Compilação sem bibliotecas externas e execução em novo processo Java |
-| **Total final D1 + D2** | **51** | **Zero falhas, erros ou testes ignorados; BUILD SUCCESS** |
+| **Total histórico da entrega D1 + D2** | **51** | **Zero falhas, erros ou testes ignorados; BUILD SUCCESS** |
 
 Os 11 cenários comuns verificam busca existente/ausente, médias 8/7/6,5, acumulação de quatro conclusões, erro do caso de uso para aluno ausente, preservação de ID/média, rejeição de saldo ou média obsoletos e atualização sem criação de aluno inexistente.
 
-No cenário H2 medido, a conclusão carregou **uma entidade e preparou dois statements: SELECT + UPDATE**. Consultas JDBC posteriores verificaram commit e rollback. Isso não é benchmark. A compilação isolada e o `jdeps` confirmaram que o bytecode do núcleo depende somente de **`java.base`**. O JAR e o relatório JaCoCo foram gerados; não foi definida meta nem afirmada cobertura integral.
+No cenário H2 medido, a conclusão carregou **uma entidade e preparou dois statements: SELECT + UPDATE**. Consultas JDBC posteriores verificaram commit e rollback. Isso não é benchmark. A compilação isolada e o `jdeps` confirmaram que o bytecode do núcleo depende somente de **`java.base`**. Na entrega D2, o JAR e o relatório JaCoCo foram gerados sem meta global de cobertura. A [validação posterior de cobertura](#cobertura) mede o código existente separadamente e não conclui o Desafio 3.
 
 | Evidência verificável | Arquivo |
 |---|---|
@@ -288,7 +290,7 @@ No cenário H2 medido, a conclusão carregou **uma entidade e preparou dois stat
 | Mesmos cenários com os dois adapters | [Contrato comum](src/test/java/org/example/tdd/gamificacao/AlunoStoreContract.java) · [Fake](src/test/java/org/example/tdd/gamificacao/FakeAlunoStoreContractTest.java) · [JPA/H2](src/test/java/org/example/tdd/gamificacao/JpaAlunoStoreContractTest.java) |
 | Execução sem infraestrutura e dependências | [Resultado JDK/jdeps](docs/evidencias/desafio-2/nucleo-isolado.txt) · [Script reproduzível](docs/evidencias/desafio-2/verificar-nucleo.sh) |
 | Preservação da regra e revisão de código | [SHA-256 do domínio](docs/evidencias/desafio-2/dominio-preservado.txt) · [Diff D2](docs/evidencias/desafio-2/mudancas-producao.diff) |
-| Revalidação para esta revisão do README | [Novo `mvn verify`](docs/evidencias/revisao-readme/mvn-verify.txt) · [Validação editorial e diagramas](docs/evidencias/revisao-readme/README.md) |
+| Revalidação editorial anterior à ampliação de cobertura | [Verify editorial — 51 testes](docs/evidencias/revisao-readme/mvn-verify.txt) · [Links e diagramas](docs/evidencias/revisao-readme/README.md) |
 
 **Rastreabilidade D2:** RF02 → testabilidade, modificabilidade e manutenibilidade → três ASRs + RPCs Spring Boot, regras reaproveitadas, banco existente e evolução incremental → estado D1 parcial × Ports & Adapters × migração global → ADR-002 → C4 Component acima → contrato comum, execução JDK isolada e integrações vinculadas.
 
@@ -300,8 +302,8 @@ No cenário H2 medido, a conclusão carregou **uma entidade e preparou dois stat
 Pré-requisitos usados nos registros: **JDK 17** e **Maven 3.9.11**. Execute na raiz do projeto:
 
 ```bash
-# Suíte completa, empacotamento Spring Boot e relatório JaCoCo
-mvn verify
+# Suíte completa, limpeza dos dados anteriores, empacotamento e JaCoCo
+mvn clean verify
 
 # Contrato compartilhado dos adapters
 mvn -Dtest=FakeAlunoStoreContractTest,JpaAlunoStoreContractTest test
@@ -329,6 +331,78 @@ Frontend: `http://localhost:5173`; API: `http://localhost:8080`; Swagger: `http:
 
 O [Compose](docker-compose.yml) configura PostgreSQL, PgAdmin, Core, frontend e o protótipo IA preexistente. Sua presença não comprova execução; integração PostgreSQL/Docker e IA permanecem pendentes nestes desafios.
 
+<a name="cobertura"></a>
+## Cobertura global — validação adicional do código existente
+
+Após as entregas D1/D2, foram adicionados testes direcionados ao código que ainda não era exercitado. **`mvn clean verify` passou com 75 testes, zero falhas, erros ou testes ignorados.** O JaCoCo foi regenerado a partir de uma execução limpa, sem reaproveitar dados anteriores.
+
+| Métrica global | Antes | Depois |
+|---|---|---|
+| Instruções | 560/669 — 83,71% | **669/669 — 100%** |
+| Branches | 12/16 — 75% | **16/16 — 100%** |
+| Linhas | 141/160 — 88,12% | **160/160 — 100%** |
+| Métodos | 52/62 — 83,87% | **62/62 — 100%** |
+
+### Antes/depois por classe — cobertura de instruções
+
+| Classe com código executável | Antes | Depois |
+|---|---|---|
+| `org.example.tdd.TddApplication` | 37,50% | 100,00% |
+| `org.example.tdd.controller.AlunoController` | 100,00% | 100,00% |
+| `org.example.tdd.domain.Aluno` | 100,00% | 100,00% |
+| `org.example.tdd.dto.AlunoRequestDto` | 100,00% | 100,00% |
+| `org.example.tdd.dto.AlunoResponseDto` | 100,00% | 100,00% |
+| `org.example.tdd.dto.ParticipacaoForumRequestDto` | 100,00% | 100,00% |
+| `org.example.tdd.dto.PlanoPremiumResponseDto` | 100,00% | 100,00% |
+| `org.example.tdd.entity.AlunoEntity` | 94,44% | 100,00% |
+| `org.example.tdd.gamificacao.api.ConclusaoCurso$Resultado` | 100,00% | 100,00% |
+| `org.example.tdd.gamificacao.application.AlunoSnapshot` | 100,00% | 100,00% |
+| `org.example.tdd.gamificacao.application.ConcluirCursoUseCase` | 100,00% | 100,00% |
+| `org.example.tdd.gamificacao.infrastructure.ConclusaoCursoFacade` | 100,00% | 100,00% |
+| `org.example.tdd.gamificacao.infrastructure.GamificacaoConfiguration` | 100,00% | 100,00% |
+| `org.example.tdd.gamificacao.infrastructure.JpaAlunoStore` | 100,00% | 100,00% |
+| `org.example.tdd.ia.IaClient` | 20,79% | 100,00% |
+| `org.example.tdd.ia.IaController` | 37,50% | 100,00% |
+| `org.example.tdd.service.AlunoService` | 93,10% | 100,00% |
+
+Os percentuais são derivados dos XMLs. Interfaces sem bytecode executável não recebem percentual fictício. [Comparação completa de instruções, linhas e branches por classe](docs/evidencias/cobertura/comparacao.md). **Nenhum trecho executável permaneceu descoberto no relatório final.**
+
+### Comportamentos adicionais verificados
+
+- **`IaClient` — 15 cenários:** HTTP simulado com conversão real de JSON; sucesso nos dois métodos; pergunta com caracteres especiais; corpo ausente/JSON null; HTTP 400/404/500/503; conexão recusada e timeouts simulados; JSON malformado/tipo incompatível; nova chamada após falha. Um mapa válido sem os campos esperados é repassado, pois o cliente atual não valida schema; o teste registra essa limitação.
+- **`IaController` — seis cenários:** endpoints reais via MockMvc, HTTP/JSON de sucesso e fallback, parâmetro ausente e ID inválido, com verificação das chamadas ao cliente simulado. O fallback continua retornando HTTP 200, conforme o código existente.
+- **`AlunoService` — dois cenários:** fórum e Premium com aluno inexistente falham sem persistir alterações.
+- **`AlunoEntity` — uma integração adicional:** alteração de média persistida é usada pela conclusão seguinte; verificação com JDBC e resposta da API.
+- **`TddApplication`:** teste existente fortalecido para executar o `main` real e verificar contexto ativo e entrada de conclusão disponível.
+
+Os 51 testes anteriores foram preservados; 24 cenários foram acrescentados. O Surefire passou a carregar o agente Mockito na inicialização da JVM de testes, preservando o agente JaCoCo e evitando self-attach bloqueado pelo ambiente. **Não houve alteração em `src/main`, exclusão de classes ou mudança nas regras de negócio.**
+
+### Como interpretar a cobertura
+
+O núcleo **`domain` + `gamificacao.*` já tinha 100% das instruções e branches existentes** antes desta etapa e permaneceu assim. Os números históricos de 25 testes D1 e 51 testes D2 identificam as entregas originais; a suíte atual tem 75 testes.
+
+**Cobertura global de 100% não equivale a validação funcional completa.** Estes testes não comprovam FastAPI real, ML/RAG, temporização de rede, carga, PostgreSQL/Docker ou concorrência global. As exceções de timeout são simuladas; os limites reais de 700/1.200 ms não foram medidos. O Desafio 3 continua pendente: testar o cliente preexistente não substitui seu mini-lab integrado.
+
+Evidências: [registro e comandos](docs/evidencias/cobertura/README.md), [log `mvn clean verify`](docs/evidencias/cobertura/mvn-clean-verify.txt), [resumo dos 75 testes](docs/evidencias/cobertura/resumo-testes.txt), [XML antes](docs/evidencias/cobertura/antes-jacoco.xml), [XML depois](docs/evidencias/cobertura/depois-jacoco.xml) e [auditoria de escopo](docs/evidencias/cobertura/auditoria-escopo.txt). O HTML gerado fica em `target/site/jacoco/index.html`.
+
+<a name="auditoria-final"></a>
+## Auditoria final e checklist da entrega
+
+**Prontidão técnica:** D1 e D2 estão implementados e documentados no escopo dos mini-labs do enunciado original. A avaliação pode ser feita lendo este README, os fontes e os logs versionados, sem executar a aplicação. **Disponibilidade pública:** o conteúdo ainda precisa de publicação autorizada em `main`; os links foram conferidos contra a árvore do commit preparado.
+
+| Critério de avaliação | D1 | D2 |
+|---|---|---|
+| RF/RNF e até três ASRs | [Requisitos e três drivers macro](#d1-requisitos) | [Requisitos e três drivers internos](#d2-requisitos) |
+| RPCs, alternativas e trade-offs | [Camadas × modular × serviços](#d1-decisao) | [Estado D1 × Ports & Adapters × migração global](#d2-decisao) |
+| ADR e justificativa | [ADR-001](docs/adr/ADR-001.md) | [ADR-002](docs/adr/ADR-002.md) |
+| C4 coerente | [Container](#d1-c4) | [Component](#d2-c4) |
+| Microsolução e evidência | [Fronteira e dependências antes/depois](#d1-modularizacao) | [Mesmos 11 cenários aprovados nos dois adapters](docs/evidencias/auditoria-final/substituicao-adapters.md) |
+| Revalidação limpa atual | [75 testes e JaCoCo 100%, com escopo definido](#cobertura) | [Log integral da auditoria](docs/evidencias/auditoria-final/mvn-clean-verify.txt) |
+
+O [checklist detalhado contra o enunciado](docs/evidencias/auditoria-final/README.md) traz pesos dos critérios, caminhos exatos, resultados e pendências. A [auditoria Git](docs/evidencias/auditoria-final/git-arquivos.txt) verifica a ausência de builds, dependências e temporários no conjunto a publicar. A [preparação da publicação](docs/evidencias/auditoria-final/publicacao.md) preserva os commits separados e aguarda autorização para merge/push.
+
+A identificação B1 ainda precisa de confirmação; os nomes disponíveis são Felipe, Isadora e Maria Julia, registrados na AC1. Essa pendência administrativa não foi ocultada nem substituída pela premissa de seis desenvolvedores do case. Não foi iniciado o Desafio 3.
+
 <a name="historico-ac1"></a>
 ## Histórico AC1 e funcionalidades preservadas
 
@@ -351,4 +425,4 @@ O [README histórico da AC1](docs/ac1/README.md) preserva histórias, BDD, image
 - Executar os Desafios 3–6 antes de apresentá-los como concluídos.
 - Publicar a entrega na branch padrão **`main`**, após aprovação do responsável. Até essa integração, o README público ainda mostra a entrega anterior.
 
-Histórico local: limpeza `a25b2b2`, D1 `8bf8785` e D2 `34206c7`. A revisão do README é registrada em commit separado. A [preparação da integração](docs/evidencias/revisao-readme/integracao.md) documenta o estado remoto consultado, a comparação e o procedimento proposto. **Merge e push na branch padrão aguardam aprovação.**
+Histórico local: limpeza `a25b2b2`, D1 `8bf8785` e D2 `34206c7`. README completo: `ada5768`; testes e cobertura global: `20b933c`. A auditoria final e a atualização documental são registradas em commit separado. A [preparação atual da integração](docs/evidencias/auditoria-final/publicacao.md) documenta o estado remoto consultado e o procedimento proposto; o [registro editorial anterior](docs/evidencias/revisao-readme/integracao.md) permanece como histórico. **Merge e push na branch padrão aguardam aprovação.**

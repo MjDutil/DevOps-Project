@@ -1,0 +1,111 @@
+{
+  "data": "2026-10-27",
+  "comando": "mvn clean verify",
+  "resultado": "BUILD SUCCESS",
+  "testes": [
+    {
+      "classe": "org.example.tdd.AlunoHttpJpaIntegrationTest",
+      "testes": 9,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.AlunoTest",
+      "testes": 11,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.TddApplicationTests",
+      "testes": 1,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.gamificacao.ConcluirCursoUseCaseTest",
+      "testes": 5,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.gamificacao.DominioIsoladoTest",
+      "testes": 1,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.gamificacao.FakeAlunoStoreContractTest",
+      "testes": 11,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.gamificacao.JpaAlunoStoreContractTest",
+      "testes": 14,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.ia.IaClientTest",
+      "testes": 15,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.ia.IaControllerTest",
+      "testes": 6,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    {
+      "classe": "org.example.tdd.service.AlunoServiceTest",
+      "testes": 2,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    }
+  ],
+  "total_testes": 75,
+  "jacoco_global": {
+    "INSTRUCTION": {
+      "missed": 0,
+      "covered": 669
+    },
+    "BRANCH": {
+      "missed": 0,
+      "covered": 16
+    },
+    "LINE": {
+      "missed": 0,
+      "covered": 160
+    },
+    "COMPLEXITY": {
+      "missed": 0,
+      "covered": 70
+    },
+    "METHOD": {
+      "missed": 0,
+      "covered": 62
+    },
+    "CLASS": {
+      "missed": 0,
+      "covered": 17
+    }
+  },
+  "casos_comuns_adapters": 11,
+  "extras_jpa": [
+    "adapterDeEscritaDeveExigirTransacao",
+    "fachadaDeveComitarComUmaLeituraEUmaAtualizacao",
+    "rollbackDeveDesfazerConclusao"
+  ],
+  "sha256_dominio_preservado": "55c223019e8263e8a114953e32c3fb718b3bf12ee8238e460f537600386d67c0"
+}

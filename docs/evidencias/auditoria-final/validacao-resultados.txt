@@ -1,0 +1,4 @@
+PASSOU: 75 testes; 0 falhas, 0 erros, 0 ignorados; BUILD SUCCESS.
+PASSOU: JaCoCo 669/669 instruções, 16/16 branches, 160/160 linhas; mesmas classes antes/depois.
+PASSOU: 11 cenários comuns em fake e JPA/H2; mais 3 transacionais JPA.
+PASSOU: regra central preservada em relação ao D1; nenhuma exclusão JaCoCo.

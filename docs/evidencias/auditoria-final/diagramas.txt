@@ -1,0 +1,9 @@
+Diagramas da auditoria final (2026-10-27).
+docs/evidencias/revisao-readme/c4-container.mmd sha256=e83ccef57b3b704f7b223975c75a42f245dccd48ab667dc15c5c2b43b8415eff
+docs/evidencias/revisao-readme/c4-container.svg sha256=35d4815718fbf25a14716d5f7a30ee41714d6c0d12bdef62beda5efe1d43df32
+PASSOU: c4-container — fonte igual ao README e à renderização Mermaid 11; SVG XML válido e dimensões positivas.
+docs/evidencias/revisao-readme/c4-component.mmd sha256=68d871ca02715d52e82e3eaf898d0ba2c48305b0bfe0761d97610c22af0af40b
+docs/evidencias/revisao-readme/c4-component.svg sha256=369a33db1efe65fd76382a4c234fb4a32dd7445300c3d27fd1f28fb6e572bf10
+PASSOU: c4-component — fonte igual ao README e à renderização Mermaid 11; SVG XML válido e dimensões positivas.
+Fontes e SVGs idênticos à versão renderizada/inspecionada no commit ada5768.
+A auditoria reutiliza essa renderização sem abrir navegador; a exibição remota será conferida após a publicação aprovada.

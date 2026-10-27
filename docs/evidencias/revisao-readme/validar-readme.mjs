@@ -11,13 +11,13 @@ const require = createRequire(path.join(toolsDir, 'package.json'));
 const { marked } = await import(pathToFileURL(require.resolve('marked')));
 const { default: GithubSlugger } = await import(pathToFileURL(require.resolve('github-slugger')));
 const root = process.cwd();
-const files = [
-  'README.md', 'docs/ac1/README.md', 'docs/arquitetura/README.md',
-  'docs/adr/ADR-001.md', 'docs/adr/ADR-002.md',
-  'docs/evidencias/desafio-1/README.md', 'docs/evidencias/desafio-2/README.md',
-  'docs/evidencias/revisao-readme/README.md',
-  'docs/evidencias/revisao-readme/integracao.md',
-];
+function markdownFiles(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+    const file = path.join(directory, entry.name);
+    return entry.isDirectory() ? markdownFiles(file) : (entry.name.endsWith('.md') ? [file] : []);
+  });
+}
+const files = ['README.md', 'README-B1-START.md', ...markdownFiles('docs'), 'labs/ia/README.md'];
 const tracked = new Set(execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8' }).split('\0'));
 let count = 0;
 let fragments = 0;

@@ -63,6 +63,18 @@ A migração preserva o legado e torna explícita apenas a fronteira selecionada
 
 A porta atualiza somente cursos se o snapshot lido ainda corresponder ao banco. O adapter elimina a segunda chamada de busca e usa UPDATE parcial. A fachada mantém a transação do D1; a escrita exige transação existente. Os testes de conflito são determinísticos por snapshot obsoleto, sem alegação de validação de carga ou concorrência global do legado.
 
+## 2.3 Validação posterior de cobertura — sem nova implementação arquitetural
+
+Após D1/D2, `mvn clean verify` aprovou **75 testes**, com JaCoCo global em **100% de instruções (669/669), branches (16/16) e linhas (160/160)**. Foram preservados os testes anteriores e acrescentados cenários do código existente: cliente/controller IA, aluno ausente, atualização de média e inicialização pelo main real. Nenhuma regra ou fonte de produção foi alterado, e não houve exclusões JaCoCo.
+
+O núcleo `domain` + `gamificacao.*` já estava coberto antes; esta ampliação melhora a cobertura global, sem comprovar o laboratório real Spring/FastAPI ou concluir D3. [Comparação por classe, comandos e limites](../evidencias/cobertura/README.md). Os totais históricos de 25 testes D1 e 51 D2 continuam identificando suas entregas originais.
+
+## 2.4 Auditoria final dos mini-labs D1/D2
+
+A nova execução de `mvn clean verify` confirmou 75 testes e 100% de instruções/branches/linhas JaCoCo, sem exclusões. Os mesmos 11 casos do contrato passaram no fake e no JPA/H2, mais três testes transacionais JPA. [Checklist dos critérios do enunciado e caminhos de comprovação](../evidencias/auditoria-final/README.md).
+
+A apresentação principal é suficiente para leitura e avaliação sem executar o sistema. Publicação em `main` e confirmação da identificação B1 continuam pendentes; nenhuma integração/push foi realizada. D1 (`8bf8785`), D2 (`34206c7`), documentação (`ada5768`) e testes/cobertura (`20b933c`) permanecem separados no histórico. A auditoria/documentação final fica em commit próprio.
+
 ## 3. Alternativas, consequências, ADRs e C4
 
 Os seis ADRs estão em [`docs/adr/`](../adr/). Cada um contém contexto, RF/RNF, no máximo três ASRs, RPC, alternativas, trade-offs e consequências. Diagramas Container, Component e Deployment ficam em [`diagramas.md`](diagramas.md). Container e Component distinguem o estado implementado; Deployment permanece uma visão **alvo** com componentes planejados.
