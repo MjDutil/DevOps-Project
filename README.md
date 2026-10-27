@@ -1,6 +1,6 @@
 # Architecture Lab B1 (evolução da AC1)
 
-A atividade B1 está documentada em [docs/arquitetura/README.md](docs/arquitetura/README.md). Esta seção não substitui as evidências da AC1 abaixo. O [Desafio 1](docs/evidencias/desafio-1/README.md) registra a modularização incremental, as dependências e os testes reais.
+A atividade B1 está documentada em [docs/arquitetura/README.md](docs/arquitetura/README.md). Esta seção não substitui as evidências da AC1 abaixo. O [Desafio 1](docs/evidencias/desafio-1/README.md) registra a modularização incremental, as dependências e os testes reais. O [Desafio 2](docs/evidencias/desafio-2/README.md) comprova o contrato fake/JPA e a execução do núcleo sem Spring/banco.
 
 ---
 

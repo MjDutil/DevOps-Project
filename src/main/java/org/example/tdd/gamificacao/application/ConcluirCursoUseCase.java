@@ -15,8 +15,6 @@ public class ConcluirCursoUseCase {
                 .orElseThrow(() -> new IllegalArgumentException("Aluno não encontrado: " + id));
         Aluno regra = new Aluno("Aluno " + id);
         regra.concluirCurso(atual.media());
-        AlunoSnapshot atualizado = new AlunoSnapshot(
-                atual.id(), atual.media(), atual.cursosLiberados() + regra.getCursosLiberados());
-        return store.salvar(atualizado);
+        return store.atualizarCursos(atual, atual.cursosLiberados() + regra.getCursosLiberados());
     }
 }

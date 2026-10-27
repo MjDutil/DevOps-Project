@@ -11,3 +11,7 @@ Este material foi preparado a partir do ZIP enviado e **não foi publicado no se
 ## Incremento D1 — 2026-10-27
 
 A conclusão agora é acessada por `gamificacao.api.ConclusaoCurso`, sem dependência do serviço legado para o caso de uso interno. Consulte [o registro D1](docs/evidencias/desafio-1/README.md) para testes HTTP/JPA, comparação antes/depois e limites. O texto acima descreve a preparação original; os desafios 2–6 não foram executados neste incremento.
+
+## Incremento D2 — 2026-10-27
+
+Ports & Adapters foi consolidado na conclusão de curso, com contrato comum fake/JPA, núcleo compilado e executado somente com JDK e validação transacional H2. Consulte [as evidências D2](docs/evidencias/desafio-2/README.md). Os desafios 3–6 continuam fora desta etapa.

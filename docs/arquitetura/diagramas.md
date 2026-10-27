@@ -16,24 +16,43 @@ H2 nos testes; PostgreSQL no Compose")]
 
 Conclusão de curso é uma capacidade interna do Core, sem deploy, rede ou banco exclusivos. A seta para FastAPI registra código herdado do pacote inicial; D1 não valida essa integração. Broker, IoT e observabilidade permanecem apenas na visão futura abaixo.
 
-## Mapa da fatia interna — apoio à leitura do D1
+## C4 Component — Core, estado do Desafio 2
 
 ```mermaid
 flowchart LR
-    http[AlunoController] --> contrato["gamificacao.api.ConclusaoCurso"]
-    fachada["ConclusaoCursoFacade — transação"] -. implementa .-> contrato
-    fachada --> uc[ConcluirCursoUseCase]
-    uc --> dom["domain.Aluno — compartilhado"]
-    uc --> porta[AlunoStore]
-    jpa[JpaAlunoStore] -. implementa .-> porta
-    jpa --> repo["AlunoRepository / AlunoEntity — compartilhados"]
-    repo --> db[(Banco relacional)]
-    http --> legado["AlunoService — criação, fórum, Premium"]
-    legado --> repo
-    legado --> dom
+    subgraph core["Core Spring Boot — mesmo processo e deploy"]
+        http["AlunoController — adapter HTTP"]
+        subgraph modulo["Capacidade de conclusão / gamificacao"]
+            entrada["ConclusaoCurso — contrato público de entrada"]
+            fachada["ConclusaoCursoFacade — adapter de entrada transacional"]
+            uc["ConcluirCursoUseCase — aplicação pura"]
+            saida["AlunoStore — porta de saída
+buscar / atualizarCursos esperado"]
+            jpa["JpaAlunoStore — adapter de saída
+escrita exige transação"]
+            fachada -. implementa .-> entrada
+            fachada --> uc
+            uc --> saida
+            jpa -. implementa .-> saida
+        end
+        dom["domain.Aluno — regra pura compartilhada"]
+        repo["AlunoRepository / AlunoEntity — infraestrutura compartilhada
+UPDATE parcial com pré-condições"]
+        legado["AlunoService — criação, fórum, Premium preservados"]
+        uc --> dom
+        jpa --> repo
+        legado --> repo
+        legado --> dom
+    end
+    http --> entrada
+    http --> legado
+    repo --> db[("H2 nos testes / PostgreSQL configurado")]
+    fake["FakeAlunoStore — somente nos testes; sem Spring/banco"] -. implementa .-> saida
 ```
 
-Este mapa atualiza a documentação para corresponder ao código D1; o aprofundamento do C4 Component e da substituição de adapters continua no Desafio 2.
+Setas contínuas representam dependências de uso; “implementa” explicita inversão de dependências. O caso de uso depende da porta; os adapters implementam a porta definida pela aplicação. O fake não é bean nem serviço/container de produção. Na composição real, `GamificacaoConfiguration` injeta `AlunoStore` no caso de uso e o Spring seleciona o adapter JPA.
+
+A chamada pública entra pela fachada transacional; o contrato de saída atualiza somente cursos, rejeitando snapshot obsoleto. Domínio, entidade e repository seguem compartilhados com o legado, sem migração global. A mesma regra foi exercitada com os dois adapters nos [testes D2](../evidencias/desafio-2/README.md). O nível Container continua inalterado: uma aplicação Core, sem novos serviços.
 
 ## C4 Deployment — visão proposta para desafio 6
 

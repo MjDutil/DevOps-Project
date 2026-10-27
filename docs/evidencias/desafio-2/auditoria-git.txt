@@ -1,0 +1,13 @@
+Auditoria pré-D2 (2026-10-27).
+Branch: feature/architecture-lab-b1
+Limpeza: a25b2b2; D1: 8bf8785.
+PASSOU: 1.156 remoções apenas de dependências/builds/logs.
+3 frontend/dist
+1151 frontend/node_modules
+1 frontend/vite.err.log
+1 frontend/vite.out.log
+PASSOU: todos os fontes, configurações necessárias e evidências da origem continuam rastreados.
+PASSOU: fontes/documentação/evidências/arquivos B1 do commit D1 continuam rastreados.
+D1 reconfirmado com mvn -o verify: 25 testes, zero falhas/erros/ignorados.
+Log: ../desafio-1/verify-confirmacao-pre-d2.txt
+Nenhum push executado.
