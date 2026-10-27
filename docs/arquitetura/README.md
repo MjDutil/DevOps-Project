@@ -8,6 +8,10 @@
 
 > Nota de honestidade do pacote inicial (estado anterior): este registro reúne **decisões propostas** e um mini-lab de código para D1/D2. As demais evidências marcadas PENDENTES não foram executadas; não devem ser declaradas prontas antes dos testes e prints. O projeto real possui cursos liberados, recompensas no fórum e Premium, mas ainda não tem ranking, badges, serviço de IA ou IoT.
 
+## Avaliação diretamente pelo README principal
+
+O [README da raiz](../../README.md) apresenta o conteúdo essencial dos Desafios 1 e 2: RF/RNF, três ASRs por desafio, RPCs, alternativas, resumo dos ADRs, diagramas Container/Component e resultados reais. Este arquivo continua sendo o registro cumulativo dos seis desafios, conforme o enunciado. A [revisão editorial](../evidencias/revisao-readme/README.md) registra a nova execução dos testes e a validação de links/diagramas. Merge/publicação em `main` aguardam aprovação.
+
 ## 1. RFs e RNFs do case
 
 - **RF01 Ranking:** previsto no enunciado; não implementado na AC1 fornecida.

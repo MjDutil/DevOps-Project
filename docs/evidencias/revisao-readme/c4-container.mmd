@@ -1,0 +1,10 @@
+flowchart TB
+    pessoa["Aluno — pessoa"]
+    frontend["Frontend — Vue.js / Nginx"]
+    core["Core — Java / Spring Boot<br/>Monólito modular incremental<br/>Um processo e um deploy"]
+    banco[("Banco relacional<br/>H2 nos testes; PostgreSQL configurado")]
+    ia["FastAPI — protótipo preexistente<br/>Integração ainda não validada"]
+    pessoa --> frontend
+    frontend -->|HTTP REST / JSON| core
+    core -->|JPA / JDBC| banco
+    core -.->|HTTP — fora da validação D1/D2| ia

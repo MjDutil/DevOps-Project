@@ -1,0 +1,115 @@
+Comparação origin/main com o índice preparado para o commit de revisão do README.
+Data: 2026-10-27
+Base remota: 153cdfb750578c694b983e8e7ef8bcff9d6900ef
+Branch: feature/architecture-lab-b1
+Main é ancestral: True
+Código/testes/pom/frontend não alterados por esta revisão editorial.
+Nenhum merge ou push executado.
+
+Total por estado: {'M': 8, 'A': 90, 'D': 1156}
+
+Remoções consolidadas (somente gerados/dependências/logs):
+3 frontend/dist
+1151 frontend/node_modules
+1 frontend/vite.err.log
+1 frontend/vite.out.log
+
+Demais arquivos da integração (D1 + D2 + revisão do README):
+M .gitignore
+A README-B1-START.md
+M README.md
+M docker-compose.yml
+A docs/ac1/README.md
+A docs/adr/ADR-001.md
+A docs/adr/ADR-002.md
+A docs/adr/ADR-003.md
+A docs/adr/ADR-004.md
+A docs/adr/ADR-005.md
+A docs/adr/ADR-006.md
+A docs/arquitetura/README.md
+A docs/arquitetura/diagramas.md
+A docs/arquitetura/evidencias/desafios-1-2.txt
+A docs/arquitetura/labs/LabDomainSmoke.java
+A docs/evidencias/desafio-1/README.md
+A docs/evidencias/desafio-1/ambiente.txt
+A docs/evidencias/desafio-1/antes-AlunoController.java.txt
+A docs/evidencias/desafio-1/antes-AlunoService.java.txt
+A docs/evidencias/desafio-1/arquivos-do-incremento.txt
+A docs/evidencias/desafio-1/baseline-AlunoTest.txt
+A docs/evidencias/desafio-1/baseline-TddApplicationTests.txt
+A docs/evidencias/desafio-1/baseline-gamificacao.ConcluirCursoUseCaseTest.txt
+A docs/evidencias/desafio-1/comparacao-clone-local.txt
+A docs/evidencias/desafio-1/dependencias-antes.txt
+A docs/evidencias/desafio-1/dependencias-bytecode-antes.txt
+A docs/evidencias/desafio-1/dependencias-bytecode-depois.txt
+A docs/evidencias/desafio-1/dependencias-depois.txt
+A docs/evidencias/desafio-1/depois-org.example.tdd.AlunoHttpJpaIntegrationTest.txt
+A docs/evidencias/desafio-1/depois-org.example.tdd.AlunoTest.txt
+A docs/evidencias/desafio-1/depois-org.example.tdd.TddApplicationTests.txt
+A docs/evidencias/desafio-1/depois-org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.txt
+A docs/evidencias/desafio-1/integracao-b1.diff
+A docs/evidencias/desafio-1/preparacao-git.txt
+A docs/evidencias/desafio-1/refatoracao-d1.diff
+A docs/evidencias/desafio-1/resumo-testes.txt
+A docs/evidencias/desafio-1/testes-integracao-antes.txt
+A docs/evidencias/desafio-1/verificacao-fronteira.txt
+A docs/evidencias/desafio-1/verificar-fronteiras.py
+A docs/evidencias/desafio-1/verify-com-rede.txt
+A docs/evidencias/desafio-1/verify-confirmacao-pre-d2.txt
+A docs/evidencias/desafio-1/verify-offline-tentativa.txt
+A docs/evidencias/desafio-2/README.md
+A docs/evidencias/desafio-2/arquivos-do-incremento.txt
+A docs/evidencias/desafio-2/auditoria-git.txt
+A docs/evidencias/desafio-2/dominio-preservado.txt
+A docs/evidencias/desafio-2/mudancas-producao.diff
+A docs/evidencias/desafio-2/mvn-verify.txt
+A docs/evidencias/desafio-2/nucleo-isolado.txt
+A docs/evidencias/desafio-2/org.example.tdd.AlunoHttpJpaIntegrationTest.txt
+A docs/evidencias/desafio-2/org.example.tdd.AlunoTest.txt
+A docs/evidencias/desafio-2/org.example.tdd.TddApplicationTests.txt
+A docs/evidencias/desafio-2/org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.txt
+A docs/evidencias/desafio-2/org.example.tdd.gamificacao.DominioIsoladoTest.txt
+A docs/evidencias/desafio-2/org.example.tdd.gamificacao.FakeAlunoStoreContractTest.txt
+A docs/evidencias/desafio-2/org.example.tdd.gamificacao.JpaAlunoStoreContractTest.txt
+A docs/evidencias/desafio-2/resumo-testes.txt
+A docs/evidencias/desafio-2/testes-direcionados.txt
+A docs/evidencias/desafio-2/verificacao-imports.txt
+A docs/evidencias/desafio-2/verificar-nucleo.sh
+A docs/evidencias/revisao-readme/README.md
+A docs/evidencias/revisao-readme/c4-component.mmd
+A docs/evidencias/revisao-readme/c4-component.svg
+A docs/evidencias/revisao-readme/c4-container.mmd
+A docs/evidencias/revisao-readme/c4-container.svg
+A docs/evidencias/revisao-readme/comparacao-main-feature.txt
+A docs/evidencias/revisao-readme/ferramentas.txt
+A docs/evidencias/revisao-readme/integracao.md
+A docs/evidencias/revisao-readme/links-validacao.txt
+A docs/evidencias/revisao-readme/mermaid-render.txt
+A docs/evidencias/revisao-readme/mermaid-tentativa-sandbox.txt
+A docs/evidencias/revisao-readme/mvn-verify.txt
+A docs/evidencias/revisao-readme/validar-readme.mjs
+A labs/ia/Dockerfile
+A labs/ia/README.md
+A labs/ia/main.py
+A labs/ia/requirements.txt
+M mvnw
+M src/main/java/org/example/tdd/controller/AlunoController.java
+A src/main/java/org/example/tdd/gamificacao/api/ConclusaoCurso.java
+A src/main/java/org/example/tdd/gamificacao/application/AlunoSnapshot.java
+A src/main/java/org/example/tdd/gamificacao/application/AlunoStore.java
+A src/main/java/org/example/tdd/gamificacao/application/ConcluirCursoUseCase.java
+A src/main/java/org/example/tdd/gamificacao/infrastructure/ConclusaoCursoFacade.java
+A src/main/java/org/example/tdd/gamificacao/infrastructure/GamificacaoConfiguration.java
+A src/main/java/org/example/tdd/gamificacao/infrastructure/JpaAlunoStore.java
+A src/main/java/org/example/tdd/ia/IaClient.java
+A src/main/java/org/example/tdd/ia/IaController.java
+M src/main/java/org/example/tdd/repository/AlunoRepository.java
+M src/main/java/org/example/tdd/service/AlunoService.java
+M src/main/resources/application.properties
+A src/test/java/org/example/tdd/AlunoHttpJpaIntegrationTest.java
+A src/test/java/org/example/tdd/gamificacao/AlunoStoreContract.java
+A src/test/java/org/example/tdd/gamificacao/ConcluirCursoUseCaseTest.java
+A src/test/java/org/example/tdd/gamificacao/DominioIsoladoTest.java
+A src/test/java/org/example/tdd/gamificacao/FakeAlunoStore.java
+A src/test/java/org/example/tdd/gamificacao/FakeAlunoStoreContractTest.java
+A src/test/java/org/example/tdd/gamificacao/JpaAlunoStoreContractTest.java
