@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.example.tdd.repository.AlunoRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -29,6 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class AlunoHttpJpaIntegrationTest {
     @Autowired WebApplicationContext context;
     @Autowired JdbcTemplate jdbc;
+    @Autowired AlunoRepository repository;
     private MockMvc http;
 
     @BeforeEach
@@ -64,6 +66,22 @@ class AlunoHttpJpaIntegrationTest {
                 .andExpect(jsonPath("$.cursosLiberados").value(bonus));
         concluir(id);
         assertEquals(3 + bonus, jdbc.queryForObject(
+                "select cursos_liberados from alunos where id=?", Integer.class, id));
+    }
+
+    @Test
+    void mediaAlteradaEPersistidaDeveSerUsadaNaConclusaoSeguinte() throws Exception {
+        long id = criar(6.5);
+        var aluno = repository.findById(id).orElseThrow();
+        aluno.setMedia(8.0);
+        repository.saveAndFlush(aluno);
+        assertEquals(8.0, jdbc.queryForObject(
+                "select media from alunos where id=?", Double.class, id));
+        http.perform(post("/alunos/{id}/concluir-curso", id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.media").value(8.0))
+                .andExpect(jsonPath("$.cursosLiberados").value(3));
+        assertEquals(3, jdbc.queryForObject(
                 "select cursos_liberados from alunos where id=?", Integer.class, id));
     }
 

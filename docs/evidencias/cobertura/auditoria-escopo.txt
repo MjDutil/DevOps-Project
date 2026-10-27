@@ -1,0 +1,6 @@
+PASSOU: src/main sem alterações em relação ao commit atual.
+PASSOU: mesmas classes de produção antes/depois (17 com código executável).
+PASSOU: mesmos totais de 669 instruções, 16 branches e 160 linhas.
+PASSOU: JaCoCo sem configuração de exclusões adicionada.
+POM: apenas configuração do Surefire para agente Mockito coexistindo com agente JaCoCo.
+Nenhum merge ou push realizado.
