@@ -1,0 +1,51 @@
+Estado local B1 antes deste incremento (não confundir com origem AC1).
+
+src/main/java/org/example/tdd/TddApplication.java
+
+src/main/java/org/example/tdd/controller/AlunoController.java
+import org.example.tdd.dto.AlunoRequestDto;
+import org.example.tdd.dto.AlunoResponseDto;
+import org.example.tdd.service.AlunoService;
+import org.example.tdd.dto.ParticipacaoForumRequestDto;
+import org.example.tdd.dto.PlanoPremiumResponseDto;
+src/main/java/org/example/tdd/domain/Aluno.java
+
+src/main/java/org/example/tdd/dto/AlunoRequestDto.java
+
+src/main/java/org/example/tdd/dto/AlunoResponseDto.java
+
+src/main/java/org/example/tdd/dto/ParticipacaoForumRequestDto.java
+
+src/main/java/org/example/tdd/dto/PlanoPremiumResponseDto.java
+
+src/main/java/org/example/tdd/entity/AlunoEntity.java
+
+src/main/java/org/example/tdd/gamificacao/application/AlunoSnapshot.java
+
+src/main/java/org/example/tdd/gamificacao/application/AlunoStore.java
+
+src/main/java/org/example/tdd/gamificacao/application/ConcluirCursoUseCase.java
+import org.example.tdd.domain.Aluno;
+src/main/java/org/example/tdd/gamificacao/infrastructure/GamificacaoConfiguration.java
+import org.example.tdd.gamificacao.application.AlunoStore;
+import org.example.tdd.gamificacao.application.ConcluirCursoUseCase;
+src/main/java/org/example/tdd/gamificacao/infrastructure/JpaAlunoStore.java
+import org.example.tdd.entity.AlunoEntity;
+import org.example.tdd.gamificacao.application.AlunoSnapshot;
+import org.example.tdd.gamificacao.application.AlunoStore;
+import org.example.tdd.repository.AlunoRepository;
+src/main/java/org/example/tdd/ia/IaClient.java
+
+src/main/java/org/example/tdd/ia/IaController.java
+
+src/main/java/org/example/tdd/repository/AlunoRepository.java
+import org.example.tdd.entity.AlunoEntity;
+src/main/java/org/example/tdd/service/AlunoService.java
+import org.example.tdd.dto.AlunoRequestDto;
+import org.example.tdd.dto.AlunoResponseDto;
+import org.example.tdd.entity.AlunoEntity;
+import org.example.tdd.repository.AlunoRepository;
+import org.example.tdd.domain.Aluno;
+import org.example.tdd.dto.ParticipacaoForumRequestDto;
+import org.example.tdd.dto.PlanoPremiumResponseDto;
+import org.example.tdd.gamificacao.application.ConcluirCursoUseCase;

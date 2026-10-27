@@ -1,0 +1,104 @@
+--- local-b1-antes/src/main/java/org/example/tdd/controller/AlunoController.java
++++ desafio-1-depois/src/main/java/org/example/tdd/controller/AlunoController.java
+@@ -3,6 +3,7 @@
+ import org.example.tdd.dto.AlunoRequestDto;
+ import org.example.tdd.dto.AlunoResponseDto;
+ import org.example.tdd.service.AlunoService;
++import org.example.tdd.gamificacao.api.ConclusaoCurso;
+ import org.springframework.http.ResponseEntity;
+ import org.springframework.web.bind.annotation.*;
+ import org.example.tdd.dto.ParticipacaoForumRequestDto;
+@@ -14,9 +15,11 @@
+ public class AlunoController {
+ 
+     private final AlunoService alunoService;
++    private final ConclusaoCurso conclusaoCurso;
+ 
+-    public AlunoController(AlunoService alunoService) {
++    public AlunoController(AlunoService alunoService, ConclusaoCurso conclusaoCurso) {
+         this.alunoService = alunoService;
++        this.conclusaoCurso = conclusaoCurso;
+     }
+ 
+     @PostMapping
+@@ -32,9 +35,9 @@
+     public ResponseEntity<AlunoResponseDto> concluirCurso(
+             @PathVariable Long id
+     ) {
+-        return ResponseEntity.ok(
+-                alunoService.concluirCurso(id)
+-        );
++        var aluno = conclusaoCurso.concluir(id);
++        return ResponseEntity.ok(new AlunoResponseDto(
++                aluno.id(), aluno.media(), aluno.cursosLiberados()));
+     }
+ 
+     @PostMapping("/{id}/recompensar-forum")
+--- local-b1-antes/src/main/java/org/example/tdd/gamificacao/api/ConclusaoCurso.java
++++ desafio-1-depois/src/main/java/org/example/tdd/gamificacao/api/ConclusaoCurso.java
+@@ -0,0 +1,8 @@
++package org.example.tdd.gamificacao.api;
++
++/** Contrato público do módulo. Clientes não precisam conhecer persistência ou casos de uso. */
++public interface ConclusaoCurso {
++    Resultado concluir(Long alunoId);
++
++    record Resultado(Long id, Double media, Integer cursosLiberados) {}
++}
+--- local-b1-antes/src/main/java/org/example/tdd/gamificacao/infrastructure/ConclusaoCursoFacade.java
++++ desafio-1-depois/src/main/java/org/example/tdd/gamificacao/infrastructure/ConclusaoCursoFacade.java
+@@ -0,0 +1,23 @@
++package org.example.tdd.gamificacao.infrastructure;
++
++import org.example.tdd.gamificacao.api.ConclusaoCurso;
++import org.example.tdd.gamificacao.application.ConcluirCursoUseCase;
++import org.springframework.stereotype.Service;
++import org.springframework.transaction.annotation.Transactional;
++
++/** Entrada transacional: mantém a tecnologia fora do contrato e do caso de uso. */
++@Service
++public class ConclusaoCursoFacade implements ConclusaoCurso {
++    private final ConcluirCursoUseCase concluirCurso;
++
++    public ConclusaoCursoFacade(ConcluirCursoUseCase concluirCurso) {
++        this.concluirCurso = concluirCurso;
++    }
++
++    @Override
++    @Transactional
++    public Resultado concluir(Long alunoId) {
++        var aluno = concluirCurso.executar(alunoId);
++        return new Resultado(aluno.id(), aluno.media(), aluno.cursosLiberados());
++    }
++}
+--- local-b1-antes/src/main/java/org/example/tdd/service/AlunoService.java
++++ desafio-1-depois/src/main/java/org/example/tdd/service/AlunoService.java
+@@ -8,22 +8,14 @@
+ import org.example.tdd.domain.Aluno;
+ import org.example.tdd.dto.ParticipacaoForumRequestDto;
+ import org.example.tdd.dto.PlanoPremiumResponseDto;
+-import org.example.tdd.gamificacao.application.ConcluirCursoUseCase;
+ 
+ @Service
+ public class AlunoService {
+ 
+     private final AlunoRepository alunoRepository;
+-    private final ConcluirCursoUseCase concluirCursoUseCase;
+ 
+-    public AlunoService(AlunoRepository alunoRepository, ConcluirCursoUseCase concluirCursoUseCase) {
++    public AlunoService(AlunoRepository alunoRepository) {
+         this.alunoRepository = alunoRepository;
+-        this.concluirCursoUseCase = concluirCursoUseCase;
+-    }
+-
+-    public AlunoResponseDto concluirCurso(Long id) {
+-        var salvo = concluirCursoUseCase.executar(id);
+-        return new AlunoResponseDto(salvo.id(), salvo.media(), salvo.cursosLiberados());
+     }
+ 
+     public AlunoResponseDto criar(AlunoRequestDto request) {
+@@ -96,4 +88,4 @@
+                 salvo.getMoedas()
+         );
+     }
+-}+}

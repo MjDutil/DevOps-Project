@@ -1,0 +1,28 @@
+Mini-lab B1 D1/D2 — evidência de inspeção do código (não é resultado Maven/Swagger)
+
+ANTES (snapshot original do ZIP):
+- Conclusão de curso estava em AlunoService e dependia de AlunoRepository/AlunoEntity.
+- A regra "media > 7" aparecia no service e também em domain/Aluno.java.
+- Não existia contrato para trocar persistência na funcionalidade.
+
+DEPOIS (fatia B1):
+- Novo módulo gamificacao/application com AlunoStore, AlunoSnapshot e ConcluirCursoUseCase.
+- Novo adapter gamificacao/infrastructure/JpaAlunoStore que usa Spring Data JPA.
+- AlunoService.concluirCurso agora orquestra ConcluirCursoUseCase.
+- Regra continua em domain/Aluno e caso de uso não importa Spring/JPA.
+- Teste JUnit usa FakeAlunoStore. Arquivos legados preservados para migração gradual.
+
+A executar pelo aluno e registrar abaixo:
+[ ] ./mvnw test; anexar log e commit
+[ ] docker compose up --build -d; comparar POST /alunos, POST /concluir-curso
+[ ] Foto do C4 e descrição dos resultados
+
+EXECUTADO neste ambiente, via JDK 21:
+$ javac -d /tmp/b1-smoke src/main/java/org/example/tdd/domain/Aluno.java src/main/java/org/example/tdd/gamificacao/application/*.java docs/arquitetura/labs/LabDomainSmoke.java
+$ java -cp /tmp/b1-smoke LabDomainSmoke
+PASSOU: caso de uso e fake adapter, sem Spring/JPA (2 cenários).
+
+IMPEDIMENTO DE VALIDAÇÃO INTEGRADA neste ambiente:
+$ bash ./mvnw -q test
+wget: Failed to fetch https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.16/apache-maven-3.9.16-bin.zip
+Não é falha de teste da aplicação: não foi possível baixar a distribuição do Maven. Executar localmente com rede e anexar log de testes reais.

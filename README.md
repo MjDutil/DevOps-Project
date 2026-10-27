@@ -1,3 +1,9 @@
+# Architecture Lab B1 (evolução da AC1)
+
+A atividade B1 está documentada em [docs/arquitetura/README.md](docs/arquitetura/README.md). Esta seção não substitui as evidências da AC1 abaixo. O [Desafio 1](docs/evidencias/desafio-1/README.md) registra a modularização incremental, as dependências e os testes reais.
+
+---
+
 ﻿# Projeto Final - TDD/BDD/ATDD em Spring Boot
 
 ## Integrantes
@@ -6,7 +12,7 @@
 - Maria Julia
 
 ## Link do Repositório no GitHub
-- `https://github.com/<usuario>/<repositorio>`
+- `https://github.com/MjDutil/DevOps-Project`
 
 ## Contexto da Entrega
 Projeto da disciplina com foco em **Educação Continuada Gamificada**, aplicando:
@@ -195,6 +201,7 @@ Na raiz do projeto:
 
 ```bash
 docker compose up --build -d
+```
 
 ## Front-end VueJS
 Requisito da atividade:

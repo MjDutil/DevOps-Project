@@ -1,0 +1,44 @@
+MODIFICADO .gitignore
+MODIFICADO README-B1-START.md
+MODIFICADO README.md
+MODIFICADO docs/adr/ADR-001.md
+MODIFICADO docs/arquitetura/README.md
+MODIFICADO docs/arquitetura/diagramas.md
+PERMISSÃO mvnw
+MODIFICADO src/main/java/org/example/tdd/controller/AlunoController.java
+CRIADO src/main/java/org/example/tdd/gamificacao/api/ConclusaoCurso.java
+CRIADO src/main/java/org/example/tdd/gamificacao/infrastructure/ConclusaoCursoFacade.java
+MODIFICADO src/main/java/org/example/tdd/service/AlunoService.java
+CRIADO src/test/java/org/example/tdd/AlunoHttpJpaIntegrationTest.java
+MODIFICADO src/test/java/org/example/tdd/gamificacao/ConcluirCursoUseCaseTest.java
+
+EVIDÊNCIAS CRIADAS NESTA ETAPA:
+docs/evidencias/desafio-1/README.md
+docs/evidencias/desafio-1/ambiente.txt
+docs/evidencias/desafio-1/antes-AlunoController.java.txt
+docs/evidencias/desafio-1/antes-AlunoService.java.txt
+docs/evidencias/desafio-1/baseline-AlunoTest.txt
+docs/evidencias/desafio-1/baseline-TddApplicationTests.txt
+docs/evidencias/desafio-1/baseline-gamificacao.ConcluirCursoUseCaseTest.txt
+docs/evidencias/desafio-1/comparacao-clone-local.txt
+docs/evidencias/desafio-1/dependencias-antes.txt
+docs/evidencias/desafio-1/dependencias-bytecode-antes.txt
+docs/evidencias/desafio-1/dependencias-bytecode-depois.txt
+docs/evidencias/desafio-1/dependencias-depois.txt
+docs/evidencias/desafio-1/depois-org.example.tdd.AlunoHttpJpaIntegrationTest.txt
+docs/evidencias/desafio-1/depois-org.example.tdd.AlunoTest.txt
+docs/evidencias/desafio-1/depois-org.example.tdd.TddApplicationTests.txt
+docs/evidencias/desafio-1/depois-org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.txt
+docs/evidencias/desafio-1/integracao-b1.diff
+docs/evidencias/desafio-1/preparacao-git.txt
+docs/evidencias/desafio-1/refatoracao-d1.diff
+docs/evidencias/desafio-1/resumo-testes.txt
+docs/evidencias/desafio-1/testes-integracao-antes.txt
+docs/evidencias/desafio-1/verificacao-fronteira.txt
+docs/evidencias/desafio-1/verificar-fronteiras.py
+docs/evidencias/desafio-1/verify-com-rede.txt
+docs/evidencias/desafio-1/verify-offline-tentativa.txt
+docs/evidencias/desafio-1/arquivos-do-incremento.txt
+
+Além deste inventário: 1.156 dependências/builds/logs da origem retirados do índice Git.
+Os demais arquivos locais B1 foram preservados; ver comparacao-clone-local.txt.
