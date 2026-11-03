@@ -1,0 +1,18 @@
+flowchart TB
+    subgraph core["Core Spring Boot — recorte da conclusão de curso"]
+        http["AlunoController<br/>Adapter HTTP"]
+        entrada["ConclusaoCurso / ConclusaoCursoFacade<br/>Contrato de entrada e implementação transacional"]
+        uc["ConcluirCursoUseCase<br/>Aplicação pura"]
+        dominio["domain.Aluno<br/>Regra pura compartilhada"]
+        porta["AlunoStore<br/>Porta de saída"]
+        jpa["JpaAlunoStore<br/>Adapter de saída"]
+        repo["AlunoRepository / AlunoEntity<br/>Persistência compartilhada"]
+        http --> entrada
+        entrada --> uc
+        uc --> dominio
+        uc --> porta
+        jpa -. implementa .-> porta
+        jpa --> repo
+    end
+    repo --> banco[("Banco relacional<br/>H2 nos testes")]
+    fake["FakeAlunoStore<br/>Somente nos testes"] -. implementa .-> porta

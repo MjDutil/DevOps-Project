@@ -1,0 +1,4 @@
+PASSOU: 98 links relativos/âncoras nos documentos alterados; destinos existentes.
+Capitalização exata conferida na validação anterior; nenhum caminho foi renomeado.
+PASSOU: src/main inalterado.
+Publicação GitHub pendente de aprovação; conferência feita nos arquivos locais.

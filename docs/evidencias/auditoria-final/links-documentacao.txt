@@ -1,0 +1,5 @@
+PASSOU: 21 documentos, 229 links/imagens relativos e 33 âncoras.
+PASSOU: destinos existentes, capitalização exata e arquivos incluídos no índice Git.
+PASSOU: dois blocos Mermaid sincronizados com os fontes renderizados em SVG.
+URLs externas encontradas: https://github.com/MjDutil/DevOps-Project, https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#custom-anchors, https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
+Limite: validação dos caminhos do commit local; os novos destinos em main só estarão públicos após aprovação/publicação.

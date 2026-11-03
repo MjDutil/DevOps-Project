@@ -1,234 +1,101 @@
-﻿# Projeto Final - TDD/BDD/ATDD em Spring Boot
+# Architecture Lab B1 — Educação Continuada Gamificada
 
-## Integrantes
-- Felipe
-- Isadora
-- Maria Julia
+Evolução arquitetural de uma plataforma de educação, com decisões justificadas e evidências técnicas para avaliação acadêmica.
 
-## Link do Repositório no GitHub
-- `https://github.com/<usuario>/<repositorio>`
+[Sobre](#sobre-o-projeto) · [Tecnologias](#tecnologias-utilizadas) · [Arquitetura](#arquitetura) · [Desafios](#desafios) · [Execução](#como-executar-e-testar) · [Documentação e equipe](#documentação-e-equipe)
 
-## Contexto da Entrega
-Projeto da disciplina com foco em **Educação Continuada Gamificada**, aplicando:
-- TDD (RED -> GREEN -> BLUE)
-- BDD (cenários por história de usuário)
-- ATDD (evidências de aceitação via endpoints)
+## Sobre o projeto
 
-### Cronograma da Atividade
-- 01/09: início da atividade
-- 08/09: desenvolvimento em aula
-- 14/09: entrega final (turmas 1 e 2)
+Na **AC1**, construímos um MVP de gamificação em Java/Spring Boot e Vue.js. O **B1 — Architecture Lab** evolui esse mesmo produto em seis desafios, analisando como organizar o Core, integrar serviços e preparar sua operação sem reescrever as regras existentes.
 
-## Estudo de Caso
-- Tema: **Educação Continuada Gamificada**.
-- Objetivo: implementar regras de engajamento de alunos com bônus de cursos, recompensas por participação em fórum e progressão para plano Premium.
+**Funcionalidades implementadas:** média acima de 7 libera três cursos; participação elegível no fórum libera um curso; a partir de 12 cursos, o aluno recebe Premium, voucher e três moedas.
 
-## Tecnologias Utilizadas
-### Backend
-- Java 17
-- Spring Boot
-- Spring Web
-- Spring Data JPA
-- Maven
-- Swagger / OpenAPI
+**Integração demonstrativa:** o Core consulta recomendação e assistente em uma API Python. O D3 validou comunicação, fallback, timeout de leitura e recuperação; as respostas são demonstrativas, sem ML, RAG ou LLM reais.
 
-### Banco de Dados
-- H2 Database
-- PostgreSQL
-- PgAdmin
+Ranking, badges, notificações e integração IoT ainda não estão implementados. **D1 e D2 estão implementados; D3 está validado no escopo do mini-lab; D4–D6 permanecem pendentes.**
 
-### Frontend
-- Vue.js
-- Vite
-- Nginx
+## Tecnologias utilizadas
 
-### Infraestrutura
-- Docker
-- Docker Compose
+| Situação | Tecnologias e uso |
+|---|---|
+| Implementadas no Core | Java 17, Spring Boot, Spring Data JPA e API REST. H2 utilizado nas validações automáticas. |
+| Presentes na interface | Vue.js, Vite e Axios. Interface herdada da AC1; navegador não validado nesta etapa B1. |
+| Integração demonstrativa validada | Python, FastAPI e Uvicorn, consumidos pelo Core por HTTP/JSON. |
+| Testes e build utilizados | Maven, JUnit, Mockito, MockMvc e JaCoCo. |
+| Configuradas, sem execução validada nesta etapa | Docker Compose, PostgreSQL, PgAdmin e Nginx. |
+| Planejadas para D4–D6 | Mensageria (RabbitMQ em avaliação), MQTT, Jenkins, Prometheus e Grafana; decisões ainda sujeitas aos respectivos laboratórios. |
 
-## Estrutura da Aplicação
-Camadas implementadas:
-- `domain`: regras de negócio puras
-- `entity`: mapeamento JPA
-- `repository`: acesso a dados
-- `service`: orquestração de regras + persistência
-- `dto`: contratos de entrada/saída
-- `controller`: endpoints REST
+## Arquitetura
 
-Pacotes principais:
-- `src/main/java/org/example/tdd/domain`
-- `src/main/java/org/example/tdd/entity`
-- `src/main/java/org/example/tdd/repository`
-- `src/main/java/org/example/tdd/service`
-- `src/main/java/org/example/tdd/dto`
-- `src/main/java/org/example/tdd/controller`
+O Core é um **monólito modular incremental**. Na conclusão de curso, uma API pública delimita a capacidade e **Ports & Adapters** mantém a regra de domínio independente de Spring e JPA. O serviço Python tem processo próprio e é opcional: sua indisponibilidade não impede as operações essenciais testadas do Core.
 
-## Histórias de Usuário (US)
-
-### US1 - Desempenho Acadêmico (Isadora)
-Como aluno, quero receber cursos liberados ao concluir uma disciplina com média acima de 7, para avançar na plataforma.
-
-### US2 - Participação no Fórum (Maria Julia)
-Como aluno, quero receber recompensa quando tiver maior participação qualificada no fórum, para ser incentivado a colaborar com a turma.
-
-### US3 - Evolução para Plano Premium (Felipe)
-Como aluno, quero migrar para plano Premium ao atingir 12 cursos liberados, para obter benefícios extras.
-
-## BDD por Integrante
-
-### Isadora (US1)
-Cenários BDD escritos:
-- Dado um aluno com média maior que 7, quando concluir curso, então deve liberar 3 cursos.
-- Dado um aluno com média igual a 7, quando concluir curso, então não deve liberar cursos.
-- Dado um aluno com média menor que 7, quando concluir curso, então não deve liberar cursos.
-
-### Maria Julia (US2)
-Cenários BDD escritos:
-- Dado um aluno que criou mais tópicos que os demais e ajudou com comentários, quando recompensar participação, então deve liberar 1 curso.
-- Dado um aluno que não criou mais tópicos que os demais, quando recompensar participação, então não deve liberar curso.
-- Dado um aluno sem comentários de ajuda, quando recompensar participação, então não deve liberar curso.
-
-### Felipe (US3)
-Cenários BDD escritos:
-- Dado um aluno com 12 cursos liberados, quando verificar plano, então deve se tornar Premium.
-- Dado um aluno Premium, quando verificar benefícios, então deve receber voucher e 3 moedas.
-- Dado um aluno com menos de 12 cursos, quando verificar plano, então deve permanecer no plano Básico.
-
-## TDD - Evidências RED/GREEN/BLUE
-
-### US1
-- RED: ![US1 RED](evidencias/US1-RED.png)
-- BLUE (refatoração com testes passando): ![US1 BLUE](evidencias/US1-BLUE.png)
-
-### US2
-- RED: ![US2 RED](evidencias/US2-RED.PNG)
-- GREEN: ![US2 GREEN](evidencias/US2-GREEN.png)
-- BLUE: ![US2 BLUE](evidencias/US2-BLUE.PNG)
-
-### US3
-- RED: ![US3 RED](evidencias/US3-RED.PNG)
-- GREEN: ![US3 GREEN](evidencias/US3-GREEN.PNG)
-- BLUE: ![US3 BLUE](evidencias/US3-BLUE.PNG)
-
-## ATDD - Evidências de Aceitação
-Validação por execução de endpoints e resultado esperado de negócio.
-
-- Criação de aluno (US2): ![US2 Criar Aluno](evidencias/US2-ENDPOINT-CRIAR-ALUNO.PNG)
-- Recompensa por fórum (US2): ![US2 Recompensa Fórum](evidencias/US2-ENDPOINT-RECOMPENSA-FORUM.PNG)
-- Verificação plano Premium (US3): ![US3 Premium](evidencias/US3-ENDPOINT-PREMIUM.PNG)
-
-## API e Swagger
-- Endpoints documentados via Swagger:
-  - ![Swagger Endpoints](evidencias/SWAGGER-ENDPOINTS.PNG)
-  - ![Swagger Teste Endpoint](evidencias/SWAGGER-TESTE-ENDPOINT.PNG)
-- URL local esperada:
-  - `http://localhost:8080/swagger-ui/index.html`
-
-## Endpoints Principais
-- `POST /alunos` -> cria aluno
-- `POST /alunos/{id}/concluir-curso` -> aplica regra de desempenho
-- `POST /alunos/{id}/recompensar-forum` -> aplica regra de participação
-- `POST /alunos/{id}/verificar-premium` -> valida elegibilidade Premium
-
-Exemplo rápido (`requests.http`):
-```http
-POST http://localhost:8080/alunos
-Content-Type: application/json
-
-{
-  "media": 8.0
-}
+```mermaid
+flowchart LR
+    aluno["Aluno — pessoa"] --> frontend["Frontend Vue / Nginx"]
+    frontend -->|HTTP REST / JSON| core["Core Java / Spring Boot<br/>Monólito modular + Ports & Adapters<br/>Operações essenciais sem dependência de IA"]
+    core -->|JPA / JDBC| banco[("Banco relacional<br/>H2 no laboratório; PostgreSQL configurado")]
+    core -->|"HTTP REST / JSON síncrono<br/>conexão 700 ms; leitura 1200 ms<br/>fallback em falha"| ia["Serviço Python / FastAPI<br/>Recomendação + assistente demonstrativos<br/>Processo e reinício independentes; sem ML/RAG real"]
 ```
 
-## Banco de Dados
+Consulte o [C4 completo](docs/arquitetura/diagramas.md), a [fonte Mermaid atual](docs/evidencias/desafio-3/c4-container.mmd) e o [registro das decisões](docs/arquitetura/README.md). A modularização é parcial; domínio e persistência ainda são compartilhados com fluxos legados.
 
-### H2
-- Console habilitado em `http://localhost:8080/h2-console`
-- Evidência: ![H2 Console](evidencias/H2-CONSOLE.PNG)
+## Desafios
 
-### PostgreSQL + PgAdmin
-- Dependência PostgreSQL configurada no projeto.
-- Executar com Docker Compose para gerar evidência:
-  - `docker compose up --build -d`
-  - PgAdmin: `http://localhost:5050` (`admin@tdd.com` / `admin123`)
-  - PostgreSQL: `localhost:5432` (`database=tdd`, `user=tdd`, `password=tdd123`)
-- Evidência solicitada: adicionar print do PgAdmin conectado ao banco `tdd`.
+| Desafio e objetivo | Decisão | Estado real | Documentação e evidências |
+|---|---|---|---|
+| **D1 — Evolução do Core:** delimitar uma capacidade existente | Monólito modular na conclusão de curso | Implementado; comparação antes/depois e 25 testes na entrega D1 | [ADR-001](docs/adr/ADR-001.md) · [C4 Container](docs/arquitetura/diagramas.md#c4-container--estado-do-desafio-1) · [Evidências](docs/evidencias/desafio-1/README.md) |
+| **D2 — Organização interna:** proteger as regras das tecnologias | Ports & Adapters, com contrato comum fake/JPA | Implementado; núcleo isolado e 51 testes na entrega D2 | [ADR-002](docs/adr/ADR-002.md) · [C4 Component](docs/arquitetura/diagramas.md#c4-component--core-estado-do-desafio-2) · [Evidências](docs/evidencias/desafio-2/README.md) |
+| **D3 — Serviço Python e IA:** definir fronteira e tratar falhas | FastAPI independente, com timeout e fallback | Mini-lab validado; 18 verificações HTTP reais; sem modelos de IA | [ADR-003](docs/adr/ADR-003.md) · [C4 Container](docs/arquitetura/diagramas.md#c4-container--estado-validado-do-desafio-3) · [Evidências](docs/evidencias/desafio-3/README.md) |
+| **D4 — Comunicação e eventos:** preservar conclusão com consumidor indisponível | Proposta: conclusão síncrona e notificação assíncrona | Pendente; mini-lab e C4 específico ainda não produzidos | [ADR-004 proposto](docs/adr/ADR-004.md) · [C4 atual de referência](docs/arquitetura/diagramas.md) · [Evidência prevista e pendente](docs/adr/ADR-004.md) |
+| **D5 — IoT e MQTT:** receber eventos de dispositivos | Proposta: MQTT com consumidor/gateway | Pendente; mini-lab e C4 específico ainda não produzidos | [ADR-005 proposto](docs/adr/ADR-005.md) · [Visão futura](docs/arquitetura/diagramas.md#c4-deployment--visão-proposta-para-desafio-6) · [Evidência prevista e pendente](docs/adr/ADR-005.md) |
+| **D6 — CI/CD e observabilidade:** construir, entregar e observar | Proposta: Jenkins e métricas Prometheus/Grafana | Pendente; pipeline e monitoramento ainda não implementados | [ADR-006 proposto](docs/adr/ADR-006.md) · [Deployment proposto](docs/arquitetura/diagramas.md#c4-deployment--visão-proposta-para-desafio-6) · [Evidência prevista e pendente](docs/adr/ADR-006.md) |
 
-## Execução do Projeto
+A fundamentação de cada desafio segue **RF → RNF → ASR → RPC → alternativas → ADR → C4 → evidência** no [registro arquitetural cumulativo](docs/arquitetura/README.md), com até três ASRs por desafio.
 
-### Rodar localmente
-```bash
-./mvnw spring-boot:run
-```
-No Windows (PowerShell):
-```powershell
-.\mvnw.cmd spring-boot:run
-```
+## Como executar e testar
 
-### Rodar testes
-```bash
-./mvnw test
-```
-No Windows (PowerShell):
-```powershell
-.\mvnw.cmd test
-```
+Pré-requisitos: **JDK 17 e Maven** (3.9.11 nas execuções registradas). Para a interface, Node.js compatível com Vite 7 e npm; para o laboratório IA, Python com ambiente virtual, conforme o [roteiro FastAPI](labs/ia/README.md).
 
-## Execução com Docker
-
-A aplicação completa foi containerizada utilizando Docker Compose.
-
-O ambiente possui quatro serviços:
-
-- `tdd-app`: backend Spring Boot
-- `tdd-frontend`: frontend Vue.js servido pelo Nginx
-- `tdd-postgres`: banco PostgreSQL
-- `tdd-pgadmin`: administração do PostgreSQL via PgAdmin
-
-### Pré-requisito
-
-Ter o Docker Desktop instalado e em execução.
-
-### Subir a aplicação completa
-
-Na raiz do projeto:
+No Terminal do macOS, entre na pasta do projeto; ajuste o caminho se necessário:
 
 ```bash
-docker compose up --build -d
+cd ~/Downloads/DevOps-Project-B1
+java -version
+mvn -version
+mvn clean verify
+```
 
-## Front-end VueJS
-Requisito da atividade:
-- Implementar front-end em VueJS consumindo os endpoints da API.
+A última execução registrada aprovou **75 testes Maven**, sem falhas, erros ou ignorados, e JaCoCo com 100% de instruções, branches e linhas. As **18 verificações HTTP reais do D3** são um ensaio separado. Veja os [logs e resultados](docs/evidencias/desafio-3/README.md) e os [limites da cobertura](docs/evidencias/cobertura/README.md).
 
-Implementação realizada em `frontend/` com:
-- criação de aluno
-- conclusão de curso
-- recompensa por fórum
-- verificação de plano Premium
+Para iniciar o backend com H2 em memória:
 
-Rodar front-end:
 ```bash
-cd frontend
-npm install
+mvn spring-boot:run
+```
+
+Em outro terminal, para iniciar a interface:
+
+```bash
+cd ~/Downloads/DevOps-Project-B1/frontend
+npm ci
 npm run dev
 ```
 
-URL local:
-- `http://localhost:5173`
+Endereços esperados: interface `http://localhost:5173`, API `http://localhost:8080` e Swagger `http://localhost:8080/swagger-ui/index.html`. Exemplos dos endpoints de alunos estão em [requests.http](requests.http). O [Maven Wrapper](.mvn/wrapper/maven-wrapper.properties) está disponível; as evidências foram obtidas com Maven instalado.
 
-## Planilha
-- Se utilizada, anexar no repositório e referenciar aqui:
-  - `planilha/<nome-da-planilha>.xlsx`
+Para executar o Python ou reproduzir interrupção, recuperação e timeout, siga o [laboratório integrado D3](docs/evidencias/desafio-3/README.md#reprodução). Relatórios Maven ficam em `target/surefire-reports/` e cobertura em `target/site/jacoco/index.html`.
 
-## Checklist de Entrega
-- [ ] Link do Git postado no Canvas
-- [x] Projeto Spring Boot no GitHub
-- [x] Evidências de TDD (RED/GREEN/BLUE)
-- [x] Evidências de ATDD (execução de endpoints)
-- [x] Swagger com endpoints
-- [x] Evidência H2
-- [ ] Evidência PostgreSQL/PgAdmin via container
-- [x] Dockerfile e docker-compose
-- [x] Front-end VueJS
-- [ ] Planilha (se houver)
+**Limites da validação:** PostgreSQL/Docker e navegador não foram exercitados nesta etapa. Não há teste de carga, comprovação de 100.000 usuários ou controle global de concorrência. O timeout de leitura foi medido; o limite de conexão não foi medido em rede real. Esses resultados não representam uma validação completa de produção.
 
+## Documentação e equipe
+
+- [Registro arquitetural e matriz cumulativa de ASRs](docs/arquitetura/README.md)
+- [Diagramas C4](docs/arquitetura/diagramas.md) e [ADRs](docs/adr/)
+- [Evidências D1](docs/evidencias/desafio-1/README.md), [D2](docs/evidencias/desafio-2/README.md) e [D3](docs/evidencias/desafio-3/README.md)
+- [Cobertura e resultados detalhados](docs/evidencias/cobertura/README.md)
+- [Auditoria histórica D1/D2](docs/evidencias/auditoria-final/README.md)
+- [Histórico AC1: histórias, BDD e evidências TDD/ATDD](docs/ac1/README.md)
+
+**Equipe:** Felipe, Isadora e Maria Julia são os integrantes registrados na AC1. A identificação da equipe B1 ainda precisa de confirmação; a equipe de seis desenvolvedores é uma premissa do case acadêmico.
+
+**Repositório:** [MjDutil/DevOps-Project](https://github.com/MjDutil/DevOps-Project). O fechamento documental D3 ainda aguarda commit e publicação autorizados; sua presença local não significa disponibilidade na branch pública. D4–D6 serão desenvolvidos na continuidade do projeto.

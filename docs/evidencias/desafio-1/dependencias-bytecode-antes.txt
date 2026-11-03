@@ -1,0 +1,111 @@
+AlunoController.class -> /tmp/devops-b1-local-before-d1/target/classes/org/example/tdd/service/AlunoService.class
+AlunoController.class -> /tmp/devops-b1-local-before-d1/target/classes
+AlunoController.class -> java.base
+AlunoController.class -> not found
+   org.example.tdd.controller.AlunoController         -> java.lang.Long                                     java.base
+   org.example.tdd.controller.AlunoController         -> java.lang.Object                                   java.base
+   org.example.tdd.controller.AlunoController         -> org.example.tdd.dto.AlunoRequestDto                classes
+   org.example.tdd.controller.AlunoController         -> org.example.tdd.dto.AlunoResponseDto               classes
+   org.example.tdd.controller.AlunoController         -> org.example.tdd.dto.ParticipacaoForumRequestDto    classes
+   org.example.tdd.controller.AlunoController         -> org.example.tdd.dto.PlanoPremiumResponseDto        classes
+   org.example.tdd.controller.AlunoController         -> org.example.tdd.service.AlunoService               AlunoService.class
+   org.example.tdd.controller.AlunoController         -> org.springframework.http.ResponseEntity            not found
+   org.example.tdd.controller.AlunoController         -> org.springframework.web.bind.annotation.CrossOrigin not found
+   org.example.tdd.controller.AlunoController         -> org.springframework.web.bind.annotation.PathVariable not found
+   org.example.tdd.controller.AlunoController         -> org.springframework.web.bind.annotation.PostMapping not found
+   org.example.tdd.controller.AlunoController         -> org.springframework.web.bind.annotation.RequestBody not found
+   org.example.tdd.controller.AlunoController         -> org.springframework.web.bind.annotation.RequestMapping not found
+   org.example.tdd.controller.AlunoController         -> org.springframework.web.bind.annotation.RestController not found
+AlunoService.class -> /tmp/devops-b1-local-before-d1/target/classes
+AlunoService.class -> /tmp/devops-b1-local-before-d1/target/classes/org/example/tdd/gamificacao
+AlunoService.class -> java.base
+AlunoService.class -> not found
+   org.example.tdd.service.AlunoService               -> java.lang.Boolean                                  java.base
+   org.example.tdd.service.AlunoService               -> java.lang.Double                                   java.base
+   org.example.tdd.service.AlunoService               -> java.lang.Integer                                  java.base
+   org.example.tdd.service.AlunoService               -> java.lang.Long                                     java.base
+   org.example.tdd.service.AlunoService               -> java.lang.Object                                   java.base
+   org.example.tdd.service.AlunoService               -> java.lang.RuntimeException                         java.base
+   org.example.tdd.service.AlunoService               -> java.lang.String                                   java.base
+   org.example.tdd.service.AlunoService               -> java.lang.invoke.CallSite                          java.base
+   org.example.tdd.service.AlunoService               -> java.lang.invoke.LambdaMetafactory                 java.base
+   org.example.tdd.service.AlunoService               -> java.lang.invoke.MethodHandle                      java.base
+   org.example.tdd.service.AlunoService               -> java.lang.invoke.MethodHandles                     java.base
+   org.example.tdd.service.AlunoService               -> java.lang.invoke.MethodHandles$Lookup              java.base
+   org.example.tdd.service.AlunoService               -> java.lang.invoke.MethodType                        java.base
+   org.example.tdd.service.AlunoService               -> java.lang.invoke.StringConcatFactory               java.base
+   org.example.tdd.service.AlunoService               -> java.util.Optional                                 java.base
+   org.example.tdd.service.AlunoService               -> java.util.function.Supplier                        java.base
+   org.example.tdd.service.AlunoService               -> org.example.tdd.domain.Aluno                       classes
+   org.example.tdd.service.AlunoService               -> org.example.tdd.dto.AlunoRequestDto                classes
+   org.example.tdd.service.AlunoService               -> org.example.tdd.dto.AlunoResponseDto               classes
+   org.example.tdd.service.AlunoService               -> org.example.tdd.dto.ParticipacaoForumRequestDto    classes
+   org.example.tdd.service.AlunoService               -> org.example.tdd.dto.PlanoPremiumResponseDto        classes
+   org.example.tdd.service.AlunoService               -> org.example.tdd.entity.AlunoEntity                 classes
+   org.example.tdd.service.AlunoService               -> org.example.tdd.gamificacao.application.AlunoSnapshot gamificacao
+   org.example.tdd.service.AlunoService               -> org.example.tdd.gamificacao.application.ConcluirCursoUseCase gamificacao
+   org.example.tdd.service.AlunoService               -> org.example.tdd.repository.AlunoRepository         classes
+   org.example.tdd.service.AlunoService               -> org.springframework.stereotype.Service             not found
+gamificacao -> /tmp/devops-b1-local-before-d1/target/classes
+gamificacao -> java.base
+gamificacao -> not found
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.Class                                    java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.Double                                   java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.Integer                                  java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.Long                                     java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.Object                                   java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.Record                                   java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.String                                   java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.invoke.MethodHandle                      java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.invoke.MethodHandles                     java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.invoke.MethodHandles$Lookup              java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.invoke.TypeDescriptor                    java.base
+   org.example.tdd.gamificacao.application.AlunoSnapshot -> java.lang.runtime.ObjectMethods                    java.base
+   org.example.tdd.gamificacao.application.AlunoStore -> java.lang.Long                                     java.base
+   org.example.tdd.gamificacao.application.AlunoStore -> java.lang.Object                                   java.base
+   org.example.tdd.gamificacao.application.AlunoStore -> java.util.Optional                                 java.base
+   org.example.tdd.gamificacao.application.AlunoStore -> org.example.tdd.gamificacao.application.AlunoSnapshot gamificacao
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.Double                                   java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.IllegalArgumentException                 java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.Integer                                  java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.Long                                     java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.Object                                   java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.String                                   java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.invoke.CallSite                          java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.invoke.LambdaMetafactory                 java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.invoke.MethodHandle                      java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.invoke.MethodHandles                     java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.invoke.MethodHandles$Lookup              java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.invoke.MethodType                        java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.lang.invoke.StringConcatFactory               java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.util.Optional                                 java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> java.util.function.Supplier                        java.base
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> org.example.tdd.domain.Aluno                       classes
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> org.example.tdd.gamificacao.application.AlunoSnapshot gamificacao
+   org.example.tdd.gamificacao.application.ConcluirCursoUseCase -> org.example.tdd.gamificacao.application.AlunoStore gamificacao
+   org.example.tdd.gamificacao.infrastructure.GamificacaoConfiguration -> java.lang.Object                                   java.base
+   org.example.tdd.gamificacao.infrastructure.GamificacaoConfiguration -> org.example.tdd.gamificacao.application.AlunoStore gamificacao
+   org.example.tdd.gamificacao.infrastructure.GamificacaoConfiguration -> org.example.tdd.gamificacao.application.ConcluirCursoUseCase gamificacao
+   org.example.tdd.gamificacao.infrastructure.GamificacaoConfiguration -> org.springframework.context.annotation.Bean        not found
+   org.example.tdd.gamificacao.infrastructure.GamificacaoConfiguration -> org.springframework.context.annotation.Configuration not found
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.Double                                   java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.IllegalArgumentException                 java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.Integer                                  java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.Long                                     java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.Object                                   java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.String                                   java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.invoke.CallSite                          java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.invoke.LambdaMetafactory                 java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.invoke.MethodHandle                      java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.invoke.MethodHandles                     java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.invoke.MethodHandles$Lookup              java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.invoke.MethodType                        java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.lang.invoke.StringConcatFactory               java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.util.Optional                                 java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.util.function.Function                        java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> java.util.function.Supplier                        java.base
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> org.example.tdd.entity.AlunoEntity                 classes
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> org.example.tdd.gamificacao.application.AlunoSnapshot gamificacao
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> org.example.tdd.gamificacao.application.AlunoStore gamificacao
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> org.example.tdd.repository.AlunoRepository         classes
+   org.example.tdd.gamificacao.infrastructure.JpaAlunoStore -> org.springframework.stereotype.Component           not found

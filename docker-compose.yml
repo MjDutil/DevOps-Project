@@ -1,4 +1,4 @@
-﻿
+
 services:
   postgres:
     image: postgres:16
@@ -36,6 +36,7 @@ services:
 
     environment:
       SPRING_PROFILES_ACTIVE: postgres
+      IA_BASE_URL: http://ia:8000
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/tdd
       SPRING_DATASOURCE_USERNAME: tdd
       SPRING_DATASOURCE_PASSWORD: tdd123
@@ -48,6 +49,12 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+
+  ia:
+    build:
+      context: ./labs/ia
+    ports:
+      - "8000:8000"
 
   frontend:
     build:

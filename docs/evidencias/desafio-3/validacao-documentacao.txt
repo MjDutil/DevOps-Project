@@ -1,0 +1,16 @@
+Validação em 2026-11-03
+PASSOU: 6 documentos modificados/criados de apresentação; 141 links relativos e âncoras com destinos existentes.
+PASSOU: resultados-lab.json tem sucesso=true e 18 verificações HTTP aprovadas.
+PASSOU: Container D3 idêntico no README principal e docs/arquitetura/diagramas.md.
+PASSOU: git diff --check sem erros.
+PASSOU: 32 arquivos existentes em src/main e src/test com hashes SHA-256 preservados; pom.xml sem diff; HEAD permanece 514e6998197b7efd8296b7dac8b82601d932767c.
+Limites: conferência textual de links/âncoras e sincronismo; Mermaid D3 não foi renderizado nesta etapa. Arquivos novos ainda não estão no índice Git e não foram publicados.
+
+Revisão final D3 em 2026-11-03:
+PASSOU: 5 documentos modificados e 17 arquivos novos D3 revisados; 142 links relativos/âncoras com destinos existentes.
+PASSOU: JSONs válidos; sintaxe Python válida por ast.parse; saída nominal coincide com os 18 casos JSON.
+PASSOU: 32 hashes originais src/main e src/test preservados; sem diff em pom.xml, ADR-001/002 e evidências D1/D2; HEAD inalterado.
+PASSOU: busca de padrões de credenciais e inspeção das evidências sem tokens, chaves privadas ou senhas reais identificadas. Permanecem caminhos locais e nome de usuário da máquina; SA/senha vazia refere-se ao H2 descartável de teste.
+Mermaid: CLI/biblioteca não encontrada no PATH, caches npm consultados ou módulos globais; não instalada dependência. Sincronismo textual confirmado; sintaxe não validada por parser.
+Correções necessárias: pendência antiga de HTTP real esclarecida no README; removidos somente espaços no final das linhas dos logs Maven/Core, sem alterar resultados.
+Nenhum novo teste de execução foi necessário nesta revisão documental. Nenhum commit, push ou merge realizado.

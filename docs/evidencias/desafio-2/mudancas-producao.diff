@@ -1,0 +1,101 @@
+diff --git a/src/main/java/org/example/tdd/gamificacao/application/AlunoStore.java b/src/main/java/org/example/tdd/gamificacao/application/AlunoStore.java
+index 8c33022..ca1e87e 100644
+--- a/src/main/java/org/example/tdd/gamificacao/application/AlunoStore.java
++++ b/src/main/java/org/example/tdd/gamificacao/application/AlunoStore.java
+@@ -2,8 +2,12 @@ package org.example.tdd.gamificacao.application;
+ 
+ import java.util.Optional;
+ 
+-/** Porta do caso de uso: contrato independente da infraestrutura. */
++/**
++ * Porta de saída independente de infraestrutura. Atualiza somente os cursos de um
++ * aluno existente se média e saldo ainda correspondem ao snapshot lido.
++ * Estado alterado/removido gera ConcurrentModificationException, sem sobrescrita.
++ */
+ public interface AlunoStore {
+     Optional<AlunoSnapshot> buscar(Long id);
+-    AlunoSnapshot salvar(AlunoSnapshot aluno);
++    AlunoSnapshot atualizarCursos(AlunoSnapshot esperado, int cursosLiberados);
+ }
+diff --git a/src/main/java/org/example/tdd/gamificacao/application/ConcluirCursoUseCase.java b/src/main/java/org/example/tdd/gamificacao/application/ConcluirCursoUseCase.java
+index b7db5b7..81cf661 100644
+--- a/src/main/java/org/example/tdd/gamificacao/application/ConcluirCursoUseCase.java
++++ b/src/main/java/org/example/tdd/gamificacao/application/ConcluirCursoUseCase.java
+@@ -15,8 +15,6 @@ public class ConcluirCursoUseCase {
+                 .orElseThrow(() -> new IllegalArgumentException("Aluno não encontrado: " + id));
+         Aluno regra = new Aluno("Aluno " + id);
+         regra.concluirCurso(atual.media());
+-        AlunoSnapshot atualizado = new AlunoSnapshot(
+-                atual.id(), atual.media(), atual.cursosLiberados() + regra.getCursosLiberados());
+-        return store.salvar(atualizado);
++        return store.atualizarCursos(atual, atual.cursosLiberados() + regra.getCursosLiberados());
+     }
+ }
+diff --git a/src/main/java/org/example/tdd/gamificacao/infrastructure/JpaAlunoStore.java b/src/main/java/org/example/tdd/gamificacao/infrastructure/JpaAlunoStore.java
+index d9e9841..4dd49a1 100644
+--- a/src/main/java/org/example/tdd/gamificacao/infrastructure/JpaAlunoStore.java
++++ b/src/main/java/org/example/tdd/gamificacao/infrastructure/JpaAlunoStore.java
+@@ -1,11 +1,14 @@
+ package org.example.tdd.gamificacao.infrastructure;
+ 
+ import java.util.Optional;
++import java.util.ConcurrentModificationException;
+ import org.example.tdd.entity.AlunoEntity;
+ import org.example.tdd.gamificacao.application.AlunoSnapshot;
+ import org.example.tdd.gamificacao.application.AlunoStore;
+ import org.example.tdd.repository.AlunoRepository;
+ import org.springframework.stereotype.Component;
++import org.springframework.transaction.annotation.Propagation;
++import org.springframework.transaction.annotation.Transactional;
+ 
+ /** Adapter de infraestrutura: JPA implementa o contrato do caso de uso. */
+ @Component
+@@ -22,11 +25,14 @@ public class JpaAlunoStore implements AlunoStore {
+     }
+ 
+     @Override
+-    public AlunoSnapshot salvar(AlunoSnapshot aluno) {
+-        AlunoEntity entity = repository.findById(aluno.id())
+-                .orElseThrow(() -> new IllegalArgumentException("Aluno não encontrado: " + aluno.id()));
+-        entity.setCursosLiberados(aluno.cursosLiberados());
+-        return mapear(repository.save(entity));
++    @Transactional(propagation = Propagation.MANDATORY)
++    public AlunoSnapshot atualizarCursos(AlunoSnapshot esperado, int cursosLiberados) {
++        int alterados = repository.atualizarCursosSeInalterado(
++                esperado.id(), esperado.media(), esperado.cursosLiberados(), cursosLiberados);
++        if (alterados != 1) {
++            throw new ConcurrentModificationException("Aluno alterado ou removido: " + esperado.id());
++        }
++        return new AlunoSnapshot(esperado.id(), esperado.media(), cursosLiberados);
+     }
+ 
+     private AlunoSnapshot mapear(AlunoEntity entity) {
+diff --git a/src/main/java/org/example/tdd/repository/AlunoRepository.java b/src/main/java/org/example/tdd/repository/AlunoRepository.java
+index 5fd5d81..99ad0f6 100644
+--- a/src/main/java/org/example/tdd/repository/AlunoRepository.java
++++ b/src/main/java/org/example/tdd/repository/AlunoRepository.java
+@@ -2,10 +2,22 @@ package org.example.tdd.repository;
+ 
+ import org.example.tdd.entity.AlunoEntity;
+ import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.data.jpa.repository.Modifying;
++import org.springframework.data.jpa.repository.Query;
++import org.springframework.data.repository.query.Param;
+ 
+ import java.util.Optional;
+ 
+ public interface AlunoRepository extends JpaRepository<AlunoEntity, Long> {
+ 
+     Optional<AlunoEntity> findById(Long id);
+-}
+\ No newline at end of file
++
++    /** Compare-and-update: não altera plano, voucher, moedas ou média. */
++    @Modifying(flushAutomatically = true, clearAutomatically = true)
++    @Query("update AlunoEntity a set a.cursosLiberados = :novosCursos "
++            + "where a.id = :id and a.media = :media and a.cursosLiberados = :cursosAtuais")
++    int atualizarCursosSeInalterado(@Param("id") Long id,
++                                  @Param("media") Double media,
++                                  @Param("cursosAtuais") Integer cursosAtuais,
++                                  @Param("novosCursos") int novosCursos);
++}

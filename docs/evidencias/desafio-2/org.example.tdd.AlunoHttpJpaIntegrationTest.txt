@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.example.tdd.AlunoHttpJpaIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.68 s -- in org.example.tdd.AlunoHttpJpaIntegrationTest

@@ -40,3 +40,29 @@ frontend/vite.err.log
 
 # macOS
 .DS_Store
+
+# Dependências, caches e arquivos temporários
+**/node_modules/
+**/dist/
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.log
+*.tmp
+*.swp
+*~
+
+# Configurações locais e credenciais; exemplos continuam versionáveis
+.env
+.env.*
+!.env.example
+!**/.env.example
+.aws/
+secrets/
+*.pem
+*.key
+*.p12
+*.jks
+application-local.properties
+application-local.yml

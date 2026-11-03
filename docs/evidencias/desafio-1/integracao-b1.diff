@@ -1,0 +1,103 @@
+--- original/README.md
++++ local-b1/README.md
+@@ -1,3 +1,9 @@
++# Architecture Lab B1 (evolução da AC1)
++
++A atividade B1 está documentada em [docs/arquitetura/README.md](docs/arquitetura/README.md). Esta seção não substitui as evidências da AC1 abaixo.
++
++---
++
+ ﻿# Projeto Final - TDD/BDD/ATDD em Spring Boot
+ 
+ ## Integrantes
+@@ -195,6 +201,7 @@
+ 
+ ```bash
+ docker compose up --build -d
++```
+ 
+ ## Front-end VueJS
+ Requisito da atividade:
+--- original/docker-compose.yml
++++ local-b1/docker-compose.yml
+@@ -1,4 +1,4 @@
+-﻿
++
+ services:
+   postgres:
+     image: postgres:16
+@@ -36,6 +36,7 @@
+ 
+     environment:
+       SPRING_PROFILES_ACTIVE: postgres
++      IA_BASE_URL: http://ia:8000
+       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/tdd
+       SPRING_DATASOURCE_USERNAME: tdd
+       SPRING_DATASOURCE_PASSWORD: tdd123
+@@ -48,6 +49,12 @@
+     depends_on:
+       postgres:
+         condition: service_healthy
++
++  ia:
++    build:
++      context: ./labs/ia
++    ports:
++      - "8000:8000"
+ 
+   frontend:
+     build:
+--- original/src/main/java/org/example/tdd/service/AlunoService.java
++++ local-b1/src/main/java/org/example/tdd/service/AlunoService.java
+@@ -7,36 +7,23 @@
+ import org.springframework.stereotype.Service;
+ import org.example.tdd.domain.Aluno;
+ import org.example.tdd.dto.ParticipacaoForumRequestDto;
+-import org.example.tdd.domain.Aluno;
+ import org.example.tdd.dto.PlanoPremiumResponseDto;
++import org.example.tdd.gamificacao.application.ConcluirCursoUseCase;
+ 
+ @Service
+ public class AlunoService {
+ 
+     private final AlunoRepository alunoRepository;
++    private final ConcluirCursoUseCase concluirCursoUseCase;
+ 
+-    public AlunoService(AlunoRepository alunoRepository) {
++    public AlunoService(AlunoRepository alunoRepository, ConcluirCursoUseCase concluirCursoUseCase) {
+         this.alunoRepository = alunoRepository;
++        this.concluirCursoUseCase = concluirCursoUseCase;
+     }
+ 
+     public AlunoResponseDto concluirCurso(Long id) {
+-
+-        AlunoEntity aluno = alunoRepository.findById(id)
+-                .orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+-
+-        if (aluno.getMedia() > 7.0) {
+-            aluno.setCursosLiberados(
+-                    aluno.getCursosLiberados() + 3
+-            );
+-        }
+-
+-        AlunoEntity salvo = alunoRepository.save(aluno);
+-
+-        return new AlunoResponseDto(
+-                salvo.getId(),
+-                salvo.getMedia(),
+-                salvo.getCursosLiberados()
+-        );
++        var salvo = concluirCursoUseCase.executar(id);
++        return new AlunoResponseDto(salvo.id(), salvo.media(), salvo.cursosLiberados());
+     }
+ 
+     public AlunoResponseDto criar(AlunoRequestDto request) {
+--- original/src/main/resources/application.properties
++++ local-b1/src/main/resources/application.properties
+@@ -12,3 +12,6 @@
+ 
+ spring.h2.console.enabled=${SPRING_H2_CONSOLE_ENABLED:true}
+ spring.h2.console.path=/h2-console
++
++# B1 D3 — serviço opcional de IA, remoto ou via Docker Compose
++ia.base-url=${IA_BASE_URL:http://localhost:8000}

@@ -1,0 +1,25 @@
+Data: 2026-10-27 (America/Sao_Paulo)
+Origem: https://github.com/MjDutil/DevOps-Project.git
+Branch: feature/architecture-lab-b1
+Base preservada: 153cdfb750578c694b983e8e7ef8bcff9d6900ef
+Commits originais: 25
+git fsck --no-dangling: código de saída 0
+Nenhum commit novo ou push executado.
+
+Retiradas do índice Git (não são exclusões de fontes): 1156
+3 frontend/dist
+1151 frontend/node_modules
+1 frontend/vite.err.log
+1 frontend/vite.out.log
+
+Arquivos rastreados que coincidem com regras de ignore: 0
+.env: ignorado
+frontend/.env: ignorado
+.aws/credentials: ignorado
+secrets/test.txt: ignorado
+test.pem: ignorado
+target/test.txt: ignorado
+frontend/node_modules/test.js: ignorado
+frontend/dist/test.js: ignorado
+frontend/vite.out.log: ignorado
+frontend/.env.example: permitido (exemplo)

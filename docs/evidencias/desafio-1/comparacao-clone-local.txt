@@ -1,0 +1,86 @@
+Comparação anterior à implementação D1 (SHA-256 dos conteúdos).
+Clone: https://github.com/MjDutil/DevOps-Project.git
+HEAD: 153cdfb750578c694b983e8e7ef8bcff9d6900ef
+Commits: 25
+Backup local integral dos arquivos de trabalho (sem builds/IDE): /tmp/devops-b1-local-before-d1
+
+IGUAL .dockerignore
+IGUAL .gitattributes
+IGUAL .gitignore
+IGUAL .mvn/wrapper/maven-wrapper.properties
+IGUAL Dockerfile
+SOMENTE LOCAL README-B1-START.md
+DIFERENTE README.md
+  clone sha256=05cff51385e0d9e4b05f708faac09880a8c8a9db484cd79930584f82087031bc
+  local sha256=a3e43b4d6d80ea7b5507487886ac342cf76557eb417866752105a7ca386078f7
+DIFERENTE docker-compose.yml
+  clone sha256=ba2e43a349e34697ffec0f7d75ef3e6e2a53f5471612cec7ed6328fdc8fe9863
+  local sha256=7bda692f039177fc09202f1b4a6eec211475e651eabfe5d01eb12b7144024bbe
+SOMENTE LOCAL docs/adr/ADR-001.md
+SOMENTE LOCAL docs/adr/ADR-002.md
+SOMENTE LOCAL docs/adr/ADR-003.md
+SOMENTE LOCAL docs/adr/ADR-004.md
+SOMENTE LOCAL docs/adr/ADR-005.md
+SOMENTE LOCAL docs/adr/ADR-006.md
+SOMENTE LOCAL docs/arquitetura/README.md
+SOMENTE LOCAL docs/arquitetura/diagramas.md
+SOMENTE LOCAL docs/arquitetura/evidencias/desafios-1-2.txt
+SOMENTE LOCAL docs/arquitetura/labs/LabDomainSmoke.java
+IGUAL evidencias/H2-CONSOLE.PNG
+IGUAL evidencias/SWAGGER-ENDPOINTS.PNG
+IGUAL evidencias/SWAGGER-TESTE-ENDPOINT.PNG
+IGUAL evidencias/US1-BLUE.png
+IGUAL evidencias/US1-RED.png
+IGUAL evidencias/US2-BLUE.PNG
+IGUAL evidencias/US2-ENDPOINT-CRIAR-ALUNO.PNG
+IGUAL evidencias/US2-ENDPOINT-RECOMPENSA-FORUM.PNG
+IGUAL evidencias/US2-GREEN.png
+IGUAL evidencias/US2-RED.PNG
+IGUAL evidencias/US3-BLUE.PNG
+IGUAL evidencias/US3-ENDPOINT-PREMIUM.PNG
+IGUAL evidencias/US3-GREEN.PNG
+IGUAL evidencias/US3-RED.PNG
+IGUAL frontend/.dockerignore
+IGUAL frontend/.env.example
+IGUAL frontend/Dockerfile
+IGUAL frontend/index.html
+IGUAL frontend/package-lock.json
+IGUAL frontend/package.json
+IGUAL frontend/src/App.vue
+IGUAL frontend/src/main.js
+IGUAL frontend/vite.config.js
+IGUAL frontend/vite.err.log
+IGUAL frontend/vite.out.log
+SOMENTE LOCAL labs/ia/Dockerfile
+SOMENTE LOCAL labs/ia/README.md
+SOMENTE LOCAL labs/ia/main.py
+SOMENTE LOCAL labs/ia/requirements.txt
+IGUAL mvnw
+IGUAL mvnw.cmd
+IGUAL pom.xml
+IGUAL requests.http
+IGUAL src/main/java/org/example/tdd/TddApplication.java
+IGUAL src/main/java/org/example/tdd/controller/AlunoController.java
+IGUAL src/main/java/org/example/tdd/domain/Aluno.java
+IGUAL src/main/java/org/example/tdd/dto/AlunoRequestDto.java
+IGUAL src/main/java/org/example/tdd/dto/AlunoResponseDto.java
+IGUAL src/main/java/org/example/tdd/dto/ParticipacaoForumRequestDto.java
+IGUAL src/main/java/org/example/tdd/dto/PlanoPremiumResponseDto.java
+IGUAL src/main/java/org/example/tdd/entity/AlunoEntity.java
+SOMENTE LOCAL src/main/java/org/example/tdd/gamificacao/application/AlunoSnapshot.java
+SOMENTE LOCAL src/main/java/org/example/tdd/gamificacao/application/AlunoStore.java
+SOMENTE LOCAL src/main/java/org/example/tdd/gamificacao/application/ConcluirCursoUseCase.java
+SOMENTE LOCAL src/main/java/org/example/tdd/gamificacao/infrastructure/GamificacaoConfiguration.java
+SOMENTE LOCAL src/main/java/org/example/tdd/gamificacao/infrastructure/JpaAlunoStore.java
+SOMENTE LOCAL src/main/java/org/example/tdd/ia/IaClient.java
+SOMENTE LOCAL src/main/java/org/example/tdd/ia/IaController.java
+IGUAL src/main/java/org/example/tdd/repository/AlunoRepository.java
+DIFERENTE src/main/java/org/example/tdd/service/AlunoService.java
+  clone sha256=40c258d45b10eca9a9db3f3d122ed8c7867546f01ca93d59bcadb1aa4737bb73
+  local sha256=eeadff113094681e6c7f18f0957648a17a12e589cebf474ddb14fe03568da482
+DIFERENTE src/main/resources/application.properties
+  clone sha256=baeddfc2bf97b3c853eb663337a404eb0f7fc2fb8967a17e63c7e0a7b37d4cbb
+  local sha256=e48e2a2f2269bb2956820717e2ddc599f712f460eb46a7c0489cbd650400a9d8
+IGUAL src/test/java/org/example/tdd/AlunoTest.java
+IGUAL src/test/java/org/example/tdd/TddApplicationTests.java
+SOMENTE LOCAL src/test/java/org/example/tdd/gamificacao/ConcluirCursoUseCaseTest.java

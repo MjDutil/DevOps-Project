@@ -1,0 +1,16 @@
+Execução: mvn clean verify
+Data: 2026-10-27
+Resultado: BUILD SUCCESS
+
+name=org.example.tdd.AlunoHttpJpaIntegrationTest | tests=9 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.AlunoTest | tests=11 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.TddApplicationTests | tests=1 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.gamificacao.ConcluirCursoUseCaseTest | tests=5 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.gamificacao.DominioIsoladoTest | tests=1 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.gamificacao.FakeAlunoStoreContractTest | tests=11 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.gamificacao.JpaAlunoStoreContractTest | tests=14 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.ia.IaClientTest | tests=15 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.ia.IaControllerTest | tests=6 | failures=0 | errors=0 | skipped=0
+name=org.example.tdd.service.AlunoServiceTest | tests=2 | failures=0 | errors=0 | skipped=0
+
+Total: 75 testes, 0 falhas, 0 erros, 0 ignorados.

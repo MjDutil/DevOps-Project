@@ -1,0 +1,97 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.example:TDD >---------------------------
+[INFO] Building TDD 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.15:prepare-agent (default) @ TDD ---
+[INFO] argLine set to -javaagent:/Users/majuudutil/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/Users/majuudutil/Downloads/DevOps-Project-B1/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ TDD ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ TDD ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 19 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ TDD ---
+[INFO] skip non existing resourceDirectory /Users/majuudutil/Downloads/DevOps-Project-B1/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ TDD ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 9 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ TDD ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.example.tdd.gamificacao.JpaAlunoStoreContractTest
+19:36:46.773 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.gamificacao.JpaAlunoStoreContractTest]: JpaAlunoStoreContractTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:36:47.043 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.gamificacao.JpaAlunoStoreContractTest
+19:36:47.294 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.gamificacao.JpaAlunoStoreContractTest]: JpaAlunoStoreContractTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:36:47.294 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.gamificacao.AlunoStoreContract]: AlunoStoreContract does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:36:47.297 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.gamificacao.JpaAlunoStoreContractTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-27T19:36:48.113-03:00  INFO 4371 --- [TDD] [           main] o.e.t.g.JpaAlunoStoreContractTest        : Starting JpaAlunoStoreContractTest using Java 17.0.20.1 with PID 4371 (started by majuudutil in /Users/majuudutil/Downloads/DevOps-Project-B1)
+2026-10-27T19:36:48.116-03:00  INFO 4371 --- [TDD] [           main] o.e.t.g.JpaAlunoStoreContractTest        : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T19:36:49.910-03:00  INFO 4371 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-27T19:36:50.016-03:00  INFO 4371 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 1 JPA repository interface.
+2026-10-27T19:36:50.950-03:00  INFO 4371 --- [TDD] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-27T19:36:51.089-03:00  INFO 4371 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-27T19:36:52.182-03:00  INFO 4371 --- [TDD] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-27T19:36:52.286-03:00  INFO 4371 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-27T19:36:52.947-03:00  INFO 4371 --- [TDD] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desafio2 user=SA
+2026-10-27T19:36:52.951-03:00  INFO 4371 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-27T19:36:53.101-03:00  INFO 4371 --- [TDD] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:desafio2]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: DESAFIO2/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-27T19:36:55.058-03:00  INFO 4371 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-27T19:36:55.152-03:00  INFO 4371 --- [TDD] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T19:36:55.319-03:00  INFO 4371 --- [TDD] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-27T19:36:57.143-03:00  WARN 4371 --- [TDD] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-27T19:36:58.235-03:00  INFO 4371 --- [TDD] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desafio2'
+2026-10-27T19:36:58.418-03:00  INFO 4371 --- [TDD] [           main] o.e.t.g.JpaAlunoStoreContractTest        : Started JpaAlunoStoreContractTest in 10.877 seconds (process running for 13.96)
+2026-10-27T19:36:58.422-03:00  WARN 4371 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-27T19:36:58.422-03:00  WARN 4371 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+D2 JPA: conclusão com 1 entidade carregada e 2 statements (SELECT + UPDATE).
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.38 s -- in org.example.tdd.gamificacao.JpaAlunoStoreContractTest
+[INFO] Running org.example.tdd.gamificacao.DominioIsoladoTest
+PASSOU: domínio, 3 cenários com fake e conflito; somente JDK, sem Spring/JPA/banco.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.068 s -- in org.example.tdd.gamificacao.DominioIsoladoTest
+[INFO] Running org.example.tdd.gamificacao.FakeAlunoStoreContractTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in org.example.tdd.gamificacao.FakeAlunoStoreContractTest
+[INFO] Running org.example.tdd.gamificacao.ConcluirCursoUseCaseTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in org.example.tdd.gamificacao.ConcluirCursoUseCaseTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  41.698 s
+[INFO] Finished at: 2026-10-27T19:37:21-03:00
+[INFO] ------------------------------------------------------------------------

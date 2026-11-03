@@ -1,0 +1,1436 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.example:TDD >---------------------------
+[INFO] Building TDD 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.15:prepare-agent (default) @ TDD ---
+[INFO] argLine set to -javaagent:/Users/majuudutil/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/Users/majuudutil/Downloads/DevOps-Project-B1/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ TDD ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ TDD ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 19 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ TDD ---
+[INFO] skip non existing resourceDirectory /Users/majuudutil/Downloads/DevOps-Project-B1/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ TDD ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 12 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ TDD ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.example.tdd.ia.IaClientTest
+[ERROR] Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 21.90 s <<< FAILURE! -- in org.example.tdd.ia.IaClientTest
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackParaJsonMalformado -- Time elapsed: 21.66 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackParaErrosHttp(HttpStatus)[1] -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackParaErrosHttp(HttpStatus)[2] -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackParaErrosHttp(HttpStatus)[3] -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackParaErrosHttp(HttpStatus)[4] -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.devePreservarPerguntaComEspacosAcentosECaracteresReservados -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackQuandoNaoHaCorpoHttp -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveConverterRecomendacaoJsonEUsarIdNoCaminho -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.chamadaPosteriorDeveFuncionarDepoisDeFalha -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackParaTipoDeConteudoIncompativel -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackEmIndisponibilidadeOuTimeout(IOException)[1] -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackEmIndisponibilidadeOuTimeout(IOException)[2] -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackEmIndisponibilidadeOuTimeout(IOException)[3] -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.mapaSemCamposEsperadosERepassadoPoisNaoExisteValidacaoDeSchema -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[ERROR] org.example.tdd.ia.IaClientTest.deveUsarFallbackQuandoJsonRepresentaNull -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.getHandler(Unknown Source)
+	at org.mockito.internal.util.MockUtil.getMockHandlerOrNull(MockUtil.java:158)
+	at org.mockito.internal.util.MockUtil.isMock(MockUtil.java:147)
+	at org.mockito.Mockito.spy(Mockito.java:2318)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.client.MockRestServiceServer.verify()" because "this.server" is null
+		at org.example.tdd.ia.IaClientTest.verificarChamadas(IaClientTest.java:53)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	... 1 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 14 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 15 more
+
+[INFO] Running org.example.tdd.ia.IaControllerTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.044 s <<< FAILURE! -- in org.example.tdd.ia.IaControllerTest
+[ERROR] org.example.tdd.ia.IaControllerTest.recomendacoesDeveRetornar200EJsonDoCliente -- Time elapsed: 0.013 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:275)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:236)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:78)
+	at org.mockito.Mockito.mock(Mockito.java:2235)
+	at org.mockito.Mockito.mock(Mockito.java:2150)
+	at org.example.tdd.ia.IaControllerTest.preparar(IaControllerTest.java:21)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 11 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 12 more
+
+[ERROR] org.example.tdd.ia.IaControllerTest.perguntaAusenteDeveRetornar400SemChamarCliente -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:275)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:236)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:78)
+	at org.mockito.Mockito.mock(Mockito.java:2235)
+	at org.mockito.Mockito.mock(Mockito.java:2150)
+	at org.example.tdd.ia.IaControllerTest.preparar(IaControllerTest.java:21)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 11 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 12 more
+
+[ERROR] org.example.tdd.ia.IaControllerTest.recomendacoesDegradadasDevemManter200ConformeContratoExistente -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:275)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:236)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:78)
+	at org.mockito.Mockito.mock(Mockito.java:2235)
+	at org.mockito.Mockito.mock(Mockito.java:2150)
+	at org.example.tdd.ia.IaControllerTest.preparar(IaControllerTest.java:21)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 11 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 12 more
+
+[ERROR] org.example.tdd.ia.IaControllerTest.idNaoNumericoDeveRetornar400SemChamarCliente -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:275)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:236)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:78)
+	at org.mockito.Mockito.mock(Mockito.java:2235)
+	at org.mockito.Mockito.mock(Mockito.java:2150)
+	at org.example.tdd.ia.IaControllerTest.preparar(IaControllerTest.java:21)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 11 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 12 more
+
+[ERROR] org.example.tdd.ia.IaControllerTest.assistenteDeveRepassarPerguntaERetornar200 -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:275)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:236)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:78)
+	at org.mockito.Mockito.mock(Mockito.java:2235)
+	at org.mockito.Mockito.mock(Mockito.java:2150)
+	at org.example.tdd.ia.IaControllerTest.preparar(IaControllerTest.java:21)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 11 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 12 more
+
+[ERROR] org.example.tdd.ia.IaControllerTest.assistenteDegradadoDeveManter200ConformeContratoExistente -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:275)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:236)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:78)
+	at org.mockito.Mockito.mock(Mockito.java:2235)
+	at org.mockito.Mockito.mock(Mockito.java:2150)
+	at org.example.tdd.ia.IaControllerTest.preparar(IaControllerTest.java:21)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 11 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 12 more
+
+[INFO] Running org.example.tdd.AlunoHttpJpaIntegrationTest
+20:11:20.125 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.AlunoHttpJpaIntegrationTest]: AlunoHttpJpaIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:11:20.369 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.AlunoHttpJpaIntegrationTest
+20:11:20.596 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.AlunoHttpJpaIntegrationTest]: AlunoHttpJpaIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:11:20.598 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.AlunoHttpJpaIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-27T20:11:21.297-03:00  INFO 28236 --- [TDD] [           main] o.e.tdd.AlunoHttpJpaIntegrationTest      : Starting AlunoHttpJpaIntegrationTest using Java 17.0.20.1 with PID 28236 (started by majuudutil in /Users/majuudutil/Downloads/DevOps-Project-B1)
+2026-10-27T20:11:21.299-03:00  INFO 28236 --- [TDD] [           main] o.e.tdd.AlunoHttpJpaIntegrationTest      : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T20:11:22.893-03:00  INFO 28236 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-27T20:11:22.995-03:00  INFO 28236 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 1 JPA repository interface.
+2026-10-27T20:11:24.168-03:00  INFO 28236 --- [TDD] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-27T20:11:24.330-03:00  INFO 28236 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-27T20:11:25.401-03:00  INFO 28236 --- [TDD] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-27T20:11:25.479-03:00  INFO 28236 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-27T20:11:26.244-03:00  INFO 28236 --- [TDD] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desafio1 user=SA
+2026-10-27T20:11:26.248-03:00  INFO 28236 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-27T20:11:26.424-03:00  INFO 28236 --- [TDD] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:desafio1]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: DESAFIO1/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-27T20:11:28.647-03:00  INFO 28236 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-27T20:11:28.747-03:00  INFO 28236 --- [TDD] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T20:11:29.132-03:00  INFO 28236 --- [TDD] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-27T20:11:31.031-03:00  WARN 28236 --- [TDD] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-27T20:11:32.041-03:00  INFO 28236 --- [TDD] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desafio1'
+2026-10-27T20:11:32.222-03:00  INFO 28236 --- [TDD] [           main] o.e.tdd.AlunoHttpJpaIntegrationTest      : Started AlunoHttpJpaIntegrationTest in 11.457 seconds (process running for 35.809)
+2026-10-27T20:11:32.226-03:00  WARN 28236 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-27T20:11:32.227-03:00  WARN 28236 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-10-27T20:11:32.273-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:32.274-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:32.277-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-27T20:11:33.425-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:33.425-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:33.428-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-27T20:11:33.452-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:33.452-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:33.455-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-27T20:11:33.483-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:33.484-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:33.485-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-27T20:11:33.511-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:33.511-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:33.514-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-27T20:11:33.535-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:33.536-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:33.539-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-27T20:11:33.559-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:33.559-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:33.562-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-27T20:11:33.635-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:33.635-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:33.636-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-27T20:11:33.679-03:00  INFO 28236 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T20:11:33.680-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T20:11:33.683-03:00  INFO 28236 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.02 s -- in org.example.tdd.AlunoHttpJpaIntegrationTest
+[INFO] Running org.example.tdd.TddApplicationTests
+2026-10-27T20:11:33.720-03:00  INFO 28236 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.TddApplicationTests]: TddApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T20:11:33.722-03:00  INFO 28236 --- [TDD] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.TddApplicationTests
+2026-10-27T20:11:33.726-03:00  INFO 28236 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.TddApplicationTests]: TddApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T20:11:33.729-03:00  INFO 28236 --- [TDD] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.TddApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-27T20:11:33.784-03:00  INFO 28236 --- [TDD] [           main] org.example.tdd.TddApplicationTests      : Starting TddApplicationTests using Java 17.0.20.1 with PID 28236 (started by majuudutil in /Users/majuudutil/Downloads/DevOps-Project-B1)
+2026-10-27T20:11:33.784-03:00  INFO 28236 --- [TDD] [           main] org.example.tdd.TddApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T20:11:34.135-03:00  INFO 28236 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-27T20:11:34.165-03:00  INFO 28236 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 1 JPA repository interface.
+2026-10-27T20:11:34.305-03:00  INFO 28236 --- [TDD] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-27T20:11:34.340-03:00  INFO 28236 --- [TDD] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-27T20:11:34.341-03:00  INFO 28236 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-27T20:11:34.343-03:00  INFO 28236 --- [TDD] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:tdd user=SA
+2026-10-27T20:11:34.344-03:00  INFO 28236 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-27T20:11:34.345-03:00  INFO 28236 --- [TDD] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:tdd]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TDD/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-27T20:11:34.387-03:00  INFO 28236 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table alunos (id bigint generated by default as identity, cursos_liberados integer, media float(53), moedas integer, plano varchar(255), voucher_projetos_reais boolean, primary key (id))
+2026-10-27T20:11:34.418-03:00  INFO 28236 --- [TDD] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T20:11:34.524-03:00  WARN 28236 --- [TDD] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-27T20:11:34.749-03:00  INFO 28236 --- [TDD] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tdd'
+2026-10-27T20:11:34.809-03:00  INFO 28236 --- [TDD] [           main] org.example.tdd.TddApplicationTests      : Started TddApplicationTests in 1.067 seconds (process running for 38.396)
+2026-10-27T20:11:34.810-03:00  WARN 28236 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-27T20:11:34.811-03:00  WARN 28236 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.104 s -- in org.example.tdd.TddApplicationTests
+[INFO] Running org.example.tdd.service.AlunoServiceTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! -- in org.example.tdd.service.AlunoServiceTest
+[ERROR] org.example.tdd.service.AlunoServiceTest.premiumDeAlunoAusenteDeveFalharSemPersistir -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:275)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:236)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:78)
+	at org.mockito.Mockito.mock(Mockito.java:2235)
+	at org.mockito.Mockito.mock(Mockito.java:2150)
+	at org.example.tdd.service.AlunoServiceTest.preparar(AlunoServiceTest.java:18)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 11 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 12 more
+
+[ERROR] org.example.tdd.service.AlunoServiceTest.forumDeAlunoAusenteDeveFalharSemPersistir -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:85)
+	at jdk.proxy2/jdk.proxy2.$Proxy39.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:275)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:236)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:78)
+	at org.mockito.Mockito.mock(Mockito.java:2235)
+	at org.mockito.Mockito.mock(Mockito.java:2150)
+	at org.example.tdd.service.AlunoServiceTest.preparar(AlunoServiceTest.java:18)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:49)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:29)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:26)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:74)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1810)
+	at org.example.tdd.ia.IaClientTest.prepararTransporte(IaClientTest.java:40)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 8 more
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+Could not initialize inline Byte Buddy mock maker.
+
+It appears as if your JDK does not supply a working agent attachment mechanism.
+Java               : 17
+JVM vendor name    : Azul Systems, Inc.
+JVM vendor version : 17.0.20.1+1-LTS
+JVM name           : OpenJDK 64-Bit Server VM
+JVM version        : 17.0.20.1+1-LTS
+JVM info           : mixed mode, sharing
+OS name            : Mac OS X
+OS version         : 15.8.1
+
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:279)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 11 more
+Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process - set a property net.bytebuddy.agent.attacher.dump to dump the process output to a file at the specified location
+	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:710)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:615)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:595)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:547)
+	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:524)
+	at org.mockito.internal.PremainAttachAccess.getInstrumentation(PremainAttachAccess.java:80)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<clinit>(InlineDelegateByteBuddyMockMaker.java:139)
+	... 12 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaClientTest.prepararTransporte:40 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaControllerTest.preparar:21 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaControllerTest.preparar:21 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaControllerTest.preparar:21 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaControllerTest.preparar:21 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaControllerTest.preparar:21 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   IaControllerTest.preparar:21 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   AlunoServiceTest.preparar:18 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[ERROR]   AlunoServiceTest.preparar:18 » IllegalState Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+[INFO] 
+[ERROR] Tests run: 33, Failures: 0, Errors: 23, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  42.854 s
+[INFO] Finished at: 2026-10-27T20:11:35-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project TDD: 
+[ERROR] 
+[ERROR] See /Users/majuudutil/Downloads/DevOps-Project-B1/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
