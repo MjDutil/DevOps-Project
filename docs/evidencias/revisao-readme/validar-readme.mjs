@@ -18,7 +18,7 @@ function markdownFiles(directory) {
     return entry.isDirectory() ? markdownFiles(file) : (entry.name.endsWith('.md') ? [file] : []);
   });
 }
-const files = ['README.md', 'README-B1-START.md', ...markdownFiles('docs'), 'labs/ia/README.md'];
+const files = ['README.md', ...markdownFiles('docs'), 'labs/ia/README.md'];
 const tracked = new Set(execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8' }).split('\0'));
 const workingTree = process.argv.includes('--working-tree');
 const untracked = new Set(execFileSync('git', ['ls-files', '--others', '--exclude-standard', '-z'], { encoding: 'utf8' }).split('\0'));
