@@ -1,5 +1,7 @@
 # Auditoria final — Desafios 1 e 2
 
+> Nota editorial posterior: o README principal foi simplificado como apresentação do projeto. Os links abaixo foram redirecionados aos ADRs e ao C4 existentes; resultados e logs desta auditoria histórica permanecem preservados.
+
 Data: 2026-10-27. Escopo: critérios dos mini-labs D1/D2, apresentação no README principal, testes, cobertura e preparação Git. D3 não foi iniciado e nenhum merge/push foi realizado.
 
 **Conclusão técnica:** os dois mini-labs estão implementados, documentados e sustentados por evidências estáticas que a professora pode consultar sem executar a aplicação. **Disponibilidade pública:** ainda depende da integração/publicação autorizada em `main`. A identificação dos integrantes B1 permanece sujeita à confirmação; os nomes atualmente registrados são os da AC1.
@@ -14,10 +16,10 @@ O D1 exige reorganizar uma funcionalidade existente e comparar dependências; n�
 
 | Critério por desafio | Peso no enunciado | D1 — comprovação | D2 — comprovação | Auditoria |
 |---|---:|---|---|---|
-| RF/RNF e seleção de até três ASRs | 0,25 | [README: requisitos D1](../../../README.md#d1-requisitos); [ADR-001](../../adr/ADR-001.md). Manutenibilidade, escalabilidade e complexidade operacional; RF01 futuro e RF02 exercitado. | [README: requisitos D2](../../../README.md#d2-requisitos); [ADR-002](../../adr/ADR-002.md). Testabilidade, modificabilidade e manutenibilidade; consistência tratada como correção, sem quarto ASR. | Atendido no escopo do mini-lab |
-| RPCs, alternativas e trade-offs | 0,20 | [Decisão D1](../../../README.md#d1-decisao): Spring Boot, seis desenvolvedores no case, banco relacional e legado; camadas × modular × serviços. | [Decisão D2](../../../README.md#d2-decisao): regras reaproveitadas e proibição de reescrita global; estado D1 parcial × Ports & Adapters × migração global. | Atendido |
+| RF/RNF e seleção de até três ASRs | 0,25 | [Requisitos D1](../../adr/ADR-001.md#rnfs-e-seleção-de-no-máximo-três-asrs); [ADR-001](../../adr/ADR-001.md). Manutenibilidade, escalabilidade e complexidade operacional; RF01 futuro e RF02 exercitado. | [Requisitos D2](../../adr/ADR-002.md#asrs-prioritários--no-máximo-três); [ADR-002](../../adr/ADR-002.md). Testabilidade, modificabilidade e manutenibilidade; consistência tratada como correção, sem quarto ASR. | Atendido no escopo do mini-lab |
+| RPCs, alternativas e trade-offs | 0,20 | [Decisão D1](../../adr/ADR-001.md#alternativas-e-trade-offs): Spring Boot, seis desenvolvedores no case, banco relacional e legado; camadas × modular × serviços. | [Decisão D2](../../adr/ADR-002.md#alternativas-e-trade-offs): regras reaproveitadas e proibição de reescrita global; estado D1 parcial × Ports & Adapters × migração global. | Atendido |
 | ADR e justificativa | 0,20 | [docs/adr/ADR-001.md](../../adr/ADR-001.md): contexto, decisão, consequências e gatilho de revisão; resumo também no README. | [docs/adr/ADR-002.md](../../adr/ADR-002.md): inversão da dependência, adapters, atualização condicional, limites e consequências. | Atendido |
-| C4 coerente | 0,15 | [Container no README](../../../README.md#d1-c4); [SVG](../revisao-readme/c4-container.svg). Core permanece um processo/deploy. | [Component no README](../../../README.md#d2-c4); [SVG](../revisao-readme/c4-component.svg); [visão detalhada](../../arquitetura/diagramas.md). | Atendido; fontes Mermaid e SVGs versionados |
+| C4 coerente | 0,15 | [Container D1](../../arquitetura/diagramas.md#c4-container--estado-do-desafio-1); [SVG](../revisao-readme/c4-container.svg). Core permanece um processo/deploy. | [Component D2](../../arquitetura/diagramas.md#c4-component--core-estado-do-desafio-2); [SVG](../revisao-readme/c4-component.svg); [visão detalhada](../../arquitetura/diagramas.md). | Atendido; fontes Mermaid e SVGs versionados |
 | Microsolução, evidência e Git | 0,20 | [API pública](../../../src/main/java/org/example/tdd/gamificacao/api/ConclusaoCurso.java); [fachada](../../../src/main/java/org/example/tdd/gamificacao/infrastructure/ConclusaoCursoFacade.java); [diff antes/depois](../desafio-1/refatoracao-d1.diff); [testes anteriores](../desafio-1/testes-integracao-antes.txt). Commit D1 `8bf8785`. | [Contrato comum](../../../src/test/java/org/example/tdd/gamificacao/AlunoStoreContract.java); [fake](../../../src/test/java/org/example/tdd/gamificacao/FakeAlunoStoreContractTest.java); [JPA/H2](../../../src/test/java/org/example/tdd/gamificacao/JpaAlunoStoreContractTest.java); [mesmos cenários aprovados](substituicao-adapters.md). Commit D2 `34206c7`. | Implementação e evidência locais prontas; publicação autorizada pendente |
 
 ## Evidência específica de substituição dos adapters
@@ -49,7 +51,7 @@ Os 25 testes do D1 e 51 do D2 são totais históricos, preservados nas respectiv
 
 ## README e rastreabilidade sem execução local
 
-O [README principal](../../../README.md) contém integralmente os elementos essenciais dos dois desafios e seus diagramas. ADRs e evidências aprofundam a auditoria, sem substituir a apresentação principal. O [registro cumulativo](../../arquitetura/README.md) permanece mantido, conforme o enunciado.
+O [README principal](../../../README.md) orienta a apresentação do projeto. A fundamentação obrigatória dos dois desafios permanece no [registro cumulativo](../../arquitetura/README.md), nos ADRs e nas evidências; os diagramas estão no documento C4 vinculado acima.
 
 Em ambos os desafios, é possível seguir RF → RNF → ASR + RPC → alternativas → ADR → C4 → evidência. O código de testes e os logs estão versionados; a professora pode ler os resultados no GitHub sem instalar Java, Docker, banco ou ferramentas de renderização.
 

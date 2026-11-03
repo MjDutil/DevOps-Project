@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/docs/evidencias/desafio-3/executar-lab.py", line 172, in <module>
+    main()
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/docs/evidencias/desafio-3/executar-lab.py", line 93, in main
+    python_port, core_port = port(), port()
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/docs/evidencias/desafio-3/executar-lab.py", line 27, in port
+    s.bind(("127.0.0.1", 0))
+PermissionError: [Errno 1] Operation not permitted

@@ -1,0 +1,32 @@
+{
+  "tests": 75,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "jacoco": {
+    "INSTRUCTION": {
+      "missed": 0,
+      "covered": 669
+    },
+    "BRANCH": {
+      "missed": 0,
+      "covered": 16
+    },
+    "LINE": {
+      "missed": 0,
+      "covered": 160
+    },
+    "COMPLEXITY": {
+      "missed": 0,
+      "covered": 70
+    },
+    "METHOD": {
+      "missed": 0,
+      "covered": 62
+    },
+    "CLASS": {
+      "missed": 0,
+      "covered": 17
+    }
+  }
+}

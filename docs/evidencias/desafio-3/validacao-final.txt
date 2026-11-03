@@ -1,0 +1,13 @@
+PASSOU: 22 documentos, 272 links/imagens relativos e 39 âncoras.
+PASSOU: destinos existentes, capitalização exata e arquivos rastreados ou novos não ignorados (modo working-tree).
+PASSOU: três blocos Mermaid D1/D2/D3 sincronizados com os fontes renderizados em SVG; Container D3 também no registro arquitetural.
+URLs externas encontradas: https://github.com/MjDutil/DevOps-Project, https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#custom-anchors, https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
+Limite: verifica caminhos locais e sincronismo dos SVGs; não substitui parser Mermaid. Arquivos novos em working-tree ainda precisam de git add/commit. Publicação exige aprovação.
+
+Mermaid CLI 12.2.0: renderização do C4 D3 concluída, código de saída 0 (mermaid-render.txt); SVG também verificado como XML válido.
+Ferramentas temporárias: marked 18.1.3; github-slugger 2.0.0. Nenhuma dependência da aplicação alterada.
+PASSOU: modo padrão continua rejeitando arquivos fora do índice Git; falha esperada antes de git add, verificada nesta etapa.
+PASSOU: node --check e git diff --check.
+PASSOU: 32 hashes src/main/src/test preservados; sem diff em pom.xml, Docker Compose, ADR-001/002 ou evidências D1/D2.
+Credencial demonstrativa PostgreSQL identificada no README das evidências D3; diff histórico preservado. Não há comprovação sobre eventual reutilização externa.
+Nenhum novo teste da aplicação executado nesta etapa documental. Nenhum commit, push ou merge realizado.

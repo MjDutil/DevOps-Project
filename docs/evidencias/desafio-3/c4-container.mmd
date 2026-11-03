@@ -1,0 +1,5 @@
+flowchart LR
+    aluno["Aluno — pessoa"] --> frontend["Frontend Vue / Nginx"]
+    frontend -->|HTTP REST / JSON| core["Core Java / Spring Boot<br/>Monólito modular + Ports & Adapters<br/>Operações essenciais sem dependência de IA"]
+    core -->|JPA / JDBC| banco[("Banco relacional<br/>H2 no laboratório; PostgreSQL configurado")]
+    core -->|"HTTP REST / JSON síncrono<br/>conexão 700 ms; leitura 1200 ms<br/>fallback em falha"| ia["Serviço Python / FastAPI<br/>Recomendação + assistente demonstrativos<br/>Processo e reinício independentes; sem ML/RAG real"]

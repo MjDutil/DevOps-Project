@@ -1,6 +1,6 @@
 # Diagramas C4 — Architecture Lab B1
 
-**Cuidado:** as visões abaixo descrevem a arquitetura **decidida/planejada**. O sistema atualmente entregue ainda é um MVP e não possui todos os componentes. O Core, frontend e banco existem. Os demais dependem dos laboratórios dos desafios 3–6.
+**Cuidado:** as visões abaixo descrevem a arquitetura **decidida/planejada**. O sistema atualmente entregue ainda é um MVP e não possui todos os componentes. O Core, frontend e banco existem; a integração FastAPI foi validada no D3 em rede local/H2. Componentes de D4–D6 continuam propostos.
 
 ## C4 Container — estado do Desafio 1
 
@@ -54,6 +54,18 @@ Setas contínuas representam dependências de uso; “implementa” explicita in
 
 A chamada pública entra pela fachada transacional; o contrato de saída atualiza somente cursos, rejeitando snapshot obsoleto. Domínio, entidade e repository seguem compartilhados com o legado, sem migração global. A mesma regra foi exercitada com os dois adapters nos [testes D2](../evidencias/desafio-2/README.md). O nível Container continua inalterado: uma aplicação Core, sem novos serviços.
 
+## C4 Container — estado validado do Desafio 3
+
+```mermaid
+flowchart LR
+    aluno["Aluno — pessoa"] --> frontend["Frontend Vue / Nginx"]
+    frontend -->|HTTP REST / JSON| core["Core Java / Spring Boot<br/>Monólito modular + Ports & Adapters<br/>Operações essenciais sem dependência de IA"]
+    core -->|JPA / JDBC| banco[("Banco relacional<br/>H2 no laboratório; PostgreSQL configurado")]
+    core -->|"HTTP REST / JSON síncrono<br/>conexão 700 ms; leitura 1200 ms<br/>fallback em falha"| ia["Serviço Python / FastAPI<br/>Recomendação + assistente demonstrativos<br/>Processo e reinício independentes; sem ML/RAG real"]
+```
+
+O D3 validou Core → FastAPI e Core → H2 em processos locais, incluindo falha, recuperação e timeout de leitura. Frontend/navegador e PostgreSQL/Compose não foram exercitados. Não há acesso do Python ao banco do Core; a recomendação usa somente o ID no contrato demonstrativo. Falha da IA degrada apenas a resposta opcional; conclusão, fórum e Premium continuam locais ao Core. Esta visão evolui o Container D1 sem alterar o Component D2. [Logs, respostas e tempos](../evidencias/desafio-3/README.md).
+
 ## C4 Deployment — visão proposta para desafio 6
 
 ```mermaid
@@ -63,7 +75,7 @@ flowchart TB
        fe[Frontend]
        core[Core Spring Boot]
        pg[(PostgreSQL)]
-       py[FastAPI — planejado]
+       py[FastAPI — integração local validada no D3]
        mqtt[MQTT — planejado]
        prom[Prometheus — planejado]
        graf[Grafana — planejado]
@@ -76,4 +88,4 @@ flowchart TB
     end
 ```
 
-A visão Deployment acima é proposta futura e não evidencia execução dos desafios 3–6. Nos diagramas anteriores, os rótulos distinguem implementação de integração não validada; setas “implementa” representam implementação de interface, não comunicação remota.
+A visão Deployment acima é proposta futura e não evidencia implantação Docker nem execução dos desafios 4–6. Nos diagramas anteriores, os rótulos distinguem implementação de integração não validada; setas “implementa” representam implementação de interface, não comunicação remota.

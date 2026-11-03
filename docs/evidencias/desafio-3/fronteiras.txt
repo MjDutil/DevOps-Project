@@ -1,0 +1,3 @@
+PASSOU: clientes externos ao módulo importam somente gamificacao.api.
+PASSOU: domínio, aplicação e API sem imports Spring/JPA/repository/entity/infraestrutura.
+Limite: inspeção dos imports explícitos; não garante isolamento Maven/JPMS/reflexão.

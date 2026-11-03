@@ -1,4 +1,5 @@
-// Uso: node docs/evidencias/revisao-readme/validar-readme.mjs /tmp/b1-readme-tools
+// Uso: node docs/evidencias/revisao-readme/validar-readme.mjs /tmp/b1-readme-tools [--working-tree]
+// Sem --working-tree, exige destinos já incluídos no índice Git.
 // Ferramentas editoriais isoladas do projeto: marked e github-slugger.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,9 +20,10 @@ function markdownFiles(directory) {
 }
 const files = ['README.md', 'README-B1-START.md', ...markdownFiles('docs'), 'labs/ia/README.md'];
 const tracked = new Set(execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8' }).split('\0'));
+const workingTree = process.argv.includes('--working-tree');
+const untracked = new Set(execFileSync('git', ['ls-files', '--others', '--exclude-standard', '-z'], { encoding: 'utf8' }).split('\0'));
 let count = 0;
 let fragments = 0;
-let diagrams = 0;
 const external = new Set();
 function assert(condition, message) { if (!condition) throw new Error(message); }
 function anchors(markdown) {
@@ -42,7 +44,6 @@ function exactCase(relative) {
 for (const file of files) {
   const markdown = fs.readFileSync(file, 'utf8');
   marked.walkTokens(marked.lexer(markdown), token => {
-    if (token.type === 'code' && token.lang === 'mermaid' && file === 'README.md') diagrams++;
     if (!['link', 'image'].includes(token.type)) return;
     const href = token.href;
     if (/^https?:\/\//.test(href)) { external.add(href); return; }
@@ -53,7 +54,7 @@ for (const file of files) {
     assert(!relative.startsWith('..'), `Link fora do repositório: ${href}`);
     assert(fs.existsSync(resolved), `Destino ausente: ${file}: ${href}`);
     exactCase(relative);
-    if (fs.statSync(resolved).isFile()) assert(tracked.has(relative), `Destino fora do índice Git: ${relative}`);
+    if (fs.statSync(resolved).isFile()) assert(tracked.has(relative) || (workingTree && untracked.has(relative)), `Destino fora do índice Git${workingTree ? ' ou ignorado' : ''}: ${relative}`);
     if (fragment) {
       assert(anchors(fs.readFileSync(resolved, 'utf8')).has(decodeURIComponent(fragment)), `Âncora ausente: ${file}: ${href}`);
       fragments++;
@@ -61,15 +62,29 @@ for (const file of files) {
     count++;
   });
 }
-assert(diagrams === 2, `Esperados dois diagramas no README, encontrados ${diagrams}`);
-for (const name of ['c4-container', 'c4-component']) {
-  const source = fs.readFileSync(`docs/evidencias/revisao-readme/${name}.mmd`, 'utf8').trim();
-  assert(fs.readFileSync('README.md', 'utf8').includes('```mermaid\n' + source + '\n```'), `Mermaid/SVG fora de sincronismo: ${name}`);
-  const svg = fs.readFileSync(`docs/evidencias/revisao-readme/${name}.svg`, 'utf8');
-  assert(svg.includes('<svg') && !svg.includes('Syntax error'), `SVG inválido: ${name}`);
+const expected = [
+  'docs/evidencias/revisao-readme/c4-container',
+  'docs/evidencias/revisao-readme/c4-component',
+  'docs/evidencias/desafio-3/c4-container',
+];
+const diagramPage = fs.readFileSync('docs/arquitetura/diagramas.md', 'utf8');
+function visibleText(text) {
+  return text.replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
 }
+for (const name of expected) {
+  const source = fs.readFileSync(`${name}.mmd`, 'utf8').trim();
+  assert(/^flowchart\s+(TB|LR)\b/.test(source), `Fonte C4 ausente ou inesperado: ${name}`);
+  const svg = fs.readFileSync(`${name}.svg`, 'utf8');
+  assert(svg.includes('<svg') && !svg.includes('Syntax error'), `SVG inválido: ${name}`);
+  for (const [, label] of source.matchAll(/"([^"]+)"/g)) {
+    assert(visibleText(svg).includes(visibleText(label)), `Rótulo do fonte ausente no SVG: ${name}: ${label}`);
+  }
+}
+const d3Source = fs.readFileSync(`${expected[2]}.mmd`, 'utf8').trim();
+assert(diagramPage.includes('```mermaid\n' + d3Source + '\n```'), 'Container D3 fora de sincronismo no registro arquitetural');
+assert(fs.readFileSync('README.md', 'utf8').includes('```mermaid\n' + d3Source + '\n```'), 'Container D3 fora de sincronismo no README');
 console.log(`PASSOU: ${files.length} documentos, ${count} links/imagens relativos e ${fragments} âncoras.`);
-console.log('PASSOU: destinos existentes, capitalização exata e arquivos incluídos no índice Git.');
-console.log('PASSOU: dois blocos Mermaid sincronizados com os fontes renderizados em SVG.');
+console.log(`PASSOU: destinos existentes, capitalização exata e ${workingTree ? 'arquivos rastreados ou novos não ignorados (modo working-tree)' : 'arquivos incluídos no índice Git'}.`);
+console.log('PASSOU: fontes Mermaid e rótulos dos SVGs D1/D2/D3 conferidos; Container D3 sincronizado com o registro arquitetural e apresentado no README.');
 console.log('URLs externas encontradas: ' + [...external].join(', '));
-console.log('Limite: validação dos caminhos do commit local; os novos destinos em main só estarão públicos após aprovação/publicação.');
+console.log('Limite: verifica caminhos locais e sincronismo dos SVGs; não substitui parser Mermaid. Arquivos novos em working-tree ainda precisam de git add/commit. Publicação exige aprovação.');
