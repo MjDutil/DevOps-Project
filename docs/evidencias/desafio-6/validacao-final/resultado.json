@@ -1,0 +1,9 @@
+{
+  "build": 5,
+  "resultado": "SUCCESS",
+  "maven": 101,
+  "python": 14,
+  "jar_sha256": "eb39336d8577fb0ad679d1d49efcae2ecc90f3d0fa5de257c586193b1b7c99bd",
+  "implantado": false,
+  "jenkinsfile_final_conferido": true
+}

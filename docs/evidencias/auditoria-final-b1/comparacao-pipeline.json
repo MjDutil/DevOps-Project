@@ -1,0 +1,10 @@
+{
+  "build_1_sha256": "a95d5cb3ca1b4fd6b53a16d7ced7c9110a1445c076c958518e98955d3e7451e0",
+  "final_sha256": "a7209bd2236f0bc2194d0ae435784cb2dd036702e3e4187c185c770e8deb657c",
+  "conteudo_build_1_reconstruido_e_conferido_por_sha256": true,
+  "mudanca": "Somente ramo SIMULAR_FALHA_TESTE executa JUnit isolado; caminho normal mantém Maven completo e Python.",
+  "validacao_final_build": 5,
+  "resultado_final": "SUCCESS",
+  "maven": 101,
+  "python": 14
+}

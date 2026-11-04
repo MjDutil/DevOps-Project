@@ -1,0 +1,12 @@
+{
+  "data": "2026-11-04T15:49:03.779644-03:00",
+  "casos": [],
+  "ambiente": {
+    "python": "3.9.6 (default, Apr 30 2025, 02:07:18) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+    "core_url": "http://127.0.0.1:62395",
+    "ia_url": "http://127.0.0.1:62394",
+    "banco": "H2 em memória"
+  },
+  "sucesso": false,
+  "erro": "RuntimeError('Inicialização excedeu 90 segundos')"
+}

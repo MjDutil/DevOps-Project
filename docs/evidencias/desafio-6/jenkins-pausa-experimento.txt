@@ -1,0 +1,2 @@
+ Container b1-d6-d1f4fbe7-jenkins-1 Stopping
+ Container b1-d6-d1f4fbe7-jenkins-1 Stopped

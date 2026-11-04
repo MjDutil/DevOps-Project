@@ -1,0 +1,14 @@
+Docker Desktop acessível em 2026-11-04; API inicialmente respondia, mas dois containers próprios ficaram em Created sem processo Linux.
+Reinicialização única com docker desktop restart --timeout 120 recuperou o runtime; probe sem volumes encerrou com código 0.
+Bootstrap interrompido deixou somente arquivo de hashes incompleto, sem credenciais.json. Removido exclusivamente esse arquivo próprio e repetida a preparação com sucesso.
+Acrescentados timeouts e nomes aos containers de preparação; senhas via stdin. Nenhum dado dos containers anteriores foi apagado.
+Client=29.8.0 Server=29.8.0 OS=linux Arch=amd64
+eclipse-mosquitto@sha256:09b62ff32c2e7b64d4b431b9a89236073289b68db273de2b089edeb9b0d92b5c
+devops-pgadmin Exited (255) 7 weeks ago
+devops-postgres Exited (255) 7 weeks ago
+vibrant_meitner Exited (0) 7 weeks ago
+
+Conferência após o último ensaio: somente os três containers originais, parados; projeto MQTT e seu volume removidos.
+devops-pgadmin Exited (255) 7 weeks ago
+devops-postgres Exited (255) 7 weeks ago
+vibrant_meitner Exited (0) 7 weeks ago

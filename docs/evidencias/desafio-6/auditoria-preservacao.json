@@ -1,0 +1,11 @@
+{
+  "arquivos_historicos_conferidos": 48,
+  "historicos_modificados_com_autorizacao_D6": [
+    "src/main/resources/application.properties",
+    "src/main/java/org/example/tdd/ia/IaClient.java"
+  ],
+  "historicos_preservados": 46,
+  "segredos_gerados_encontrados_em_arquivos_publicaveis": [],
+  "diff_check": true,
+  "commit_push_merge_realizados_no_D6": false
+}

@@ -1,0 +1,18 @@
+Generating single mermaid chart
+
+Error: Parse error on line 28:
+...ativa; captura falha            C-->>A:
+-----------------------^
+Expecting '()', 'SOLID_OPEN_ARROW', 'DOTTED_OPEN_ARROW', 'SOLID_ARROW', 'SOLID_ARROW_TOP', 'SOLID_ARROW_BOTTOM', 'STICK_ARROW_TOP', 'STICK_ARROW_BOTTOM', 'SOLID_ARROW_TOP_DOTTED', 'SOLID_ARROW_BOTTOM_DOTTED', 'STICK_ARROW_TOP_DOTTED', 'STICK_ARROW_BOTTOM_DOTTED', 'SOLID_ARROW_TOP_REVERSE', 'SOLID_ARROW_BOTTOM_REVERSE', 'STICK_ARROW_TOP_REVERSE', 'STICK_ARROW_BOTTOM_REVERSE', 'SOLID_ARROW_TOP_REVERSE_DOTTED', 'SOLID_ARROW_BOTTOM_REVERSE_DOTTED', 'STICK_ARROW_TOP_REVERSE_DOTTED', 'STICK_ARROW_BOTTOM_REVERSE_DOTTED', 'BIDIRECTIONAL_SOLID_ARROW', 'DOTTED_ARROW', 'BIDIRECTIONAL_DOTTED_ARROW', 'SOLID_CROSS', 'DOTTED_CROSS', 'SOLID_POINT', 'DOTTED_POINT', got 'NEWLINE'
+Parser.parseError (https://mermaid-cli-intercept.invalid/private/tmp/b1-readme-tools/node_modules/mermaid/dist/chunks/mermaid.esm/sequenceDiagram-HDG3M3BC.mjs:410:21)
+Parser.parse (https://mermaid-cli-intercept.invalid/private/tmp/b1-readme-tools/node_modules/mermaid/dist/chunks/mermaid.esm/sequenceDiagram-HDG3M3BC.mjs:482:16)
+    at #evaluate (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/cdp/ExecutionContext.js:402:19)
+    at async ExecutionContext.evaluate (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/cdp/ExecutionContext.js:288:16)
+    at async IsolatedWorld.evaluate (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/cdp/IsolatedWorld.js:104:16)
+    at async CdpJSHandle.evaluate (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/api/JSHandle.js:154:20)
+    at async CdpElementHandle.evaluate (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/api/ElementHandle.js:344:20)
+    at async CdpElementHandle.$eval (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/api/ElementHandle.js:498:24)
+    at async CdpFrame.$eval (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/api/Frame.js:469:20)
+    at async CdpPage.$eval (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:462:20)
+    at async renderMermaid (file:///private/tmp/b1-readme-tools/node_modules/@mermaid-js/mermaid-cli/src/index.js:690:22)
+    at fromText (https://mermaid-cli-intercept.invalid/private/tmp/b1-readme-tools/node_modules/mermaid/dist/mermaid.esm.mjs:1337:17)

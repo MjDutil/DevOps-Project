@@ -1,0 +1,24 @@
+INFO:     Started server process [55779]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:57305 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57354 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58647 - "GET /recomendacoes/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58660 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58647 - "GET /recomendacoes/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58647 - "GET /assistente?pergunta=Como%20estudar%20arquitetura? HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [55779]
+INFO:     Started server process [55848]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:57305 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58773 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58775 - "GET /recomendacoes/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58775 - "GET /assistente?pergunta=Como%20estudar%20arquitetura? HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [55848]

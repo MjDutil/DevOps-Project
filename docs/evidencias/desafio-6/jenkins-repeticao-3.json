@@ -1,0 +1,157 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.BooleanParameterValue",
+          "name": "SIMULAR_FALHA_TESTE",
+          "value": false
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user b1admin",
+          "userId": "b1admin",
+          "userName": "b1admin"
+        }
+      ]
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+    },
+    {
+      "_class": "jenkins.model.InterruptedBuildAction"
+    },
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 36,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [
+    {
+      "displayPath": "source-manifest.json",
+      "fileName": "source-manifest.json",
+      "relativePath": "source-manifest.json"
+    },
+    {
+      "displayPath": "2026-11-04T19-08-11_787-jvmRun1.dump",
+      "fileName": "2026-11-04T19-08-11_787-jvmRun1.dump",
+      "relativePath": "target/surefire-reports/2026-11-04T19-08-11_787-jvmRun1.dump"
+    },
+    {
+      "displayPath": "2026-11-04T19-08-11_787-jvmRun1.dumpstream",
+      "fileName": "2026-11-04T19-08-11_787-jvmRun1.dumpstream",
+      "relativePath": "target/surefire-reports/2026-11-04T19-08-11_787-jvmRun1.dumpstream"
+    },
+    {
+      "displayPath": "org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.txt",
+      "fileName": "org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.txt"
+    },
+    {
+      "displayPath": "org.example.tdd.gamificacao.DominioIsoladoTest.txt",
+      "fileName": "org.example.tdd.gamificacao.DominioIsoladoTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.gamificacao.DominioIsoladoTest.txt"
+    },
+    {
+      "displayPath": "org.example.tdd.gamificacao.FakeAlunoStoreContractTest.txt",
+      "fileName": "org.example.tdd.gamificacao.FakeAlunoStoreContractTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.gamificacao.FakeAlunoStoreContractTest.txt"
+    },
+    {
+      "displayPath": "org.example.tdd.gamificacao.JpaAlunoStoreContractTest.txt",
+      "fileName": "org.example.tdd.gamificacao.JpaAlunoStoreContractTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.gamificacao.JpaAlunoStoreContractTest.txt"
+    },
+    {
+      "displayPath": "org.example.tdd.iot.IotHttpIntegrationTest.txt",
+      "fileName": "org.example.tdd.iot.IotHttpIntegrationTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.iot.IotHttpIntegrationTest.txt"
+    },
+    {
+      "displayPath": "org.example.tdd.TddApplicationTests.txt",
+      "fileName": "org.example.tdd.TddApplicationTests.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.TddApplicationTests.txt"
+    },
+    {
+      "displayPath": "TEST-org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.xml",
+      "fileName": "TEST-org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.xml"
+    },
+    {
+      "displayPath": "TEST-org.example.tdd.gamificacao.DominioIsoladoTest.xml",
+      "fileName": "TEST-org.example.tdd.gamificacao.DominioIsoladoTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.gamificacao.DominioIsoladoTest.xml"
+    },
+    {
+      "displayPath": "TEST-org.example.tdd.gamificacao.FakeAlunoStoreContractTest.xml",
+      "fileName": "TEST-org.example.tdd.gamificacao.FakeAlunoStoreContractTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.gamificacao.FakeAlunoStoreContractTest.xml"
+    },
+    {
+      "displayPath": "TEST-org.example.tdd.gamificacao.JpaAlunoStoreContractTest.xml",
+      "fileName": "TEST-org.example.tdd.gamificacao.JpaAlunoStoreContractTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.gamificacao.JpaAlunoStoreContractTest.xml"
+    },
+    {
+      "displayPath": "TEST-org.example.tdd.iot.IotHttpIntegrationTest.xml",
+      "fileName": "TEST-org.example.tdd.iot.IotHttpIntegrationTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.iot.IotHttpIntegrationTest.xml"
+    },
+    {
+      "displayPath": "TEST-org.example.tdd.TddApplicationTests.xml",
+      "fileName": "TEST-org.example.tdd.TddApplicationTests.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.TddApplicationTests.xml"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#3",
+  "duration": 566971,
+  "estimatedDuration": 328992,
+  "executor": null,
+  "fullDisplayName": "b1-ci #3",
+  "id": "3",
+  "keepLog": false,
+  "number": 3,
+  "queueId": 5,
+  "result": "ABORTED",
+  "timestamp": 1793819164720,
+  "url": "http://127.0.0.1:61300/job/b1-ci/3/",
+  "changeSets": [],
+  "culprits": [],
+  "inProgress": false,
+  "nextBuild": null,
+  "previousBuild": {
+    "number": 2,
+    "url": "http://127.0.0.1:61300/job/b1-ci/2/"
+  }
+}

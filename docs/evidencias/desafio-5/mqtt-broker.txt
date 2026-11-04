@@ -1,0 +1,239 @@
+mosquitto-1  | 2026-11-04T17:47:47.400047145Z chown: /mosquitto/config/mosquitto.conf: Read-only file system
+mosquitto-1  | 2026-11-04T17:47:47.400115208Z chown: /mosquitto/config/acl: Read-only file system
+mosquitto-1  | 2026-11-04T17:47:47.400121665Z chown: /mosquitto/config/passwords: Read-only file system
+mosquitto-1  | 2026-11-04T17:47:47.443829616Z 1793814467: Note: It is recommended to replace `message_size_limit` with `max_packet_size`.
+mosquitto-1  | 2026-11-04T17:47:47.448620242Z 1793814467: mosquitto version 2.0.22 starting
+mosquitto-1  | 2026-11-04T17:47:47.448647999Z 1793814467: Config loaded from /mosquitto/config/mosquitto.conf.
+mosquitto-1  | 2026-11-04T17:47:47.448976621Z 1793814467: Warning: File /mosquitto/config/passwords has world readable permissions. Future versions will refuse to load this file.
+mosquitto-1  | 2026-11-04T17:47:47.449001146Z To fix this, use `chmod 0700 /mosquitto/config/passwords`.
+mosquitto-1  | 2026-11-04T17:47:47.449005587Z 1793814467: Warning: File /mosquitto/config/passwords owner is not mosquitto. Future versions will refuse to load this file.To fix this, use `chown mosquitto /mosquitto/config/passwords`.
+mosquitto-1  | 2026-11-04T17:47:47.449017056Z 1793814467: Warning: File /mosquitto/config/passwords group is not mosquitto. Future versions will refuse to load this file.
+mosquitto-1  | 2026-11-04T17:47:47.451668989Z 1793814467: Warning: File /mosquitto/config/acl has world readable permissions. Future versions will refuse to load this file.
+mosquitto-1  | 2026-11-04T17:47:47.451740946Z To fix this, use `chmod 0700 /mosquitto/config/acl`.
+mosquitto-1  | 2026-11-04T17:47:47.451745450Z 1793814467: Warning: File /mosquitto/config/acl owner is not mosquitto. Future versions will refuse to load this file.To fix this, use `chown mosquitto /mosquitto/config/acl`.
+mosquitto-1  | 2026-11-04T17:47:47.451748415Z 1793814467: Warning: File /mosquitto/config/acl group is not mosquitto. Future versions will refuse to load this file.
+mosquitto-1  | 2026-11-04T17:47:47.453179466Z 1793814467: Opening ipv4 listen socket on port 1883.
+mosquitto-1  | 2026-11-04T17:47:47.453209982Z 1793814467: Opening ipv6 listen socket on port 1883.
+mosquitto-1  | 2026-11-04T17:47:47.453214216Z 1793814467: mosquitto version 2.0.22 running
+mosquitto-1  | 2026-11-04T17:47:48.759888426Z 1793814468: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:47:50.771223935Z 1793814470: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:47:52.783407217Z 1793814472: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:47:54.806141466Z 1793814474: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:47:56.819011478Z 1793814476: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:47:57.347326522Z 1793814477: New connection from 172.19.0.1:63000 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:57.348901306Z 1793814477: New client connected from 172.19.0.1:63000 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:47:57.348925049Z 1793814477: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:57.348927420Z 1793814477: Sending CONNACK to b1-gateway-e2e-56289 (0, 0)
+mosquitto-1  | 2026-11-04T17:47:57.350528160Z 1793814477: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:47:57.350555202Z 1793814477: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:47:57.350572549Z 1793814477: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:47:57.350732021Z 1793814477: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:47:57.443753061Z 1793814477: New connection from 172.19.0.1:63002 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:57.446041056Z 1793814477: New client connected from 172.19.0.1:63002 as b1-simulador-f0c4df297189 (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:47:57.446069685Z 1793814477: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:57.446076791Z 1793814477: Sending CONNACK to b1-simulador-f0c4df297189 (0, 0)
+mosquitto-1  | 2026-11-04T17:47:57.449209696Z 1793814477: Received PUBLISH from b1-simulador-f0c4df297189 (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:57.449254827Z 1793814477: Sending PUBLISH to b1-gateway-e2e-56289 (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:57.449268070Z 1793814477: Sending PUBACK to b1-simulador-f0c4df297189 (m1, rc0)
+mosquitto-1  | 2026-11-04T17:47:57.452081286Z 1793814477: Received DISCONNECT from b1-simulador-f0c4df297189
+mosquitto-1  | 2026-11-04T17:47:57.452117718Z 1793814477: Client b1-simulador-f0c4df297189 disconnected.
+mosquitto-1  | 2026-11-04T17:47:57.475624857Z 1793814477: Received PUBACK from b1-gateway-e2e-56289 (Mid: 1, RC:0)
+mosquitto-1  | 2026-11-04T17:47:57.560164546Z 1793814477: New connection from 172.19.0.1:63018 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:57.561562326Z 1793814477: New client connected from 172.19.0.1:63018 as b1-simulador-053d346000da (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:47:57.561636885Z 1793814477: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:57.561641530Z 1793814477: Sending CONNACK to b1-simulador-053d346000da (0, 0)
+mosquitto-1  | 2026-11-04T17:47:57.564216320Z 1793814477: Received PUBLISH from b1-simulador-053d346000da (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:57.564250659Z 1793814477: Sending PUBLISH to b1-gateway-e2e-56289 (d0, q1, r0, m2, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:57.564254451Z 1793814477: Sending PUBACK to b1-simulador-053d346000da (m1, rc0)
+mosquitto-1  | 2026-11-04T17:47:57.565916043Z 1793814477: Received DISCONNECT from b1-simulador-053d346000da
+mosquitto-1  | 2026-11-04T17:47:57.565944693Z 1793814477: Client b1-simulador-053d346000da disconnected.
+mosquitto-1  | 2026-11-04T17:47:57.577402854Z 1793814477: Received PUBACK from b1-gateway-e2e-56289 (Mid: 2, RC:0)
+mosquitto-1  | 2026-11-04T17:47:57.676980612Z 1793814477: New connection from 172.19.0.1:63032 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:57.677649652Z 1793814477: New client connected from 172.19.0.1:63032 as b1-simulador-286681510444 (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:47:57.677667737Z 1793814477: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:57.677672107Z 1793814477: Sending CONNACK to b1-simulador-286681510444 (0, 0)
+mosquitto-1  | 2026-11-04T17:47:57.679740517Z 1793814477: Received PUBLISH from b1-simulador-286681510444 (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (180 bytes))
+mosquitto-1  | 2026-11-04T17:47:57.679878623Z 1793814477: Sending PUBLISH to b1-gateway-e2e-56289 (d0, q1, r0, m3, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (180 bytes))
+mosquitto-1  | 2026-11-04T17:47:57.679888758Z 1793814477: Sending PUBACK to b1-simulador-286681510444 (m1, rc0)
+mosquitto-1  | 2026-11-04T17:47:57.683179346Z 1793814477: Received DISCONNECT from b1-simulador-286681510444
+mosquitto-1  | 2026-11-04T17:47:57.683281062Z 1793814477: Client b1-simulador-286681510444 disconnected.
+mosquitto-1  | 2026-11-04T17:47:57.688725344Z 1793814477: Received PUBACK from b1-gateway-e2e-56289 (Mid: 3, RC:0)
+mosquitto-1  | 2026-11-04T17:47:57.797246599Z 1793814477: New connection from 172.19.0.1:63046 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:57.800196590Z 1793814477: New client connected from 172.19.0.1:63046 as b1-simulador-d9a84e0907e7 (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:47:57.800250141Z 1793814477: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:57.800263292Z 1793814477: Sending CONNACK to b1-simulador-d9a84e0907e7 (0, 0)
+mosquitto-1  | 2026-11-04T17:47:57.803176876Z 1793814477: Received PUBLISH from b1-simulador-d9a84e0907e7 (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (183 bytes))
+mosquitto-1  | 2026-11-04T17:47:57.803214103Z 1793814477: Sending PUBLISH to b1-gateway-e2e-56289 (d0, q1, r0, m4, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (183 bytes))
+mosquitto-1  | 2026-11-04T17:47:57.803222023Z 1793814477: Sending PUBACK to b1-simulador-d9a84e0907e7 (m1, rc0)
+mosquitto-1  | 2026-11-04T17:47:57.807141524Z 1793814477: Received DISCONNECT from b1-simulador-d9a84e0907e7
+mosquitto-1  | 2026-11-04T17:47:57.807214348Z 1793814477: Client b1-simulador-d9a84e0907e7 disconnected.
+mosquitto-1  | 2026-11-04T17:47:57.813833173Z 1793814477: Received PUBACK from b1-gateway-e2e-56289 (Mid: 4, RC:0)
+mosquitto-1  | 2026-11-04T17:47:57.926337431Z 1793814477: New connection from 172.19.0.1:63052 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:57.927527443Z 1793814477: Sending CONNACK to b1-simulador-fba8d1cb5021 (0, 5)
+mosquitto-1  | 2026-11-04T17:47:57.927609831Z 1793814477: Client b1-simulador-fba8d1cb5021 disconnected, not authorised.
+mosquitto-1  | 2026-11-04T17:47:57.930492578Z 1793814477: New connection from 172.19.0.1:63056 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:57.930950977Z 1793814477: Sending CONNACK to b1-simulador-13fb6c09f076 (0, 5)
+mosquitto-1  | 2026-11-04T17:47:57.931263700Z 1793814477: Client b1-simulador-13fb6c09f076 disconnected, not authorised.
+mosquitto-1  | 2026-11-04T17:47:58.091429740Z 1793814478: New connection from 172.19.0.1:63072 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:58.091788156Z 1793814478: New client connected from 172.19.0.1:63072 as b1-simulador-c8ee6ad21e0b (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:47:58.091808154Z 1793814478: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:58.091812669Z 1793814478: Sending CONNACK to b1-simulador-c8ee6ad21e0b (0, 0)
+mosquitto-1  | 2026-11-04T17:47:58.093249982Z 1793814478: Denied PUBLISH from b1-simulador-c8ee6ad21e0b (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-02/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:58.093280542Z 1793814478: Sending PUBACK to b1-simulador-c8ee6ad21e0b (m1, rc135)
+mosquitto-1  | 2026-11-04T17:47:58.094844494Z 1793814478: Received DISCONNECT from b1-simulador-c8ee6ad21e0b
+mosquitto-1  | 2026-11-04T17:47:58.094888386Z 1793814478: Client b1-simulador-c8ee6ad21e0b disconnected.
+mosquitto-1  | 2026-11-04T17:47:58.252831872Z 1793814478: Client b1-gateway-e2e-56289 closed its connection.
+mosquitto-1  | 2026-11-04T17:47:58.254887448Z 1793814478: New connection from 172.19.0.1:63078 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:58.255316322Z 1793814478: New client connected from 172.19.0.1:63078 as b1-simulador-66940051a51e (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:47:58.255329593Z 1793814478: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:58.255331812Z 1793814478: Sending CONNACK to b1-simulador-66940051a51e (0, 0)
+mosquitto-1  | 2026-11-04T17:47:58.256471232Z 1793814478: Received PUBLISH from b1-simulador-66940051a51e (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:58.256493350Z 1793814478: Sending PUBACK to b1-simulador-66940051a51e (m1, rc0)
+mosquitto-1  | 2026-11-04T17:47:58.257932130Z 1793814478: Received DISCONNECT from b1-simulador-66940051a51e
+mosquitto-1  | 2026-11-04T17:47:58.257966902Z 1793814478: Client b1-simulador-66940051a51e disconnected.
+mosquitto-1  | 2026-11-04T17:47:58.383894635Z 1793814478: New connection from 172.19.0.1:63094 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:58.384433496Z 1793814478: New client connected from 172.19.0.1:63094 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:47:58.384445194Z 1793814478: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:58.384447404Z 1793814478: Sending CONNACK to b1-gateway-e2e-56289 (1, 0)
+mosquitto-1  | 2026-11-04T17:47:58.384449319Z 1793814478: Sending PUBLISH to b1-gateway-e2e-56289 (d0, q1, r0, m5, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:58.399866377Z 1793814478: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:47:58.399896116Z 1793814478: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:47:58.399900054Z 1793814478: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:47:58.399902708Z 1793814478: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:47:58.399905342Z 1793814478: Received PUBACK from b1-gateway-e2e-56289 (Mid: 5, RC:0)
+mosquitto-1  | 2026-11-04T17:47:58.613547605Z 1793814478: New connection from 172.19.0.1:63106 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:58.616177207Z 1793814478: New client connected from 172.19.0.1:63106 as b1-simulador-4927dee90dc8 (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:47:58.616316977Z 1793814478: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:58.616333920Z 1793814478: Sending CONNACK to b1-simulador-4927dee90dc8 (0, 0)
+mosquitto-1  | 2026-11-04T17:47:58.619301705Z 1793814478: Received PUBLISH from b1-simulador-4927dee90dc8 (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:58.619345401Z 1793814478: Sending PUBLISH to b1-gateway-e2e-56289 (d0, q1, r0, m6, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:58.619352296Z 1793814478: Sending PUBACK to b1-simulador-4927dee90dc8 (m1, rc0)
+mosquitto-1  | 2026-11-04T17:47:58.622294512Z 1793814478: Received DISCONNECT from b1-simulador-4927dee90dc8
+mosquitto-1  | 2026-11-04T17:47:58.622345224Z 1793814478: Client b1-simulador-4927dee90dc8 disconnected.
+mosquitto-1  | 2026-11-04T17:47:58.622352397Z 1793814478: Received DISCONNECT from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:47:58.622356976Z 1793814478: Client b1-gateway-e2e-56289 disconnected.
+mosquitto-1  | 2026-11-04T17:47:58.823666563Z 1793814478: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:47:59.133140868Z 1793814479: New connection from 172.19.0.1:63108 on port 1883.
+mosquitto-1  | 2026-11-04T17:47:59.134548463Z 1793814479: New client connected from 172.19.0.1:63108 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:47:59.134581416Z 1793814479: No will message specified.
+mosquitto-1  | 2026-11-04T17:47:59.134584695Z 1793814479: Sending CONNACK to b1-gateway-e2e-56289 (1, 0)
+mosquitto-1  | 2026-11-04T17:47:59.134587546Z 1793814479: Sending PUBLISH to b1-gateway-e2e-56289 (d1, q1, r0, m6, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:47:59.137838350Z 1793814479: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:47:59.137868968Z 1793814479: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:47:59.137873043Z 1793814479: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:47:59.137875795Z 1793814479: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:47:59.137888621Z 1793814479: Received DISCONNECT from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:47:59.137891507Z 1793814479: Client b1-gateway-e2e-56289 disconnected.
+mosquitto-1  | 2026-11-04T17:48:00.148943815Z 1793814480: New connection from 172.19.0.1:63110 on port 1883.
+mosquitto-1  | 2026-11-04T17:48:00.149969011Z 1793814480: New client connected from 172.19.0.1:63110 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:48:00.149999519Z 1793814480: No will message specified.
+mosquitto-1  | 2026-11-04T17:48:00.150004009Z 1793814480: Sending CONNACK to b1-gateway-e2e-56289 (1, 0)
+mosquitto-1  | 2026-11-04T17:48:00.150007207Z 1793814480: Sending PUBLISH to b1-gateway-e2e-56289 (d1, q1, r0, m6, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:48:00.152992266Z 1793814480: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:00.153025515Z 1793814480: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:48:00.153030515Z 1793814480: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:48:00.153037238Z 1793814480: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:00.153040556Z 1793814480: Received DISCONNECT from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:00.153043271Z 1793814480: Client b1-gateway-e2e-56289 disconnected.
+mosquitto-1  | 2026-11-04T17:48:00.755790047Z 1793814480: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:02.161334744Z 1793814482: New connection from 172.19.0.1:63114 on port 1883.
+mosquitto-1  | 2026-11-04T17:48:02.162502360Z 1793814482: New client connected from 172.19.0.1:63114 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:48:02.162529493Z 1793814482: No will message specified.
+mosquitto-1  | 2026-11-04T17:48:02.162853826Z 1793814482: Sending CONNACK to b1-gateway-e2e-56289 (1, 0)
+mosquitto-1  | 2026-11-04T17:48:02.162866373Z 1793814482: Sending PUBLISH to b1-gateway-e2e-56289 (d1, q1, r0, m6, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:48:02.166022587Z 1793814482: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:02.166055417Z 1793814482: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:48:02.166060471Z 1793814482: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:48:02.166064416Z 1793814482: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:02.166552354Z 1793814482: Received DISCONNECT from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:02.166570327Z 1793814482: Client b1-gateway-e2e-56289 disconnected.
+mosquitto-1  | 2026-11-04T17:48:02.770103536Z 1793814482: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:04.784863122Z 1793814484: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:06.175394155Z 1793814486: New connection from 172.19.0.1:63708 on port 1883.
+mosquitto-1  | 2026-11-04T17:48:06.178252476Z 1793814486: New client connected from 172.19.0.1:63708 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:48:06.178303708Z 1793814486: No will message specified.
+mosquitto-1  | 2026-11-04T17:48:06.178317458Z 1793814486: Sending CONNACK to b1-gateway-e2e-56289 (1, 0)
+mosquitto-1  | 2026-11-04T17:48:06.178323188Z 1793814486: Sending PUBLISH to b1-gateway-e2e-56289 (d1, q1, r0, m6, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:48:06.182377481Z 1793814486: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:06.182425359Z 1793814486: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:48:06.182434904Z 1793814486: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:48:06.182440085Z 1793814486: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:06.182444755Z 1793814486: Received DISCONNECT from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:06.182449458Z 1793814486: Client b1-gateway-e2e-56289 disconnected.
+mosquitto-1  | 2026-11-04T17:48:06.787573455Z 1793814486: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:08.805994475Z 1793814488: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:10.847330457Z 1793814490: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:11.195657936Z 1793814491: New connection from 172.19.0.1:63710 on port 1883.
+mosquitto-1  | 2026-11-04T17:48:11.203681818Z 1793814491: New client connected from 172.19.0.1:63710 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:48:11.203739137Z 1793814491: No will message specified.
+mosquitto-1  | 2026-11-04T17:48:11.203747827Z 1793814491: Sending CONNACK to b1-gateway-e2e-56289 (1, 0)
+mosquitto-1  | 2026-11-04T17:48:11.203755442Z 1793814491: Sending PUBLISH to b1-gateway-e2e-56289 (d1, q1, r0, m6, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:48:11.213860517Z 1793814491: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:11.213912971Z 1793814491: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:48:11.213922149Z 1793814491: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:48:11.213929168Z 1793814491: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:11.213935726Z 1793814491: Received DISCONNECT from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:11.213942096Z 1793814491: Client b1-gateway-e2e-56289 disconnected.
+mosquitto-1  | 2026-11-04T17:48:12.825028233Z 1793814492: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:14.846315361Z 1793814494: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:16.225783742Z 1793814496: New connection from 172.19.0.1:57738 on port 1883.
+mosquitto-1  | 2026-11-04T17:48:16.231428475Z 1793814496: New client connected from 172.19.0.1:57738 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:48:16.231559537Z 1793814496: No will message specified.
+mosquitto-1  | 2026-11-04T17:48:16.231583013Z 1793814496: Sending CONNACK to b1-gateway-e2e-56289 (1, 0)
+mosquitto-1  | 2026-11-04T17:48:16.231592339Z 1793814496: Sending PUBLISH to b1-gateway-e2e-56289 (d1, q1, r0, m6, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:48:16.344422220Z 1793814496: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:16.344495382Z 1793814496: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:48:16.344519887Z 1793814496: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:48:16.344532551Z 1793814496: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:16.344540824Z 1793814496: Received PUBACK from b1-gateway-e2e-56289 (Mid: 6, RC:0)
+mosquitto-1  | 2026-11-04T17:48:16.849476037Z 1793814496: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:17.663943542Z 1793814497: mosquitto version 2.0.22 terminating
+mosquitto-1  | 2026-11-04T17:48:17.664001769Z 1793814497: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:19.413814527Z chown: /mosquitto/config/mosquitto.conf: Read-only file system
+mosquitto-1  | 2026-11-04T17:48:19.414024184Z chown: /mosquitto/config/acl: Read-only file system
+mosquitto-1  | 2026-11-04T17:48:19.414054828Z chown: /mosquitto/config/passwords: Read-only file system
+mosquitto-1  | 2026-11-04T17:48:19.449044987Z 1793814499: Note: It is recommended to replace `message_size_limit` with `max_packet_size`.
+mosquitto-1  | 2026-11-04T17:48:19.451563576Z 1793814499: mosquitto version 2.0.22 starting
+mosquitto-1  | 2026-11-04T17:48:19.451611746Z 1793814499: Config loaded from /mosquitto/config/mosquitto.conf.
+mosquitto-1  | 2026-11-04T17:48:19.452350752Z 1793814499: Warning: File /mosquitto/config/passwords has world readable permissions. Future versions will refuse to load this file.
+mosquitto-1  | 2026-11-04T17:48:19.452392686Z To fix this, use `chmod 0700 /mosquitto/config/passwords`.
+mosquitto-1  | 2026-11-04T17:48:19.453003913Z 1793814499: Warning: File /mosquitto/config/passwords owner is not mosquitto. Future versions will refuse to load this file.To fix this, use `chown mosquitto /mosquitto/config/passwords`.
+mosquitto-1  | 2026-11-04T17:48:19.453066090Z 1793814499: Warning: File /mosquitto/config/passwords group is not mosquitto. Future versions will refuse to load this file.
+mosquitto-1  | 2026-11-04T17:48:19.459825583Z 1793814499: Warning: File /mosquitto/config/acl has world readable permissions. Future versions will refuse to load this file.
+mosquitto-1  | 2026-11-04T17:48:19.459875612Z To fix this, use `chmod 0700 /mosquitto/config/acl`.
+mosquitto-1  | 2026-11-04T17:48:19.459885016Z 1793814499: Warning: File /mosquitto/config/acl owner is not mosquitto. Future versions will refuse to load this file.To fix this, use `chown mosquitto /mosquitto/config/acl`.
+mosquitto-1  | 2026-11-04T17:48:19.459893559Z 1793814499: Warning: File /mosquitto/config/acl group is not mosquitto. Future versions will refuse to load this file.
+mosquitto-1  | 2026-11-04T17:48:19.463895253Z 1793814499: Opening ipv4 listen socket on port 1883.
+mosquitto-1  | 2026-11-04T17:48:19.464062962Z 1793814499: Opening ipv6 listen socket on port 1883.
+mosquitto-1  | 2026-11-04T17:48:19.464074165Z 1793814499: mosquitto version 2.0.22 running
+mosquitto-1  | 2026-11-04T17:48:20.771855065Z 1793814500: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:22.699874952Z 1793814502: New connection from 172.19.0.1:57740 on port 1883.
+mosquitto-1  | 2026-11-04T17:48:22.703409421Z 1793814502: New client connected from 172.19.0.1:57740 as b1-gateway-e2e-56289 (p2, c0, k30, u'gateway-b1').
+mosquitto-1  | 2026-11-04T17:48:22.703454026Z 1793814502: No will message specified.
+mosquitto-1  | 2026-11-04T17:48:22.703461057Z 1793814502: Sending CONNACK to b1-gateway-e2e-56289 (1, 0)
+mosquitto-1  | 2026-11-04T17:48:22.706790571Z 1793814502: Received SUBSCRIBE from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:22.706942551Z 1793814502: 	b1/iot/dispositivos/+/eventos (QoS 1)
+mosquitto-1  | 2026-11-04T17:48:22.706952617Z 1793814502: b1-gateway-e2e-56289 1 b1/iot/dispositivos/+/eventos
+mosquitto-1  | 2026-11-04T17:48:22.706966177Z 1793814502: Sending SUBACK to b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:22.755470440Z 1793814502: New connection from 172.19.0.1:57756 on port 1883.
+mosquitto-1  | 2026-11-04T17:48:22.755508473Z 1793814502: Saving in-memory database to /mosquitto/data//mosquitto.db.
+mosquitto-1  | 2026-11-04T17:48:22.760446127Z 1793814502: New client connected from 172.19.0.1:57756 as b1-simulador-33902b009c99 (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:48:22.760491686Z 1793814502: No will message specified.
+mosquitto-1  | 2026-11-04T17:48:22.760500447Z 1793814502: Sending CONNACK to b1-simulador-33902b009c99 (0, 0)
+mosquitto-1  | 2026-11-04T17:48:22.764096810Z 1793814502: Received PUBLISH from b1-simulador-33902b009c99 (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:48:22.764144440Z 1793814502: Sending PUBLISH to b1-gateway-e2e-56289 (d0, q1, r0, m7, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (172 bytes))
+mosquitto-1  | 2026-11-04T17:48:22.764153985Z 1793814502: Sending PUBACK to b1-simulador-33902b009c99 (m1, rc0)
+mosquitto-1  | 2026-11-04T17:48:22.768430164Z 1793814502: Received DISCONNECT from b1-simulador-33902b009c99
+mosquitto-1  | 2026-11-04T17:48:22.768481171Z 1793814502: Client b1-simulador-33902b009c99 disconnected.
+mosquitto-1  | 2026-11-04T17:48:22.777491948Z 1793814502: Received PUBACK from b1-gateway-e2e-56289 (Mid: 7, RC:0)
+mosquitto-1  | 2026-11-04T17:48:22.880622588Z 1793814502: New connection from 172.19.0.1:57758 on port 1883.
+mosquitto-1  | 2026-11-04T17:48:22.882617105Z 1793814502: New client connected from 172.19.0.1:57758 as b1-simulador-514c3ca5197e (p2, c1, k30, u'dispositivo-01').
+mosquitto-1  | 2026-11-04T17:48:22.882660984Z 1793814502: No will message specified.
+mosquitto-1  | 2026-11-04T17:48:22.882670420Z 1793814502: Sending CONNACK to b1-simulador-514c3ca5197e (0, 0)
+mosquitto-1  | 2026-11-04T17:48:22.886275044Z 1793814502: Received PUBLISH from b1-simulador-514c3ca5197e (d0, q1, r0, m1, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (1 bytes))
+mosquitto-1  | 2026-11-04T17:48:22.886326933Z 1793814502: Sending PUBLISH to b1-gateway-e2e-56289 (d0, q1, r0, m8, 'b1/iot/dispositivos/dispositivo-01/eventos', ... (1 bytes))
+mosquitto-1  | 2026-11-04T17:48:22.886338226Z 1793814502: Sending PUBACK to b1-simulador-514c3ca5197e (m1, rc0)
+mosquitto-1  | 2026-11-04T17:48:22.889902217Z 1793814502: Received DISCONNECT from b1-gateway-e2e-56289
+mosquitto-1  | 2026-11-04T17:48:22.890021882Z 1793814502: Client b1-gateway-e2e-56289 disconnected.
+mosquitto-1  | 2026-11-04T17:48:22.890040535Z 1793814502: Received DISCONNECT from b1-simulador-514c3ca5197e
+mosquitto-1  | 2026-11-04T17:48:22.890046797Z 1793814502: Client b1-simulador-514c3ca5197e disconnected.

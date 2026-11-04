@@ -1,0 +1,5 @@
+PASSOU: segredos reais gerados foram comparados em memória com todos os arquivos modificados/novos publicáveis, sem expor valores e sem achados.
+PASSOU: credenciais.json local 0600 e .runtime ignorado; hashes de senha e token não incluídos no conjunto publicável.
+PASSOU: sem artefatos de build/venv/cache/runtime nos arquivos novos; fontes Python com sintaxe válida.
+Autenticação e ACL foram exercitadas em Mosquitto real; token HTTP testado no Core. Sem TLS ou alegação de segurança de produção.
+Logs contêm metadados locais e dados fictícios. Literais de testes são demonstrativos.

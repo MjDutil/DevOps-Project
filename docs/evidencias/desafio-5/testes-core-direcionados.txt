@@ -1,0 +1,156 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------------< org.example:TDD >---------------------------
+[INFO] Building TDD 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- jacoco:0.8.15:prepare-agent (default) @ TDD ---
+[INFO] argLine set to -javaagent:/Users/majuudutil/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/Users/majuudutil/Downloads/DevOps-Project-B1/target/jacoco.exec
+[INFO]
+[INFO] --- resources:3.5.0:resources (default-resources) @ TDD ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.15.0:compile (default-compile) @ TDD ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 28 source files with javac [debug parameters release 17] to target/classes
+[INFO]
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ TDD ---
+[INFO] skip non existing resourceDirectory /Users/majuudutil/Downloads/DevOps-Project-B1/src/test/resources
+[INFO]
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ TDD ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 18 source files with javac [debug parameters release 17] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.5.6:test (default-test) @ TDD ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.example.tdd.iot.IotDesabilitadoTest
+12:51:39.630 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.iot.IotDesabilitadoTest]: IotDesabilitadoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:51:39.945 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.iot.IotDesabilitadoTest
+12:51:40.190 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.tdd.iot.IotDesabilitadoTest]: IotDesabilitadoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:51:40.192 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.iot.IotDesabilitadoTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-11-04T12:51:40.836-03:00  INFO 48417 --- [TDD] [           main] o.example.tdd.iot.IotDesabilitadoTest    : Starting IotDesabilitadoTest using Java 17.0.20.1 with PID 48417 (started by majuudutil in /Users/majuudutil/Downloads/DevOps-Project-B1)
+2026-11-04T12:51:40.840-03:00  INFO 48417 --- [TDD] [           main] o.example.tdd.iot.IotDesabilitadoTest    : No active profile set, falling back to 1 default profile: "default"
+2026-11-04T12:51:42.691-03:00  INFO 48417 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-04T12:51:42.801-03:00  INFO 48417 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interface.
+2026-11-04T12:51:43.728-03:00  INFO 48417 --- [TDD] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-04T12:51:43.885-03:00  INFO 48417 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-04T12:51:44.923-03:00  INFO 48417 --- [TDD] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-04T12:51:45.017-03:00  INFO 48417 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-04T12:51:45.633-03:00  INFO 48417 --- [TDD] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:tdd user=SA
+2026-11-04T12:51:45.637-03:00  INFO 48417 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-04T12:51:45.810-03:00  INFO 48417 --- [TDD] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:tdd]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TDD/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-04T12:51:47.789-03:00  INFO 48417 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table alunos (id bigint generated by default as identity, cursos_liberados integer, media float(53), moedas integer, plano varchar(255), voucher_projetos_reais boolean, primary key (id))
+2026-11-04T12:51:47.941-03:00  INFO 48417 --- [TDD] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-04T12:51:48.081-03:00  INFO 48417 --- [TDD] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-04T12:51:49.647-03:00  WARN 48417 --- [TDD] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-04T12:51:50.569-03:00  INFO 48417 --- [TDD] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tdd'
+2026-11-04T12:51:50.720-03:00  INFO 48417 --- [TDD] [           main] o.example.tdd.iot.IotDesabilitadoTest    : Started IotDesabilitadoTest in 10.399 seconds (process running for 13.594)
+2026-11-04T12:51:50.725-03:00  WARN 48417 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-04T12:51:50.726-03:00  WARN 48417 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-11-04T12:51:51.028-03:00  INFO 48417 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-04T12:51:51.028-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-04T12:51:51.033-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.01 s -- in org.example.tdd.iot.IotDesabilitadoTest
+[INFO] Running org.example.tdd.iot.RegistroEventosIotTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s -- in org.example.tdd.iot.RegistroEventosIotTest
+[INFO] Running org.example.tdd.iot.IotHttpIntegrationTest
+2026-11-04T12:51:51.184-03:00  INFO 48417 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.iot.IotHttpIntegrationTest]: IotHttpIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-04T12:51:51.186-03:00  INFO 48417 --- [TDD] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.iot.IotHttpIntegrationTest
+2026-11-04T12:51:51.188-03:00  INFO 48417 --- [TDD] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.tdd.iot.IotHttpIntegrationTest]: IotHttpIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-04T12:51:51.190-03:00  INFO 48417 --- [TDD] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.tdd.TddApplication for test class org.example.tdd.iot.IotHttpIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-11-04T12:51:51.232-03:00  INFO 48417 --- [TDD] [           main] o.e.tdd.iot.IotHttpIntegrationTest       : Starting IotHttpIntegrationTest using Java 17.0.20.1 with PID 48417 (started by majuudutil in /Users/majuudutil/Downloads/DevOps-Project-B1)
+2026-11-04T12:51:51.232-03:00  INFO 48417 --- [TDD] [           main] o.e.tdd.iot.IotHttpIntegrationTest       : No active profile set, falling back to 1 default profile: "default"
+2026-11-04T12:51:51.492-03:00  INFO 48417 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-04T12:51:51.508-03:00  INFO 48417 --- [TDD] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 1 JPA repository interface.
+2026-11-04T12:51:51.621-03:00  INFO 48417 --- [TDD] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-04T12:51:51.650-03:00  INFO 48417 --- [TDD] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-04T12:51:51.651-03:00  INFO 48417 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-11-04T12:51:51.656-03:00  INFO 48417 --- [TDD] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:d5 user=SA
+2026-11-04T12:51:51.656-03:00  INFO 48417 --- [TDD] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-11-04T12:51:51.657-03:00  INFO 48417 --- [TDD] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:d5]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: D5/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-04T12:51:51.698-03:00  INFO 48417 --- [TDD] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: drop table if exists alunos cascade
+Hibernate: create table alunos (cursos_liberados integer, media float(53), moedas integer, voucher_projetos_reais boolean, id bigint generated by default as identity, plano varchar(255), primary key (id))
+2026-11-04T12:51:51.708-03:00  INFO 48417 --- [TDD] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-04T12:51:51.815-03:00  WARN 48417 --- [TDD] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-04T12:51:51.999-03:00  INFO 48417 --- [TDD] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:d5'
+2026-11-04T12:51:52.029-03:00  INFO 48417 --- [TDD] [           main] o.e.tdd.iot.IotHttpIntegrationTest       : Started IotHttpIntegrationTest in 0.829 seconds (process running for 14.903)
+2026-11-04T12:51:52.030-03:00  WARN 48417 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-04T12:51:52.030-03:00  WARN 48417 --- [TDD] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-04T12:51:52.039-03:00  INFO 48417 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-04T12:51:52.039-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-04T12:51:52.040-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-04T12:51:52.049-03:00  INFO 48417 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-04T12:51:52.050-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-04T12:51:52.052-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-11-04T12:51:52.248-03:00  INFO 48417 --- [TDD] [           main] org.example.tdd.iot.IotController        : D5 RECEPCAO status=recebido evento=44666942-6fa4-4b64-88e1-37af3e42742f dispositivo=dispositivo-01
+2026-11-04T12:51:52.388-03:00  INFO 48417 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-04T12:51:52.389-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-04T12:51:52.390-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-04T12:51:52.400-03:00  INFO 48417 --- [TDD] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-04T12:51:52.400-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-04T12:51:52.401-03:00  INFO 48417 --- [TDD] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-04T12:51:52.417-03:00  INFO 48417 --- [TDD] [           main] org.example.tdd.iot.IotController        : D5 RECEPCAO status=recebido evento=5cda25c6-5305-449d-873f-b1590ef9ac38 dispositivo=dispositivo-01
+2026-11-04T12:51:52.488-03:00  INFO 48417 --- [TDD] [           main] org.example.tdd.iot.IotController        : D5 RECEPCAO status=duplicado evento=5cda25c6-5305-449d-873f-b1590ef9ac38 dispositivo=dispositivo-01
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.313 s -- in org.example.tdd.iot.IotHttpIntegrationTest
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  20.272 s
+[INFO] Finished at: 2026-11-04T12:51:52-03:00
+[INFO] ------------------------------------------------------------------------

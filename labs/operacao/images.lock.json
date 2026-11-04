@@ -1,0 +1,32 @@
+{
+  "jenkins": {
+    "tag_resolvida": "jenkins/jenkins:lts-jdk21",
+    "image": "jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b",
+    "id": "sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b"
+  },
+  "prometheus": {
+    "tag_resolvida": "prom/prometheus:latest",
+    "image": "prom/prometheus@sha256:fa3302279710be2f21a8301ec17a8b4f2301fd829bd113839b3b6b02b6f191a2",
+    "id": "sha256:fa3302279710be2f21a8301ec17a8b4f2301fd829bd113839b3b6b02b6f191a2"
+  },
+  "grafana": {
+    "tag_resolvida": "grafana/grafana:latest",
+    "image": "grafana/grafana@sha256:488984b716c0862639f91a698adbe2862677a5a07bad42da5f03f3030883b205",
+    "id": "sha256:488984b716c0862639f91a698adbe2862677a5a07bad42da5f03f3030883b205"
+  },
+  "python": {
+    "tag_resolvida": "python:3.12-slim",
+    "image": "python@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30",
+    "id": "sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30"
+  },
+  "maven": {
+    "tag_resolvida": "maven:3.9.11-eclipse-temurin-17",
+    "image": "maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82",
+    "id": "sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82"
+  },
+  "java_runtime": {
+    "tag_resolvida": "eclipse-temurin:17-jre",
+    "image": "eclipse-temurin@sha256:c6f2875c05ea10f16398bdc5f73405c384991506f2f1ead8bcc6582ae8adea79",
+    "id": "sha256:c6f2875c05ea10f16398bdc5f73405c384991506f2f1ead8bcc6582ae8adea79"
+  }
+}

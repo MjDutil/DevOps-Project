@@ -1,0 +1,273 @@
+ Image b1-d6-jenkins:d1f4fbe7 Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 846B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 662B 0.1s done
+#2 DONE 0.6s
+
+#3 [internal] load metadata for docker.io/library/maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82
+#3 ...
+
+#4 [internal] load metadata for docker.io/jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b
+#4 DONE 1.7s
+
+#3 [internal] load metadata for docker.io/library/maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82
+#3 DONE 1.7s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B 0.0s done
+#5 DONE 0.1s
+
+#6 [internal] load build context
+#6 transferring context: 1.03kB 0.0s done
+#6 DONE 0.1s
+
+#7 [stage-1 1/7] FROM docker.io/jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b
+#7 resolve docker.io/jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b 0.2s done
+#7 DONE 0.2s
+
+#8 [ferramentas 1/1] FROM docker.io/library/maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82
+#8 resolve docker.io/library/maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82
+#8 resolve docker.io/library/maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82 0.2s done
+#8 CACHED
+
+#7 [stage-1 1/7] FROM docker.io/jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b
+#7 DONE 1.7s
+
+#9 [stage-1 2/7] COPY --from=ferramentas /opt/java/openjdk /opt/java/jdk17
+#9 DONE 7.7s
+
+#10 [stage-1 3/7] COPY --from=ferramentas /usr/share/maven /usr/share/maven
+#10 DONE 0.6s
+
+#11 [stage-1 4/7] RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv && rm -rf /var/lib/apt/lists/*
+#11 3.584 Get:1 http://deb.debian.org/debian trixie InRelease [140 kB]
+#11 3.694 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#11 3.695 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#11 3.833 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9678 kB]
+#11 4.620 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [1108 B]
+#11 4.620 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [297 kB]
+#11 9.737 Fetched 10.2 MB in 6s (1609 kB/s)
+#11 9.737 Reading package lists...
+#11 14.54 Reading package lists...
+#11 22.68 Building dependency tree...
+#11 24.00 Reading state information...
+#11 25.32 The following additional packages will be installed:
+#11 25.32   libpython3-stdlib libpython3.13-minimal libpython3.13-stdlib libreadline8t64
+#11 25.32   media-types netbase python3-minimal python3-pip-whl python3-setuptools-whl
+#11 25.32   python3.13 python3.13-minimal python3.13-venv readline-common
+#11 25.33 Suggested packages:
+#11 25.33   python3-doc python3-tk python3.13-doc binutils binfmt-support readline-doc
+#11 26.78 The following NEW packages will be installed:
+#11 26.78   libpython3-stdlib libpython3.13-minimal libpython3.13-stdlib libreadline8t64
+#11 26.79   media-types netbase python3 python3-minimal python3-pip-whl
+#11 26.79   python3-setuptools-whl python3-venv python3.13 python3.13-minimal
+#11 26.79   python3.13-venv readline-common
+#11 27.03 0 upgraded, 15 newly installed, 0 to remove and 3 not upgraded.
+#11 27.03 Need to get 8932 kB of archives.
+#11 27.03 After this operation, 26.4 MB of additional disk space will be used.
+#11 27.03 Get:1 http://deb.debian.org/debian trixie/main amd64 libpython3.13-minimal amd64 3.13.5-2+deb13u5 [863 kB]
+#11 27.09 Get:2 http://deb.debian.org/debian trixie/main amd64 python3.13-minimal amd64 3.13.5-2+deb13u5 [2225 kB]
+#11 27.16 Get:3 http://deb.debian.org/debian trixie/main amd64 python3-minimal amd64 3.13.5-1 [27.2 kB]
+#11 27.16 Get:4 http://deb.debian.org/debian trixie/main amd64 media-types all 13.0.0 [29.3 kB]
+#11 27.16 Get:5 http://deb.debian.org/debian trixie/main amd64 netbase all 6.5 [12.4 kB]
+#11 27.16 Get:6 http://deb.debian.org/debian trixie/main amd64 readline-common all 8.2-6 [69.4 kB]
+#11 27.17 Get:7 http://deb.debian.org/debian trixie/main amd64 libreadline8t64 amd64 8.2-6 [169 kB]
+#11 27.18 Get:8 http://deb.debian.org/debian trixie/main amd64 libpython3.13-stdlib amd64 3.13.5-2+deb13u5 [1959 kB]
+#11 27.26 Get:9 http://deb.debian.org/debian trixie/main amd64 python3.13 amd64 3.13.5-2+deb13u5 [757 kB]
+#11 27.29 Get:10 http://deb.debian.org/debian trixie/main amd64 libpython3-stdlib amd64 3.13.5-1 [10.2 kB]
+#11 27.29 Get:11 http://deb.debian.org/debian trixie/main amd64 python3 amd64 3.13.5-1 [28.2 kB]
+#11 27.29 Get:12 http://deb.debian.org/debian trixie/main amd64 python3-pip-whl all 25.1.1+dfsg-1 [1507 kB]
+#11 27.34 Get:13 http://deb.debian.org/debian trixie/main amd64 python3-setuptools-whl all 78.1.1-0.1 [1268 kB]
+#11 27.40 Get:14 http://deb.debian.org/debian trixie/main amd64 python3.13-venv amd64 3.13.5-2+deb13u5 [5476 B]
+#11 27.40 Get:15 http://deb.debian.org/debian trixie/main amd64 python3-venv amd64 3.13.5-1 [1180 B]
+#11 28.53 debconf: unable to initialize frontend: Dialog
+#11 28.53 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#11 28.53 debconf: falling back to frontend: Readline
+#11 28.61 debconf: unable to initialize frontend: Readline
+#11 28.61 debconf: (This frontend requires a controlling tty.)
+#11 28.61 debconf: falling back to frontend: Teletype
+#11 28.65 debconf: unable to initialize frontend: Teletype
+#11 28.65 debconf: (This frontend requires a controlling tty.)
+#11 28.65 debconf: falling back to frontend: Noninteractive
+#11 34.56 Fetched 8932 kB in 0s (18.1 MB/s)
+#11 34.75 Selecting previously unselected package libpython3.13-minimal:amd64.
+#11 34.75 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 9621 files and directories currently installed.)
+#11 34.87 Preparing to unpack .../libpython3.13-minimal_3.13.5-2+deb13u5_amd64.deb ...
+#11 34.89 Unpacking libpython3.13-minimal:amd64 (3.13.5-2+deb13u5) ...
+#11 36.23 Selecting previously unselected package python3.13-minimal.
+#11 36.24 Preparing to unpack .../python3.13-minimal_3.13.5-2+deb13u5_amd64.deb ...
+#11 36.30 Unpacking python3.13-minimal (3.13.5-2+deb13u5) ...
+#11 38.27 Setting up libpython3.13-minimal:amd64 (3.13.5-2+deb13u5) ...
+#11 38.42 Setting up python3.13-minimal (3.13.5-2+deb13u5) ...
+#11 46.56 Selecting previously unselected package python3-minimal.
+#11 46.56 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 9946 files and directories currently installed.)
+#11 46.73 Preparing to unpack .../0-python3-minimal_3.13.5-1_amd64.deb ...
+#11 46.76 Unpacking python3-minimal (3.13.5-1) ...
+#11 47.28 Selecting previously unselected package media-types.
+#11 47.29 Preparing to unpack .../1-media-types_13.0.0_all.deb ...
+#11 47.31 Unpacking media-types (13.0.0) ...
+#11 47.62 Selecting previously unselected package netbase.
+#11 47.63 Preparing to unpack .../2-netbase_6.5_all.deb ...
+#11 47.65 Unpacking netbase (6.5) ...
+#11 47.96 Selecting previously unselected package readline-common.
+#11 47.97 Preparing to unpack .../3-readline-common_8.2-6_all.deb ...
+#11 48.04 Unpacking readline-common (8.2-6) ...
+#11 48.42 Selecting previously unselected package libreadline8t64:amd64.
+#11 48.43 Preparing to unpack .../4-libreadline8t64_8.2-6_amd64.deb ...
+#11 48.54 Adding 'diversion of /lib/x86_64-linux-gnu/libhistory.so.8 to /lib/x86_64-linux-gnu/libhistory.so.8.usr-is-merged by libreadline8t64'
+#11 48.63 Adding 'diversion of /lib/x86_64-linux-gnu/libhistory.so.8.2 to /lib/x86_64-linux-gnu/libhistory.so.8.2.usr-is-merged by libreadline8t64'
+#11 48.69 Adding 'diversion of /lib/x86_64-linux-gnu/libreadline.so.8 to /lib/x86_64-linux-gnu/libreadline.so.8.usr-is-merged by libreadline8t64'
+#11 48.74 Adding 'diversion of /lib/x86_64-linux-gnu/libreadline.so.8.2 to /lib/x86_64-linux-gnu/libreadline.so.8.2.usr-is-merged by libreadline8t64'
+#11 48.88 Unpacking libreadline8t64:amd64 (8.2-6) ...
+#11 49.29 Selecting previously unselected package libpython3.13-stdlib:amd64.
+#11 49.31 Preparing to unpack .../5-libpython3.13-stdlib_3.13.5-2+deb13u5_amd64.deb ...
+#11 49.33 Unpacking libpython3.13-stdlib:amd64 (3.13.5-2+deb13u5) ...
+#11 50.48 Selecting previously unselected package python3.13.
+#11 50.50 Preparing to unpack .../6-python3.13_3.13.5-2+deb13u5_amd64.deb ...
+#11 50.54 Unpacking python3.13 (3.13.5-2+deb13u5) ...
+#11 50.73 Selecting previously unselected package libpython3-stdlib:amd64.
+#11 50.74 Preparing to unpack .../7-libpython3-stdlib_3.13.5-1_amd64.deb ...
+#11 50.76 Unpacking libpython3-stdlib:amd64 (3.13.5-1) ...
+#11 50.90 Setting up python3-minimal (3.13.5-1) ...
+#11 51.89 Selecting previously unselected package python3.
+#11 51.89 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 10439 files and directories currently installed.)
+#11 51.96 Preparing to unpack .../python3_3.13.5-1_amd64.deb ...
+#11 52.00 Unpacking python3 (3.13.5-1) ...
+#11 52.15 Selecting previously unselected package python3-pip-whl.
+#11 52.15 Preparing to unpack .../python3-pip-whl_25.1.1+dfsg-1_all.deb ...
+#11 52.17 Unpacking python3-pip-whl (25.1.1+dfsg-1) ...
+#11 52.60 Selecting previously unselected package python3-setuptools-whl.
+#11 52.60 Preparing to unpack .../python3-setuptools-whl_78.1.1-0.1_all.deb ...
+#11 52.63 Unpacking python3-setuptools-whl (78.1.1-0.1) ...
+#11 53.00 Selecting previously unselected package python3.13-venv.
+#11 53.01 Preparing to unpack .../python3.13-venv_3.13.5-2+deb13u5_amd64.deb ...
+#11 53.02 Unpacking python3.13-venv (3.13.5-2+deb13u5) ...
+#11 53.19 Selecting previously unselected package python3-venv.
+#11 53.20 Preparing to unpack .../python3-venv_3.13.5-1_amd64.deb ...
+#11 53.23 Unpacking python3-venv (3.13.5-1) ...
+#11 53.38 Setting up media-types (13.0.0) ...
+#11 53.46 Setting up python3-setuptools-whl (78.1.1-0.1) ...
+#11 53.55 Setting up python3-pip-whl (25.1.1+dfsg-1) ...
+#11 53.60 Setting up netbase (6.5) ...
+#11 53.75 Setting up readline-common (8.2-6) ...
+#11 53.83 Setting up libreadline8t64:amd64 (8.2-6) ...
+#11 53.89 Setting up libpython3.13-stdlib:amd64 (3.13.5-2+deb13u5) ...
+#11 53.94 Setting up libpython3-stdlib:amd64 (3.13.5-1) ...
+#11 53.99 Setting up python3.13 (3.13.5-2+deb13u5) ...
+#11 74.82 Setting up python3 (3.13.5-1) ...
+#11 74.90 running python rtupdate hooks for python3.13...
+#11 74.90 running python post-rtupdate hooks for python3.13...
+#11 76.29 Setting up python3.13-venv (3.13.5-2+deb13u5) ...
+#11 77.16 Setting up python3-venv (3.13.5-1) ...
+#11 77.21 Processing triggers for libc-bin (2.41-12+deb13u4) ...
+#11 DONE 78.1s
+
+#12 [stage-1 5/7] COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+#12 DONE 0.3s
+
+#13 [stage-1 6/7] RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
+#13 128.0 Done
+#13 DONE 128.7s
+
+#14 [stage-1 7/7] COPY init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
+#14 DONE 0.4s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 97.9s done
+#15 exporting manifest sha256:8aa0787bb0a09a8d41a4849889c0ba828fa3356e70e30e428a8326791f31f48b
+#15 exporting manifest sha256:8aa0787bb0a09a8d41a4849889c0ba828fa3356e70e30e428a8326791f31f48b 0.2s done
+#15 exporting config sha256:6a8b2c6129501dc1aae761dff0de6590565d55ced97d8ed9c692b098109c96b7
+#15 exporting config sha256:6a8b2c6129501dc1aae761dff0de6590565d55ced97d8ed9c692b098109c96b7 0.1s done
+#15 exporting attestation manifest sha256:86fbcb2d1a3f52801c7fa01b40135d88535a416127cbf5ef339181b198c09b85
+#15 exporting attestation manifest sha256:86fbcb2d1a3f52801c7fa01b40135d88535a416127cbf5ef339181b198c09b85 0.2s done
+#15 exporting manifest list sha256:ea155d4d112181a22c0af57746754f97cdc035661abae459e1c6ef112e9925b4
+#15 exporting manifest list sha256:ea155d4d112181a22c0af57746754f97cdc035661abae459e1c6ef112e9925b4 0.1s done
+#15 naming to docker.io/library/b1-d6-jenkins:d1f4fbe7
+#15 naming to docker.io/library/b1-d6-jenkins:d1f4fbe7 0.0s done
+#15 unpacking to docker.io/library/b1-d6-jenkins:d1f4fbe7
+#15 unpacking to docker.io/library/b1-d6-jenkins:d1f4fbe7 46.4s done
+#15 DONE 145.6s
+
+#16 resolving provenance for metadata file
+#16 DONE 0.3s
+ Image b1-d6-jenkins:d1f4fbe7 Built
+ Network b1-d6-d1f4fbe7_default Creating
+ Volume b1-d6-d1f4fbe7_jenkins_home Creating
+ Network b1-d6-d1f4fbe7_default Creating
+ Volume b1-d6-d1f4fbe7_jenkins_home Creating
+ Volume b1-d6-d1f4fbe7_jenkins_home Created
+ Volume b1-d6-d1f4fbe7_jenkins_home Created
+ Network b1-d6-d1f4fbe7_default Created
+ Network b1-d6-d1f4fbe7_default Created
+ Container b1-d6-d1f4fbe7-jenkins-1 Creating
+ Container b1-d6-d1f4fbe7-jenkins-1 Created
+ Container b1-d6-d1f4fbe7-jenkins-1 Starting
+ Container b1-d6-d1f4fbe7-jenkins-1 Started

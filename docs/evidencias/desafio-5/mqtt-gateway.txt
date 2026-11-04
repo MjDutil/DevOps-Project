@@ -1,0 +1,42 @@
+{"tipo": "CONECTADO", "sessao_presente": false, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "ASSINATURA_CONFIRMADA", "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_CONFIRMADO", "evento": "d90303ec-cf26-44c5-a44e-375229c67a44", "status_http": "recebido", "mid": 1}
+{"tipo": "ACK_ENFILEIRADO", "evento": "d90303ec-cf26-44c5-a44e-375229c67a44", "status_http": "recebido", "duplicado_mqtt": false, "mid": 1}
+{"tipo": "HTTP_CONFIRMADO", "evento": "d90303ec-cf26-44c5-a44e-375229c67a44", "status_http": "duplicado", "mid": 2}
+{"tipo": "ACK_ENFILEIRADO", "evento": "d90303ec-cf26-44c5-a44e-375229c67a44", "status_http": "duplicado", "duplicado_mqtt": false, "mid": 2}
+{"tipo": "HTTP_CONFIRMADO", "evento": "9cf43769-462b-4dc9-8888-497372776a41", "status_http": "recebido", "mid": 3}
+{"tipo": "ACK_ENFILEIRADO", "evento": "9cf43769-462b-4dc9-8888-497372776a41", "status_http": "recebido", "duplicado_mqtt": false, "mid": 3}
+{"tipo": "HTTP_CONFIRMADO", "evento": "6c837b65-b1e8-4106-928f-b99e4bd87ee8", "status_http": "recebido", "mid": 4}
+{"tipo": "ACK_ENFILEIRADO", "evento": "6c837b65-b1e8-4106-928f-b99e4bd87ee8", "status_http": "recebido", "duplicado_mqtt": false, "mid": 4}
+{"tipo": "CONECTADO", "sessao_presente": true, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_CONFIRMADO", "evento": "24868558-0418-4568-95e1-20b42db5f064", "status_http": "recebido", "mid": 5}
+{"tipo": "ACK_ENFILEIRADO", "evento": "24868558-0418-4568-95e1-20b42db5f064", "status_http": "recebido", "duplicado_mqtt": false, "mid": 5}
+{"tipo": "ASSINATURA_CONFIRMADA", "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_FALHOU_SEM_ACK", "evento": "818d8bf0-ce58-41c1-b145-07e13722a855", "motivo": "rede-timeout-ou-resposta-invalida"}
+{"tipo": "RECONEXAO_AGENDADA", "espera_segundos": 0.5}
+{"tipo": "CONECTADO", "sessao_presente": true, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_FALHOU_SEM_ACK", "evento": "818d8bf0-ce58-41c1-b145-07e13722a855", "motivo": "rede-timeout-ou-resposta-invalida"}
+{"tipo": "RECONEXAO_AGENDADA", "espera_segundos": 1.0}
+{"tipo": "CONECTADO", "sessao_presente": true, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_FALHOU_SEM_ACK", "evento": "818d8bf0-ce58-41c1-b145-07e13722a855", "motivo": "rede-timeout-ou-resposta-invalida"}
+{"tipo": "RECONEXAO_AGENDADA", "espera_segundos": 2.0}
+{"tipo": "CONECTADO", "sessao_presente": true, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_FALHOU_SEM_ACK", "evento": "818d8bf0-ce58-41c1-b145-07e13722a855", "motivo": "rede-timeout-ou-resposta-invalida"}
+{"tipo": "RECONEXAO_AGENDADA", "espera_segundos": 4.0}
+{"tipo": "CONECTADO", "sessao_presente": true, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_FALHOU_SEM_ACK", "evento": "818d8bf0-ce58-41c1-b145-07e13722a855", "motivo": "rede-timeout-ou-resposta-invalida"}
+{"tipo": "RECONEXAO_AGENDADA", "espera_segundos": 5}
+{"tipo": "CONECTADO", "sessao_presente": true, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_FALHOU_SEM_ACK", "evento": "818d8bf0-ce58-41c1-b145-07e13722a855", "motivo": "rede-timeout-ou-resposta-invalida"}
+{"tipo": "RECONEXAO_AGENDADA", "espera_segundos": 5}
+{"tipo": "CONECTADO", "sessao_presente": true, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_CONFIRMADO", "evento": "818d8bf0-ce58-41c1-b145-07e13722a855", "status_http": "recebido", "mid": 6}
+{"tipo": "ACK_ENFILEIRADO", "evento": "818d8bf0-ce58-41c1-b145-07e13722a855", "status_http": "recebido", "duplicado_mqtt": true, "mid": 6}
+{"tipo": "ASSINATURA_CONFIRMADA", "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "RECONEXAO_AGENDADA", "espera_segundos": 5}
+{"tipo": "CONECTADO", "sessao_presente": true, "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "ASSINATURA_CONFIRMADA", "client_id": "b1-gateway-e2e-56289"}
+{"tipo": "HTTP_CONFIRMADO", "evento": "437612e1-0a27-4b58-bcf2-24d7abdf1c76", "status_http": "recebido", "mid": 7}
+{"tipo": "ACK_ENFILEIRADO", "evento": "437612e1-0a27-4b58-bcf2-24d7abdf1c76", "status_http": "recebido", "duplicado_mqtt": false, "mid": 7}
+{"tipo": "REJEITADO_SEM_ACK", "motivo": "payload-invalido"}
+{"tipo": "INTERVENCAO_NECESSARIA", "motivo": "payload-permanente-ou-configuracao; sessao pode conter mensagem sem ACK"}

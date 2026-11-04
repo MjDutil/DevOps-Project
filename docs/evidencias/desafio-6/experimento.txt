@@ -1,0 +1,5 @@
+ Container b1-d6-d1f4fbe7-ia-1 Stopping
+ Container b1-d6-d1f4fbe7-ia-1 Stopped
+ Container b1-d6-d1f4fbe7-ia-1 Starting
+ Container b1-d6-d1f4fbe7-ia-1 Started
+PASSOU: fallback +3/+2, Core funcional e recuperação sem novos incrementos.

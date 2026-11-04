@@ -65,6 +65,16 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- D6: endpoints e exportação de métricas, habilitados somente no perfil de laboratório -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
         <!-- Testes -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

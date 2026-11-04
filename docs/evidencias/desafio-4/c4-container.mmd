@@ -1,0 +1,6 @@
+flowchart LR
+    aluno["Aluno"] --> frontend["Frontend Vue / Nginx"]
+    frontend -->|HTTP REST / JSON| core["Core Java / Spring Boot<br/>Monólito modular + Ports & Adapters<br/>Commit da conclusão antes da notificação<br/>Executor em memória: 1 thread e fila limitada"]
+    core -->|JPA / JDBC| banco[("Banco relacional<br/>H2 validado; PostgreSQL configurado")]
+    core -.->|HTTP REST / JSON opcional| ia["FastAPI Python<br/>D3 demonstrativo preservado"]
+    core -->|"HTTP POST /notificacoes / JSON<br/>Assíncrono por padrão quando habilitado<br/>Síncrono para comparação; ambos após commit"| consumidor["Consumidor demonstrativo Python<br/>Processo separado; sem email real<br/>Pode falhar sem desfazer conclusão"]

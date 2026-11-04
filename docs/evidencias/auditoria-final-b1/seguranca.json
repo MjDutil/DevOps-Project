@@ -1,0 +1,7 @@
+{
+  "segredos_gerados_encontrados": [],
+  "artefatos_temporarios_publicaveis": [],
+  "caminhos_pessoais_novos_d6": [],
+  "escopo": "arquivos rastreados e novos não ignorados; valores gerados comparados sem imprimir segredos",
+  "limite": "não equivale a auditoria externa de segurança; caminhos históricos D1-D5 preservados"
+}

@@ -1,0 +1,16 @@
+{
+  "substituicao": "caminho pessoal da raiz por <REPO>; espaços finais removidos",
+  "arquivos": [
+    "docs/evidencias/desafio-6/regressoes-tentativa-inicial.txt",
+    "docs/evidencias/desafio-6/captura-inicial.txt",
+    "docs/evidencias/desafio-6/mvn-clean-verify.txt",
+    "docs/evidencias/desafio-6/mvn-primeira-configuracao.txt",
+    "docs/evidencias/desafio-6/jenkins-fechamento-start.txt",
+    "docs/evidencias/desafio-6/ci-reacionamento-tentativa.txt",
+    "docs/evidencias/desafio-6/primeira-ci/executar-ci.txt",
+    "docs/evidencias/desafio-6/validacao-final/console.txt",
+    "docs/evidencias/desafio-6/regressao-d3-tentativa-inicial/core-log.txt",
+    "docs/evidencias/desafio-6/repeticao-ci/executar-ci.txt"
+  ],
+  "fontes_e_hashes_de_artefatos_nao_alterados": true
+}

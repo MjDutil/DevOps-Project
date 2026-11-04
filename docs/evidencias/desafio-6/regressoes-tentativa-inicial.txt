@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<REPO>/labs/operacao/regressoes.py", line 11, in <module>
+    if __name__=='__main__':main()
+  File "<REPO>/labs/operacao/regressoes.py", line 10, in main
+    m.main();print('Regressão D'+d+' concluída',flush=True)
+  File "<REPO>/docs/evidencias/desafio-3/executar-lab.py", line 114, in main
+    ready(base, "/ia/recomendacoes/1", core)
+  File "<REPO>/docs/evidencias/desafio-3/executar-lab.py", line 61, in ready
+    raise RuntimeError("Inicialização excedeu 90 segundos")
+RuntimeError: Inicialização excedeu 90 segundos

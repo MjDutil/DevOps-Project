@@ -1,0 +1,23 @@
+{
+  "mesmos_fontes_producao_testes_e_pom": true,
+  "snapshot_aprovado": "d4c160c2b239c85e81a9f3ece87d2e7d544e96073ebee26def0357dab39c6f75",
+  "snapshot_bloqueado": "ec5550e0426ec965d4ddf485cc138493e66dec17c0ce6b96e59874470593c347",
+  "diferencas_operacionais_documentais": [
+    "Jenkinsfile",
+    "README.md",
+    "docs/arquitetura/README.md",
+    "labs/operacao/README.md",
+    "labs/operacao/auditar_final.py",
+    "labs/operacao/capturar.mjs",
+    "labs/operacao/capturar_jenkins.mjs",
+    "labs/operacao/executar_ci.py",
+    "labs/operacao/experimento.py",
+    "labs/operacao/injetar_falha.py",
+    "labs/operacao/jenkins/Dockerfile",
+    "labs/operacao/jenkins/plugins.txt",
+    "labs/operacao/preparar_lab.py",
+    "labs/operacao/regressoes.py",
+    "labs/operacao/validar_implantacao.py"
+  ],
+  "controle_negativo": "JUnit gerado após verificar snapshot; 1 teste, 1 falha real"
+}

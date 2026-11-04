@@ -1,0 +1,20 @@
+{
+  "containers": [
+    "d9b4251c2f42 devops-pgadmin Exited (255) 7 weeks ago",
+    "900090c20ff7 devops-postgres Exited (255) 7 weeks ago",
+    "b41af552ed09 vibrant_meitner Exited (0) 7 weeks ago"
+  ],
+  "volumes": [
+    "2bcdf311f05f2ff9be75d7d8544498572fa90eba778c4d6f7a47994f8769bfcc",
+    "04b913c1c9973a6e4c696f22dd3c47d7d050dec8c0fdaf10385f4af70a9e609a",
+    "9e573372839fbdc708ada103b7307865868ab2b1724fa7311d2dd335a0497823",
+    "7474d06065ff58c59017cbda5df03acde785c89685fd55fbe070066d6aca6188",
+    "a72ac29fcb6ffcb815c902375b07a03058f633141534490cb16014a5a80a8bc1",
+    "bab2b7c9605a8a34540112832b02b0f1db57fb8c493ef8f247b1bbacfdbca80b",
+    "devops-project-main_postgres_data",
+    "devops-project_postgres_data",
+    "f1715ffcc9220a0c2f0f7f2290d39aeb5de41d52034d8b9888dce1d39de68740",
+    "usuario-api-v2-postgres-docker-pgadmin_pgadmin_data",
+    "usuario-api-v2-postgres-docker-pgadmin_postgres_data"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "jar_jenkins_sha256": "123d9fa6e289735b0d6607e26ef4cb485347c7d2697db31f20dc71042745cdf1",
+  "jar_contexto_sha256": "123d9fa6e289735b0d6607e26ef4cb485347c7d2697db31f20dc71042745cdf1",
+  "jar_implantado_sha256": "123d9fa6e289735b0d6607e26ef4cb485347c7d2697db31f20dc71042745cdf1",
+  "iguais": true,
+  "image_id": "sha256:5c650f2534a20eebd1955e844d139706755c20f072ae46af775b52798f561442",
+  "container_id": "f1ac0c109413f5f64c5ffd4b4808a6d17e5d8b4aaf66ebcc5e20cecfa73b9781",
+  "base_commit": "a3b350ecfc3c31d414e4e3fc8dd31505d514f773",
+  "snapshot_sha256": "d4c160c2b239c85e81a9f3ece87d2e7d544e96073ebee26def0357dab39c6f75",
+  "jenkins_build": "1",
+  "tipo": "implantação local controlada; sem recompilação"
+}

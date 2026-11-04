@@ -1,0 +1,4 @@
+{"recebido": {"eventoId": "c7b54b5d-13ec-43f7-b4f3-21af3f734e65", "alunoId": 1, "cursosLiberados": 3, "ocorridoEm": "2026-11-04T15:30:54.540159Z"}}
+{"recebido": {"eventoId": "c55b8108-0d05-4399-a717-bfa6a6172141", "alunoId": 1, "cursosLiberados": 6, "ocorridoEm": "2026-11-04T15:30:54.603705Z"}}
+{"recebido": {"eventoId": "215f063f-e2ea-4d87-9ffb-f37a5b024f18", "alunoId": 1, "cursosLiberados": 12, "ocorridoEm": "2026-11-04T15:30:54.792235Z"}}
+{"recebido": {"eventoId": "f3e64044-1ceb-406f-b7c9-8b2a1a1ad484", "alunoId": 1, "cursosLiberados": 15, "ocorridoEm": "2026-11-04T15:30:54.806493Z"}}

@@ -1,0 +1,30 @@
+[
+  {
+    "desafio": 3,
+    "arquivo": "docs/evidencias/desafio-3/resultados-lab.json",
+    "casos": 18,
+    "todos_passaram": true,
+    "rastreado_git": true
+  },
+  {
+    "desafio": 4,
+    "arquivo": "docs/evidencias/desafio-4/resultados-http.json",
+    "casos": 25,
+    "todos_passaram": true,
+    "rastreado_git": true
+  },
+  {
+    "desafio": 5,
+    "arquivo": "docs/evidencias/desafio-5/resultados-mqtt.json",
+    "casos": 15,
+    "todos_passaram": true,
+    "rastreado_git": true
+  },
+  {
+    "desafio": 5,
+    "arquivo": "docs/evidencias/desafio-5/resultados-http.json",
+    "casos": 12,
+    "todos_passaram": true,
+    "rastreado_git": true
+  }
+]

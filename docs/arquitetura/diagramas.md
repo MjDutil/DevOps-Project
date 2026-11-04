@@ -1,6 +1,6 @@
 # Diagramas C4 — Architecture Lab B1
 
-**Cuidado:** as visões abaixo descrevem a arquitetura **decidida/planejada**. O sistema atualmente entregue ainda é um MVP e não possui todos os componentes. O Core, frontend e banco existem; a integração FastAPI foi validada no D3 em rede local/H2. Componentes de D4–D6 continuam propostos.
+**Cuidado:** as visões abaixo descrevem a arquitetura **decidida/planejada**. O sistema atualmente entregue ainda é um MVP e não possui todos os componentes. O Core, frontend e banco existem; a integração FastAPI foi validada no D3 em rede local/H2. D4 acrescenta notificação demonstrativa pós-commit. D5 tem recepção HTTP e MQTT real validados no laboratório; D6 continua proposto.
 
 ## C4 Container — estado do Desafio 1
 
@@ -66,6 +66,111 @@ flowchart LR
 
 O D3 validou Core → FastAPI e Core → H2 em processos locais, incluindo falha, recuperação e timeout de leitura. Frontend/navegador e PostgreSQL/Compose não foram exercitados. Não há acesso do Python ao banco do Core; a recomendação usa somente o ID no contrato demonstrativo. Falha da IA degrada apenas a resposta opcional; conclusão, fórum e Premium continuam locais ao Core. Esta visão evolui o Container D1 sem alterar o Component D2. [Logs, respostas e tempos](../evidencias/desafio-3/README.md).
 
+## C4 Container — Desafio 4
+
+```mermaid
+flowchart LR
+    aluno["Aluno"] --> frontend["Frontend Vue / Nginx"]
+    frontend -->|HTTP REST / JSON| core["Core Java / Spring Boot<br/>Monólito modular + Ports & Adapters<br/>Commit da conclusão antes da notificação<br/>Executor em memória: 1 thread e fila limitada"]
+    core -->|JPA / JDBC| banco[("Banco relacional<br/>H2 validado; PostgreSQL configurado")]
+    core -.->|HTTP REST / JSON opcional| ia["FastAPI Python<br/>D3 demonstrativo preservado"]
+    core -->|"HTTP POST /notificacoes / JSON<br/>Assíncrono por padrão quando habilitado<br/>Síncrono para comparação; ambos após commit"| consumidor["Consumidor demonstrativo Python<br/>Processo separado; sem email real<br/>Pode falhar sem desfazer conclusão"]
+```
+
+Notificações são desabilitadas por padrão. Quando habilitadas, o listener após commit usa executor de uma thread e fila limitada dentro do Core; não é um serviço ou broker adicional. O modo síncrono existe somente para comparação. Consumidor Python demonstrativo é processo separado; não é o serviço FastAPI do D3. Frontend/PostgreSQL são componentes existentes/configurados, sem nova validação de navegador/Docker. [Fonte e SVG](../evidencias/desafio-4/README.md).
+
+### Sequência da conclusão e notificação
+
+```mermaid
+sequenceDiagram
+    participant A as Cliente
+    participant C as Core / fachada
+    participant B as Banco
+    participant L as Listener apos commit
+    participant E as Executor em memoria
+    participant N as Consumidor HTTP
+    A->>C: POST concluir-curso
+    C->>B: Ler snapshot e atualizar saldo
+    C->>C: Publicar evento transacional
+    alt rollback
+        C->>B: ROLLBACK
+        Note over L,N: Nao encaminhar notificacao
+    else commit
+        C->>B: COMMIT
+        C->>L: AFTER_COMMIT
+        alt modo assincrono
+            L->>E: Tentar agendar
+            alt fila cheia ou executor encerrado
+                L->>L: Registrar descarte
+            else tarefa aceita
+                E->>N: POST notificacoes com timeout
+                Note over E,N: Sucesso ou falha registrados na thread dedicada
+            end
+            C-->>A: HTTP 200 com saldo
+        else modo sincrono de laboratorio
+            L->>N: POST notificacoes com timeout
+            Note over L,N: Aguarda tentativa, captura falha
+            C-->>A: HTTP 200 com saldo
+        end
+    end
+    Note over B,E: Sem outbox, falha do processo pode perder o evento apos commit
+```
+
+A tentativa em segundo plano pode iniciar antes ou depois da resposta HTTP, mas somente após commit. Não se garante ordem global nem persistência da fila. Rollback e snapshot obsoleto não encaminham evento de sucesso; falhas HTTP e saturação são registradas sem transformar a conclusão confirmada em erro.
+
+## C4 Container — Desafio 5
+
+**Estado validado no mini-lab:** simulador MQTT → Mosquitto → gateway → Core, incluindo autenticação/ACL, sessão persistente, duplicata e reentrega após falha. Os componentes D3/D4 seguem opcionais e preservados.
+
+```mermaid
+flowchart LR
+    dispositivo["Dispositivo simulado Python<br/>Publicação MQTT real validada"] -->|"MQTT 3.1.1 / TCP / QoS 1<br/>Tópico por dispositivo, retain false"| broker["Mosquitto 2.0.22 / Docker<br/>Autenticação, ACL, sessão e volume<br/>MQTT real validado no laboratório"]
+    broker -->|"MQTT 3.1.1 / TCP / QoS 1<br/>Gateway com clientId estável"| gateway["Gateway Python / Paho 2.1<br/>Valida e normaliza<br/>ACK manual condicionado ao HTTP"]
+    gateway -->|"HTTP POST /iot/eventos / JSON<br/>Token local; aceitação ou duplicata"| core["Core Java / Spring Boot<br/>Entrada IoT opcional e desabilitada por padrão<br/>Deduplicação FIFO em memória<br/>Sem alterar cursos, moedas ou recompensas"]
+    frontend["Frontend Vue / Nginx"] -->|HTTP REST / JSON| core
+    core -->|JPA / JDBC do fluxo existente| db[("Banco relacional<br/>H2 validado; PostgreSQL configurado")]
+    core -.->|HTTP REST opcional D3| ia["FastAPI demonstrativo D3"]
+    core -.->|HTTP pós-commit opcional D4| notificacao["Consumidor demonstrativo D4<br/>Executor fica dentro do Core"]
+```
+
+[SVG Container](../evidencias/desafio-5/c4-container.svg) · [Fonte](../evidencias/desafio-5/c4-container.mmd) · [Resultados e pendências](../evidencias/desafio-5/README.md)
+
+O broker MQTT é um processo separado do Core. O executor D4 continua dentro do Core e não é broker. Gateway valida e traduz dados; entrada IoT só demonstra recepção, sem emitir conclusão ou alterar recompensas. Porta MQTT local, autenticação/ACL configuradas e token HTTP; TLS externo não implementado. A janela de deduplicação no Core é volátil e limitada.
+
+### Fluxo IoT e confirmação
+
+```mermaid
+sequenceDiagram
+    participant D as Simulador
+    participant B as Broker Mosquitto
+    participant G as Gateway persistente
+    participant C as Core IoT opcional
+    Note over D,C: Fluxo MQTT real validado no laboratório, sem garantia exatamente uma vez
+    D->>B: PUBLISH QoS 1 com event_id
+    B-->>D: PUBACK do trecho dispositivo-broker
+    B->>G: PUBLISH QoS 1
+    G->>G: Validar tópico e normalizar JSON
+    alt mensagem inválida
+        G->>G: Registrar rejeição sem ACK e encerrar
+        Note over B,G: Intervenção necessária para mensagem pendente
+    else mensagem válida
+        G->>C: POST iot/eventos com token
+        alt aceitação ou duplicata idêntica
+            C-->>G: HTTP 200 e mesmo evento confirmado
+            G-->>B: ACK manual
+        else timeout ou falha HTTP transitória
+            G->>G: Não confirmar e desconectar
+            Note over B,G: Reconexão com backoff, reentrega depende da sessão e limites
+        else rejeição HTTP permanente
+            G->>G: Não confirmar e exigir intervenção
+        end
+    end
+    Note over G,C: Recepção é demonstrativa, sem efeitos em gamificação
+    Note over B,C: Sem promessa de exatamente uma vez ou atomicidade ponta a ponta
+```
+
+[SVG sequência](../evidencias/desafio-5/sequencia.svg). PUBACK para o simulador não é aceitação pelo Core. Confirmação manual no gateway depende de HTTP 200 do mesmo evento. Falhas transitórias não recebem ACK e provocam reconexão; mensagens inválidas/permanentes exigem intervenção sem ACK. O fluxo MQTT completo foi executado; sessão persistente e reentrega foram observadas, sem promessa de exatamente uma vez.
+
 ## C4 Deployment — visão proposta para desafio 6
 
 ```mermaid
@@ -88,4 +193,36 @@ flowchart TB
     end
 ```
 
-A visão Deployment acima é proposta futura e não evidencia implantação Docker nem execução dos desafios 4–6. Nos diagramas anteriores, os rótulos distinguem implementação de integração não validada; setas “implementa” representam implementação de interface, não comunicação remota.
+A visão Deployment acima é proposta futura e não evidencia implantação Docker nem execução dos desafios 5–6. Nos diagramas anteriores, os rótulos distinguem implementação de integração não validada; setas “implementa” representam implementação de interface, não comunicação remota.
+
+## C4 Deployment — Desafio 6
+
+Visão operacional do laboratório: Jenkins sem Docker, implantação local do mesmo JAR e métricas internas. Não representa CD de produção. D4/D5 permanecem opcionais e preservados; seus diagramas anteriores continuam válidos. [ADR-006](../adr/ADR-006.md).
+
+```mermaid
+flowchart TB
+    operador["Operador local<br/>Implantação controlada, sem CD de produção"]
+    subgraph host["Docker Desktop / laboratório local isolado"]
+        jenkins["Jenkins / Java 21<br/>Build JDK 17, Maven e Python<br/>Sem socket Docker"]
+        fontes["Snapshot identificado<br/>Commit-base e SHA-256 por arquivo"]
+        artefato["Arquivo aprovado pelo Jenkins<br/>JAR, SHA-256, JUnit e JaCoCo"]
+        core["Core Spring Boot / Java 17<br/>Mesmo JAR aprovado<br/>Actuator interno 9091"]
+        banco[("H2 em memória<br/>Laboratório sem persistência de negócio")]
+        ia["FastAPI / Python<br/>RF03 e RF04 demonstrativos"]
+        prom["Prometheus<br/>Coleta a cada 2 segundos"]
+        graf["Grafana<br/>Datasource e dashboard provisionados"]
+    end
+    fontes -->|Cópia somente leitura e verificação| jenkins
+    jenkins -->|Somente após testes aprovados| artefato
+    artefato -->|Download autenticado e verificação SHA-256| operador
+    operador -->|Docker local / sem recompilar JAR| core
+    core -->|JPA / JDBC| banco
+    core -->|HTTP REST / JSON opcional| ia
+    prom -->|HTTP GET /actuator/prometheus / rede interna| core
+    graf -->|HTTP API / PromQL| prom
+    operador -->|HTTP local autenticado| jenkins
+    operador -->|HTTP local autenticado| graf
+    operador -->|HTTP local / consultas| prom
+```
+
+[Fonte](../evidencias/desafio-6/c4-deployment.mmd) · [SVG](../evidencias/desafio-6/c4-deployment.svg) · [Evidências reais](../evidencias/desafio-6/README.md).

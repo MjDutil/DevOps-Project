@@ -1,0 +1,6 @@
+PASSOU: 15 cenários MQTT reais aprovados.
+PASSOU: 7 ACKs com confirmação HTTP anterior no mesmo processo e PUBACK correlacionado no broker.
+PASSOU: último payload inválido, mid 8 sem PUBACK do gateway.
+PASSOU: sessão persistente retomada, ACL negou publicação e reentrega DUP observada.
+Core indisponível: 6 falhas sem ACK; intervalo observado até PUBACK: 17.725 s. Não é SLA.
+Limite: relógios host/VM não são usados para ordenar causalmente os dois sistemas; logs não provam atomicidade ou exatamente uma vez.

@@ -1,0 +1,18 @@
+{
+  "CORE_PORT/ia/recomendacoes/1": {
+    "status": 200,
+    "body": "{\"aluno_id\":1,\"recomendacoes\":[\"Curso introdutório\",\"Atividade de revisão\"]}"
+  },
+  "CORE_PORT/actuator/prometheus": {
+    "status": 404,
+    "body": "{\"timestamp\":\"2026-11-04T19:04:09.387Z\",\"status\":404,\"error\":\"Not Found\",\"path\":\"/actuator/prometheus\"}"
+  },
+  "PROMETHEUS_PORT/api/v1/query?query=up": {
+    "status": 200,
+    "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"up\",\"instance\":\"core:9091\",\"job\":\"core\"},\"value\":[1793819049.486,\"1\"]}]}}"
+  },
+  "GRAFANA_PORT/api/health": {
+    "status": 200,
+    "body": "{\n  \"database\": \"ok\",\n  \"version\": \"13.3.0\",\n  \"commit\": \"6f8ce3c693b493043ebcd4787566d2b6b118b0f0\"\n}"
+  }
+}

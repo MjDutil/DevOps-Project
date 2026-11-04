@@ -1,0 +1,8 @@
+flowchart LR
+    dispositivo["Dispositivo simulado Python<br/>Publicação MQTT real validada"] -->|"MQTT 3.1.1 / TCP / QoS 1<br/>Tópico por dispositivo, retain false"| broker["Mosquitto 2.0.22 / Docker<br/>Autenticação, ACL, sessão e volume<br/>MQTT real validado no laboratório"]
+    broker -->|"MQTT 3.1.1 / TCP / QoS 1<br/>Gateway com clientId estável"| gateway["Gateway Python / Paho 2.1<br/>Valida e normaliza<br/>ACK manual condicionado ao HTTP"]
+    gateway -->|"HTTP POST /iot/eventos / JSON<br/>Token local; aceitação ou duplicata"| core["Core Java / Spring Boot<br/>Entrada IoT opcional e desabilitada por padrão<br/>Deduplicação FIFO em memória<br/>Sem alterar cursos, moedas ou recompensas"]
+    frontend["Frontend Vue / Nginx"] -->|HTTP REST / JSON| core
+    core -->|JPA / JDBC do fluxo existente| db[("Banco relacional<br/>H2 validado; PostgreSQL configurado")]
+    core -.->|HTTP REST opcional D3| ia["FastAPI demonstrativo D3"]
+    core -.->|HTTP pós-commit opcional D4| notificacao["Consumidor demonstrativo D4<br/>Executor fica dentro do Core"]

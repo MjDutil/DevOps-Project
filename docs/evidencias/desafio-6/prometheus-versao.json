@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "data": {
+    "version": "3.15.1",
+    "revision": "bae3eced0a5369e050e83ea73bc381d7c4b1a719",
+    "branch": "HEAD",
+    "buildUser": "root@03bc6b0f3ef7",
+    "buildDate": "20261021-13:31:17",
+    "goVersion": "go1.27.3"
+  }
+}

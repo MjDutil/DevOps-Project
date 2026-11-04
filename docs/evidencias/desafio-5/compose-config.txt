@@ -1,0 +1,2 @@
+exit_code=0
+Limite: validação estática; não inicia broker nem comprova MQTT.

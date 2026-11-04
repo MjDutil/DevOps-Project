@@ -1,0 +1,13 @@
+{
+  "data": "2026-11-04T12:32:39.532866-03:00",
+  "base": "8986178e2f26d23fa3f0a3b9279aa9a22f84fc14",
+  "head_atual": "8986178e2f26d23fa3f0a3b9279aa9a22f84fc14",
+  "fontes_anteriores_alterados": [
+    "src/main/resources/application.properties",
+    "src/main/java/org/example/tdd/gamificacao/infrastructure/ConclusaoCursoFacade.java"
+  ],
+  "testes_anteriores_preservados": true,
+  "src_main_java_sem_alteracao_fora_fachada": true,
+  "pom_sem_diff": true,
+  "evidencias_d1_d2_d3_sem_diff": true
+}

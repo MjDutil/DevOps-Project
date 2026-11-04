@@ -1,0 +1,12 @@
+[
+  {
+    "build": 1,
+    "result": "SUCCESS",
+    "falha_controlada": false
+  },
+  {
+    "build": 4,
+    "result": "FAILURE",
+    "falha_controlada": true
+  }
+]
