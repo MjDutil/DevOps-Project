@@ -1,0 +1,5 @@
+user dispositivo-01
+topic write b1/iot/dispositivos/dispositivo-01/eventos
+
+user gateway-b1
+topic read b1/iot/dispositivos/+/eventos

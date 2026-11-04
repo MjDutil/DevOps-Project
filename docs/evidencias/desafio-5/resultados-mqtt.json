@@ -1,0 +1,127 @@
+{
+  "data": "2026-11-04T14:47:38.368732-03:00",
+  "escopo": "MQTT real com Mosquitto",
+  "casos": [
+    {
+      "caso": "publicação QoS1, normalização e aceitação HTTP",
+      "passou": true,
+      "event_id": "d90303ec-cf26-44c5-a44e-375229c67a44",
+      "publicacao": {
+        "puback_observado": true,
+        "qos": 1,
+        "retain": false,
+        "client_id": "b1-simulador-f0c4df297189"
+      }
+    },
+    {
+      "caso": "duplicata reconhecida pelo Core e ACK manual",
+      "passou": true,
+      "event_id": "d90303ec-cf26-44c5-a44e-375229c67a44"
+    },
+    {
+      "caso": "eventos de início e conclusão de atividade encaminhados",
+      "passou": true,
+      "event_ids": [
+        "9cf43769-462b-4dc9-8888-497372776a41",
+        "6c837b65-b1e8-4106-928f-b99e4bd87ee8"
+      ]
+    },
+    {
+      "caso": "IoT e duplicatas não alteram cursos, moedas, voucher ou Premium",
+      "passou": true,
+      "antes": {
+        "id": 1,
+        "cursosLiberados": 12,
+        "plano": "Premium",
+        "voucherProjetosReais": true,
+        "moedas": 3
+      },
+      "depois": {
+        "id": 1,
+        "cursosLiberados": 12,
+        "plano": "Premium",
+        "voucherProjetosReais": true,
+        "moedas": 3
+      }
+    },
+    {
+      "caso": "autenticação MQTT inválida recusada",
+      "passou": true
+    },
+    {
+      "caso": "cliente MQTT anônimo recusado",
+      "passou": true
+    },
+    {
+      "caso": "ACL bloqueou publicação em tópico de outro dispositivo",
+      "passou": true,
+      "event_id": "fe50c972-2187-4d85-a921-fd037a091e57"
+    },
+    {
+      "caso": "gateway desconectado e retomada da sessão persistente",
+      "passou": true,
+      "event_id": "24868558-0418-4568-95e1-20b42db5f064"
+    },
+    {
+      "caso": "Core indisponível: sem ACK, reconexão e reentrega observada",
+      "passou": true,
+      "event_id": "818d8bf0-ce58-41c1-b145-07e13722a855",
+      "duplicado_mqtt_observado": true
+    },
+    {
+      "caso": "broker indisponível: simulador informou falha sem prometer retenção local",
+      "passou": true
+    },
+    {
+      "caso": "broker recuperado e novo evento entregue",
+      "passou": true,
+      "event_id": "437612e1-0a27-4b58-bcf2-24d7abdf1c76"
+    },
+    {
+      "caso": "payload inválido sem ACK; gateway encerra exigindo intervenção",
+      "passou": true
+    },
+    {
+      "caso": "estado de gamificação preservado após falhas MQTT",
+      "passou": true,
+      "antes": {
+        "id": 1,
+        "cursosLiberados": 12,
+        "plano": "Premium",
+        "voucherProjetosReais": true,
+        "moedas": 3
+      },
+      "depois": {
+        "id": 1,
+        "cursosLiberados": 12,
+        "plano": "Premium",
+        "voucherProjetosReais": true,
+        "moedas": 3
+      }
+    },
+    {
+      "caso": "conclusão anterior funciona quando chamada explicitamente",
+      "passou": true,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 15
+      }
+    },
+    {
+      "caso": "broker registrou tráfego QoS1 e PUBACK do gateway",
+      "passou": true,
+      "client_id": "b1-gateway-e2e-56289"
+    }
+  ],
+  "client_id": "b1-gateway-e2e-56289",
+  "mqtt_port": 59658,
+  "core_port": 59659,
+  "protocolo": "MQTT 3.1.1",
+  "qos": 1,
+  "retain": false,
+  "clean_session": false,
+  "manual_ack": true,
+  "status": "executado",
+  "sucesso": true
+}

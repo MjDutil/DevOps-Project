@@ -1,0 +1,14 @@
+PASSOU: 25 documentos, 377 links/imagens relativos e 34 âncoras.
+PASSOU: destinos existentes, capitalização exata e arquivos rastreados ou novos não ignorados (modo working-tree).
+PASSOU: fontes Mermaid e rótulos dos SVGs D1/D2/D3/D4/D5 conferidos; Containers D3/D4/D5 no registro arquitetural e D5 no README.
+URLs externas encontradas: https://github.com/MjDutil/DevOps-Project, https://eclipse.dev/paho/clients/python/docs/, https://mosquitto.org/documentation/authentication-methods/, https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#custom-anchors, https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
+Limite: verifica caminhos locais e sincronismo dos SVGs; não substitui parser Mermaid. Arquivos novos em working-tree ainda precisam de git add/commit. Publicação exige aprovação.
+
+PASSOU: Container e sequência D5 renderizados; XML SVG, Python AST e JSONs válidos.
+PASSOU: 15 cenários MQTT reais, 12 HTTP D5 e regressões 18 D3/25 D4; saída MQTT coincide com JSON.
+PASSOU: aluno Premium pré-existente preservado antes/depois de IoT (12 cursos, 3 moedas e voucher).
+PASSOU: auditoria de ACK correlacionada a confirmação HTTP no gateway e PUBACK no broker; sem ordenar relógios host/VM.
+PASSOU: 40 hashes antigos preservados, pom.xml sem diff e nenhuma mudança nas evidências D1–D4.
+PASSOU: segredos reais gerados não encontrados nos arquivos publicáveis; .runtime ignorado.
+PASSOU: node --check e git diff --check. Logs normalizados somente quanto a espaços finais/linhas vazias finais.
+D5 tecnicamente validado; commit/publicação aguardam autorização. Nenhum commit D5, push ou merge realizado.

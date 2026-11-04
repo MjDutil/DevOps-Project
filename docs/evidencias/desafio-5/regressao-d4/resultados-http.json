@@ -1,0 +1,405 @@
+{
+  "data": "2026-11-04T14:37:51.166321-03:00",
+  "casos": [
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 3
+      },
+      "duracao_ms": 400.89,
+      "caso": "sincrono sucesso",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/estado",
+      "http": 200,
+      "resposta": {
+        "recebidos": [
+          {
+            "eventoId": "982d238d-440d-4e7b-ab69-d2305a3e034b",
+            "alunoId": 1,
+            "cursosLiberados": 3,
+            "ocorridoEm": "2026-11-04T17:38:23.001120Z"
+          }
+        ],
+        "finalizados": 1,
+        "atraso": 0.0
+      },
+      "duracao_ms": 2.15,
+      "caso": "sincrono consumidor recebeu contrato",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 6
+      },
+      "duracao_ms": 42.29,
+      "caso": "sincrono gate consumidor",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 9
+      },
+      "duracao_ms": 15.77,
+      "caso": "sincrono consumidor parado",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/verificar-premium",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "cursosLiberados": 9,
+        "plano": "Basico",
+        "voucherProjetosReais": false,
+        "moedas": 0
+      },
+      "duracao_ms": 26.09,
+      "caso": "sincrono leitura persistida por outro endpoint",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/estado",
+      "http": 200,
+      "resposta": {
+        "recebidos": [],
+        "finalizados": 0,
+        "atraso": 0.0
+      },
+      "duracao_ms": 2.44,
+      "caso": "sincrono consumidor reiniciado sem replay automático",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 12
+      },
+      "duracao_ms": 17.29,
+      "caso": "sincrono novo evento após recuperação",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/estado",
+      "http": 200,
+      "resposta": {
+        "recebidos": [
+          {
+            "eventoId": "caf8a5a5-d798-4d09-aaf8-5da0ef2dc1d3",
+            "alunoId": 1,
+            "cursosLiberados": 12,
+            "ocorridoEm": "2026-11-04T17:38:23.590709Z"
+          }
+        ],
+        "finalizados": 1,
+        "atraso": 0.0
+      },
+      "duracao_ms": 2.2,
+      "caso": "sincrono recuperação recebe somente evento novo",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 15
+      },
+      "duracao_ms": 1219.9,
+      "caso": "sincrono consumidor lento",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/verificar-premium",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "cursosLiberados": 15,
+        "plano": "Premium",
+        "voucherProjetosReais": true,
+        "moedas": 3
+      },
+      "duracao_ms": 40.17,
+      "caso": "sincrono persistência mesmo após timeout",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 3
+      },
+      "duracao_ms": 194.61,
+      "caso": "assincrono sucesso",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/estado",
+      "http": 200,
+      "resposta": {
+        "recebidos": [
+          {
+            "eventoId": "5cbc9832-4b8d-40df-99f6-6fade3b9ca93",
+            "alunoId": 1,
+            "cursosLiberados": 3,
+            "ocorridoEm": "2026-11-04T17:38:42.836156Z"
+          }
+        ],
+        "finalizados": 1,
+        "atraso": 0.0
+      },
+      "duracao_ms": 3.2,
+      "caso": "assincrono consumidor recebeu contrato",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 6
+      },
+      "duracao_ms": 13.63,
+      "caso": "assincrono gate consumidor",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/estado",
+      "http": 200,
+      "resposta": {
+        "recebidos": [
+          {
+            "eventoId": "5cbc9832-4b8d-40df-99f6-6fade3b9ca93",
+            "alunoId": 1,
+            "cursosLiberados": 3,
+            "ocorridoEm": "2026-11-04T17:38:42.836156Z"
+          },
+          {
+            "eventoId": "a22a7828-b85d-4adf-993a-814697259d0f",
+            "alunoId": 1,
+            "cursosLiberados": 6,
+            "ocorridoEm": "2026-11-04T17:38:42.937400Z"
+          }
+        ],
+        "finalizados": 1,
+        "atraso": 0.0
+      },
+      "duracao_ms": 2.13,
+      "caso": "assíncrono respondeu antes do consumidor terminar",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 9
+      },
+      "duracao_ms": 17.13,
+      "caso": "saturação primeiro evento",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 12
+      },
+      "duracao_ms": 15.58,
+      "caso": "saturação evento enfileirado",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 15
+      },
+      "duracao_ms": 12.94,
+      "caso": "saturação evento descartado sem falha Core",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/estado",
+      "http": 200,
+      "resposta": {
+        "recebidos": [
+          {
+            "eventoId": "5cbc9832-4b8d-40df-99f6-6fade3b9ca93",
+            "alunoId": 1,
+            "cursosLiberados": 3,
+            "ocorridoEm": "2026-11-04T17:38:42.836156Z"
+          },
+          {
+            "eventoId": "a22a7828-b85d-4adf-993a-814697259d0f",
+            "alunoId": 1,
+            "cursosLiberados": 6,
+            "ocorridoEm": "2026-11-04T17:38:42.937400Z"
+          },
+          {
+            "eventoId": "b7fbf715-da97-496a-ae0b-336fafb5b970",
+            "alunoId": 1,
+            "cursosLiberados": 9,
+            "ocorridoEm": "2026-11-04T17:38:42.990320Z"
+          },
+          {
+            "eventoId": "d2ad9798-bb5f-45bc-9412-88953ee5c446",
+            "alunoId": 1,
+            "cursosLiberados": 12,
+            "ocorridoEm": "2026-11-04T17:38:43.008583Z"
+          }
+        ],
+        "finalizados": 4,
+        "atraso": 0.0
+      },
+      "duracao_ms": 2.13,
+      "caso": "saturação somente dois dos três eventos recebidos",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 18
+      },
+      "duracao_ms": 15.24,
+      "caso": "assincrono consumidor parado",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/verificar-premium",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "cursosLiberados": 18,
+        "plano": "Premium",
+        "voucherProjetosReais": true,
+        "moedas": 3
+      },
+      "duracao_ms": 47.03,
+      "caso": "assincrono leitura persistida por outro endpoint",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/estado",
+      "http": 200,
+      "resposta": {
+        "recebidos": [],
+        "finalizados": 0,
+        "atraso": 0.0
+      },
+      "duracao_ms": 2.08,
+      "caso": "assincrono consumidor reiniciado sem replay automático",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 21
+      },
+      "duracao_ms": 15.05,
+      "caso": "assincrono novo evento após recuperação",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/estado",
+      "http": 200,
+      "resposta": {
+        "recebidos": [
+          {
+            "eventoId": "6a330216-ee8a-4410-adb4-b0a224f4b721",
+            "alunoId": 1,
+            "cursosLiberados": 21,
+            "ocorridoEm": "2026-11-04T17:38:43.392679Z"
+          }
+        ],
+        "finalizados": 1,
+        "atraso": 0.0
+      },
+      "duracao_ms": 2.11,
+      "caso": "assincrono recuperação recebe somente evento novo",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 24
+      },
+      "duracao_ms": 14.83,
+      "caso": "assincrono consumidor lento",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/verificar-premium",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "cursosLiberados": 24,
+        "plano": "Premium",
+        "voucherProjetosReais": true,
+        "moedas": 3
+      },
+      "duracao_ms": 6.78,
+      "caso": "assincrono persistência mesmo após timeout",
+      "passou": true
+    }
+  ],
+  "sucesso": true
+}

@@ -1,0 +1,8 @@
+{
+  "data": "2026-11-04T14:36:27.531827-03:00",
+  "escopo": "MQTT real com Mosquitto",
+  "casos": [],
+  "status": "falhou",
+  "sucesso": false,
+  "motivo": "Preparação de credenciais falhou antes do MQTT"
+}

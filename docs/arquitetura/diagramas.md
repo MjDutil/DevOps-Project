@@ -1,6 +1,6 @@
 # Diagramas C4 — Architecture Lab B1
 
-**Cuidado:** as visões abaixo descrevem a arquitetura **decidida/planejada**. O sistema atualmente entregue ainda é um MVP e não possui todos os componentes. O Core, frontend e banco existem; a integração FastAPI foi validada no D3 em rede local/H2. D4 acrescenta notificação demonstrativa pós-commit; D5/D6 continuam propostos.
+**Cuidado:** as visões abaixo descrevem a arquitetura **decidida/planejada**. O sistema atualmente entregue ainda é um MVP e não possui todos os componentes. O Core, frontend e banco existem; a integração FastAPI foi validada no D3 em rede local/H2. D4 acrescenta notificação demonstrativa pós-commit. D5 tem recepção HTTP e MQTT real validados no laboratório; D6 continua proposto.
 
 ## C4 Container — estado do Desafio 1
 
@@ -117,6 +117,59 @@ sequenceDiagram
 ```
 
 A tentativa em segundo plano pode iniciar antes ou depois da resposta HTTP, mas somente após commit. Não se garante ordem global nem persistência da fila. Rollback e snapshot obsoleto não encaminham evento de sucesso; falhas HTTP e saturação são registradas sem transformar a conclusão confirmada em erro.
+
+## C4 Container — Desafio 5
+
+**Estado validado no mini-lab:** simulador MQTT → Mosquitto → gateway → Core, incluindo autenticação/ACL, sessão persistente, duplicata e reentrega após falha. Os componentes D3/D4 seguem opcionais e preservados.
+
+```mermaid
+flowchart LR
+    dispositivo["Dispositivo simulado Python<br/>Publicação MQTT real validada"] -->|"MQTT 3.1.1 / TCP / QoS 1<br/>Tópico por dispositivo, retain false"| broker["Mosquitto 2.0.22 / Docker<br/>Autenticação, ACL, sessão e volume<br/>MQTT real validado no laboratório"]
+    broker -->|"MQTT 3.1.1 / TCP / QoS 1<br/>Gateway com clientId estável"| gateway["Gateway Python / Paho 2.1<br/>Valida e normaliza<br/>ACK manual condicionado ao HTTP"]
+    gateway -->|"HTTP POST /iot/eventos / JSON<br/>Token local; aceitação ou duplicata"| core["Core Java / Spring Boot<br/>Entrada IoT opcional e desabilitada por padrão<br/>Deduplicação FIFO em memória<br/>Sem alterar cursos, moedas ou recompensas"]
+    frontend["Frontend Vue / Nginx"] -->|HTTP REST / JSON| core
+    core -->|JPA / JDBC do fluxo existente| db[("Banco relacional<br/>H2 validado; PostgreSQL configurado")]
+    core -.->|HTTP REST opcional D3| ia["FastAPI demonstrativo D3"]
+    core -.->|HTTP pós-commit opcional D4| notificacao["Consumidor demonstrativo D4<br/>Executor fica dentro do Core"]
+```
+
+[SVG Container](../evidencias/desafio-5/c4-container.svg) · [Fonte](../evidencias/desafio-5/c4-container.mmd) · [Resultados e pendências](../evidencias/desafio-5/README.md)
+
+O broker MQTT é um processo separado do Core. O executor D4 continua dentro do Core e não é broker. Gateway valida e traduz dados; entrada IoT só demonstra recepção, sem emitir conclusão ou alterar recompensas. Porta MQTT local, autenticação/ACL configuradas e token HTTP; TLS externo não implementado. A janela de deduplicação no Core é volátil e limitada.
+
+### Fluxo IoT e confirmação
+
+```mermaid
+sequenceDiagram
+    participant D as Simulador
+    participant B as Broker Mosquitto
+    participant G as Gateway persistente
+    participant C as Core IoT opcional
+    Note over D,C: Fluxo MQTT real validado no laboratório, sem garantia exatamente uma vez
+    D->>B: PUBLISH QoS 1 com event_id
+    B-->>D: PUBACK do trecho dispositivo-broker
+    B->>G: PUBLISH QoS 1
+    G->>G: Validar tópico e normalizar JSON
+    alt mensagem inválida
+        G->>G: Registrar rejeição sem ACK e encerrar
+        Note over B,G: Intervenção necessária para mensagem pendente
+    else mensagem válida
+        G->>C: POST iot/eventos com token
+        alt aceitação ou duplicata idêntica
+            C-->>G: HTTP 200 e mesmo evento confirmado
+            G-->>B: ACK manual
+        else timeout ou falha HTTP transitória
+            G->>G: Não confirmar e desconectar
+            Note over B,G: Reconexão com backoff, reentrega depende da sessão e limites
+        else rejeição HTTP permanente
+            G->>G: Não confirmar e exigir intervenção
+        end
+    end
+    Note over G,C: Recepção é demonstrativa, sem efeitos em gamificação
+    Note over B,C: Sem promessa de exatamente uma vez ou atomicidade ponta a ponta
+```
+
+[SVG sequência](../evidencias/desafio-5/sequencia.svg). PUBACK para o simulador não é aceitação pelo Core. Confirmação manual no gateway depende de HTTP 200 do mesmo evento. Falhas transitórias não recebem ACK e provocam reconexão; mensagens inválidas/permanentes exigem intervenção sem ACK. O fluxo MQTT completo foi executado; sessão persistente e reentrega foram observadas, sem promessa de exatamente uma vez.
 
 ## C4 Deployment — visão proposta para desafio 6
 

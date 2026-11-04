@@ -1,0 +1,195 @@
+{
+  "data": "2026-11-04T14:37:55.257952-03:00",
+  "escopo": "HTTP real sem broker MQTT",
+  "casos": [
+    {
+      "metodo": "POST",
+      "caminho": "/alunos",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 0
+      },
+      "duracao_ms": 818.14,
+      "caso": "criar aluno antes de IoT",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 401,
+      "resposta": {
+        "timestamp": "2026-11-04T17:38:25.440Z",
+        "status": 401,
+        "error": "Unauthorized",
+        "path": "/iot/eventos"
+      },
+      "duracao_ms": 57.25,
+      "caso": "token ausente",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 401,
+      "resposta": {
+        "timestamp": "2026-11-04T17:38:25.478Z",
+        "status": 401,
+        "error": "Unauthorized",
+        "path": "/iot/eventos"
+      },
+      "duracao_ms": 19.34,
+      "caso": "token incorreto",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 400,
+      "resposta": {
+        "timestamp": "2026-11-04T17:38:25.487Z",
+        "status": 400,
+        "error": "Bad Request",
+        "path": "/iot/eventos"
+      },
+      "duracao_ms": 7.77,
+      "caso": "payload inválido",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 200,
+      "resposta": {
+        "status": "recebido",
+        "evento": {
+          "eventId": "d0f7a152-ee50-496a-bcc4-a0c80b8a47f8",
+          "dispositivoId": "dispositivo-01",
+          "tipo": "PRESENCA",
+          "ocorridoEm": "2026-11-04T12:00:00.120Z",
+          "versao": 1
+        }
+      },
+      "duracao_ms": 22.21,
+      "caso": "aceitar evento normalizado",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 200,
+      "resposta": {
+        "status": "duplicado",
+        "evento": {
+          "eventId": "d0f7a152-ee50-496a-bcc4-a0c80b8a47f8",
+          "dispositivoId": "dispositivo-01",
+          "tipo": "PRESENCA",
+          "ocorridoEm": "2026-11-04T12:00:00.120Z",
+          "versao": 1
+        }
+      },
+      "duracao_ms": 12.37,
+      "caso": "detectar duplicata",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 409,
+      "resposta": {
+        "timestamp": "2026-11-04T17:38:25.538Z",
+        "status": 409,
+        "error": "Conflict",
+        "path": "/iot/eventos"
+      },
+      "duracao_ms": 9.53,
+      "caso": "mesmo ID outro conteúdo",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/verificar-premium",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "cursosLiberados": 0,
+        "plano": "Basico",
+        "voucherProjetosReais": false,
+        "moedas": 0
+      },
+      "duracao_ms": 90.67,
+      "caso": "IoT não concede recompensa",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 200,
+      "resposta": {
+        "status": "recebido",
+        "evento": {
+          "eventId": "6f91435c-a59a-4386-8801-31ca4427e1c4",
+          "dispositivoId": "dispositivo-01",
+          "tipo": "PRESENCA",
+          "ocorridoEm": "2026-11-04T12:00:00.120Z",
+          "versao": 1
+        }
+      },
+      "duracao_ms": 7.91,
+      "caso": "janela novo evento 1",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 200,
+      "resposta": {
+        "status": "recebido",
+        "evento": {
+          "eventId": "a4103c9e-6fca-46ec-a75a-5f9920cf1fcb",
+          "dispositivoId": "dispositivo-01",
+          "tipo": "PRESENCA",
+          "ocorridoEm": "2026-11-04T12:00:00.120Z",
+          "versao": 1
+        }
+      },
+      "duracao_ms": 6.61,
+      "caso": "janela novo evento 2",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/iot/eventos",
+      "http": 200,
+      "resposta": {
+        "status": "recebido",
+        "evento": {
+          "eventId": "d0f7a152-ee50-496a-bcc4-a0c80b8a47f8",
+          "dispositivoId": "dispositivo-01",
+          "tipo": "PRESENCA",
+          "ocorridoEm": "2026-11-04T12:00:00.120Z",
+          "versao": 1
+        }
+      },
+      "duracao_ms": 7.12,
+      "caso": "evicção permite nova aceitação",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 3
+      },
+      "duracao_ms": 173.51,
+      "caso": "conclusão anterior preservada",
+      "passou": true
+    }
+  ],
+  "gateway_http_real_confirmou_duplicata": true,
+  "sucesso": true
+}

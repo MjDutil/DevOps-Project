@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/labs/iot/auditar_mqtt.py", line 51, in <module>
+    if __name__=="__main__":main()
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/labs/iot/auditar_mqtt.py", line 34, in main
+    assert acks[row["mid"]]>=min(candidatos),"ACK no broker anterior à aceitação HTTP"
+AssertionError: ACK no broker anterior à aceitação HTTP

@@ -1,0 +1,244 @@
+{
+  "data": "2026-11-04T14:37:46.449617-03:00",
+  "casos": [
+    {
+      "metodo": "GET",
+      "caminho": "/health",
+      "http": 200,
+      "resposta": {
+        "status": "ok"
+      },
+      "duracao_ms": 4.64,
+      "caso": "FastAPI health",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/ia/recomendacoes/1",
+      "http": 200,
+      "resposta": {
+        "aluno_id": 1,
+        "recomendacoes": [
+          "Curso introdutório",
+          "Atividade de revisão"
+        ]
+      },
+      "duracao_ms": 13.78,
+      "caso": "RF03 contrato real",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/ia/assistente?pergunta=Como+estudar+arquitetura%3F",
+      "http": 200,
+      "resposta": {
+        "resposta": "Laboratório sem LLM: pergunta recebida (25 caracteres)."
+      },
+      "duracao_ms": 30.87,
+      "caso": "RF04 contrato real",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/ia/recomendacoes/1",
+      "http": 200,
+      "resposta": {
+        "recomendacoes": [],
+        "aluno_id": 1,
+        "status": "indisponivel"
+      },
+      "duracao_ms": 101.25,
+      "caso": "RF03 Python interrompido",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/ia/assistente?pergunta=Como+estudar+arquitetura%3F",
+      "http": 200,
+      "resposta": {
+        "resposta": "Assistente temporariamente indisponível",
+        "status": "indisponivel"
+      },
+      "duracao_ms": 7.23,
+      "caso": "RF04 Python interrompido",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 0
+      },
+      "duracao_ms": 648.72,
+      "caso": "Criar aluno sem Python",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 3
+      },
+      "duracao_ms": 252.37,
+      "caso": "Conclusão 1 sem Python",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 6
+      },
+      "duracao_ms": 13.23,
+      "caso": "Conclusão 2 sem Python",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 9
+      },
+      "duracao_ms": 11.73,
+      "caso": "Conclusão 3 sem Python",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 12
+      },
+      "duracao_ms": 13.31,
+      "caso": "Conclusão 4 sem Python",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/recompensar-forum",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 13
+      },
+      "duracao_ms": 44.57,
+      "caso": "Fórum sem Python",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/verificar-premium",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "cursosLiberados": 13,
+        "plano": "Premium",
+        "voucherProjetosReais": true,
+        "moedas": 3
+      },
+      "duracao_ms": 19.07,
+      "caso": "Premium sem Python",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/ia/recomendacoes/1",
+      "http": 200,
+      "resposta": {
+        "aluno_id": 1,
+        "recomendacoes": [
+          "Curso introdutório",
+          "Atividade de revisão"
+        ]
+      },
+      "duracao_ms": 15.75,
+      "caso": "RF03 recuperação sem reiniciar Core",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/ia/assistente?pergunta=Como+estudar+arquitetura%3F",
+      "http": 200,
+      "resposta": {
+        "resposta": "Laboratório sem LLM: pergunta recebida (25 caracteres)."
+      },
+      "duracao_ms": 14.95,
+      "caso": "RF04 recuperação sem reiniciar Core",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 16
+      },
+      "duracao_ms": 13.47,
+      "caso": "Core durante chamada IA lenta",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/ia/recomendacoes/1",
+      "http": 200,
+      "resposta": {
+        "recomendacoes": [],
+        "aluno_id": 1,
+        "status": "indisponivel"
+      },
+      "duracao_ms": 1211.45,
+      "caso": "Timeout leitura real /ia/recomendacoes/1",
+      "passou": true
+    },
+    {
+      "metodo": "POST",
+      "caminho": "/alunos/1/concluir-curso",
+      "http": 200,
+      "resposta": {
+        "id": 1,
+        "media": 8.0,
+        "cursosLiberados": 19
+      },
+      "duracao_ms": 17.09,
+      "caso": "Core durante chamada IA lenta",
+      "passou": true
+    },
+    {
+      "metodo": "GET",
+      "caminho": "/ia/assistente?pergunta=Como+estudar+arquitetura%3F",
+      "http": 200,
+      "resposta": {
+        "resposta": "Assistente temporariamente indisponível",
+        "status": "indisponivel"
+      },
+      "duracao_ms": 1207.78,
+      "caso": "Timeout leitura real /ia/assistente?pergunta=Como+estudar+arquitetura%3F",
+      "passou": true
+    }
+  ],
+  "ambiente": {
+    "python": "3.9.6 (default, Apr 30 2025, 02:07:18) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+    "core_url": "http://127.0.0.1:57306",
+    "ia_url": "http://127.0.0.1:57305",
+    "banco": "H2 em memória"
+  },
+  "sucesso": true
+}

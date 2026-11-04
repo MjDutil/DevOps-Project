@@ -1,0 +1,8 @@
+{
+  "data": "2026-11-04T12:57:41.868561-03:00",
+  "escopo": "MQTT real com Mosquitto",
+  "casos": [],
+  "status": "bloqueado",
+  "sucesso": false,
+  "motivo": "Docker daemon indisponível; nenhum teste MQTT real executado"
+}

@@ -1,0 +1,19 @@
+test_ack_depois_da_aceitacao_http (test_gateway.EncaminhadorTest) ... ok
+test_ack_para_duplicata_http (test_gateway.EncaminhadorTest) ... ok
+test_falha_ao_enfileirar_ack_reconecta (test_gateway.EncaminhadorTest) ... ok
+test_http_transitorio_reconecta_permanente_exige_intervencao (test_gateway.EncaminhadorTest) ... ok
+test_payload_invalido_nao_chama_http_nem_ack (test_gateway.EncaminhadorTest) ... ok
+test_qos_incorreto_nao_e_aceito (test_gateway.EncaminhadorTest) ... ok
+test_sem_ack_quando_core_indisponivel (test_gateway.EncaminhadorTest) ... ok
+test_timeout_e_resposta_inesperada_nao_confirmam (test_gateway.EncaminhadorTest) ... ok
+test_http_real_valida_confirmacao_e_instante_equivalente (test_gateway.HttpRealSemBrokerTest) ... ok
+test_normaliza_nomes_tipo_uuid_e_fuso (test_gateway.NormalizacaoTest) ... ok
+test_rejeita_campos_tipo_versao_instante_e_identificador (test_gateway.NormalizacaoTest) ... ok
+test_rejeita_json_malformado_e_utf8_invalido (test_gateway.NormalizacaoTest) ... ok
+test_rejeita_payload_excessivo (test_gateway.NormalizacaoTest) ... ok
+test_rejeita_topico_de_outro_dispositivo (test_gateway.NormalizacaoTest) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.519s
+
+OK

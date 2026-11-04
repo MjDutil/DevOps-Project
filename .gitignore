@@ -66,3 +66,6 @@ secrets/
 *.jks
 application-local.properties
 application-local.yml
+
+# D5: credenciais geradas e estado local do laboratório MQTT
+labs/iot/.runtime/

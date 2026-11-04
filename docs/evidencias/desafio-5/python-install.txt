@@ -1,0 +1,4 @@
+Collecting paho-mqtt==2.1.0
+  Downloading paho_mqtt-2.1.0-py3-none-any.whl (67 kB)
+Installing collected packages: paho-mqtt
+Successfully installed paho-mqtt-2.1.0

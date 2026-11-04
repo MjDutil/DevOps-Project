@@ -19,7 +19,7 @@ O [README da raiz](../../README.md) apresenta o projeto, as tecnologias, o estad
 - **RF03 Recomendação inteligente:** contrato demonstrativo Spring/FastAPI validado no D3; modelo inteligente futuro.
 - **RF04 Assistente educacional:** contrato demonstrativo e fallback validados no D3; RAG/LLM real futuro.
 - **RF05 Notificações/eventos:** consumidor HTTP demonstrativo no D4; sem email real ou entrega durável.
-- **RF06 Receber eventos IoT:** futuro.
+- **RF06 Receber eventos IoT:** recepção demonstrativa MQTT → gateway → Core validada no D5; sem efeitos em gamificação.
 
 RNF/FURPS+: Performance (desempenho/escalabilidade), Reliability (disponibilidade/recuperação), Supportability (manutenção/testabilidade/deploy), Functionality/Security (autorização de dispositivos), Usability (mantida na experiência do aluno) e outras restrições do case.
 
@@ -31,7 +31,7 @@ RNF/FURPS+: Performance (desempenho/escalabilidade), Reliability (disponibilidad
 | 2 | 02 exercitado, 01 futuro | Testabilidade | Modificabilidade | Manutenibilidade | Spring Boot, regras reaproveitadas, sem reescrita total | [002](../adr/ADR-002.md) | [Contrato comum fake/JPA, JDK isolado, transação e regressões](../evidencias/desafio-2/README.md) |
 | 3 | 03, 04 | Tolerância a falhas | Deploy independente | Escala da IA | Python + Core Java | [003](../adr/ADR-003.md) | [Integração real, interrupção, recuperação e timeout de leitura](../evidencias/desafio-3/README.md) |
 | 4 | 02, 05 demonstrativo | Tolerância a falhas | Latência | Consistência transacional | Core conclui com consumidor indisponível; broker exige justificativa | [004](../adr/ADR-004.md) | [Pós-commit, comparação síncrona/assíncrona, saturação e HTTP real](../evidencias/desafio-4/README.md) |
-| 5 | 06 | Comunicação eficiente | Intermitência | Segurança | Hardware limitado | [005](../adr/ADR-005.md) | PENDENTE |
+| 5 | 06 demonstrativo | Eficiência de comunicação | Tolerância à conectividade intermitente | Segurança de integração | Dispositivos limitados, rede instável e custo de broker | [005](../adr/ADR-005.md) | [HTTP, MQTT real, ACL, sessão persistente e reentrega](../evidencias/desafio-5/README.md) |
 | 6 | 01–06 | Testabilidade | Confiabilidade | Observabilidade | Jenkins, Prometheus, Grafana | [006](../adr/ADR-006.md) | PENDENTE |
 
 ## 2.1 Rastreabilidade do Desafio 1 implementado
@@ -112,7 +112,25 @@ A evidência atende ao mini-lab oficial de fronteira e falha; não conclui os mo
 
 A fachada mantém o endpoint e a transação; domínio, caso de uso, `AlunoStore` e adapter JPA não foram reescritos. O evento puro inclui UUID, aluno, saldo e instante. O listener AFTER_COMMIT não escreve no banco. Notificações são desabilitadas por padrão; quando habilitadas, o modo padrão é assíncrono, com uma thread e fila limitada. Fila cheia descarta a notificação com log, preservando a conclusão. Em modo síncrono, a tentativa HTTP termina antes da resposta, mas falhas também são capturadas.
 
-A decisão aceita perda de eventos em falha/reinício e ausência de recuperação automática. Não há broker nem garantia de entrega. O ADR-004 inicial propunha RabbitMQ/redelivery condicionalmente; a evidência atual fundamenta uma solução menor e deixa recuperação durável para uma decisão futura. D5/D6 continuam pendentes.
+A decisão aceita perda de eventos em falha/reinício e ausência de recuperação automática. No fluxo D4 não há broker nem garantia de entrega. O ADR-004 inicial propunha RabbitMQ/redelivery condicionalmente; a evidência atual fundamenta uma solução menor e deixa recuperação durável para uma decisão futura. D5 evolui a entrada IoT na seção seguinte; D6 continua pendente.
+
+## 2.7 Desafio 5 — IoT/MQTT validado no mini-lab
+
+| Elemento | Rastreabilidade |
+|---|---|
+| RF | RF06: receber e normalizar eventos para uso demonstrativo no Core; sem chamar conclusão de curso ou alterar recompensas. |
+| RNF | Interoperabilidade, eficiência de comunicação, disponibilidade, conectividade intermitente, escalabilidade e segurança analisados no ADR-005. |
+| Até três ASRs | Eficiência → tópicos e payload pequeno; conectividade intermitente → QoS 1/sessão/reconexão; segurança → autenticação/ACL, validação e token HTTP. |
+| RPC | Dispositivo limitado, conexão instável e custo operacional do protocolo/broker; Core e regras existentes preservados. |
+| Alternativas | REST direto × MQTT com gateway × MQTT seguido de mensageria interna. Escolhida segunda; sem necessidade de RabbitMQ/Kafka adicional. |
+| ADR | [ADR-005](../adr/ADR-005.md): contrato, ACK condicionado ao HTTP e limites de persistência/deduplicação. |
+| C4 | [Container/fluxo D5](diagramas.md#c4-container--desafio-5): dispositivo, broker, gateway e Core. Trecho MQTT exercitado em Mosquitto real. |
+| Evidência obtida | [D5](../evidencias/desafio-5/README.md): 96 testes Maven, 14 Python, 12 checks HTTP, 15 cenários MQTT reais e regressões D3/D4. |
+| Fechamento | Publicação/subscrição, autenticação/ACL, sessão persistente, falhas de Core/broker e reentrega observadas. Commit/publicação D5 aguardam autorização. |
+
+O endpoint opcional `/iot/eventos` é desabilitado por padrão; perfil de laboratório usa loopback e token. Aceita evento normalizado, detecta repetição idêntica e rejeita conflito. A janela FIFO é em memória: reinício/evicção permitem nova aceitação. Não há alteração de aluno ou histórico de curso.
+
+O gateway foi implementado com MQTT 3.1.1, clientId estável e clean_session=False; ACK manual somente após aceitação/duplicata HTTP. Falha transitória exige reconexão para tentar retomada; payload permanente fica sem ACK e exige intervenção. Persistência do broker não é persistência do Paho nem transação ponta a ponta. Sessão persistente e reentrega com DUP foram observadas no laboratório real, sem garantia de exatamente uma vez. D6 continua pendente.
 
 ## 3. Alternativas, consequências, ADRs e C4
 
@@ -126,7 +144,7 @@ Os seis ADRs estão em [`docs/adr/`](../adr/). Cada um contém contexto, RF/RNF,
 | 2 | Mesma regra e contrato com fake/JPA; sem dependências técnicas no núcleo | [Testes de contrato, execução isolada e integração H2](../evidencias/desafio-2/README.md) |
 | 3 | Spring chama FastAPI, derrubar FastAPI, Core mantém serviço essencial | [Laboratório real concluído: logs, respostas e tempos](../evidencias/desafio-3/README.md); ML/RAG real fora do mini-lab |
 | 4 | Comparar espera REST síncrona e tentativa assíncrona pós-commit; consumidor parado e fila cheia | [Evidências D4](../evidencias/desafio-4/README.md); sem broker/entrega durável |
-| 5 | Simulador MQTT → broker → consumidor → Core, duplicado não pontua duas vezes | Implementar publisher, gateway, dedupe e capturar mensagens |
+| 5 | Simulador MQTT → broker → gateway → entrada IoT demonstrativa; sem pontuação | [15 cenários MQTT reais, HTTP e regressões](../evidencias/desafio-5/README.md); versionamento/publicação pendentes |
 | 6 | Jenkins passa/falha e painel Prometheus/Grafana reage a falha induzida | Criar pipeline e métricas, obter screenshots reais |
 
 ### Evidências que NÃO contam sozinhas
@@ -176,7 +194,7 @@ O roteiro Docker acima continua sem execução. O laboratório real foi executad
 - [x] Testar fake/JPA D2, execução JDK isolada e transações; registrar outputs.
 - [x] Executar e provar FastAPI, fallback, recuperação e timeout de leitura D3; [evidências](../evidencias/desafio-3/README.md).
 - [x] Implementar comparação síncrona/assíncrona D4; resultados e limites nas [evidências](../evidencias/desafio-4/README.md).
-- [ ] Completar e provar gateway MQTT D5.
+- [x] Executar e provar MQTT real D5, incluindo falhas/ACL e sessão persistente. [Resultados e roteiro](../evidencias/desafio-5/README.md).
 - [ ] Completar Jenkins, Prometheus, Grafana e registrar incidentes D6.
 - [x] Atualizar Container/Component para o estado D1/D2; Deployment futuro explicitamente identificado.
 - [x] Versionar documentação e evidências D1/D2 em commits locais; publicação continua pendente.

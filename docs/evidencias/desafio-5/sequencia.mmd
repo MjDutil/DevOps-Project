@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant D as Simulador
+    participant B as Broker Mosquitto
+    participant G as Gateway persistente
+    participant C as Core IoT opcional
+    Note over D,C: Fluxo MQTT real validado no laboratório, sem garantia exatamente uma vez
+    D->>B: PUBLISH QoS 1 com event_id
+    B-->>D: PUBACK do trecho dispositivo-broker
+    B->>G: PUBLISH QoS 1
+    G->>G: Validar tópico e normalizar JSON
+    alt mensagem inválida
+        G->>G: Registrar rejeição sem ACK e encerrar
+        Note over B,G: Intervenção necessária para mensagem pendente
+    else mensagem válida
+        G->>C: POST iot/eventos com token
+        alt aceitação ou duplicata idêntica
+            C-->>G: HTTP 200 e mesmo evento confirmado
+            G-->>B: ACK manual
+        else timeout ou falha HTTP transitória
+            G->>G: Não confirmar e desconectar
+            Note over B,G: Reconexão com backoff, reentrega depende da sessão e limites
+        else rejeição HTTP permanente
+            G->>G: Não confirmar e exigir intervenção
+        end
+    end
+    Note over G,C: Recepção é demonstrativa, sem efeitos em gamificação
+    Note over B,C: Sem promessa de exatamente uma vez ou atomicidade ponta a ponta
