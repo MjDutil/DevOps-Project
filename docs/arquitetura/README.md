@@ -6,7 +6,7 @@
 
 > Atualização D2 (2026-10-27): D1 consolidado em commits separados de limpeza e implementação. D2 valida Ports & Adapters na conclusão de curso com contrato comum fake/JPA e execução pura sem Spring/banco. [Evidências D1](../evidencias/desafio-1/README.md) e [D2](../evidencias/desafio-2/README.md). Esse registro histórico refere-se à entrega D1/D2; o D3 foi validado posteriormente, conforme seção 2.5.
 
-> Nota de honestidade do pacote inicial (estado anterior): este registro reúne **decisões propostas** e um mini-lab de código para D1/D2. As demais evidências marcadas PENDENTES não foram executadas; não devem ser declaradas prontas antes dos testes e prints. O projeto real possui cursos liberados, recompensas no fórum e Premium, mas ainda não tem ranking, badges, ML/RAG real ou IoT. O serviço Python demonstrativo foi validado posteriormente no D3.
+> Nota do pacote inicial (estado anterior): este registro reúne **decisões propostas** e um mini-lab de código para D1/D2. As demais evidências marcadas PENDENTES não foram executadas; não devem ser declaradas prontas antes dos testes e prints. O projeto real possui cursos liberados, recompensas no fórum e Premium, mas ainda não tem ranking, badges, ML/RAG real ou IoT. O serviço Python demonstrativo foi validado posteriormente no D3.
 
 ## Como consultar a documentação para avaliação
 
