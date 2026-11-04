@@ -1,0 +1,12 @@
+PASSOU: 22 documentos, 277 links/imagens relativos e 26 âncoras.
+PASSOU: destinos existentes, capitalização exata e arquivos rastreados ou novos não ignorados (modo working-tree).
+PASSOU: fontes Mermaid e rótulos dos SVGs D1/D2/D3/D4 conferidos; Containers D3/D4 no registro arquitetural e D4 no README.
+URLs externas encontradas: https://github.com/MjDutil/DevOps-Project, https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#custom-anchors, https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
+Limite: verifica caminhos locais e sincronismo dos SVGs; não substitui parser Mermaid. Arquivos novos em working-tree ainda precisam de git add/commit. Publicação exige aprovação.
+
+PASSOU: Container e sequência renderizados pelo Mermaid CLI temporário; SVGs XML válidos.
+PASSOU: node --check; git diff --check; JSONs válidos; sintaxe dos roteiros Python válida.
+PASSOU: 25 checks HTTP D4 coincidem com saída nominal; 18 checks de regressão D3 aprovados.
+PASSOU: fontes anteriores alterados somente na fachada e application.properties; testes anteriores, domínio, aplicação, JPA, IA e pom.xml preservados. Ver preservacao.json.
+PASSOU: busca de padrões de segredo sem achados nas evidências novas; logs contêm caminhos locais e dados fictícios.
+Nenhum commit, push ou merge realizado. Logs normalizados somente quanto a espaços no final das linhas.

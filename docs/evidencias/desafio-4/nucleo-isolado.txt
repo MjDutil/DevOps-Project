@@ -1,0 +1,3 @@
+PASSOU: domínio, 3 cenários com fake e conflito; somente JDK, sem Spring/JPA/banco.
+b1-d2-isolado.nZj831 -> java.base
+PASSOU: bytecode isolado depende somente de java.base.

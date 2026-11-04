@@ -1,0 +1,112 @@
+{
+  "tests": 85,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "classes": {
+    "org.example.tdd.gamificacao.ConcluirCursoUseCaseTest": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.notificacoes.NotificacoesSincronasIntegrationTest": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.notificacoes.NotificacoesDesabilitadasTest": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.AlunoHttpJpaIntegrationTest": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.gamificacao.DominioIsoladoTest": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.AlunoTest": {
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.notificacoes.NotificacoesIntegrationTest": {
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.service.AlunoServiceTest": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.ia.IaClientTest": {
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.gamificacao.FakeAlunoStoreContractTest": {
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.TddApplicationTests": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.gamificacao.JpaAlunoStoreContractTest": {
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "org.example.tdd.ia.IaControllerTest": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "jacoco": {
+    "INSTRUCTION": {
+      "missed": 19,
+      "covered": 875
+    },
+    "BRANCH": {
+      "missed": 1,
+      "covered": 21
+    },
+    "LINE": {
+      "missed": 3,
+      "covered": 202
+    },
+    "COMPLEXITY": {
+      "missed": 2,
+      "covered": 84
+    },
+    "METHOD": {
+      "missed": 1,
+      "covered": 74
+    },
+    "CLASS": {
+      "missed": 0,
+      "covered": 21
+    }
+  }
+}

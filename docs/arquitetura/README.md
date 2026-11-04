@@ -18,7 +18,7 @@ O [README da raiz](../../README.md) apresenta o projeto, as tecnologias, o estad
 - **RF02 Conquistas:** parcialmente representado por liberação de cursos, bônus de fórum e Premium; badges não implementados.
 - **RF03 Recomendação inteligente:** contrato demonstrativo Spring/FastAPI validado no D3; modelo inteligente futuro.
 - **RF04 Assistente educacional:** contrato demonstrativo e fallback validados no D3; RAG/LLM real futuro.
-- **RF05 Notificações/eventos:** futuro.
+- **RF05 Notificações/eventos:** consumidor HTTP demonstrativo no D4; sem email real ou entrega durável.
 - **RF06 Receber eventos IoT:** futuro.
 
 RNF/FURPS+: Performance (desempenho/escalabilidade), Reliability (disponibilidade/recuperação), Supportability (manutenção/testabilidade/deploy), Functionality/Security (autorização de dispositivos), Usability (mantida na experiência do aluno) e outras restrições do case.
@@ -30,7 +30,7 @@ RNF/FURPS+: Performance (desempenho/escalabilidade), Reliability (disponibilidad
 | 1 | 01 futuro, 02 exercitado | Manutenibilidade | Escalabilidade | Complexidade operacional | Spring Boot/6 devs/JPA/legado AC1 | [001](../adr/ADR-001.md) | [Fronteira pública, comparação e testes HTTP/JPA antes/depois](../evidencias/desafio-1/README.md) |
 | 2 | 02 exercitado, 01 futuro | Testabilidade | Modificabilidade | Manutenibilidade | Spring Boot, regras reaproveitadas, sem reescrita total | [002](../adr/ADR-002.md) | [Contrato comum fake/JPA, JDK isolado, transação e regressões](../evidencias/desafio-2/README.md) |
 | 3 | 03, 04 | Tolerância a falhas | Deploy independente | Escala da IA | Python + Core Java | [003](../adr/ADR-003.md) | [Integração real, interrupção, recuperação e timeout de leitura](../evidencias/desafio-3/README.md) |
-| 4 | 02, 05 | Disponibilidade | Recuperabilidade | Consistência | Core não bloqueia | [004](../adr/ADR-004.md) | PENDENTE |
+| 4 | 02, 05 demonstrativo | Tolerância a falhas | Latência | Consistência transacional | Core conclui com consumidor indisponível; broker exige justificativa | [004](../adr/ADR-004.md) | [Pós-commit, comparação síncrona/assíncrona, saturação e HTTP real](../evidencias/desafio-4/README.md) |
 | 5 | 06 | Comunicação eficiente | Intermitência | Segurança | Hardware limitado | [005](../adr/ADR-005.md) | PENDENTE |
 | 6 | 01–06 | Testabilidade | Confiabilidade | Observabilidade | Jenkins, Prometheus, Grafana | [006](../adr/ADR-006.md) | PENDENTE |
 
@@ -97,6 +97,23 @@ O teste Maven desta etapa aprovou 75 testes, sem falhas/erros/ignorados; os 18 c
 
 A evidência atende ao mini-lab oficial de fronteira e falha; não conclui os modelos funcionais RF03/RF04. D1/D2 mantêm seus fontes/testes; D4–D6 continuam pendentes. Publicação no Git depende de autorização para commit/merge/push.
 
+## 2.6 Desafio 4 — comunicação e eventos
+
+| Elemento | Rastreabilidade |
+|---|---|
+| RF | RF02: preservar recompensas; RF05: notificação demonstrativa da operação processada. Sem histórico de curso identificado. |
+| RNF | Tolerância a falhas, disponibilidade, latência, consistência, desacoplamento e recuperabilidade analisados no ADR-004. |
+| Até três ASRs | Tolerância a falhas → capturar falhas/rejeição; latência → executor dedicado sem CallerRunsPolicy; consistência → encaminhar somente após commit. |
+| RPC | Consumidor externo não impede operação essencial; broker exige custo operacional justificado; Java/Spring e regras preservados. |
+| Alternativas | REST síncrono × assíncrono em memória × broker externo. Escolhido mecanismo em memória para mini-lab, com REST síncrono de comparação. |
+| ADR | [ADR-004](../adr/ADR-004.md): melhor esforço, sem persistência/retry/replay; broker/outbox somente se recuperação se tornar requisito. |
+| C4 | [Container D4 e sequência](diagramas.md#c4-container--desafio-4): executor interno e consumidor HTTP separado. |
+| Evidências | [D4](../evidencias/desafio-4/README.md): testes transacionais, indisponibilidade, saturação, HTTP real e regressão D1–D3. |
+
+A fachada mantém o endpoint e a transação; domínio, caso de uso, `AlunoStore` e adapter JPA não foram reescritos. O evento puro inclui UUID, aluno, saldo e instante. O listener AFTER_COMMIT não escreve no banco. Notificações são desabilitadas por padrão; quando habilitadas, o modo padrão é assíncrono, com uma thread e fila limitada. Fila cheia descarta a notificação com log, preservando a conclusão. Em modo síncrono, a tentativa HTTP termina antes da resposta, mas falhas também são capturadas.
+
+A decisão aceita perda de eventos em falha/reinício e ausência de recuperação automática. Não há broker nem garantia de entrega. O ADR-004 inicial propunha RabbitMQ/redelivery condicionalmente; a evidência atual fundamenta uma solução menor e deixa recuperação durável para uma decisão futura. D5/D6 continuam pendentes.
+
 ## 3. Alternativas, consequências, ADRs e C4
 
 Os seis ADRs estão em [`docs/adr/`](../adr/). Cada um contém contexto, RF/RNF, no máximo três ASRs, RPC, alternativas, trade-offs e consequências. Diagramas Container, Component e Deployment ficam em [`diagramas.md`](diagramas.md). Container e Component distinguem o estado implementado; Deployment permanece uma visão **alvo** com componentes planejados.
@@ -108,7 +125,7 @@ Os seis ADRs estão em [`docs/adr/`](../adr/). Cada um contém contexto, RF/RNF,
 | 1 | Contrato público do módulo, dependências e preservação funcional | [Evidências D1](../evidencias/desafio-1/README.md), ADR-001 e C4 Container atualizados |
 | 2 | Mesma regra e contrato com fake/JPA; sem dependências técnicas no núcleo | [Testes de contrato, execução isolada e integração H2](../evidencias/desafio-2/README.md) |
 | 3 | Spring chama FastAPI, derrubar FastAPI, Core mantém serviço essencial | [Laboratório real concluído: logs, respostas e tempos](../evidencias/desafio-3/README.md); ML/RAG real fora do mini-lab |
-| 4 | REST síncrono falha x entrega assíncrona preserva conclusão | Implementar consumer/broker e salvar log/prints |
+| 4 | Comparar espera REST síncrona e tentativa assíncrona pós-commit; consumidor parado e fila cheia | [Evidências D4](../evidencias/desafio-4/README.md); sem broker/entrega durável |
 | 5 | Simulador MQTT → broker → consumidor → Core, duplicado não pontua duas vezes | Implementar publisher, gateway, dedupe e capturar mensagens |
 | 6 | Jenkins passa/falha e painel Prometheus/Grafana reage a falha induzida | Criar pipeline e métricas, obter screenshots reais |
 
@@ -158,7 +175,7 @@ O roteiro Docker acima continua sem execução. O laboratório real foi executad
 - [x] Revisar e consolidar D1: limpeza `a25b2b2` e implementação `8bf8785`; sem push.
 - [x] Testar fake/JPA D2, execução JDK isolada e transações; registrar outputs.
 - [x] Executar e provar FastAPI, fallback, recuperação e timeout de leitura D3; [evidências](../evidencias/desafio-3/README.md).
-- [ ] Completar e provar comunicação síncrona/assíncrona D4.
+- [x] Implementar comparação síncrona/assíncrona D4; resultados e limites nas [evidências](../evidencias/desafio-4/README.md).
 - [ ] Completar e provar gateway MQTT D5.
 - [ ] Completar Jenkins, Prometheus, Grafana e registrar incidentes D6.
 - [x] Atualizar Container/Component para o estado D1/D2; Deployment futuro explicitamente identificado.

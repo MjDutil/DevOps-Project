@@ -1,0 +1,11 @@
+{"metodo": "POST", "caminho": "/alunos/1/concluir-curso", "http": 200, "resposta": {"id": 1, "media": 8.0, "cursosLiberados": 3}, "duracao_ms": 296.94, "caso": "sincrono sucesso", "passou": true}
+Traceback (most recent call last):
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/docs/evidencias/desafio-4/executar-lab.py", line 152, in <module>
+    main()
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/docs/evidencias/desafio-4/executar-lab.py", line 142, in main
+    executar("sincrono")
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/docs/evidencias/desafio-4/executar-lab.py", line 87, in executar
+    aguardar(lambda: http(consumidor_url,"/estado")["resposta"]["finalizados"]==1)
+  File "/Users/majuudutil/Downloads/DevOps-Project-B1/docs/evidencias/desafio-4/executar-lab.py", line 52, in aguardar
+    raise AssertionError("Condição não ocorreu dentro do limite")
+AssertionError: Condição não ocorreu dentro do limite

@@ -1,0 +1,32 @@
+sequenceDiagram
+    participant A as Cliente
+    participant C as Core / fachada
+    participant B as Banco
+    participant L as Listener apos commit
+    participant E as Executor em memoria
+    participant N as Consumidor HTTP
+    A->>C: POST concluir-curso
+    C->>B: Ler snapshot e atualizar saldo
+    C->>C: Publicar evento transacional
+    alt rollback
+        C->>B: ROLLBACK
+        Note over L,N: Nao encaminhar notificacao
+    else commit
+        C->>B: COMMIT
+        C->>L: AFTER_COMMIT
+        alt modo assincrono
+            L->>E: Tentar agendar
+            alt fila cheia ou executor encerrado
+                L->>L: Registrar descarte
+            else tarefa aceita
+                E->>N: POST notificacoes com timeout
+                Note over E,N: Sucesso ou falha registrados na thread dedicada
+            end
+            C-->>A: HTTP 200 com saldo
+        else modo sincrono de laboratorio
+            L->>N: POST notificacoes com timeout
+            Note over L,N: Aguarda tentativa, captura falha
+            C-->>A: HTTP 200 com saldo
+        end
+    end
+    Note over B,E: Sem outbox, falha do processo pode perder o evento apos commit

@@ -1,6 +1,6 @@
 # Diagramas C4 — Architecture Lab B1
 
-**Cuidado:** as visões abaixo descrevem a arquitetura **decidida/planejada**. O sistema atualmente entregue ainda é um MVP e não possui todos os componentes. O Core, frontend e banco existem; a integração FastAPI foi validada no D3 em rede local/H2. Componentes de D4–D6 continuam propostos.
+**Cuidado:** as visões abaixo descrevem a arquitetura **decidida/planejada**. O sistema atualmente entregue ainda é um MVP e não possui todos os componentes. O Core, frontend e banco existem; a integração FastAPI foi validada no D3 em rede local/H2. D4 acrescenta notificação demonstrativa pós-commit; D5/D6 continuam propostos.
 
 ## C4 Container — estado do Desafio 1
 
@@ -66,6 +66,58 @@ flowchart LR
 
 O D3 validou Core → FastAPI e Core → H2 em processos locais, incluindo falha, recuperação e timeout de leitura. Frontend/navegador e PostgreSQL/Compose não foram exercitados. Não há acesso do Python ao banco do Core; a recomendação usa somente o ID no contrato demonstrativo. Falha da IA degrada apenas a resposta opcional; conclusão, fórum e Premium continuam locais ao Core. Esta visão evolui o Container D1 sem alterar o Component D2. [Logs, respostas e tempos](../evidencias/desafio-3/README.md).
 
+## C4 Container — Desafio 4
+
+```mermaid
+flowchart LR
+    aluno["Aluno"] --> frontend["Frontend Vue / Nginx"]
+    frontend -->|HTTP REST / JSON| core["Core Java / Spring Boot<br/>Monólito modular + Ports & Adapters<br/>Commit da conclusão antes da notificação<br/>Executor em memória: 1 thread e fila limitada"]
+    core -->|JPA / JDBC| banco[("Banco relacional<br/>H2 validado; PostgreSQL configurado")]
+    core -.->|HTTP REST / JSON opcional| ia["FastAPI Python<br/>D3 demonstrativo preservado"]
+    core -->|"HTTP POST /notificacoes / JSON<br/>Assíncrono por padrão quando habilitado<br/>Síncrono para comparação; ambos após commit"| consumidor["Consumidor demonstrativo Python<br/>Processo separado; sem email real<br/>Pode falhar sem desfazer conclusão"]
+```
+
+Notificações são desabilitadas por padrão. Quando habilitadas, o listener após commit usa executor de uma thread e fila limitada dentro do Core; não é um serviço ou broker adicional. O modo síncrono existe somente para comparação. Consumidor Python demonstrativo é processo separado; não é o serviço FastAPI do D3. Frontend/PostgreSQL são componentes existentes/configurados, sem nova validação de navegador/Docker. [Fonte e SVG](../evidencias/desafio-4/README.md).
+
+### Sequência da conclusão e notificação
+
+```mermaid
+sequenceDiagram
+    participant A as Cliente
+    participant C as Core / fachada
+    participant B as Banco
+    participant L as Listener apos commit
+    participant E as Executor em memoria
+    participant N as Consumidor HTTP
+    A->>C: POST concluir-curso
+    C->>B: Ler snapshot e atualizar saldo
+    C->>C: Publicar evento transacional
+    alt rollback
+        C->>B: ROLLBACK
+        Note over L,N: Nao encaminhar notificacao
+    else commit
+        C->>B: COMMIT
+        C->>L: AFTER_COMMIT
+        alt modo assincrono
+            L->>E: Tentar agendar
+            alt fila cheia ou executor encerrado
+                L->>L: Registrar descarte
+            else tarefa aceita
+                E->>N: POST notificacoes com timeout
+                Note over E,N: Sucesso ou falha registrados na thread dedicada
+            end
+            C-->>A: HTTP 200 com saldo
+        else modo sincrono de laboratorio
+            L->>N: POST notificacoes com timeout
+            Note over L,N: Aguarda tentativa, captura falha
+            C-->>A: HTTP 200 com saldo
+        end
+    end
+    Note over B,E: Sem outbox, falha do processo pode perder o evento apos commit
+```
+
+A tentativa em segundo plano pode iniciar antes ou depois da resposta HTTP, mas somente após commit. Não se garante ordem global nem persistência da fila. Rollback e snapshot obsoleto não encaminham evento de sucesso; falhas HTTP e saturação são registradas sem transformar a conclusão confirmada em erro.
+
 ## C4 Deployment — visão proposta para desafio 6
 
 ```mermaid
@@ -88,4 +140,4 @@ flowchart TB
     end
 ```
 
-A visão Deployment acima é proposta futura e não evidencia implantação Docker nem execução dos desafios 4–6. Nos diagramas anteriores, os rótulos distinguem implementação de integração não validada; setas “implementa” representam implementação de interface, não comunicação remota.
+A visão Deployment acima é proposta futura e não evidencia implantação Docker nem execução dos desafios 5–6. Nos diagramas anteriores, os rótulos distinguem implementação de integração não validada; setas “implementa” representam implementação de interface, não comunicação remota.

@@ -66,6 +66,7 @@ const expected = [
   'docs/evidencias/revisao-readme/c4-container',
   'docs/evidencias/revisao-readme/c4-component',
   'docs/evidencias/desafio-3/c4-container',
+  'docs/evidencias/desafio-4/c4-container',
 ];
 const diagramPage = fs.readFileSync('docs/arquitetura/diagramas.md', 'utf8');
 function visibleText(text) {
@@ -82,9 +83,11 @@ for (const name of expected) {
 }
 const d3Source = fs.readFileSync(`${expected[2]}.mmd`, 'utf8').trim();
 assert(diagramPage.includes('```mermaid\n' + d3Source + '\n```'), 'Container D3 fora de sincronismo no registro arquitetural');
-assert(fs.readFileSync('README.md', 'utf8').includes('```mermaid\n' + d3Source + '\n```'), 'Container D3 fora de sincronismo no README');
+const d4Source = fs.readFileSync(`${expected[3]}.mmd`, 'utf8').trim();
+assert(diagramPage.includes('```mermaid\n' + d4Source + '\n```'), 'Container D4 fora de sincronismo no registro arquitetural');
+assert(fs.readFileSync('README.md', 'utf8').includes('```mermaid\n' + d4Source + '\n```'), 'Container D4 fora de sincronismo no README');
 console.log(`PASSOU: ${files.length} documentos, ${count} links/imagens relativos e ${fragments} âncoras.`);
 console.log(`PASSOU: destinos existentes, capitalização exata e ${workingTree ? 'arquivos rastreados ou novos não ignorados (modo working-tree)' : 'arquivos incluídos no índice Git'}.`);
-console.log('PASSOU: fontes Mermaid e rótulos dos SVGs D1/D2/D3 conferidos; Container D3 sincronizado com o registro arquitetural e apresentado no README.');
+console.log('PASSOU: fontes Mermaid e rótulos dos SVGs D1/D2/D3/D4 conferidos; Containers D3/D4 no registro arquitetural e D4 no README.');
 console.log('URLs externas encontradas: ' + [...external].join(', '));
 console.log('Limite: verifica caminhos locais e sincronismo dos SVGs; não substitui parser Mermaid. Arquivos novos em working-tree ainda precisam de git add/commit. Publicação exige aprovação.');
