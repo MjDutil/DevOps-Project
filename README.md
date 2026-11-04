@@ -12,7 +12,7 @@ Na **AC1**, construímos um MVP de gamificação em Java/Spring Boot e Vue.js. O
 
 **Integração demonstrativa:** o Core consulta recomendação e assistente em uma API Python. O D3 validou comunicação, fallback, timeout de leitura e recuperação; as respostas são demonstrativas, sem ML, RAG ou LLM reais.
 
-O D4 acrescenta **notificação HTTP demonstrativa após commit**, assíncrona em memória, com modo síncrono para comparação. Fica desabilitada por padrão e não oferece entrega durável. Ranking, badges e email real ainda não estão implementados. A entrada IoT demonstrativa é opcional e não altera recompensas; o caminho MQTT → gateway → Core foi validado com broker real. **D1–D5 estão validados no escopo dos mini-labs; D6 demonstrou CI Jenkins e observabilidade do fallback; teve fechamento técnico validado; publicação pendente.**
+O D4 acrescenta **notificação HTTP demonstrativa após commit**, assíncrona em memória, com modo síncrono para comparação. Fica desabilitada por padrão e não oferece entrega durável. Ranking, badges e email real ainda não estão implementados. A entrada IoT demonstrativa é opcional e não altera recompensas; o caminho MQTT → gateway → Core foi validado com broker real. **D1–D5 estão validados no escopo dos mini-labs; D6 demonstrou CI Jenkins e observabilidade do fallback, com fechamento técnico validado.**
 
 ## Tecnologias utilizadas
 
@@ -118,6 +118,6 @@ Para executar o Python ou reproduzir interrupção, recuperação e timeout, sig
 - [Auditoria histórica D1/D2](docs/evidencias/auditoria-final/README.md)
 - [Histórico AC1: histórias, BDD e evidências TDD/ATDD](docs/ac1/README.md)
 
-**Equipe:** Felipe, Isadora e Maria Julia são os integrantes registrados na AC1. A identificação da equipe B1 ainda precisa de confirmação; a equipe de seis desenvolvedores é uma premissa do case acadêmico.
+**Equipe B1 confirmada:** Felipe, Isadora e Maria Julia, a mesma equipe da [AC1](docs/ac1/README.md#integrantes). Foram preservadas as grafias existentes; o registro original não informa sobrenomes completos ou RAs. A equipe de seis desenvolvedores é uma premissa do case acadêmico.
 
-**Repositório:** [MjDutil/DevOps-Project](https://github.com/MjDutil/DevOps-Project). D4 consolidado no commit local `59cb7d1`, sem push. D5 consolidado no commit local `a3b350e`, sem push. O fechamento local D6 foi autorizado; sua publicação remota continua pendente.
+**Entrega:** [branch `feature/architecture-lab-b1`](https://github.com/MjDutil/DevOps-Project/tree/feature/architecture-lab-b1) no repositório [MjDutil/DevOps-Project](https://github.com/MjDutil/DevOps-Project). D4, D5 e D6 estão consolidados nos commits `59cb7d1`, `a3b350e` e `42128fa`. A publicação foi autorizada exclusivamente nessa branch; sem merge na `main`.

@@ -4,7 +4,7 @@ Revisão contra o enunciado oficial `Exercicio_B1_Architecture_Lab_6_Desafios_Re
 
 A [lista dos arquivos preparados](arquivos-preparados.txt) registra o conteúdo revisto para o commit.
 
-O fechamento local do D6 foi autorizado na branch `feature/architecture-lab-b1`. Esta auditoria integra esse pacote de commit; o hash efetivo deve ser consultado em `git log`. Publicação remota não foi autorizada. Os resultados históricos são associados à execução original, sem tratá-los como testes novamente executados nesta auditoria.
+O fechamento local do D6 foi autorizado na branch `feature/architecture-lab-b1`. Esta auditoria integra esse pacote de commit; o hash efetivo deve ser consultado em `git log`. A publicação foi autorizada posteriormente, exclusivamente na branch B1, sem merge em main. Os resultados históricos são associados à execução original, sem tratá-los como testes novamente executados nesta auditoria.
 
 ## Matriz dos cinco critérios oficiais
 
@@ -17,7 +17,7 @@ O fechamento local do D6 foi autorizado na branch `feature/architecture-lab-b1`.
 | D5 | ATENDIDO | ATENDIDO | ATENDIDO | ATENDIDO | ATENDIDO |
 | D6 | ATENDIDO | ATENDIDO | ATENDIDO | ATENDIDO | ATENDIDO no fechamento local |
 
-Git local não equivale a entrega publicada: D4, D5 e o commit D6 deste pacote precisam ser enviados à branch remota, após autorização. Enquanto isso, o link remoto não contém a entrega completa. A identificação da equipe também continua pendente de confirmação.
+O fechamento local foi concluído em `42128fa`. A equipe B1 foi confirmada como a mesma da AC1, e a publicação de D4/D5/D6 foi autorizada exclusivamente na branch B1. A [conferência de entrega](entrega-b1.md) registra a identificação e as condições verificadas para publicar; os resultados abaixo conservam a origem de cada execução.
 
 ## Caminhos comprobatórios por desafio
 
@@ -62,9 +62,9 @@ O JAR #5 tem hash diferente do #1 porque é outro build. Não se afirma que ele 
 - [README principal](../../../README.md): seis seções, estado real e links por desafio.
 - [Registro cumulativo](../../arquitetura/README.md), [ADRs 001–006](../../adr/) e [C4](../../arquitetura/diagramas.md) presentes; [síntese para a PoC AF](../../arquitetura/sintese-af.md) inclui as seis decisões e seus limites.
 - Os READMEs de evidências antigos descrevem o momento de cada execução. Termos históricos como “D6 pendente” não substituem o registro cumulativo atual; os ADRs 003–005 receberam somente notas de continuidade/status Git.
-- Equipe B1: **PENDENTE** de confirmação. Felipe, Isadora e Maria Julia estão identificados apenas como histórico da AC1; seis desenvolvedores são premissa do case, não lista real da equipe.
+- Equipe B1: **CONFIRMADA** pela usuária como a mesma da AC1 — Felipe, Isadora e Maria Julia. As grafias originais foram preservadas; o registro não contém sobrenomes completos ou RAs. Seis desenvolvedores são premissa do case, não lista real da equipe.
 - [Verificação de segurança](seguranca.json), [links relativos](validacao-documental.txt) e [parser Mermaid](mermaid.txt) documentam as conferências. Credenciais geradas, JARs, caches e `.runtime/` ficam fora do índice. Caminhos absolutos pessoais nos logs novos D6 são substituídos por `<REPO>`; os logs históricos D1–D5 conservam sua proveniência e não são links necessários para execução. Credenciais fixas dos exemplos/testes são demonstrativas, conforme documentação histórica.
 - Repositório confirmado pelo remote `origin`: [MjDutil/DevOps-Project](https://github.com/MjDutil/DevOps-Project). [Branch correta](https://github.com/MjDutil/DevOps-Project/tree/feature/architecture-lab-b1).
-- Consulta remota no fechamento: a branch estava em `8986178`; D4 `59cb7d1`, D5 `a3b350e` e o novo commit local D6 precisam de push autorizado. Nenhum push ou merge foi executado.
+- Consulta remota na auditoria anterior: a branch estava em `8986178`. Posteriormente, a publicação de D4 `59cb7d1`, D5 `a3b350e` e D6 `42128fa` foi autorizada. O destino é somente a branch B1; merge na main continua fora da autorização.
 
-Os **seis mini-labs têm evidências técnicas suficientes no escopo oficial**. A entrega final por link GitHub depende de confirmar a equipe e publicar a branch; até isso ocorrer, não está completa no remoto. Os resultados são potencial de atendimento, sem substituir a avaliação do professor.
+Os **seis mini-labs têm evidências técnicas suficientes no escopo oficial**. A equipe está confirmada e a publicação autorizada na branch vinculada acima; a conferência do hash remoto após o push identifica exatamente o pacote entregue. Os resultados são potencial de atendimento, sem substituir a avaliação do professor.

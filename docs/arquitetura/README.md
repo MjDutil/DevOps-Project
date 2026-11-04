@@ -2,7 +2,7 @@
 
 **Produto:** Educação Continuada Gamificada, evolução incremental do MVP da AC1.
 **Repositório:** https://github.com/MjDutil/DevOps-Project
-**Equipe registrada no README da AC1:** Felipe, Isadora e Maria Julia (confirmar membros desta entrega B1).
+**Equipe B1 confirmada:** Felipe, Isadora e Maria Julia, conforme o [registro preservado da AC1](../ac1/README.md#integrantes) e confirmação da usuária. Sobrenomes completos e RAs não constam no registro original; nenhuma informação foi inventada.
 
 > Atualização D2 (2026-10-27): D1 consolidado em commits separados de limpeza e implementação. D2 valida Ports & Adapters na conclusão de curso com contrato comum fake/JPA e execução pura sem Spring/banco. [Evidências D1](../evidencias/desafio-1/README.md) e [D2](../evidencias/desafio-2/README.md). Esse registro histórico refere-se à entrega D1/D2; o D3 foi validado posteriormente, conforme seção 2.5.
 
@@ -32,7 +32,7 @@ RNF/FURPS+: Performance (desempenho/escalabilidade), Reliability (disponibilidad
 | 3 | 03, 04 | Tolerância a falhas | Deploy independente | Escala da IA | Python + Core Java | [003](../adr/ADR-003.md) | [Integração real, interrupção, recuperação e timeout de leitura](../evidencias/desafio-3/README.md) |
 | 4 | 02, 05 demonstrativo | Tolerância a falhas | Latência | Consistência transacional | Core conclui com consumidor indisponível; broker exige justificativa | [004](../adr/ADR-004.md) | [Pós-commit, comparação síncrona/assíncrona, saturação e HTTP real](../evidencias/desafio-4/README.md) |
 | 5 | 06 demonstrativo | Eficiência de comunicação | Tolerância à conectividade intermitente | Segurança de integração | Dispositivos limitados, rede instável e custo de broker | [005](../adr/ADR-005.md) | [HTTP, MQTT real, ACL, sessão persistente e reentrega](../evidencias/desafio-5/README.md) |
-| 6 | 03/04 observados, 02 preservado; 01–06 na evolução | Testabilidade | Observabilidade | Confiabilidade | Jenkins/Prometheus/Grafana; Java 17; preservar contratos | [006](../adr/ADR-006.md) | [CI/métricas reais; publicação pendente](../evidencias/desafio-6/README.md) |
+| 6 | 03/04 observados, 02 preservado; 01–06 na evolução | Testabilidade | Observabilidade | Confiabilidade | Jenkins/Prometheus/Grafana; Java 17; preservar contratos | [006](../adr/ADR-006.md) | [CI/métricas reais; entrega B1](../evidencias/desafio-6/README.md) |
 
 ## 2.1 Rastreabilidade do Desafio 1 implementado
 
@@ -73,7 +73,7 @@ O núcleo `domain` + `gamificacao.*` já estava coberto antes; esta ampliação 
 
 A nova execução de `mvn clean verify` confirmou 75 testes e 100% de instruções/branches/linhas JaCoCo, sem exclusões. Os mesmos 11 casos do contrato passaram no fake e no JPA/H2, mais três testes transacionais JPA. [Checklist dos critérios do enunciado e caminhos de comprovação](../evidencias/auditoria-final/README.md).
 
-O registro cumulativo, os ADRs e as evidências permitem avaliar as decisões sem executar o sistema; o README principal orienta a leitura. Publicação em `main` e confirmação da identificação B1 continuam pendentes; nenhuma integração/push foi realizada. D1 (`8bf8785`), D2 (`34206c7`), documentação (`ada5768`) e testes/cobertura (`20b933c`) permanecem separados no histórico. A auditoria/documentação final fica em commit próprio.
+O registro cumulativo, os ADRs e as evidências permitem avaliar as decisões sem executar o sistema; o README principal orienta a leitura. Naquela auditoria histórica, publicação e identificação B1 ainda eram pendências; a situação atual da entrega está na seção 7. D1 (`8bf8785`), D2 (`34206c7`), documentação (`ada5768`) e testes/cobertura (`20b933c`) permanecem separados no histórico. A auditoria/documentação final fica em commit próprio.
 
 <a name="d3-validado"></a>
 
@@ -126,7 +126,7 @@ A decisão aceita perda de eventos em falha/reinício e ausência de recuperaç�
 | ADR | [ADR-005](../adr/ADR-005.md): contrato, ACK condicionado ao HTTP e limites de persistência/deduplicação. |
 | C4 | [Container/fluxo D5](diagramas.md#c4-container--desafio-5): dispositivo, broker, gateway e Core. Trecho MQTT exercitado em Mosquitto real. |
 | Evidência obtida | [D5](../evidencias/desafio-5/README.md): 96 testes Maven, 14 Python, 12 checks HTTP, 15 cenários MQTT reais e regressões D3/D4. |
-| Fechamento | Publicação/subscrição, autenticação/ACL, sessão persistente, falhas de Core/broker e reentrega observadas. Commit local D5 `a3b350e` criado; publicação pendente. |
+| Fechamento | Publicação/subscrição, autenticação/ACL, sessão persistente, falhas de Core/broker e reentrega observadas. D5 consolidado em `a3b350e`; integra a entrega B1 autorizada. |
 
 O endpoint opcional `/iot/eventos` é desabilitado por padrão; perfil de laboratório usa loopback e token. Aceita evento normalizado, detecta repetição idêntica e rejeita conflito. A janela FIFO é em memória: reinício/evicção permitem nova aceitação. Não há alteração de aluno ou histórico de curso.
 
@@ -160,8 +160,8 @@ Os seis ADRs estão em [`docs/adr/`](../adr/). Cada um contém contexto, RF/RNF,
 | 2 | Mesma regra e contrato com fake/JPA; sem dependências técnicas no núcleo | [Testes de contrato, execução isolada e integração H2](../evidencias/desafio-2/README.md) |
 | 3 | Spring chama FastAPI, derrubar FastAPI, Core mantém serviço essencial | [Laboratório real concluído: logs, respostas e tempos](../evidencias/desafio-3/README.md); ML/RAG real fora do mini-lab |
 | 4 | Comparar espera REST síncrona e tentativa assíncrona pós-commit; consumidor parado e fila cheia | [Evidências D4](../evidencias/desafio-4/README.md); sem broker/entrega durável |
-| 5 | Simulador MQTT → broker → gateway → entrada IoT demonstrativa; sem pontuação | [15 cenários MQTT reais, HTTP e regressões](../evidencias/desafio-5/README.md); commit local D5 `a3b350e`; publicação pendente |
-| 6 | Jenkins passa/falha e painel Prometheus/Grafana reage a falha induzida | [Execução e evidências D6](../evidencias/desafio-6/README.md); mini-lab executado; fechamento local D6 autorizado; publicação pendente |
+| 5 | Simulador MQTT → broker → gateway → entrada IoT demonstrativa; sem pontuação | [15 cenários MQTT reais, HTTP e regressões](../evidencias/desafio-5/README.md); commit D5 `a3b350e`; integra a entrega B1 |
+| 6 | Jenkins passa/falha e painel Prometheus/Grafana reage a falha induzida | [Execução e evidências D6](../evidencias/desafio-6/README.md); mini-lab executado; D6 consolidado em `42128fa`; publicação autorizada na branch B1 |
 
 ### Evidências que NÃO contam sozinhas
 
@@ -203,20 +203,20 @@ O roteiro Docker acima continua sem execução. O laboratório real foi executad
 
 ## 6. Entrega final e plano da AF
 
-- [ ] Confirmar integrantes B1 (o link do GitHub na raiz já foi corrigido).
+- [x] Confirmar equipe B1: Felipe, Isadora e Maria Julia, mesma equipe registrada na AC1.
 - [x] Executar testes Maven D1 e registrar saída, data e commit-base; consultar limites no registro D1.
 - [x] Registrar fontes, diffs e dependências antes/depois D1; comprovar regressão HTTP/JPA em H2.
-- [x] Revisar e consolidar D1: limpeza `a25b2b2` e implementação `8bf8785`; sem push.
+- [x] Revisar e consolidar D1: limpeza `a25b2b2` e implementação `8bf8785`; registro histórico do D1.
 - [x] Testar fake/JPA D2, execução JDK isolada e transações; registrar outputs.
 - [x] Executar e provar FastAPI, fallback, recuperação e timeout de leitura D3; [evidências](../evidencias/desafio-3/README.md).
 - [x] Implementar comparação síncrona/assíncrona D4; resultados e limites nas [evidências](../evidencias/desafio-4/README.md).
 - [x] Executar e provar MQTT real D5, incluindo falhas/ACL e sessão persistente. [Resultados e roteiro](../evidencias/desafio-5/README.md).
 - [x] Executar CI Jenkins, bloqueio JUnit e experimento Prometheus/Grafana D6; [resultados e limites](../evidencias/desafio-6/README.md).
 - [x] Atualizar Container/Component para o estado D1/D2; Deployment futuro explicitamente identificado.
-- [x] Versionar documentação e evidências D1/D2 em commits locais; publicação continua pendente.
+- [x] Versionar documentação e evidências D1/D2; histórico preservado na entrega B1.
 
 [Síntese das decisões para a PoC da AF](sintese-af.md): capacidades demonstradas, limites e evolução condicionada a novos requisitos. MQTT validado no D5; D6 distingue CI Jenkins de implantação local.
 
 ## 7. Auditoria final do B1
 
-A [auditoria dos seis desafios](../evidencias/auditoria-final-b1/README.md) confronta o enunciado oficial com ADRs, código, diagramas e evidências. Jenkins #5 aprovou o fluxo normal final em uma única tentativa (101 Maven + 14 Python), preservando #1–#4. O commit local D6 foi autorizado; publicação remota e identificação da equipe B1 são verificadas no fechamento, sem confundir execução local com entrega publicada.
+A [auditoria dos seis desafios](../evidencias/auditoria-final-b1/README.md) confronta o enunciado oficial com ADRs, código, diagramas e evidências. Jenkins #5 aprovou o fluxo normal final em uma única tentativa (101 Maven + 14 Python), preservando #1–#4. D6 foi consolidado em `42128fa`, e a equipe B1 foi confirmada como a mesma da AC1. A publicação foi autorizada exclusivamente na [branch B1](https://github.com/MjDutil/DevOps-Project/tree/feature/architecture-lab-b1), sem merge em main; o histórico e os resultados reais permanecem preservados.

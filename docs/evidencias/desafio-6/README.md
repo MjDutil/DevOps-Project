@@ -1,12 +1,12 @@
 # D6 — CI/CD e observabilidade
 
-Mini-lab executado em 2026-11-04. Resultados abaixo distinguem CI, implantação local, controles negativos e tentativas sem conclusão. Registro original pré-commit; fechamento local autorizado posteriormente. Push/merge não realizados.
+Mini-lab executado em 2026-11-04. Resultados abaixo distinguem CI, implantação local, controles negativos e tentativas sem conclusão. Registro original pré-commit, posteriormente consolidado em `42128fa`; a publicação B1 foi autorizada no fechamento. Os resultados históricos não foram reclassificados.
 
 [ADR-006](../../adr/ADR-006.md) · [C4 Deployment](../../arquitetura/diagramas.md#c4-deployment--desafio-6) · [Roteiro reproduzível](../../../labs/operacao/README.md) · [Jenkinsfile](../../../Jenkinsfile).
 
 ## Origem e preservação
 
-O [estado inicial Git](git-antes.json) registra a base `a3b350e` (D5). Naquele registro inicial, D6 ainda não tinha commit. O fechamento local foi autorizado posteriormente; push/merge continuam sem autorização. [Estado Docker inicial](docker-antes.json): containers e volumes anteriores devem ser preservados. A conferência final compara fontes/testes históricos com os hashes iniciais.
+O [estado inicial Git](git-antes.json) registra a base `a3b350e` (D5). Naquele registro inicial, D6 ainda não tinha commit. D6 foi consolidado em `42128fa`; a publicação B1 foi autorizada posteriormente, sem merge em main. [Estado Docker inicial](docker-antes.json): containers e volumes anteriores devem ser preservados. A conferência final compara fontes/testes históricos com os hashes iniciais.
 
 ## Execução
 
@@ -78,9 +78,9 @@ Avaliação de potencial, sem pontuação definitiva:
 | RPCs, alternativas e trade-offs | ATENDIDO | ADR-006 compara pipeline único/independentes e logs/métricas; restrições Jenkins/Java/rede/contratos |
 | ADR e justificativa arquitetural | ATENDIDO | ADR-006, resultado de fallback HTTP 200 e identidade SHA-256 do artefato |
 | C4 coerente com a decisão | ATENDIDO | [Deployment](c4-deployment.svg), [fonte](c4-deployment.mmd), [parser dos nove diagramas](mermaid-todos.txt) |
-| Mini-lab, evidências técnicas e Git | ATENDIDO no pacote local | CI #1/#4/#5, consultas/capturas e JAR idêntico comprovados; fechamento local autorizado. Publicação remota pendente |
+| Mini-lab, evidências técnicas e Git | ATENDIDO no pacote local | CI #1/#4/#5, consultas/capturas e JAR idêntico comprovados; fechamento local autorizado. Publicação autorizada na branch B1 |
 
-O mini-lab obrigatório foi demonstrado e a revisão técnica preliminar aprovada. A configuração final foi validada pelo #5; o #3 continua abortado no histórico. A [auditoria final dos seis desafios](../auditoria-final-b1/README.md) registra o fechamento local autorizado e as pendências de publicação/equipe. O laboratório não representa CD de produção, teste de carga, HA, SLA, alertas ou recuperação de dados. H2 e contadores são voláteis; métricas históricas residem no volume Prometheus com retenção de um dia.
+O mini-lab obrigatório foi demonstrado e a revisão técnica preliminar aprovada. A configuração final foi validada pelo #5; o #3 continua abortado no histórico. A [auditoria final dos seis desafios](../auditoria-final-b1/README.md) registra o fechamento local, a equipe confirmada e a autorização de publicação da entrega B1. O laboratório não representa CD de produção, teste de carga, HA, SLA, alertas ou recuperação de dados. H2 e contadores são voláteis; métricas históricas residem no volume Prometheus com retenção de um dia.
 
 A regressão HTTP adicional D3 não chegou aos cenários nesta tentativa; isso não é registrado como aprovação. As 96 regressões Maven anteriores passaram junto com cinco testes novos de instrumentação/exposição, totalizando 101. O experimento D6 voltou a comprovar comunicação, falha, operação essencial e recuperação IA com o JAR aprovado. As evidências anteriores D1–D5 não foram sobrescritas.
 
@@ -94,7 +94,7 @@ A busca por valores das credenciais geradas e chaves privadas nos arquivos publi
 
 Os serviços D6 foram pausados após as capturas; containers e volumes próprios foram mantidos. Nenhum container/volume anterior foi removido, iniciado ou modificado. Para rever o painel, use o roteiro e inicie os serviços deste projeto, consultando suas portas/credenciais locais. Reiniciar Core zera seus contadores/H2; Prometheus conserva as amostras anteriores no volume, respeitando retenção de um dia. Jenkins conserva builds/relatórios no seu volume.
 
-Para a entrega: confirmar identificação da equipe B1 e publicar os commits locais D4/D5/D6 pelo fluxo escolhido. O commit local D6 foi autorizado no fechamento; push/merge não foram autorizados. A [síntese para a AF](../../arquitetura/sintese-af.md) mantém limites dos seis desafios. Os registros anteriores de Git desta pasta são fotografias pré-commit da implementação; o fechamento local é registrado na auditoria final. Nenhum push ou merge foi realizado.
+Equipe B1 confirmada: Felipe, Isadora e Maria Julia, conforme AC1. O fechamento local D6 foi concluído em `42128fa`; a publicação da entrega foi autorizada exclusivamente na branch B1. Merge em main não foi autorizado. A [síntese para a AF](../../arquitetura/sintese-af.md) mantém limites dos seis desafios. Os registros anteriores de Git desta pasta são fotografias pré-commit da implementação; o fechamento local é registrado na auditoria final. A execução original ocorreu sem push/merge; a autorização posterior de publicação não altera os resultados históricos.
 
 ## Fechamento final
 

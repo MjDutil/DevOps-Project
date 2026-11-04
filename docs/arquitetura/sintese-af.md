@@ -9,4 +9,4 @@
 | D5 | MQTT 3.1.1/QoS 1, gateway, ACL, validação e deduplicação | ACK condicionado ao HTTP; janela em memória; sem exatamente uma vez |
 | D6 | CI Jenkins, artefato identificado e métricas do fallback | Implantação local controlada; sem CD/HA/segurança de produção |
 
-Preservar RF → RNF → até três ASRs → RPC → alternativas → ADR → C4 → evidência. Antes da AF, confirmar equipe/escopo funcional, versionar e publicar somente com autorização, escolher cenários realmente implementáveis e executar novamente os ensaios com o artefato final. [Registro cumulativo](README.md), [ADRs](../adr/) e [resultados D6](../evidencias/desafio-6/README.md).
+Preservar RF → RNF → até três ASRs → RPC → alternativas → ADR → C4 → evidência. Equipe B1 confirmada: Felipe, Isadora e Maria Julia, conforme o [histórico AC1](../ac1/README.md#integrantes). Antes da AF, confirmar escopo funcional, escolher cenários realmente implementáveis e executar novamente os ensaios com o artefato final. [Registro cumulativo](README.md), [ADRs](../adr/) e [resultados D6](../evidencias/desafio-6/README.md).
