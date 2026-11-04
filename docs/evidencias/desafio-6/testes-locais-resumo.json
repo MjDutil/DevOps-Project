@@ -1,0 +1,32 @@
+{
+  "testes": 101,
+  "falhas": 0,
+  "erros": 0,
+  "ignorados": 0,
+  "jacoco": {
+    "INSTRUCTION": {
+      "coberto": 1139,
+      "total": 1160
+    },
+    "BRANCH": {
+      "coberto": 48,
+      "total": 52
+    },
+    "LINE": {
+      "coberto": 250,
+      "total": 253
+    },
+    "COMPLEXITY": {
+      "coberto": 108,
+      "total": 113
+    },
+    "METHOD": {
+      "coberto": 86,
+      "total": 87
+    },
+    "CLASS": {
+      "coberto": 26,
+      "total": 26
+    }
+  }
+}

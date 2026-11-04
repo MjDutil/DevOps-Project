@@ -1,0 +1,2 @@
+Build final acionado: 5
+SUCCESS: configuração final, 115 testes e JAR aprovado; não implantado.

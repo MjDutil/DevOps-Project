@@ -194,3 +194,35 @@ flowchart TB
 ```
 
 A visão Deployment acima é proposta futura e não evidencia implantação Docker nem execução dos desafios 5–6. Nos diagramas anteriores, os rótulos distinguem implementação de integração não validada; setas “implementa” representam implementação de interface, não comunicação remota.
+
+## C4 Deployment — Desafio 6
+
+Visão operacional do laboratório: Jenkins sem Docker, implantação local do mesmo JAR e métricas internas. Não representa CD de produção. D4/D5 permanecem opcionais e preservados; seus diagramas anteriores continuam válidos. [ADR-006](../adr/ADR-006.md).
+
+```mermaid
+flowchart TB
+    operador["Operador local<br/>Implantação controlada, sem CD de produção"]
+    subgraph host["Docker Desktop / laboratório local isolado"]
+        jenkins["Jenkins / Java 21<br/>Build JDK 17, Maven e Python<br/>Sem socket Docker"]
+        fontes["Snapshot identificado<br/>Commit-base e SHA-256 por arquivo"]
+        artefato["Arquivo aprovado pelo Jenkins<br/>JAR, SHA-256, JUnit e JaCoCo"]
+        core["Core Spring Boot / Java 17<br/>Mesmo JAR aprovado<br/>Actuator interno 9091"]
+        banco[("H2 em memória<br/>Laboratório sem persistência de negócio")]
+        ia["FastAPI / Python<br/>RF03 e RF04 demonstrativos"]
+        prom["Prometheus<br/>Coleta a cada 2 segundos"]
+        graf["Grafana<br/>Datasource e dashboard provisionados"]
+    end
+    fontes -->|Cópia somente leitura e verificação| jenkins
+    jenkins -->|Somente após testes aprovados| artefato
+    artefato -->|Download autenticado e verificação SHA-256| operador
+    operador -->|Docker local / sem recompilar JAR| core
+    core -->|JPA / JDBC| banco
+    core -->|HTTP REST / JSON opcional| ia
+    prom -->|HTTP GET /actuator/prometheus / rede interna| core
+    graf -->|HTTP API / PromQL| prom
+    operador -->|HTTP local autenticado| jenkins
+    operador -->|HTTP local autenticado| graf
+    operador -->|HTTP local / consultas| prom
+```
+
+[Fonte](../evidencias/desafio-6/c4-deployment.mmd) · [SVG](../evidencias/desafio-6/c4-deployment.svg) · [Evidências reais](../evidencias/desafio-6/README.md).

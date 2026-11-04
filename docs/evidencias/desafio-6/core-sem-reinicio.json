@@ -1,0 +1,8 @@
+{
+  "container": "f1ac0c109413f5f64c5ffd4b4808a6d17e5d8b4aaf66ebcc5e20cecfa73b9781",
+  "startedAt": "2026-11-04T19:20:28.344662876Z",
+  "restartCount": 0,
+  "fase_inicial_epoch": 1793820088.131926,
+  "fase_recuperada_epoch": 1793820365.1142972,
+  "nao_reiniciou_durante_experimento": true
+}

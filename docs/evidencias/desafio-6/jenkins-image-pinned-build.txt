@@ -1,0 +1,71 @@
+ Image b1-d6-jenkins:d1f4fbe7 Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 846B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 677B 0.1s done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b
+#3 ...
+
+#4 [internal] load metadata for docker.io/library/maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82
+#4 DONE 2.1s
+
+#3 [internal] load metadata for docker.io/jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b
+#3 DONE 2.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 2.51kB 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-1 1/7] FROM docker.io/jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b
+#7 resolve docker.io/jenkins/jenkins@sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b 0.1s done
+#7 DONE 0.1s
+
+#8 [ferramentas 1/1] FROM docker.io/library/maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82
+#8 resolve docker.io/library/maven@sha256:e4a7ace3dc0d645ed97f8d9ad0b0d3f0b14fa8d150138f27f116d7105a639b82 0.1s done
+#8 DONE 0.1s
+
+#9 [stage-1 3/7] COPY --from=ferramentas /usr/share/maven /usr/share/maven
+#9 CACHED
+
+#10 [stage-1 2/7] COPY --from=ferramentas /opt/java/openjdk /opt/java/jdk17
+#10 CACHED
+
+#11 [stage-1 4/7] RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv && rm -rf /var/lib/apt/lists/*
+#11 CACHED
+
+#12 [stage-1 5/7] COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+#12 DONE 0.2s
+
+#13 [stage-1 6/7] RUN jenkins-plugin-cli --latest false --plugin-file /usr/share/jenkins/ref/plugins.txt
+#13 53.86 Done
+#13 DONE 55.5s
+
+#14 [stage-1 7/7] COPY init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
+#14 DONE 0.3s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 24.4s done
+#15 exporting manifest sha256:6cfee48d744320c232c5838bbab7df5ed7299bf41cff3dce19390536c6cbaa91 0.1s done
+#15 exporting config sha256:4030b4fd983cfbb6535f72c5981ff5de7debbba4beb39dfa7a57db8d60ee43a5 0.1s done
+#15 exporting attestation manifest sha256:576e86af205289d556e8d2da5722e71a77198dc9292520b1c45c9dc8fb5c11ed 0.0s done
+#15 exporting manifest list sha256:c2650dd1e1c57c0f490c69d9f112179eb4423bd034f8ff0c80164387ce09a3ab
+#15 exporting manifest list sha256:c2650dd1e1c57c0f490c69d9f112179eb4423bd034f8ff0c80164387ce09a3ab 0.2s done
+#15 naming to docker.io/library/b1-d6-jenkins:d1f4fbe7
+#15 naming to docker.io/library/b1-d6-jenkins:d1f4fbe7 done
+#15 unpacking to docker.io/library/b1-d6-jenkins:d1f4fbe7
+#15 unpacking to docker.io/library/b1-d6-jenkins:d1f4fbe7 6.7s done
+#15 DONE 31.9s
+
+#16 resolving provenance for metadata file
+#16 DONE 0.2s
+ Image b1-d6-jenkins:d1f4fbe7 Built

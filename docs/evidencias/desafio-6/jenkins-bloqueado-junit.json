@@ -1,0 +1,48 @@
+{
+  "_class": "hudson.tasks.junit.TestResult",
+  "testActions": [],
+  "duration": 1.875,
+  "empty": false,
+  "failCount": 1,
+  "passCount": 0,
+  "skipCount": 0,
+  "suites": [
+    {
+      "cases": [
+        {
+          "testActions": [],
+          "age": 1,
+          "className": "org.example.tdd.d6.PipelineBloqueioTest",
+          "duration": 1.174,
+          "errorDetails": "Falha controlada D6: somente workspace Jenkins descartavel ==> expected: <true> but was: <false>",
+          "errorStackTrace": "org.opentest4j.AssertionFailedError: Falha controlada D6: somente workspace Jenkins descartavel ==> expected: <true> but was: <false>\n\tat org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:158)\n\tat org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:139)\n\tat org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:69)\n\tat org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:41)\n\tat org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:228)\n\tat org.example.tdd.d6.PipelineBloqueioTest.deveBloquearPromocaoDoArtefato(PipelineBloqueioTest.java:6)\n",
+          "failedSince": 4,
+          "flakyFailures": [],
+          "name": "deveBloquearPromocaoDoArtefato",
+          "properties": {},
+          "rerunFailures": [],
+          "skipped": false,
+          "skippedMessage": null,
+          "skippedSince": 0,
+          "status": "FAILED",
+          "stderr": null,
+          "stdout": null
+        }
+      ],
+      "duration": 1.875,
+      "enclosingBlockNames": [
+        "Declarative: Post Actions"
+      ],
+      "enclosingBlocks": [
+        "39"
+      ],
+      "id": null,
+      "name": "org.example.tdd.d6.PipelineBloqueioTest",
+      "nodeId": "40",
+      "properties": {},
+      "stderr": null,
+      "stdout": null,
+      "timestamp": null
+    }
+  ]
+}

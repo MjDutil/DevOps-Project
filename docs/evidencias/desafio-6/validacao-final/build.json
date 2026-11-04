@@ -1,0 +1,775 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.BooleanParameterValue",
+          "name": "SIMULAR_FALHA_TESTE",
+          "value": false
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user b1admin",
+          "userId": "b1admin",
+          "userName": "b1admin"
+        }
+      ]
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+    },
+    {},
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 115,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [
+    {
+      "displayPath": null,
+      "fileName": "app.jar",
+      "relativePath": "aprovado/app.jar"
+    },
+    {
+      "displayPath": null,
+      "fileName": "manifest.json",
+      "relativePath": "aprovado/manifest.json"
+    },
+    {
+      "displayPath": null,
+      "fileName": "python-junit.xml",
+      "relativePath": "reports/python-junit.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "source-manifest.json",
+      "relativePath": "source-manifest.json"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "branchfc.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/branchfc.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "branchnc.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/branchnc.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "branchpc.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/branchpc.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "bundle.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/bundle.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "class.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/class.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "down.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/down.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "greenbar.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/greenbar.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "group.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/group.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "method.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/method.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "package.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/package.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "prettify.css",
+      "relativePath": "target/site/jacoco/jacoco-resources/prettify.css"
+    },
+    {
+      "displayPath": null,
+      "fileName": "prettify.js",
+      "relativePath": "target/site/jacoco/jacoco-resources/prettify.js"
+    },
+    {
+      "displayPath": null,
+      "fileName": "redbar.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/redbar.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "report.css",
+      "relativePath": "target/site/jacoco/jacoco-resources/report.css"
+    },
+    {
+      "displayPath": null,
+      "fileName": "report.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/report.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "session.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/session.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "sort.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/sort.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "sort.js",
+      "relativePath": "target/site/jacoco/jacoco-resources/sort.js"
+    },
+    {
+      "displayPath": null,
+      "fileName": "source.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/source.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "up.gif",
+      "relativePath": "target/site/jacoco/jacoco-resources/up.gif"
+    },
+    {
+      "displayPath": null,
+      "fileName": "jacoco-sessions.html",
+      "relativePath": "target/site/jacoco/jacoco-sessions.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "jacoco.csv",
+      "relativePath": "target/site/jacoco/jacoco.csv"
+    },
+    {
+      "displayPath": null,
+      "fileName": "jacoco.xml",
+      "relativePath": "target/site/jacoco/jacoco.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TddApplication.html",
+      "relativePath": "target/site/jacoco/org.example.tdd/TddApplication.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TddApplication.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd/TddApplication.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoController.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.controller/AlunoController.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoController.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.controller/AlunoController.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.controller/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.controller/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "Aluno.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.domain/Aluno.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "Aluno.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.domain/Aluno.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.domain/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.domain/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoRequestDto.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/AlunoRequestDto.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoRequestDto.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/AlunoRequestDto.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoResponseDto.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/AlunoResponseDto.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoResponseDto.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/AlunoResponseDto.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ParticipacaoForumRequestDto.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/ParticipacaoForumRequestDto.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ParticipacaoForumRequestDto.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/ParticipacaoForumRequestDto.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "PlanoPremiumResponseDto.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/PlanoPremiumResponseDto.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "PlanoPremiumResponseDto.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.dto/PlanoPremiumResponseDto.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoEntity.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.entity/AlunoEntity.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoEntity.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.entity/AlunoEntity.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.entity/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.entity/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ConclusaoCurso$Resultado.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.api/ConclusaoCurso$Resultado.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ConclusaoCurso.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.api/ConclusaoCurso.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ConclusaoCursoProcessada.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.api/ConclusaoCursoProcessada.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ConclusaoCursoProcessada.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.api/ConclusaoCursoProcessada.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.api/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.api/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoSnapshot.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.application/AlunoSnapshot.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoSnapshot.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.application/AlunoSnapshot.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ConcluirCursoUseCase.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.application/ConcluirCursoUseCase.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ConcluirCursoUseCase.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.application/ConcluirCursoUseCase.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.application/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.application/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ConclusaoCursoFacade.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.infrastructure/ConclusaoCursoFacade.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "ConclusaoCursoFacade.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.infrastructure/ConclusaoCursoFacade.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "GamificacaoConfiguration.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.infrastructure/GamificacaoConfiguration.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "GamificacaoConfiguration.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.infrastructure/GamificacaoConfiguration.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.infrastructure/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.infrastructure/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "JpaAlunoStore.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.infrastructure/JpaAlunoStore.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "JpaAlunoStore.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.gamificacao.infrastructure/JpaAlunoStore.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "IaClient.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.ia/IaClient.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "IaClient.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.ia/IaClient.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "IaController.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.ia/IaController.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "IaController.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.ia/IaController.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.ia/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.ia/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "EventoIot.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/EventoIot.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "EventoIot.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/EventoIot.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "IotConfiguration.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/IotConfiguration.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "IotConfiguration.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/IotConfiguration.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "IotController.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/IotController.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "IotController.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/IotController.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "RegistroEventosIot$Recepcao.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/RegistroEventosIot$Recepcao.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "RegistroEventosIot.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/RegistroEventosIot.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "RegistroEventosIot.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.iot/RegistroEventosIot.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "HttpNotificadorConclusao.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.notificacoes/HttpNotificadorConclusao.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "HttpNotificadorConclusao.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.notificacoes/HttpNotificadorConclusao.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.notificacoes/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.notificacoes/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "NotificacaoConclusaoListener.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.notificacoes/NotificacaoConclusaoListener.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "NotificacaoConclusaoListener.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.notificacoes/NotificacaoConclusaoListener.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "NotificacoesConfiguration.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.notificacoes/NotificacoesConfiguration.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "NotificacoesConfiguration.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.notificacoes/NotificacoesConfiguration.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoService.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.service/AlunoService.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "AlunoService.java.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.service/AlunoService.java.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.service/index.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "index.source.html",
+      "relativePath": "target/site/jacoco/org.example.tdd.service/index.source.html"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.AlunoHttpJpaIntegrationTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.AlunoHttpJpaIntegrationTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.AlunoTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.AlunoTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.gamificacao.DominioIsoladoTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.gamificacao.DominioIsoladoTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.gamificacao.FakeAlunoStoreContractTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.gamificacao.FakeAlunoStoreContractTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.gamificacao.JpaAlunoStoreContractTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.gamificacao.JpaAlunoStoreContractTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.ia.IaClientTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.ia.IaClientTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.ia.IaControllerTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.ia.IaControllerTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.ia.IaMetricasTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.ia.IaMetricasTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.iot.IotDesabilitadoTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.iot.IotDesabilitadoTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.iot.IotHttpIntegrationTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.iot.IotHttpIntegrationTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.iot.RegistroEventosIotTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.iot.RegistroEventosIotTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.notificacoes.NotificacoesDesabilitadasTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.notificacoes.NotificacoesDesabilitadasTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.notificacoes.NotificacoesIntegrationTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.notificacoes.NotificacoesIntegrationTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.notificacoes.NotificacoesSincronasIntegrationTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.notificacoes.NotificacoesSincronasIntegrationTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.observabilidade.GerenciamentoDesabilitadoTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.observabilidade.GerenciamentoDesabilitadoTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.service.AlunoServiceTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.service.AlunoServiceTest.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "org.example.tdd.TddApplicationTests.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.TddApplicationTests.txt"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.AlunoHttpJpaIntegrationTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.AlunoHttpJpaIntegrationTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.AlunoTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.AlunoTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.gamificacao.ConcluirCursoUseCaseTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.gamificacao.DominioIsoladoTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.gamificacao.DominioIsoladoTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.gamificacao.FakeAlunoStoreContractTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.gamificacao.FakeAlunoStoreContractTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.gamificacao.JpaAlunoStoreContractTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.gamificacao.JpaAlunoStoreContractTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.ia.IaClientTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.ia.IaClientTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.ia.IaControllerTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.ia.IaControllerTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.ia.IaMetricasTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.ia.IaMetricasTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.iot.IotDesabilitadoTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.iot.IotDesabilitadoTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.iot.IotHttpIntegrationTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.iot.IotHttpIntegrationTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.iot.RegistroEventosIotTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.iot.RegistroEventosIotTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.notificacoes.NotificacoesDesabilitadasTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.notificacoes.NotificacoesDesabilitadasTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.notificacoes.NotificacoesIntegrationTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.notificacoes.NotificacoesIntegrationTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.notificacoes.NotificacoesSincronasIntegrationTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.notificacoes.NotificacoesSincronasIntegrationTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.observabilidade.GerenciamentoDesabilitadoTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.observabilidade.GerenciamentoDesabilitadoTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.service.AlunoServiceTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.service.AlunoServiceTest.xml"
+    },
+    {
+      "displayPath": null,
+      "fileName": "TEST-org.example.tdd.TddApplicationTests.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.TddApplicationTests.xml"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#5",
+  "duration": 52962,
+  "estimatedDuration": 253361,
+  "executor": null,
+  "fullDisplayName": "b1-ci #5",
+  "id": "5",
+  "keepLog": false,
+  "number": 5,
+  "queueId": 9,
+  "result": "SUCCESS",
+  "timestamp": 1793824221028,
+  "url": "http://127.0.0.1:61300/job/b1-ci/5/",
+  "changeSets": [],
+  "culprits": [],
+  "inProgress": false,
+  "nextBuild": null,
+  "previousBuild": {
+    "number": 4,
+    "url": "http://127.0.0.1:61300/job/b1-ci/4/"
+  }
+}

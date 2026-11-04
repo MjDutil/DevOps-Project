@@ -1,0 +1,146 @@
+[
+  {
+    "path": "/ia/recomendacoes/1",
+    "status": 200,
+    "body": {
+      "aluno_id": 1,
+      "recomendacoes": [
+        "Curso introdutório",
+        "Atividade de revisão"
+      ]
+    }
+  },
+  {
+    "path": "/ia/assistente?pergunta=laboratorio",
+    "status": 200,
+    "body": {
+      "resposta": "Laboratório sem LLM: pergunta recebida (11 caracteres)."
+    }
+  },
+  {
+    "path": "/ia/recomendacoes/1",
+    "status": 200,
+    "body": {
+      "status": "indisponivel",
+      "aluno_id": 1,
+      "recomendacoes": []
+    }
+  },
+  {
+    "path": "/ia/recomendacoes/1",
+    "status": 200,
+    "body": {
+      "status": "indisponivel",
+      "aluno_id": 1,
+      "recomendacoes": []
+    }
+  },
+  {
+    "path": "/ia/recomendacoes/1",
+    "status": 200,
+    "body": {
+      "status": "indisponivel",
+      "aluno_id": 1,
+      "recomendacoes": []
+    }
+  },
+  {
+    "path": "/ia/assistente?pergunta=laboratorio",
+    "status": 200,
+    "body": {
+      "resposta": "Assistente temporariamente indisponível",
+      "status": "indisponivel"
+    }
+  },
+  {
+    "path": "/ia/assistente?pergunta=laboratorio",
+    "status": 200,
+    "body": {
+      "resposta": "Assistente temporariamente indisponível",
+      "status": "indisponivel"
+    }
+  },
+  {
+    "path": "/alunos",
+    "status": 200,
+    "body": {
+      "id": 1,
+      "media": 8.0,
+      "cursosLiberados": 0
+    }
+  },
+  {
+    "path": "/alunos/1/concluir-curso",
+    "status": 200,
+    "body": {
+      "id": 1,
+      "media": 8.0,
+      "cursosLiberados": 3
+    }
+  },
+  {
+    "path": "/alunos/1/verificar-premium",
+    "status": 200,
+    "body": {
+      "id": 1,
+      "cursosLiberados": 3,
+      "plano": "Basico",
+      "voucherProjetosReais": false,
+      "moedas": 0
+    }
+  },
+  {
+    "path": "/ia/recomendacoes/1",
+    "status": 200,
+    "body": {
+      "aluno_id": 1,
+      "recomendacoes": [
+        "Curso introdutório",
+        "Atividade de revisão"
+      ]
+    }
+  },
+  {
+    "path": "/ia/assistente?pergunta=laboratorio",
+    "status": 200,
+    "body": {
+      "resposta": "Laboratório sem LLM: pergunta recebida (11 caracteres)."
+    }
+  },
+  {
+    "path": "/ia/recomendacoes/1",
+    "status": 200,
+    "body": {
+      "aluno_id": 1,
+      "recomendacoes": [
+        "Curso introdutório",
+        "Atividade de revisão"
+      ]
+    }
+  },
+  {
+    "path": "/ia/assistente?pergunta=laboratorio",
+    "status": 200,
+    "body": {
+      "resposta": "Laboratório sem LLM: pergunta recebida (11 caracteres)."
+    }
+  },
+  {
+    "path": "/ia/recomendacoes/1",
+    "status": 200,
+    "body": {
+      "aluno_id": 1,
+      "recomendacoes": [
+        "Curso introdutório",
+        "Atividade de revisão"
+      ]
+    }
+  },
+  {
+    "path": "/ia/assistente?pergunta=laboratorio",
+    "status": 200,
+    "body": {
+      "resposta": "Laboratório sem LLM: pergunta recebida (11 caracteres)."
+    }
+  }
+]

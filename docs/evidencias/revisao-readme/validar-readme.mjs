@@ -15,7 +15,7 @@ const root = process.cwd();
 function markdownFiles(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     const file = path.join(directory, entry.name);
-    return entry.isDirectory() ? markdownFiles(file) : (entry.name.endsWith('.md') ? [file] : []);
+    return entry.isDirectory() ? (entry.name.startsWith('.') || entry.name === 'node_modules' ? [] : markdownFiles(file)) : (entry.name.endsWith('.md') ? [file] : []);
   });
 }
 const files = ['README.md', ...markdownFiles('docs'), ...markdownFiles('labs')];
@@ -68,6 +68,7 @@ const expected = [
   'docs/evidencias/desafio-3/c4-container',
   'docs/evidencias/desafio-4/c4-container',
   'docs/evidencias/desafio-5/c4-container',
+  'docs/evidencias/desafio-6/c4-deployment',
 ];
 const diagramPage = fs.readFileSync('docs/arquitetura/diagramas.md', 'utf8');
 function visibleText(text) {
@@ -88,9 +89,11 @@ const d4Source = fs.readFileSync(`${expected[3]}.mmd`, 'utf8').trim();
 assert(diagramPage.includes('```mermaid\n' + d4Source + '\n```'), 'Container D4 fora de sincronismo no registro arquitetural');
 const d5Source = fs.readFileSync(`${expected[4]}.mmd`, 'utf8').trim();
 assert(diagramPage.includes('```mermaid\n' + d5Source + '\n```'), 'Container D5 fora de sincronismo no registro arquitetural');
-assert(fs.readFileSync('README.md', 'utf8').includes('```mermaid\n' + d5Source + '\n```'), 'Container D5 fora de sincronismo no README');
+const d6Source = fs.readFileSync(`${expected[5]}.mmd`, 'utf8').trim();
+assert(diagramPage.includes('```mermaid\n' + d6Source + '\n```'), 'Deployment D6 fora de sincronismo no registro');
+assert(fs.readFileSync('README.md', 'utf8').includes('```mermaid\n' + d6Source + '\n```'), 'Deployment D6 fora de sincronismo no README');
 console.log(`PASSOU: ${files.length} documentos, ${count} links/imagens relativos e ${fragments} âncoras.`);
 console.log(`PASSOU: destinos existentes, capitalização exata e ${workingTree ? 'arquivos rastreados ou novos não ignorados (modo working-tree)' : 'arquivos incluídos no índice Git'}.`);
-console.log('PASSOU: fontes Mermaid e rótulos dos SVGs D1/D2/D3/D4/D5 conferidos; Containers D3/D4/D5 no registro arquitetural e D5 no README.');
+console.log('PASSOU: fontes Mermaid e rótulos dos SVGs D1/D2/D3/D4/D5/D6 conferidos; D3–D6 no registro arquitetural e D6 no README.');
 console.log('URLs externas encontradas: ' + [...external].join(', '));
 console.log('Limite: verifica caminhos locais e sincronismo dos SVGs; não substitui parser Mermaid. Arquivos novos em working-tree ainda precisam de git add/commit. Publicação exige aprovação.');

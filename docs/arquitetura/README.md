@@ -32,7 +32,7 @@ RNF/FURPS+: Performance (desempenho/escalabilidade), Reliability (disponibilidad
 | 3 | 03, 04 | Tolerância a falhas | Deploy independente | Escala da IA | Python + Core Java | [003](../adr/ADR-003.md) | [Integração real, interrupção, recuperação e timeout de leitura](../evidencias/desafio-3/README.md) |
 | 4 | 02, 05 demonstrativo | Tolerância a falhas | Latência | Consistência transacional | Core conclui com consumidor indisponível; broker exige justificativa | [004](../adr/ADR-004.md) | [Pós-commit, comparação síncrona/assíncrona, saturação e HTTP real](../evidencias/desafio-4/README.md) |
 | 5 | 06 demonstrativo | Eficiência de comunicação | Tolerância à conectividade intermitente | Segurança de integração | Dispositivos limitados, rede instável e custo de broker | [005](../adr/ADR-005.md) | [HTTP, MQTT real, ACL, sessão persistente e reentrega](../evidencias/desafio-5/README.md) |
-| 6 | 01–06 | Testabilidade | Confiabilidade | Observabilidade | Jenkins, Prometheus, Grafana | [006](../adr/ADR-006.md) | PENDENTE |
+| 6 | 03/04 observados, 02 preservado; 01–06 na evolução | Testabilidade | Observabilidade | Confiabilidade | Jenkins/Prometheus/Grafana; Java 17; preservar contratos | [006](../adr/ADR-006.md) | [CI/métricas reais; publicação pendente](../evidencias/desafio-6/README.md) |
 
 ## 2.1 Rastreabilidade do Desafio 1 implementado
 
@@ -95,7 +95,7 @@ O registro cumulativo, os ADRs e as evidências permitem avaliar as decisões se
 
 O teste Maven desta etapa aprovou 75 testes, sem falhas/erros/ignorados; os 18 checks reais são separados dessa contagem. Timeout de conexão de 700 ms está configurado, mas não foi medido em rede real. O de leitura é 1.200 ms; os valores não são um prazo total garantido. Chamadas IA são síncronas e ocupam threads; não há prova de isolamento sob saturação. HTTP 200 degradado e falta de validação de schema são comportamentos existentes preservados.
 
-A evidência atende ao mini-lab oficial de fronteira e falha; não conclui os modelos funcionais RF03/RF04. D1/D2 mantêm seus fontes/testes; D4–D6 continuam pendentes. Publicação no Git depende de autorização para commit/merge/push.
+A evidência atende ao mini-lab oficial de fronteira e falha; não conclui os modelos funcionais RF03/RF04. D1/D2 mantêm seus fontes/testes; D4–D6 evoluem nas seções seguintes. Publicação no Git depende de autorização para commit/merge/push.
 
 ## 2.6 Desafio 4 — comunicação e eventos
 
@@ -112,7 +112,7 @@ A evidência atende ao mini-lab oficial de fronteira e falha; não conclui os mo
 
 A fachada mantém o endpoint e a transação; domínio, caso de uso, `AlunoStore` e adapter JPA não foram reescritos. O evento puro inclui UUID, aluno, saldo e instante. O listener AFTER_COMMIT não escreve no banco. Notificações são desabilitadas por padrão; quando habilitadas, o modo padrão é assíncrono, com uma thread e fila limitada. Fila cheia descarta a notificação com log, preservando a conclusão. Em modo síncrono, a tentativa HTTP termina antes da resposta, mas falhas também são capturadas.
 
-A decisão aceita perda de eventos em falha/reinício e ausência de recuperação automática. No fluxo D4 não há broker nem garantia de entrega. O ADR-004 inicial propunha RabbitMQ/redelivery condicionalmente; a evidência atual fundamenta uma solução menor e deixa recuperação durável para uma decisão futura. D5 evolui a entrada IoT na seção seguinte; D6 continua pendente.
+A decisão aceita perda de eventos em falha/reinício e ausência de recuperação automática. No fluxo D4 não há broker nem garantia de entrega. O ADR-004 inicial propunha RabbitMQ/redelivery condicionalmente; a evidência atual fundamenta uma solução menor e deixa recuperação durável para uma decisão futura. D5 evolui a entrada IoT na seção seguinte; D6 é registrado na seção 2.8.
 
 ## 2.7 Desafio 5 — IoT/MQTT validado no mini-lab
 
@@ -126,15 +126,31 @@ A decisão aceita perda de eventos em falha/reinício e ausência de recuperaç�
 | ADR | [ADR-005](../adr/ADR-005.md): contrato, ACK condicionado ao HTTP e limites de persistência/deduplicação. |
 | C4 | [Container/fluxo D5](diagramas.md#c4-container--desafio-5): dispositivo, broker, gateway e Core. Trecho MQTT exercitado em Mosquitto real. |
 | Evidência obtida | [D5](../evidencias/desafio-5/README.md): 96 testes Maven, 14 Python, 12 checks HTTP, 15 cenários MQTT reais e regressões D3/D4. |
-| Fechamento | Publicação/subscrição, autenticação/ACL, sessão persistente, falhas de Core/broker e reentrega observadas. Commit/publicação D5 aguardam autorização. |
+| Fechamento | Publicação/subscrição, autenticação/ACL, sessão persistente, falhas de Core/broker e reentrega observadas. Commit local D5 `a3b350e` criado; publicação pendente. |
 
 O endpoint opcional `/iot/eventos` é desabilitado por padrão; perfil de laboratório usa loopback e token. Aceita evento normalizado, detecta repetição idêntica e rejeita conflito. A janela FIFO é em memória: reinício/evicção permitem nova aceitação. Não há alteração de aluno ou histórico de curso.
 
-O gateway foi implementado com MQTT 3.1.1, clientId estável e clean_session=False; ACK manual somente após aceitação/duplicata HTTP. Falha transitória exige reconexão para tentar retomada; payload permanente fica sem ACK e exige intervenção. Persistência do broker não é persistência do Paho nem transação ponta a ponta. Sessão persistente e reentrega com DUP foram observadas no laboratório real, sem garantia de exatamente uma vez. D6 continua pendente.
+O gateway foi implementado com MQTT 3.1.1, clientId estável e clean_session=False; ACK manual somente após aceitação/duplicata HTTP. Falha transitória exige reconexão para tentar retomada; payload permanente fica sem ACK e exige intervenção. Persistência do broker não é persistência do Paho nem transação ponta a ponta. Sessão persistente e reentrega com DUP foram observadas no laboratório real, sem garantia de exatamente uma vez. D6 é registrado na seção 2.8.
+
+## 2.8 Desafio 6 — CI e observabilidade
+
+| Elemento | Rastreabilidade |
+|---|---|
+| RF | RF03/RF04: observar fallback; RF02 preservado; demais contratos mantidos. RF01 permanece futuro. |
+| RNF | Observabilidade, testabilidade, confiabilidade, deploy independente, recuperabilidade e desempenho. |
+| ASR 1 | Testabilidade → Maven e Python aprovam o snapshot; teste falhando bloqueia aprovação do JAR. |
+| ASR 2 | Observabilidade → contador separado por operação revela degradação mesmo com HTTP 200; coleta e painel. |
+| ASR 3 | Confiabilidade → SHA-256 liga o JAR arquivado pelo Jenkins ao JAR implantado; recuperação IA sem reiniciar Core. |
+| RPC | Jenkins, Prometheus/Grafana obrigatórios; Java 17; sem Docker socket no Jenkins; preservar D1–D5. |
+| Alternativas | Pipeline único × pipelines por componente; logs isolados × instrumentação/coleta temporal. Único escolhido para reduzir coordenação no mini-lab. |
+| ADR/C4 | [ADR-006](../adr/ADR-006.md) e [Deployment D6](diagramas.md#c4-deployment--desafio-6). |
+| Evidência | [Resultados reais e limitações](../evidencias/desafio-6/README.md); builds #1 e #5 aprovados, #4 bloqueado por JUnit, falha/recuperação IA com métricas e capturas reais; limites documentados. |
+
+Jenkins executa CI; implantação local é controlada pelo operador e não representa CD de produção. Actuator é bloqueado por padrão, com porta interna exclusiva no perfil de laboratório. `up` mede coleta, não SLA; o contador de fallback complementa o HTTP 200. D4/D5 mantêm suas garantias e limites, sem novo broker ou alterações de regras.
 
 ## 3. Alternativas, consequências, ADRs e C4
 
-Os seis ADRs estão em [`docs/adr/`](../adr/). Cada um contém contexto, RF/RNF, no máximo três ASRs, RPC, alternativas, trade-offs e consequências. Diagramas Container, Component e Deployment ficam em [`diagramas.md`](diagramas.md). Container e Component distinguem o estado implementado; Deployment permanece uma visão **alvo** com componentes planejados.
+Os seis ADRs estão em [`docs/adr/`](../adr/). Cada um contém contexto, RF/RNF, no máximo três ASRs, RPC, alternativas, trade-offs e consequências. Diagramas Container, Component e Deployment ficam em [`diagramas.md`](diagramas.md). Container e Component distinguem o estado implementado; a visão alvo histórica é identificada como proposta; o Deployment D6 representa o laboratório operacional.
 
 ## 4. Estado atual e evidências, por desafio
 
@@ -144,8 +160,8 @@ Os seis ADRs estão em [`docs/adr/`](../adr/). Cada um contém contexto, RF/RNF,
 | 2 | Mesma regra e contrato com fake/JPA; sem dependências técnicas no núcleo | [Testes de contrato, execução isolada e integração H2](../evidencias/desafio-2/README.md) |
 | 3 | Spring chama FastAPI, derrubar FastAPI, Core mantém serviço essencial | [Laboratório real concluído: logs, respostas e tempos](../evidencias/desafio-3/README.md); ML/RAG real fora do mini-lab |
 | 4 | Comparar espera REST síncrona e tentativa assíncrona pós-commit; consumidor parado e fila cheia | [Evidências D4](../evidencias/desafio-4/README.md); sem broker/entrega durável |
-| 5 | Simulador MQTT → broker → gateway → entrada IoT demonstrativa; sem pontuação | [15 cenários MQTT reais, HTTP e regressões](../evidencias/desafio-5/README.md); versionamento/publicação pendentes |
-| 6 | Jenkins passa/falha e painel Prometheus/Grafana reage a falha induzida | Criar pipeline e métricas, obter screenshots reais |
+| 5 | Simulador MQTT → broker → gateway → entrada IoT demonstrativa; sem pontuação | [15 cenários MQTT reais, HTTP e regressões](../evidencias/desafio-5/README.md); commit local D5 `a3b350e`; publicação pendente |
+| 6 | Jenkins passa/falha e painel Prometheus/Grafana reage a falha induzida | [Execução e evidências D6](../evidencias/desafio-6/README.md); mini-lab executado; fechamento local D6 autorizado; publicação pendente |
 
 ### Evidências que NÃO contam sozinhas
 
@@ -195,8 +211,12 @@ O roteiro Docker acima continua sem execução. O laboratório real foi executad
 - [x] Executar e provar FastAPI, fallback, recuperação e timeout de leitura D3; [evidências](../evidencias/desafio-3/README.md).
 - [x] Implementar comparação síncrona/assíncrona D4; resultados e limites nas [evidências](../evidencias/desafio-4/README.md).
 - [x] Executar e provar MQTT real D5, incluindo falhas/ACL e sessão persistente. [Resultados e roteiro](../evidencias/desafio-5/README.md).
-- [ ] Completar Jenkins, Prometheus, Grafana e registrar incidentes D6.
+- [x] Executar CI Jenkins, bloqueio JUnit e experimento Prometheus/Grafana D6; [resultados e limites](../evidencias/desafio-6/README.md).
 - [x] Atualizar Container/Component para o estado D1/D2; Deployment futuro explicitamente identificado.
 - [x] Versionar documentação e evidências D1/D2 em commits locais; publicação continua pendente.
 
-**Síntese provisória para a AF:** levar monólito modular com Ports & Adapters incremental e testes; levar a fronteira FastAPI com fallback comprovado no mini-lab local; decidir RabbitMQ, MQTT e automação de entrega a partir dos resultados práticos. Nenhum desses componentes deve ser descrito como operacional antes da evidência.
+[Síntese das decisões para a PoC da AF](sintese-af.md): capacidades demonstradas, limites e evolução condicionada a novos requisitos. MQTT validado no D5; D6 distingue CI Jenkins de implantação local.
+
+## 7. Auditoria final do B1
+
+A [auditoria dos seis desafios](../evidencias/auditoria-final-b1/README.md) confronta o enunciado oficial com ADRs, código, diagramas e evidências. Jenkins #5 aprovou o fluxo normal final em uma única tentativa (101 Maven + 14 Python), preservando #1–#4. O commit local D6 foi autorizado; publicação remota e identificação da equipe B1 são verificadas no fechamento, sem confundir execução local com entrega publicada.

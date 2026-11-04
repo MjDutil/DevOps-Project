@@ -1,0 +1,38 @@
+[
+  {
+    "build": 1,
+    "resultado": "SUCCESS",
+    "timestamp": 1793818110091,
+    "artefatos_aprovados": [
+      "aprovado/app.jar",
+      "aprovado/manifest.json"
+    ]
+  },
+  {
+    "build": 2,
+    "resultado": "FAILURE",
+    "timestamp": 1793818772210,
+    "artefatos_aprovados": []
+  },
+  {
+    "build": 3,
+    "resultado": "ABORTED",
+    "timestamp": 1793819164720,
+    "artefatos_aprovados": []
+  },
+  {
+    "build": 4,
+    "resultado": "FAILURE",
+    "timestamp": 1793819771973,
+    "artefatos_aprovados": []
+  },
+  {
+    "build": 5,
+    "resultado": "SUCCESS",
+    "timestamp": 1793824221028,
+    "artefatos_aprovados": [
+      "aprovado/app.jar",
+      "aprovado/manifest.json"
+    ]
+  }
+]

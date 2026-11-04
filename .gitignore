@@ -69,3 +69,6 @@ application-local.yml
 
 # D5: credenciais geradas e estado local do laboratório MQTT
 labs/iot/.runtime/
+
+# D6: credenciais, snapshot e artefatos locais de CI/deploy
+labs/operacao/.runtime/

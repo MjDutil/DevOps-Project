@@ -1,0 +1,37 @@
+{
+  "status": "success",
+  "data": {
+    "activeTargets": [
+      {
+        "discoveredLabels": {
+          "__address__": "core:9091",
+          "__always_scrape_classic_histograms__": "false",
+          "__convert_classic_histograms_to_nhcb__": "false",
+          "__metrics_path__": "/actuator/prometheus",
+          "__scheme__": "http",
+          "__scrape_interval__": "2s",
+          "__scrape_native_histograms__": "false",
+          "__scrape_timeout__": "2s",
+          "job": "core"
+        },
+        "labels": {
+          "instance": "core:9091",
+          "job": "core"
+        },
+        "scrapePool": "core",
+        "scrapeUrl": "http://core:9091/actuator/prometheus",
+        "globalUrl": "http://core:9091/actuator/prometheus",
+        "lastError": "",
+        "lastScrape": "2026-11-04T19:26:03.765762491Z",
+        "lastScrapeDuration": 0.023575706,
+        "health": "up",
+        "scrapeInterval": "2s",
+        "scrapeTimeout": "2s"
+      }
+    ],
+    "droppedTargets": [],
+    "droppedTargetCounts": {
+      "core": 0
+    }
+  }
+}

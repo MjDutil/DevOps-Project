@@ -1,0 +1,87 @@
+services:
+  jenkins:
+    build:
+      context: ./jenkins
+      args:
+        JENKINS_BASE: ${JENKINS_BASE}
+        MAVEN_BASE: ${MAVEN_BASE}
+    image: b1-d6-jenkins:${LAB_ID}
+    ports:
+      - "127.0.0.1:${JENKINS_PORT}:8080"
+    environment:
+      JAVA_OPTS: -Djenkins.install.runSetupWizard=false -Xmx512m
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - ./.runtime/snapshot:/source:ro
+    secrets:
+      - jenkins_password
+    security_opt:
+      - no-new-privileges:true
+  core:
+    profiles: [observacao]
+    build:
+      context: ./.runtime/deploy
+      dockerfile: ../../Dockerfile.core
+      args:
+        JAVA_BASE: ${JAVA_BASE}
+    image: b1-d6-core:${LAB_ID}
+    ports:
+      - "127.0.0.1:${CORE_PORT}:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: observabilidade-lab
+      IA_BASE_URL: http://ia:8000
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:d6
+      NOTIFICACOES_HABILITADAS: "false"
+      JAVA_TOOL_OPTIONS: -Xmx256m
+    security_opt:
+      - no-new-privileges:true
+  ia:
+    profiles: [observacao]
+    build:
+      context: ../ia
+      dockerfile: ../operacao/Dockerfile.ia
+      args:
+        PYTHON_BASE: ${PYTHON_BASE}
+    image: b1-d6-ia:${LAB_ID}
+    security_opt:
+      - no-new-privileges:true
+  prometheus:
+    profiles: [observacao]
+    image: ${PROMETHEUS_IMAGE}
+    ports:
+      - "127.0.0.1:${PROMETHEUS_PORT}:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command: [--config.file=/etc/prometheus/prometheus.yml, --storage.tsdb.retention.time=1d]
+    security_opt:
+      - no-new-privileges:true
+  grafana:
+    profiles: [observacao]
+    image: ${GRAFANA_IMAGE}
+    ports:
+      - "127.0.0.1:${GRAFANA_PORT}:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: b1admin
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana_password
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana_data:/var/lib/grafana
+    secrets:
+      - grafana_password
+    security_opt:
+      - no-new-privileges:true
+secrets:
+  jenkins_password:
+    file: ./.runtime/jenkins_password
+  grafana_password:
+    file: ./.runtime/grafana_password
+volumes:
+  jenkins_home:
+  prometheus_data:
+  grafana_data:

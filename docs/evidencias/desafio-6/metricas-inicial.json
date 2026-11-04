@@ -1,0 +1,66 @@
+{
+  "fase": "inicial",
+  "timestamp": 1793820088.131926,
+  "contadores": {
+    "assistente": 0.0,
+    "recomendacao": 0.0
+  },
+  "prometheus_up": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {
+            "__name__": "up",
+            "instance": "core:9091",
+            "job": "core"
+          },
+          "value": [
+            1793820088.152,
+            "1"
+          ]
+        }
+      ]
+    }
+  },
+  "prometheus_fallback": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {
+            "__name__": "ia_fallback_total",
+            "instance": "core:9091",
+            "job": "core",
+            "operacao": "assistente"
+          },
+          "value": [
+            1793820088.16,
+            "0"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ia_fallback_total",
+            "instance": "core:9091",
+            "job": "core",
+            "operacao": "recomendacao"
+          },
+          "value": [
+            1793820088.16,
+            "0"
+          ]
+        }
+      ]
+    }
+  },
+  "prometheus_http": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": []
+    }
+  }
+}

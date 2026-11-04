@@ -1,0 +1,20 @@
+ M .gitignore
+ M README.md
+ M docs/adr/ADR-003.md
+ M docs/adr/ADR-004.md
+ M docs/adr/ADR-005.md
+ M docs/adr/ADR-006.md
+ M docs/arquitetura/README.md
+ M docs/arquitetura/diagramas.md
+ M docs/evidencias/revisao-readme/validar-readme.mjs
+ M pom.xml
+ M src/main/java/org/example/tdd/ia/IaClient.java
+ M src/main/resources/application.properties
+?? Jenkinsfile
+?? docs/arquitetura/sintese-af.md
+?? docs/evidencias/auditoria-final-b1/
+?? docs/evidencias/desafio-6/
+?? labs/operacao/
+?? src/main/resources/application-observabilidade-lab.properties
+?? src/test/java/org/example/tdd/ia/IaMetricasTest.java
+?? src/test/java/org/example/tdd/observabilidade/

@@ -1,0 +1,94 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.BooleanParameterValue",
+          "name": "SIMULAR_FALHA_TESTE",
+          "value": true
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user b1admin",
+          "userId": "b1admin",
+          "userName": "b1admin"
+        }
+      ]
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+    },
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 1,
+      "skipCount": 0,
+      "totalCount": 1,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [
+    {
+      "displayPath": "source-manifest.json",
+      "fileName": "source-manifest.json",
+      "relativePath": "source-manifest.json"
+    },
+    {
+      "displayPath": "org.example.tdd.d6.PipelineBloqueioTest.txt",
+      "fileName": "org.example.tdd.d6.PipelineBloqueioTest.txt",
+      "relativePath": "target/surefire-reports/org.example.tdd.d6.PipelineBloqueioTest.txt"
+    },
+    {
+      "displayPath": "TEST-org.example.tdd.d6.PipelineBloqueioTest.xml",
+      "fileName": "TEST-org.example.tdd.d6.PipelineBloqueioTest.xml",
+      "relativePath": "target/surefire-reports/TEST-org.example.tdd.d6.PipelineBloqueioTest.xml"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#4",
+  "duration": 67239,
+  "estimatedDuration": 241741,
+  "executor": null,
+  "fullDisplayName": "b1-ci #4",
+  "id": "4",
+  "keepLog": false,
+  "number": 4,
+  "queueId": 7,
+  "result": "FAILURE",
+  "timestamp": 1793819771973,
+  "url": "http://127.0.0.1:61300/job/b1-ci/4/",
+  "changeSets": [],
+  "culprits": [],
+  "inProgress": false,
+  "nextBuild": null,
+  "previousBuild": {
+    "number": 3,
+    "url": "http://127.0.0.1:61300/job/b1-ci/3/"
+  }
+}

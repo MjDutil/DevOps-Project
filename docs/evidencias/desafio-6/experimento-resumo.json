@@ -1,0 +1,382 @@
+{
+  "fases": [
+    {
+      "fase": "inicial",
+      "timestamp": 1793820088.131926,
+      "contadores": {
+        "assistente": 0.0,
+        "recomendacao": 0.0
+      },
+      "prometheus_up": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "up",
+                "instance": "core:9091",
+                "job": "core"
+              },
+              "value": [
+                1793820088.152,
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      "prometheus_fallback": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "ia_fallback_total",
+                "instance": "core:9091",
+                "job": "core",
+                "operacao": "assistente"
+              },
+              "value": [
+                1793820088.16,
+                "0"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "ia_fallback_total",
+                "instance": "core:9091",
+                "job": "core",
+                "operacao": "recomendacao"
+              },
+              "value": [
+                1793820088.16,
+                "0"
+              ]
+            }
+          ]
+        }
+      },
+      "prometheus_http": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": []
+        }
+      }
+    },
+    {
+      "fase": "ia-indisponivel",
+      "timestamp": 1793820097.512874,
+      "contadores": {
+        "assistente": 2.0,
+        "recomendacao": 3.0
+      },
+      "prometheus_up": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "up",
+                "instance": "core:9091",
+                "job": "core"
+              },
+              "value": [
+                1793820097.527,
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      "prometheus_fallback": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "ia_fallback_total",
+                "instance": "core:9091",
+                "job": "core",
+                "operacao": "assistente"
+              },
+              "value": [
+                1793820097.537,
+                "2"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "ia_fallback_total",
+                "instance": "core:9091",
+                "job": "core",
+                "operacao": "recomendacao"
+              },
+              "value": [
+                1793820097.537,
+                "3"
+              ]
+            }
+          ]
+        }
+      },
+      "prometheus_http": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "GET",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/ia/recomendacoes/{alunoId}"
+              },
+              "value": [
+                1793820097.555,
+                "6"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "GET",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/ia/assistente"
+              },
+              "value": [
+                1793820097.555,
+                "3"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "POST",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/alunos"
+              },
+              "value": [
+                1793820097.555,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "POST",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/alunos/{id}/concluir-curso"
+              },
+              "value": [
+                1793820097.555,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "POST",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/alunos/{id}/verificar-premium"
+              },
+              "value": [
+                1793820097.555,
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fase": "recuperada",
+      "timestamp": 1793820365.1142972,
+      "contadores": {
+        "assistente": 2.0,
+        "recomendacao": 3.0
+      },
+      "prometheus_up": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "up",
+                "instance": "core:9091",
+                "job": "core"
+              },
+              "value": [
+                1793820365.122,
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      "prometheus_fallback": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "ia_fallback_total",
+                "instance": "core:9091",
+                "job": "core",
+                "operacao": "assistente"
+              },
+              "value": [
+                1793820365.129,
+                "2"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "ia_fallback_total",
+                "instance": "core:9091",
+                "job": "core",
+                "operacao": "recomendacao"
+              },
+              "value": [
+                1793820365.129,
+                "3"
+              ]
+            }
+          ]
+        }
+      },
+      "prometheus_http": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "GET",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/ia/recomendacoes/{alunoId}"
+              },
+              "value": [
+                1793820365.135,
+                "9"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "GET",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/ia/assistente"
+              },
+              "value": [
+                1793820365.135,
+                "6"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "POST",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/alunos"
+              },
+              "value": [
+                1793820365.135,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "POST",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/alunos/{id}/concluir-curso"
+              },
+              "value": [
+                1793820365.135,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "http_server_requests_seconds_count",
+                "error": "none",
+                "exception": "none",
+                "instance": "core:9091",
+                "job": "core",
+                "method": "POST",
+                "outcome": "SUCCESS",
+                "status": "200",
+                "uri": "/alunos/{id}/verificar-premium"
+              },
+              "value": [
+                1793820365.135,
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "core_conclusao_preservada": true,
+  "incremento": {
+    "recomendacao": 3,
+    "assistente": 2
+  },
+  "contador_estavel_apos_recuperacao": true,
+  "core_container_id_inicial": "f1ac0c109413f5f64c5ffd4b4808a6d17e5d8b4aaf66ebcc5e20cecfa73b9781",
+  "core_container_id_final": "f1ac0c109413f5f64c5ffd4b4808a6d17e5d8b4aaf66ebcc5e20cecfa73b9781"
+}

@@ -1,0 +1,25 @@
+{
+  "socket_docker_montado": false,
+  "portas": {
+    "8080/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "61300"
+      }
+    ]
+  },
+  "mounts": [
+    {
+      "tipo": "bind",
+      "destino": "/source"
+    },
+    {
+      "tipo": "volume",
+      "destino": "/var/jenkins_home"
+    },
+    {
+      "tipo": "bind",
+      "destino": "/run/secrets/jenkins_password"
+    }
+  ]
+}

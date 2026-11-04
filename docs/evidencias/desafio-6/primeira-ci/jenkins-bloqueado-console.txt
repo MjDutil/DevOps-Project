@@ -1,0 +1,70 @@
+Started by user b1admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/b1-ci
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timeout
+Timeout set to expire in 20 min
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Fontes identificados)
+[Pipeline] deleteDir
+[Pipeline] sh
+[2026-11-04T18:59:41.276Z] + cp -R /source/. .
+[Pipeline] sh
+[2026-11-04T18:59:42.151Z] + python3 labs/operacao/verificar_snapshot.py
+[2026-11-04T18:59:42.151Z] Base: a3b350ecfc3c31d414e4e3fc8dd31505d514f773 Snapshot: d4c160c2b239c85e81a9f3ece87d2e7d544e96073ebee26def0357dab39c6f75 Arquivos: 141
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Core — build e testes Maven)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
+[2026-11-04T18:59:43.189Z] + python3 labs/operacao/injetar_falha.py
+[2026-11-04T18:59:43.189Z] Traceback (most recent call last):
+[2026-11-04T18:59:43.441Z]   File "/var/jenkins_home/workspace/b1-ci/labs/operacao/injetar_falha.py", line 6, in <module>
+[2026-11-04T18:59:43.441Z]     assert os.environ.get("JENKINS_URL") and Path("source-manifest.json").is_file(),"Não executar no repositório original"
+[2026-11-04T18:59:43.441Z]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-11-04T18:59:43.441Z] AssertionError: Não executar no repositório original
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Gateway — testes Python)
+Stage "Gateway — testes Python" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Aprovar artefato)
+Stage "Aprovar artefato" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] junit
+[2026-11-04T18:59:47.051Z] Recording test results
+[2026-11-04T18:59:47.058Z] No test report files were found. Configuration error?
+[2026-11-04T18:59:47.096Z] [Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+[2026-11-04T18:59:47.424Z] Archiving artifacts
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE

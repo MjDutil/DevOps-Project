@@ -1,0 +1,132 @@
+IMAGE jenkins/jenkins:lts-jdk21
+lts-jdk21: Pulling from jenkins/jenkins
+8d0037029946: Pulling fs layer
+3b055db147fd: Pulling fs layer
+28ac0f42bec5: Pulling fs layer
+d739cb44101d: Pulling fs layer
+8dbdef39dae7: Pulling fs layer
+c0debdb944aa: Pulling fs layer
+bfa1e0807eb8: Pulling fs layer
+b4c5b3edde88: Pulling fs layer
+43d67028c86b: Pulling fs layer
+1842ba1723d0: Pulling fs layer
+52baf9c4514c: Pulling fs layer
+f58062b5bb86: Pulling fs layer
+d739cb44101d: Download complete
+c0debdb944aa: Download complete
+b4c5b3edde88: Download complete
+8dbdef39dae7: Download complete
+bfa1e0807eb8: Download complete
+8d0037029946: Download complete
+28ac0f42bec5: Download complete
+3b055db147fd: Download complete
+52baf9c4514c: Download complete
+f58062b5bb86: Download complete
+44136fa355b3: Already exists
+6fe0f2c35060: Download complete
+43d67028c86b: Download complete
+1842ba1723d0: Download complete
+8d0037029946: Pull complete
+3b055db147fd: Pull complete
+d739cb44101d: Pull complete
+c0debdb944aa: Pull complete
+8dbdef39dae7: Pull complete
+bfa1e0807eb8: Pull complete
+b4c5b3edde88: Pull complete
+43d67028c86b: Pull complete
+1842ba1723d0: Pull complete
+52baf9c4514c: Pull complete
+f58062b5bb86: Pull complete
+28ac0f42bec5: Pull complete
+Digest: sha256:74401de6a6f92e1afe1b02d1c8e3d0c33f263bfb5275dd8813f9150355f2367b
+Status: Downloaded newer image for jenkins/jenkins:lts-jdk21
+docker.io/jenkins/jenkins:lts-jdk21
+IMAGE prom/prometheus:latest
+latest: Pulling from prom/prometheus
+5937650a3919: Pulling fs layer
+53331f987f8e: Pulling fs layer
+1f7c3462f17e: Pulling fs layer
+456bdf926fcd: Pulling fs layer
+e3f841be4001: Pulling fs layer
+ec1fd540d53f: Pulling fs layer
+ab279a31ee5b: Pulling fs layer
+72dcf69f72aa: Pulling fs layer
+606913744ff0: Pulling fs layer
+72dcf69f72aa: Download complete
+456bdf926fcd: Download complete
+5937650a3919: Download complete
+1f7c3462f17e: Download complete
+72dcf69f72aa: Pull complete
+e3f841be4001: Download complete
+ab279a31ee5b: Download complete
+606913744ff0: Download complete
+456bdf926fcd: Pull complete
+53331f987f8e: Download complete
+ec1fd540d53f: Download complete
+ec1fd540d53f: Pull complete
+53331f987f8e: Pull complete
+1f7c3462f17e: Pull complete
+e3f841be4001: Pull complete
+ab279a31ee5b: Pull complete
+606913744ff0: Pull complete
+5937650a3919: Pull complete
+Digest: sha256:fa3302279710be2f21a8301ec17a8b4f2301fd829bd113839b3b6b02b6f191a2
+Status: Downloaded newer image for prom/prometheus:latest
+docker.io/prom/prometheus:latest
+IMAGE grafana/grafana:latest
+latest: Pulling from grafana/grafana
+4a2b3a64321a: Pulling fs layer
+7b229517ed22: Pulling fs layer
+06da073526e3: Pulling fs layer
+bcd7fa5168a7: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+d69c4cfa651f: Pulling fs layer
+f4e5155cc91f: Pulling fs layer
+1bd0660b80e5: Pulling fs layer
+9a60019a8816: Pulling fs layer
+1ff600371a0f: Pulling fs layer
+aa465df46998: Pulling fs layer
+bcd7fa5168a7: Download complete
+4a2b3a64321a: Download complete
+06da073526e3: Download complete
+7b229517ed22: Download complete
+f4e5155cc91f: Download complete
+9a60019a8816: Download complete
+d69c4cfa651f: Download complete
+4f4fb700ef54: Download complete
+1bd0660b80e5: Download complete
+7b229517ed22: Pull complete
+bcd7fa5168a7: Pull complete
+d69c4cfa651f: Pull complete
+1bd0660b80e5: Pull complete
+f4e5155cc91f: Pull complete
+9a60019a8816: Pull complete
+aa465df46998: Download complete
+1ff600371a0f: Download complete
+1ff600371a0f: Pull complete
+06da073526e3: Pull complete
+aa465df46998: Pull complete
+4f4fb700ef54: Pull complete
+4a2b3a64321a: Pull complete
+Digest: sha256:488984b716c0862639f91a698adbe2862677a5a07bad42da5f03f3030883b205
+Status: Downloaded newer image for grafana/grafana:latest
+docker.io/grafana/grafana:latest
+IMAGE python:3.12-slim
+3.12-slim: Pulling from library/python
+acca7542dfc7: Pulling fs layer
+3eb771151506: Pulling fs layer
+f574edac59d9: Pulling fs layer
+6fc242d221a6: Pulling fs layer
+acca7542dfc7: Download complete
+3eb771151506: Download complete
+5c4e36918e20: Download complete
+f574edac59d9: Download complete
+bccc6082da9b: Download complete
+6fc242d221a6: Download complete
+6fc242d221a6: Pull complete
+3eb771151506: Pull complete
+f574edac59d9: Pull complete
+acca7542dfc7: Pull complete
+Digest: sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30
+Status: Downloaded newer image for python:3.12-slim
+docker.io/library/python:3.12-slim

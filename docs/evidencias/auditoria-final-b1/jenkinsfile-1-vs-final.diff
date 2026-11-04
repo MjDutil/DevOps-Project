@@ -1,0 +1,15 @@
+--- build-1/Jenkinsfile
++++ final/Jenkinsfile
+@@ -27,9 +27,11 @@
+                 script {
+                     if (params.SIMULAR_FALHA_TESTE) {
+                         sh 'python3 labs/operacao/injetar_falha.py'
++                        sh 'mvn -B -Dtest=PipelineBloqueioTest test'
++                    } else {
++                        sh 'java -version && mvn -version && mvn -B clean verify'
+                     }
+                 }
+-                sh 'java -version && mvn -version && mvn -B clean verify'
+             }
+         }
+         stage('Gateway — testes Python') {

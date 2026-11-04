@@ -1,0 +1,11 @@
+file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/node/BrowserLauncher.js:233
+                throw new TimeoutError(error.message);
+                      ^
+
+TimeoutError: Timed out after 30000 ms while waiting for the WS endpoint URL to appear in stdout!
+    at ChromeLauncher.launch (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/node/BrowserLauncher.js:233:23)
+    at async ChromeLauncher.launch (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/node/ChromeLauncher.js:39:16)
+    at async PuppeteerNode.launch (file:///private/tmp/b1-readme-tools/node_modules/puppeteer-core/lib/puppeteer/node/PuppeteerNode.js:124:16)
+    at async file://<REPO>/labs/operacao/capturar.mjs:10:15
+
+Node.js v24.21.0

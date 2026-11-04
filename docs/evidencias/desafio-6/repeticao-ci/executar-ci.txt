@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<REPO>/labs/operacao/executar_ci.py", line 39, in <module>
+    assert hashlib.sha256(artifact).hexdigest()==manifest['jar_sha256']
+  File "<REPO>/labs/operacao/executar_ci.py", line 30, in main
+    r=wait(lambda:(lambda x:x if not x['building'] else None)(json.loads(api(build+'api/json')[1])),1200)
+AssertionError: ABORTED
